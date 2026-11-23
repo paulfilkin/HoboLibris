@@ -1710,5 +1710,25 @@ namespace HoboLibris.Resources {
         public static string Dialog_ChooseBackupFolder {
             get { return ResourceManager.GetString("Dialog_ChooseBackupFolder", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Appearance.</summary>
+        public static string Settings_AppearanceHeader {
+            get { return ResourceManager.GetString("Settings_AppearanceHeader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Use the Windows setting.</summary>
+        public static string Settings_ThemeSystem {
+            get { return ResourceManager.GetString("Settings_ThemeSystem", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Light.</summary>
+        public static string Settings_ThemeLight {
+            get { return ResourceManager.GetString("Settings_ThemeLight", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Dark.</summary>
+        public static string Settings_ThemeDark {
+            get { return ResourceManager.GetString("Settings_ThemeDark", resourceCulture); }
+        }
     }
 }

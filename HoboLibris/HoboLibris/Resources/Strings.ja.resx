@@ -1106,4 +1106,16 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>電子書籍リーダーの書籍一覧のバックアップの保存先を選択してください</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>外観</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Windows の設定を使用</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>ライト</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>ダーク</value>
+  </data>
 </root>

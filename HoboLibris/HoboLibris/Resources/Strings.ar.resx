@@ -1080,4 +1080,16 @@
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>اختر مكان حفظ النسخ الاحتياطية لقائمة كتب القارئ الإلكتروني</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>المظهر</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>استخدام إعداد Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>داكن</value>
+  </data>
 </root>

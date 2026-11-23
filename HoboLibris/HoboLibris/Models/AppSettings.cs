@@ -60,6 +60,10 @@ namespace HoboLibris.Models
         [JsonPropertyName("book_list_backup_dir")]
         public string BookListBackupDir { get; set; } = "";
 
+        /// <summary>"system" (follow Windows), "light" or "dark".</summary>
+        [JsonPropertyName("theme")]
+        public string Theme { get; set; } = "system";
+
         [JsonPropertyName("library_sync_url")]
         public string LibrarySyncUrl { get; set; } = "";
 
@@ -81,6 +85,7 @@ namespace HoboLibris.Models
             DownloadDir = DownloadDir,
             KindleDir = KindleDir,
             BookListBackupDir = BookListBackupDir,
+            Theme = Theme,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,
             KoboAutoSend = KoboAutoSend,

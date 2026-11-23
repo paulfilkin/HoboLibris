@@ -1080,4 +1080,16 @@
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>בחר היכן לשמור את גיבויי רשימת הספרים של הקורא</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>מראה</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>שימוש בהגדרת Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>בהיר</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>כהה</value>
+  </data>
 </root>

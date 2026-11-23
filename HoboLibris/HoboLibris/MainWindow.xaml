@@ -10,7 +10,8 @@
         Width="1200"
         MinHeight="540"
         MinWidth="860"
-        Background="{StaticResource BackgroundBrush}"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource TextPrimaryBrush}"
         WindowStartupLocation="CenterScreen"
         Icon="/icon.ico"
         TextOptions.TextFormattingMode="Display"
@@ -29,13 +30,13 @@
 
     <DockPanel>
         <!-- Title bar: name, main tabs, account, menu -->
-        <Border DockPanel.Dock="Top" Background="{StaticResource SurfaceBrush}"
-                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="16,8">
+        <Border DockPanel.Dock="Top" Background="{DynamicResource SurfaceBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,0,0,1" Padding="16,8">
             <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
                     <Image Source="/HoboLibris.png" Width="30" Height="30" Margin="0,0,10,0" VerticalAlignment="Center"/>
                     <TextBlock Text="{x:Static res:Strings.App_Title}" FontSize="22" FontWeight="SemiBold"
-                               Foreground="{StaticResource PrimaryBrush}" VerticalAlignment="Center" Margin="0,0,24,0"/>
+                               Foreground="{DynamicResource PrimaryBrush}" VerticalAlignment="Center" Margin="0,0,24,0"/>
                     <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Main_Kobo}"
                                  IsChecked="{Binding Tab, Converter={StaticResource EnumEquals}, ConverterParameter=Kobo}"/>
                     <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Main_Kindle}"
@@ -79,8 +80,8 @@
         </Border>
 
         <!-- Status bar -->
-        <Border DockPanel.Dock="Bottom" Background="{StaticResource SurfaceBrush}"
-                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="16,6">
+        <Border DockPanel.Dock="Bottom" Background="{DynamicResource SurfaceBrush}"
+                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,1,0,0" Padding="16,6">
             <DockPanel>
                 <views:Spinner DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center"
                                Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}}"/>

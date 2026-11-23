@@ -11,6 +11,8 @@ namespace HoboLibris.Windows
         public SettingsWindow()
         {
             InitializeComponent();
+            // Fit the screen; the sections scroll when they don't.
+            MaxHeight = SystemParameters.WorkArea.Height - 40;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e) => Close();

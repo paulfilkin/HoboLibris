@@ -1106,4 +1106,16 @@
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>选择电子书阅读器图书列表备份的保存位置</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>使用 Windows 设置</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>深色</value>
+  </data>
 </root>

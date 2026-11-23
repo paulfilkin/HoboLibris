@@ -7,7 +7,8 @@
         Width="680"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
-        Background="{StaticResource BackgroundBrush}"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource TextPrimaryBrush}"
         TextOptions.TextFormattingMode="Display"
         TextOptions.TextRenderingMode="ClearType"
         UseLayoutRounding="True"
@@ -17,12 +18,12 @@
         <Style x:Key="AboutSectionHeader" TargetType="TextBlock">
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
             <Setter Property="Margin" Value="0,12,0,6"/>
         </Style>
         <Style x:Key="AboutText" TargetType="TextBlock">
             <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="LineHeight" Value="18"/>
         </Style>
@@ -39,17 +40,17 @@
         <StackPanel Grid.Column="0" Width="180">
             <Image Source="/multifarious.png" Width="96" Height="96" Margin="0,0,0,12" HorizontalAlignment="Center"/>
             <TextBlock Text="{x:Static res:Strings.About_Production}"
-                       FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"
+                       FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}"
                        HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,24"/>
             <Image Source="/HoboLibris.png" Width="72" Height="72" Margin="0,0,0,12" HorizontalAlignment="Center"/>
             <TextBlock Text="{x:Static res:Strings.App_Title}"
-                       FontSize="20" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"
+                       FontSize="20" FontWeight="Bold" Foreground="{DynamicResource PrimaryBrush}"
                        HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,4"/>
-            <TextBlock x:Name="VersionText" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"
+            <TextBlock x:Name="VersionText" FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}"
                        HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <Border Grid.Column="1" Width="1" Background="{StaticResource BorderBrush}" Margin="12,0"/>
+        <Border Grid.Column="1" Width="1" Background="{DynamicResource BorderBrush}" Margin="12,0"/>
 
         <!-- Right: content -->
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
@@ -60,7 +61,7 @@
                 <TextBlock Text="{x:Static res:Strings.About_DataHeader}" Style="{StaticResource AboutSectionHeader}"/>
                 <TextBlock Text="{x:Static res:Strings.About_DataText}" Style="{StaticResource AboutText}"/>
                 <TextBlock Margin="0,4,0,0">
-                    <Hyperlink Click="OpenDataFolder_Click" Foreground="{StaticResource PrimaryBrush}">
+                    <Hyperlink Click="OpenDataFolder_Click" Foreground="{DynamicResource PrimaryBrush}">
                         <Run x:Name="DataFolderRun"/>
                     </Hyperlink>
                 </TextBlock>
@@ -70,12 +71,12 @@
                 <TextBlock Margin="0,0,0,6">
                     <Hyperlink NavigateUri="https://github.com/paulfilkin/HoboLibris"
                                RequestNavigate="Hyperlink_RequestNavigate"
-                               Foreground="{StaticResource PrimaryBrush}">
+                               Foreground="{DynamicResource PrimaryBrush}">
                         <Run Text="{x:Static res:Strings.About_RepoLink}"/>
                     </Hyperlink>
                 </TextBlock>
 
-                <TextBlock x:Name="CopyrightText" FontSize="10" Foreground="{StaticResource TextSecondaryBrush}"
+                <TextBlock x:Name="CopyrightText" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"
                            Margin="0,16,0,12"/>
 
                 <Button Content="{x:Static res:Strings.Common_Close}" Style="{StaticResource ModernButton}"

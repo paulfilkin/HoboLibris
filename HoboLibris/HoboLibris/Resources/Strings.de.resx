@@ -1080,4 +1080,16 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Wählen Sie, wo die Sicherungen der eReader-Bücherliste aufbewahrt werden</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Darstellung</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Windows-Einstellung verwenden</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Hell</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
 </root>

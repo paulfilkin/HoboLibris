@@ -1080,4 +1080,16 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Escolha onde guardar as cópias de segurança da lista de livros do eReader</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Aspeto</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Utilizar a definição do Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Escuro</value>
+  </data>
 </root>

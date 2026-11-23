@@ -1106,4 +1106,16 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Choisissez où conserver les sauvegardes de la liste de livres de la liseuse</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Apparence</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Utiliser le paramètre de Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
 </root>
