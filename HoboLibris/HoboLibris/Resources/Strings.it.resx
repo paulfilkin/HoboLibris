@@ -86,7 +86,7 @@
     <value>I tuoi dati</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>Le impostazioni, l'accesso Kobo, l'elenco della libreria, i file di log e i backup dell'elenco dei libri dell'eReader sono conservati in questa cartella. I libri di cui hai fatto il backup si trovano nelle cartelle che hai scelto.</value>
+    <value>Le impostazioni, l'accesso Kobo, l'elenco della libreria e i file di log sono conservati in questa cartella. I libri di cui hai fatto il backup e i backup dell'elenco dei libri dell'eReader si trovano nelle cartelle scelte in Impostazioni.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Progetto</value>
@@ -491,9 +491,6 @@ Se il Kindle mostra solo che è in carica, prova un'altra porta USB del computer
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Elimina le copie di backup e scegli se rimuovere i libri anche dall'eReader</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Salva in…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Scegli la cartella per i tuoi libri Kobo</value>
@@ -1055,10 +1052,58 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Scegli la cartella per i tuoi libri Kindle</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Aggiungi una cartella in cui cercare…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Per libri conservati altrove, ad esempio una cartella Kindle for PC che hai spostato</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Cartella dei libri</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Qui vengono salvati i download dallo store e le copie dall'eReader, e i libri che metti qui possono essere inviati all'eReader.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Qui viene fatto il backup dei libri del Kindle, di Kindle for PC e delle cartelle aggiuntive qui sotto.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Altre cartelle in cui cercare</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Nessuna per ora.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Backup dell'elenco dei libri dell'eReader</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Prima di salvare le collezioni sull'eReader Kobo, qui viene conservata una copia del suo elenco dei libri.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Cambia…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Aggiungi…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Rimuovi</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Spostare i backup?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>Nella cartella precedente c'è 1 backup dell'elenco dei libri. Spostarlo nella nuova cartella? Se scegli No, resta dov'è.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>Nella cartella precedente ci sono {0} backup dell'elenco dei libri. Spostarli nella nuova cartella? Se scegli No, restano dove sono.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Impossibile spostare tutti i backup: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Scegli dove conservare i backup dell'elenco dei libri dell'eReader</value>
   </data>
 </root>

@@ -86,7 +86,7 @@
     <value>Sus datos</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>La configuración, su inicio de sesión de Kobo, la lista de la biblioteca, los archivos de registro y las copias de seguridad de la lista de libros del eReader se guardan en esta carpeta. Los libros copiados están en las carpetas que usted elija.</value>
+    <value>La configuración, su inicio de sesión de Kobo, la lista de la biblioteca y los archivos de registro se guardan en esta carpeta. Los libros copiados y las copias de seguridad de la lista de libros del eReader están en las carpetas elegidas en Configuración.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Proyecto</value>
@@ -491,9 +491,6 @@ Si el Kindle solo muestra que se está cargando, pruebe otro puerto USB del equi
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Elimine las copias de seguridad y elija si quiere quitar también los libros del eReader</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Guardar en…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Elija la carpeta para sus libros de Kobo</value>
@@ -1055,10 +1052,58 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Elija la carpeta para sus libros de Kindle</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Añadir una carpeta donde buscar…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Para libros guardados en otro sitio, como una carpeta de Kindle for PC que haya movido</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Carpeta de libros</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Aquí se guardan las descargas de la tienda y las copias del eReader, y los libros que ponga aquí se pueden enviar al eReader.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Aquí se guardan las copias de los libros de su Kindle, de Kindle for PC y de las carpetas adicionales de abajo.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Carpetas adicionales donde buscar</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Ninguna todavía.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Copias de seguridad de la lista de libros del eReader</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Antes de guardar las colecciones en su eReader Kobo, se guarda aquí una copia de su lista de libros.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Cambiar…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Añadir…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>¿Mover las copias de seguridad?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>Hay 1 copia de seguridad de la lista de libros en la carpeta anterior. ¿Moverla a la carpeta nueva? Si elige No, se queda donde está.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>Hay {0} copias de seguridad de la lista de libros en la carpeta anterior. ¿Moverlas a la carpeta nueva? Si elige No, se quedan donde están.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>No se pudieron mover todas las copias de seguridad: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Elija dónde guardar las copias de seguridad de la lista de libros del eReader</value>
   </data>
 </root>

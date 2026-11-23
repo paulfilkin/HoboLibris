@@ -86,7 +86,7 @@
     <value>Vos données</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>Les paramètres, votre connexion Kobo, la liste de la bibliothèque, les fichiers journaux et les sauvegardes de la liste de livres de la liseuse sont conservés dans ce dossier. Vos livres sauvegardés se trouvent dans les dossiers que vous avez choisis.</value>
+    <value>Les paramètres, votre connexion Kobo, la liste de la bibliothèque et les fichiers journaux sont conservés dans ce dossier. Vos livres sauvegardés et les sauvegardes de la liste de livres de la liseuse se trouvent dans les dossiers choisis dans Paramètres.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Projet</value>
@@ -491,9 +491,6 @@ Si le Kindle indique seulement qu'il est en charge, essayez un autre port USB de
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Supprimer les copies de sauvegarde, et choisir si les livres doivent aussi être retirés de la liseuse</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Enregistrer dans…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Choisir le dossier de vos livres Kobo</value>
@@ -1055,10 +1052,58 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Choisir le dossier de vos livres Kindle</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Ajouter un dossier à parcourir…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Pour les livres conservés ailleurs, par exemple un dossier Kindle for PC que vous avez déplacé</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Dossier des livres</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Les téléchargements de la boutique et les copies de la liseuse sont enregistrés ici, et les livres que vous y placez peuvent être envoyés à la liseuse.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Les livres de votre Kindle, de Kindle for PC et des dossiers supplémentaires ci-dessous sont sauvegardés ici.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Autres dossiers à parcourir</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Aucun pour l'instant.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Sauvegardes de la liste de livres de la liseuse</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Avant l'enregistrement des collections sur votre liseuse Kobo, une copie de sa liste de livres est conservée ici.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Modifier…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Ajouter…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Retirer</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Déplacer les sauvegardes ?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>L'ancien dossier contient 1 sauvegarde de la liste de livres. La déplacer vers le nouveau dossier ? Si vous choisissez Non, elle reste où elle est.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>L'ancien dossier contient {0} sauvegardes de la liste de livres. Les déplacer vers le nouveau dossier ? Si vous choisissez Non, elles restent où elles sont.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Impossible de déplacer toutes les sauvegardes : {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Choisissez où conserver les sauvegardes de la liste de livres de la liseuse</value>
   </data>
 </root>

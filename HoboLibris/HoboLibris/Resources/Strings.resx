@@ -86,7 +86,7 @@
     <value>Your data</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>Settings, your Kobo sign-in, the library list, log files and the eReader book-list backups are kept in this folder. Your backed-up books are in the folders you choose.</value>
+    <value>Settings, your Kobo sign-in, the library list and log files are kept in this folder. Your backed-up books and the eReader book-list backups are in the folders chosen in Settings.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Project</value>
@@ -491,9 +491,6 @@ If the Kindle only shows that it's charging, try another USB port on the compute
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Delete the backup copies, and choose whether to remove the books from the eReader too</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Save to…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Choose the folder for your Kobo books</value>
@@ -1055,10 +1052,58 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Choose the folder for your Kindle books</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Add a folder to search…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>For books kept somewhere else, such as a Kindle for PC folder you moved</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Books folder</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Store downloads and copies from the eReader are saved here, and the books you put here can be sent to the eReader.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Books from your Kindle, Kindle for PC and the extra folders below are backed up here.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Extra folders to search</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>None yet.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>eReader book-list backups</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Before collections are saved to your Kobo eReader, a copy of its book list is kept here.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Change…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Add…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Move the backups?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>There is 1 book-list backup in the old folder. Move it to the new folder? If you choose No, it stays where it is.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>There are {0} book-list backups in the old folder. Move them to the new folder? If you choose No, they stay where they are.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Could not move all the backups: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Choose where to keep the eReader book-list backups</value>
   </data>
 </root>

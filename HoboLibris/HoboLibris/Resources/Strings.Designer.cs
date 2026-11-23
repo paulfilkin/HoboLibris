@@ -76,7 +76,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("About_DataHeader", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Settings, your Kobo sign-in, the library list, log files and the eReader book-list backups are kept in this folder. Y....</summary>
+        /// <summary>Looks up a localized string similar to Settings, your Kobo sign-in, the library list and log files are kept in this folder. Your backed-up books and the eRe....</summary>
         public static string About_DataText {
             get { return ResourceManager.GetString("About_DataText", resourceCulture); }
         }
@@ -709,11 +709,6 @@ namespace HoboLibris.Resources {
         /// <summary>Looks up a localized string similar to Delete the backup copies, and choose whether to remove the books from the eReader too.</summary>
         public static string Kobo_DeleteSelectedHint {
             get { return ResourceManager.GetString("Kobo_DeleteSelectedHint", resourceCulture); }
-        }
-
-        /// <summary>Looks up a localized string similar to Save to….</summary>
-        public static string Kobo_SaveTo {
-            get { return ResourceManager.GetString("Kobo_SaveTo", resourceCulture); }
         }
 
         /// <summary>Looks up a localized string similar to Choose the folder for your Kobo books.</summary>
@@ -1626,14 +1621,94 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Kindle_SaveToHint", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Add a folder to search….</summary>
-        public static string Kindle_AddFolder {
-            get { return ResourceManager.GetString("Kindle_AddFolder", resourceCulture); }
-        }
-
         /// <summary>Looks up a localized string similar to For books kept somewhere else, such as a Kindle for PC folder you moved.</summary>
         public static string Kindle_AddFolderHint {
             get { return ResourceManager.GetString("Kindle_AddFolderHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Settings.</summary>
+        public static string Menu_Settings {
+            get { return ResourceManager.GetString("Menu_Settings", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Settings.</summary>
+        public static string Settings_Title {
+            get { return ResourceManager.GetString("Settings_Title", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books folder.</summary>
+        public static string Settings_BooksFolder {
+            get { return ResourceManager.GetString("Settings_BooksFolder", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Store downloads and copies from the eReader are saved here, and the books you put here can be sent to the eReader..</summary>
+        public static string Settings_KoboFolderHint {
+            get { return ResourceManager.GetString("Settings_KoboFolderHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books from your Kindle, Kindle for PC and the extra folders below are backed up here..</summary>
+        public static string Settings_KindleFolderHint {
+            get { return ResourceManager.GetString("Settings_KindleFolderHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Extra folders to search.</summary>
+        public static string Settings_ExtraFolders {
+            get { return ResourceManager.GetString("Settings_ExtraFolders", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to None yet..</summary>
+        public static string Settings_NoExtraFolders {
+            get { return ResourceManager.GetString("Settings_NoExtraFolders", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to eReader book-list backups.</summary>
+        public static string Settings_BackupsHeader {
+            get { return ResourceManager.GetString("Settings_BackupsHeader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Before collections are saved to your Kobo eReader, a copy of its book list is kept here..</summary>
+        public static string Settings_BackupsHint {
+            get { return ResourceManager.GetString("Settings_BackupsHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Change….</summary>
+        public static string Settings_Change {
+            get { return ResourceManager.GetString("Settings_Change", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add….</summary>
+        public static string Settings_Add {
+            get { return ResourceManager.GetString("Settings_Add", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove.</summary>
+        public static string Settings_Remove {
+            get { return ResourceManager.GetString("Settings_Remove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Move the backups?.</summary>
+        public static string Settings_MoveBackupsTitle {
+            get { return ResourceManager.GetString("Settings_MoveBackupsTitle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to There is 1 book-list backup in the old folder. Move it to the new folder? If you choose No, it stays where it is..</summary>
+        public static string Settings_MoveBackupsOne {
+            get { return ResourceManager.GetString("Settings_MoveBackupsOne", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to There are {0} book-list backups in the old folder. Move them to the new folder? If you choose No, they stay where the....</summary>
+        public static string Settings_MoveBackupsMany {
+            get { return ResourceManager.GetString("Settings_MoveBackupsMany", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Could not move all the backups: {0}.</summary>
+        public static string Settings_MoveBackupsFailed {
+            get { return ResourceManager.GetString("Settings_MoveBackupsFailed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Choose where to keep the eReader book-list backups.</summary>
+        public static string Dialog_ChooseBackupFolder {
+            get { return ResourceManager.GetString("Dialog_ChooseBackupFolder", resourceCulture); }
         }
     }
 }

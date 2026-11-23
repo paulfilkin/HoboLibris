@@ -83,7 +83,7 @@
     <value>Ваші дані</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>Налаштування, дані входу в Kobo, список бібліотеки, файли журналу та резервні копії списку книг рідера зберігаються в цій папці. Резервні копії книг зберігаються в папках, які ви вибрали.</value>
+    <value>Налаштування, дані входу в Kobo, список бібліотеки та файли журналу зберігаються в цій папці. Резервні копії книг і списку книг рідера зберігаються в папках, вибраних у налаштуваннях.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Проєкт</value>
@@ -476,9 +476,6 @@
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Видалити резервні копії та вибрати, чи видаляти книги також з рідера</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Зберегти в…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Виберіть папку для книг Kobo</value>
@@ -1029,10 +1026,58 @@
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Виберіть папку для книг Kindle</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Додати папку для пошуку…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Для книг, що зберігаються деінде, наприклад у переміщеній папці Kindle for PC</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Папка для книг</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Тут зберігаються завантаження з магазину та копії з рідера, а книги, які ви сюди покладете, можна надіслати на рідер.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Сюди створюються резервні копії книг із Kindle, Kindle for PC і додаткових папок нижче.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Додаткові папки для пошуку</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Поки немає.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Резервні копії списку книг рідера</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Перед збереженням колекцій на рідер Kobo тут зберігається копія його списку книг.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Змінити…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Додати…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Вилучити</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Перемістити резервні копії?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>У старій папці є 1 резервна копія списку книг. Перемістити її до нової папки? Якщо виберете «Ні», вона залишиться на місці.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>У старій папці є резервних копій списку книг: {0}. Перемістити їх до нової папки? Якщо виберете «Ні», вони залишаться на місці.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Не вдалося перемістити всі резервні копії: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Виберіть, де зберігати резервні копії списку книг рідера</value>
   </data>
 </root>

@@ -83,7 +83,7 @@
     <value>بياناتك</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>تُحفظ الإعدادات وبيانات تسجيل الدخول إلى Kobo وقائمة المكتبة وملفات السجل والنسخ الاحتياطية لقائمة كتب القارئ الإلكتروني في هذا المجلد. أما كتبك المنسوخة احتياطيًا فتوجد في المجلدات التي تختارها.</value>
+    <value>تُحفظ الإعدادات وبيانات تسجيل الدخول إلى Kobo وقائمة المكتبة وملفات السجل في هذا المجلد. أما كتبك المنسوخة احتياطيًا والنسخ الاحتياطية لقائمة كتب القارئ الإلكتروني فتوجد في المجلدات المختارة في الإعدادات.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>المشروع</value>
@@ -476,9 +476,6 @@
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>حذف النسخ الاحتياطية، واختيار ما إذا كنت تريد إزالة الكتب من القارئ الإلكتروني أيضًا</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>حفظ في…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>اختيار مجلد كتب Kobo لديك</value>
@@ -1029,10 +1026,58 @@
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>اختيار مجلد كتب Kindle لديك</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>إضافة مجلد للبحث فيه…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>للكتب المحفوظة في مكان آخر، مثل مجلد Kindle for PC الذي نقلته</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>مجلد الكتب</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>تُحفظ هنا الكتب المنزّلة من المتجر والنسخ المأخوذة من القارئ الإلكتروني، ويمكن إرسال الكتب التي تضعها هنا إلى القارئ الإلكتروني.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>تُنسخ هنا احتياطيًا الكتب من جهاز Kindle وKindle for PC والمجلدات الإضافية أدناه.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>مجلدات إضافية للبحث فيها</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>لا يوجد بعد.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>النسخ الاحتياطية لقائمة كتب القارئ الإلكتروني</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>قبل حفظ المجموعات على قارئ Kobo الإلكتروني، تُحفظ هنا نسخة من قائمة كتبه.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>تغيير…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>إضافة…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>نقل النسخ الاحتياطية؟</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>توجد نسخة احتياطية واحدة لقائمة الكتب في المجلد القديم. هل تريد نقلها إلى المجلد الجديد؟ إذا اخترت "لا"، فستبقى في مكانها.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>توجد {0} من النسخ الاحتياطية لقائمة الكتب في المجلد القديم. هل تريد نقلها إلى المجلد الجديد؟ إذا اخترت "لا"، فستبقى في مكانها.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>تعذّر نقل جميع النسخ الاحتياطية: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>اختر مكان حفظ النسخ الاحتياطية لقائمة كتب القارئ الإلكتروني</value>
   </data>
 </root>
