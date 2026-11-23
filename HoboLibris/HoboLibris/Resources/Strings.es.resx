@@ -1607,4 +1607,28 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama se ejecuta sin ventana. Si lo inició HoboLibris, se detiene al cerrar HoboLibris. Un Ollama iniciado de otra forma sigue en marcha.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>Mostrar la dirección de correo electrónico</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>Ocultar la dirección de correo electrónico</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>Cambiar el tamaño</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>Arrastre para cambiar los anchos, o selecciónelo y use las teclas de dirección</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>Plegar el Asistente al borde</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>Mostrar el Asistente</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>Plegar la lista de colecciones al borde</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>Mostrar la lista de colecciones</value>
+  </data>
 </root>

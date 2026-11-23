@@ -58,6 +58,10 @@ namespace HoboLibris.Assistant
         [JsonPropertyName("pane_visible")]
         public bool PaneVisible { get; set; }
 
+        /// <summary>The pane folded to a strip on the right edge.</summary>
+        [JsonPropertyName("pane_folded")]
+        public bool PaneFolded { get; set; }
+
         [JsonPropertyName("pane_width")]
         public double PaneWidth { get; set; } = 400;
 

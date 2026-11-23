@@ -448,22 +448,24 @@ namespace HoboLibris.Assistant
         /// <summary>A sample exchange for check pictures (--assistant); nothing is sent or changed.</summary>
         public void AddDemo()
         {
-            Items.Add(new UserMessage("Which of my eReader books aren't in any collection?", _host.ContextLine()));
-            var list = _host.Tools.FirstOrDefault(t => t.Name == "list_collection_books");
-            if (list != null)
+            Items.Add(new UserMessage("Find Middlemarch on Project Gutenberg and put it in my Kobo folder.", _host.ContextLine()));
+            var search = _host.Tools.FirstOrDefault(t => t.Name == "search_ebooks");
+            if (search != null)
             {
-                Items.Add(new ToolActivity(list, new JsonObject { ["filter"] = "not_in_any" })
+                Items.Add(new ToolActivity(search, new JsonObject { ["source"] = "gutenberg", ["query"] = "middlemarch", ["author"] = "eliot" })
                 {
                     State = ToolActivityState.Done,
-                    Summary = Strings.Asst_Done,
-                    Result = "[]",
+                    Summary = string.Format(Strings.Asst_BooksFound, 1),
+                    Result = "{\"books\":[{\"id\":\"pg-145\",\"title\":\"Middlemarch\",\"authors\":\"George Eliot\",\"language\":\"en\"}],\"total\":1}",
                 });
             }
-            Items.Add(new AssistantMessage("Three books aren't in a collection yet:\n\n| Title | Author |\n|---|---|\n| *Middlemarch* | George Eliot |\n| *The Moonstone* | Wilkie Collins |\n| *Cranford* | Elizabeth Gaskell |\n\nI've added them to **Victorian novels**. The change is waiting to be saved."));
-            var save = _host.Tools.FirstOrDefault(t => t.Name == "save_collections");
-            if (save != null)
+            Items.Add(new AssistantMessage("Project Gutenberg has **Middlemarch** by George Eliot, in English. It's in the public domain in the USA.\n\nDownloading it into your Kobo folder; then it can go to your eReader from **Send to eReader**."));
+            var download = _host.Tools.FirstOrDefault(t => t.Name == "download_ebook");
+            if (download != null)
             {
-                Items.Add(new ApprovalRequest(save, new JsonObject()));
+                Items.Add(ApprovalRequest.Sample(download,
+                    string.Format(Strings.Asst_Desc_Download, "Middlemarch", "George Eliot", "Project Gutenberg"),
+                    new JsonObject { ["id"] = "pg-145" }));
             }
         }
 

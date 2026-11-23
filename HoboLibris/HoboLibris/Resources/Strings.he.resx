@@ -1581,4 +1581,28 @@
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama פועל בלי חלון. אם HoboLibris הפעיל אותו, הוא נעצר כש-HoboLibris נסגר. Ollama שהופעל בכל דרך אחרת ממשיך לפעול.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>הצגת כתובת הדוא"ל</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>הסתרת כתובת הדוא"ל</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>שינוי גודל</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>יש לגרור כדי לשנות את הרוחב, או לבחור ולהשתמש במקשי החיצים</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>קיפול העוזר לקצה</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>הצגת העוזר</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>קיפול רשימת האוספים לקצה</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>הצגת רשימת האוספים</value>
+  </data>
 </root>

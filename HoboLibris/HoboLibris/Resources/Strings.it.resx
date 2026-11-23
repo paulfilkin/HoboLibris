@@ -1607,4 +1607,28 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama funziona senza finestra. Se l'ha avviato HoboLibris, si ferma alla chiusura di HoboLibris. Un Ollama avviato in altro modo resta in esecuzione.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>Mostra l'indirizzo email</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>Nascondi l'indirizzo email</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>Ridimensiona</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>Trascina per cambiare le larghezze, oppure selezionalo e usa i tasti freccia</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>Ripiega l'Assistente sul bordo</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>Mostra l'Assistente</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>Ripiega l'elenco delle collezioni sul bordo</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>Mostra l'elenco delle collezioni</value>
+  </data>
 </root>

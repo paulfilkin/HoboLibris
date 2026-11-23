@@ -124,6 +124,10 @@ namespace HoboLibris.Assistant
             Arguments = arguments;
         }
 
+        /// <summary>A card still waiting, with its sentence given (the sample exchange in check pictures).</summary>
+        public static ApprovalRequest Sample(AssistantTool tool, string description, JsonObject arguments) =>
+            new(tool.Title, description, Format(arguments)) { CanAlwaysAllow = !tool.AlwaysAsks };
+
         /// <summary>An approval as saved (a restored conversation): already answered, with its outcome.</summary>
         public static ApprovalRequest Restored(string title, string description, string arguments, string outcome)
         {
@@ -138,7 +142,7 @@ namespace HoboLibris.Assistant
         public string Arguments { get; }
 
         /// <summary>False for tools that ask every time (writing to the eReader, deleting files).</summary>
-        public bool CanAlwaysAllow { get; }
+        public bool CanAlwaysAllow { get; private init; }
 
         public bool IsPending => !_answer.Task.IsCompleted;
 

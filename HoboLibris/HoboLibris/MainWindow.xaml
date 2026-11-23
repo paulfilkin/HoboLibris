@@ -79,7 +79,32 @@
                             <Binding Path="SignedIn"/>
                         </MultiBinding>
                     </StackPanel.Visibility>
-                    <TextBlock Text="{Binding SignedInText}" Style="{StaticResource MutedText}" Margin="0,0,10,0"/>
+                    <TextBlock Text="{Binding SignedInText}" Style="{StaticResource MutedText}" Margin="0,0,4,0"/>
+                    <!-- The eye shows or hides the account's email address (hidden at every start) -->
+                    <ToggleButton IsChecked="{Binding ShowEmail}" Margin="0,0,8,0" Width="28" Height="28" Cursor="Hand"
+                                  VerticalAlignment="Center" Foreground="{DynamicResource TextSecondaryBrush}"
+                                  ToolTip="{Binding EmailToggleText}" AutomationProperties.Name="{Binding EmailToggleText}"
+                                  Visibility="{Binding HasEmail, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Border x:Name="Box" Background="Transparent" CornerRadius="6">
+                                    <TextBlock x:Name="Glyph" Text="&#xE890;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="Glyph" Property="Text" Value="&#xED1A;"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Box" Property="Background" Value="{DynamicResource BackgroundDeepBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter TargetName="Box" Property="Background" Value="{DynamicResource BackgroundDeepBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
                     <Button Content="{x:Static res:Strings.Main_SignOut}" Style="{StaticResource SecondaryButton}"
                             Command="{Binding SignOutCommand}" Padding="10,4"/>
                 </StackPanel>
@@ -104,13 +129,13 @@
         </Border>
 
         <!-- Content, with the Assistant pane on the right when it is open -->
-        <Grid>
+        <Grid x:Name="Layout" SizeChanged="Layout_SizeChanged">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MinWidth="520"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition x:Name="PaneColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="16,12,16,12">
+            <Grid Grid.Column="0" Margin="16,12,6,12">
                 <!-- Kobo tab -->
                 <Grid Visibility="{Binding IsKoboTab, Converter={StaticResource BoolToVisibilityConverter}}">
                     <Grid.RowDefinitions>
@@ -134,11 +159,19 @@
                 <!-- Kindle tab -->
                 <views:KindleView Visibility="{Binding IsKindleTab, Converter={StaticResource BoolToVisibilityConverter}}"/>
             </Grid>
-            <GridSplitter x:Name="PaneSplitter" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent"
-                          ResizeBehavior="PreviousAndNext" Focusable="False" DragCompleted="PaneSplitter_DragCompleted"
-                          Visibility="{Binding Assistant.PaneVisible, Converter={StaticResource BoolToVisibilityConverter}}"/>
-            <views:AssistantPane x:Name="Pane" Grid.Column="2" DataContext="{Binding Assistant}"
-                                 Visibility="{Binding PaneVisible, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            <!-- The divider, the pane, and the pane folded to a strip; FoldColumn shows the right ones -->
+            <GridSplitter x:Name="PaneSplitter" Grid.Column="1" Style="{StaticResource PanelSplitter}"/>
+            <views:AssistantPane x:Name="Pane" Grid.Column="2" DataContext="{Binding Assistant}"/>
+            <Button x:Name="PaneStrip" Grid.Column="2" Style="{StaticResource FoldStrip}" Width="30" Margin="0,12,6,12" Click="PaneStrip_Click"
+                    ToolTip="{x:Static res:Strings.Asst_Unfold}" AutomationProperties.Name="{x:Static res:Strings.Asst_Unfold}">
+                <StackPanel>
+                    <Path Data="M5,0 L0,5 L5,10" Stroke="{DynamicResource TextSecondaryBrush}" StrokeThickness="1.6" Width="6" Height="10"
+                          HorizontalAlignment="Center" Stretch="None"/>
+                    <TextBlock Text="&#xE8BD;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="15" Margin="0,12,0,0"
+                               HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryBrush}"/>
+                    <TextBlock Text="{x:Static res:Strings.Asst_Title}" Style="{StaticResource StripTitle}"/>
+                </StackPanel>
+            </Button>
         </Grid>
     </DockPanel>
 </Window>

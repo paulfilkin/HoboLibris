@@ -173,8 +173,29 @@ namespace HoboLibris.ViewModels
         public void ShowPaneWithoutSaving()
         {
             Settings.PaneVisible = true;
+            Settings.PaneFolded = false;
             OnPropertyChanged(nameof(PaneVisible));
+            OnPropertyChanged(nameof(PaneFolded));
         }
+
+        /// <summary>The pane folded to a strip at the edge (still open, out of the way).</summary>
+        public bool PaneFolded
+        {
+            get => Settings.PaneFolded;
+            set
+            {
+                if (Settings.PaneFolded == value)
+                {
+                    return;
+                }
+                Settings.PaneFolded = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        [RelayCommand]
+        private void FoldPane() => PaneFolded = true;
 
         public double PaneWidth
         {
@@ -191,7 +212,17 @@ namespace HoboLibris.ViewModels
         public string ModelLine => Settings.ModelLine;
 
         [RelayCommand]
-        private void TogglePane() => PaneVisible = !PaneVisible;
+        private void TogglePane()
+        {
+            // The title-bar icon opens the pane (from closed or folded) and closes an open one.
+            if (PaneVisible && !PaneFolded)
+            {
+                PaneVisible = false;
+                return;
+            }
+            PaneFolded = false;
+            PaneVisible = true;
+        }
 
         [RelayCommand(CanExecute = nameof(CanSendOrStop))]
         private void SendOrStop()
