@@ -1,6 +1,11 @@
+using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using HoboLibris.Helpers;
+using HoboLibris.Resources;
 using HoboLibris.Services;
 using HoboLibris.ViewModels;
 using HoboLibris.Windows;
@@ -29,6 +34,7 @@ namespace HoboLibris
                 PickFolder = (title, initial) => Dialogs.PickFolder(this, title, initial),
             };
             DataContext = ViewModel;
+            BuildLanguageMenu();
             Loaded += async (_, _) => await ViewModel.StartAsync();
         }
 
@@ -94,9 +100,59 @@ namespace HoboLibris
             new AboutWindow { Owner = this }.ShowDialog();
         }
 
-        private void Language_Click(object sender, RoutedEventArgs e)
+        /// <summary>Fill the language list under the globe icon, each language in its own name.</summary>
+        private void BuildLanguageMenu()
         {
-            new LanguageWindow { Owner = this }.ShowDialog();
+            var style = (Style)FindResource("LanguageChoiceItem");
+            foreach (var code in LanguageManager.Supported)
+            {
+                var item = new MenuItem
+                {
+                    Style = style,
+                    Header = LanguageManager.GetLanguageDisplayName(code),
+                    Tag = code,
+                    IsCheckable = true,
+                    // So Chinese and Japanese names use the right font.
+                    Language = XmlLanguage.GetLanguage(code),
+                };
+                item.Click += LanguageChoice_Click;
+                LanguageMenu.Items.Add(item);
+            }
+            MarkCurrentLanguage();
+        }
+
+        /// <summary>Tick the language that is in use, or chosen for the next start.</summary>
+        private void MarkCurrentLanguage()
+        {
+            var current = LanguageManager.GetCurrentLanguage();
+            foreach (var item in LanguageMenu.Items.OfType<MenuItem>())
+            {
+                item.IsChecked = item.Tag is string code && code.Equals(current, StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        private void LanguageChoice_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is not MenuItem { Tag: string code })
+            {
+                return;
+            }
+            if (code.Equals(LanguageManager.GetCurrentLanguage(), StringComparison.OrdinalIgnoreCase))
+            {
+                // Clicking a checkable item toggles it; keep the tick on the current language.
+                MarkCurrentLanguage();
+                return;
+            }
+            LanguageManager.SetLanguage(code);
+            MarkCurrentLanguage();
+            // The text on screen is read when each window loads, so the new language needs a restart.
+            var result = MessageBox.Show(this, Strings.Language_RestartPrompt, Strings.Language_RestartTitle,
+                MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Process.Start(Environment.ProcessPath!);
+                Application.Current.Shutdown();
+            }
         }
     }
 }

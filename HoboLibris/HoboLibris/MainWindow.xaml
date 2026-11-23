@@ -42,9 +42,12 @@
                                  IsChecked="{Binding Tab, Converter={StaticResource EnumEquals}, ConverterParameter=Kindle}"/>
                 </StackPanel>
                 <Menu DockPanel.Dock="Right" Background="Transparent" VerticalAlignment="Center" Margin="12,0,0,0">
-                    <MenuItem Style="{StaticResource RoundedMenuItem}" Click="Language_Click">
+                    <!-- Language: a globe icon with the languages in a list beneath it, filled in MainWindow.xaml.cs -->
+                    <MenuItem x:Name="LanguageMenu" Style="{StaticResource LanguageMenuItem}"
+                              ToolTip="{x:Static res:Strings.Menu_Language}"
+                              AutomationProperties.Name="{x:Static res:Strings.Menu_Language}">
                         <MenuItem.Header>
-                            <TextBlock Text="{x:Static res:Strings.Menu_Language}"/>
+                            <TextBlock Text="&#xE774;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="16"/>
                         </MenuItem.Header>
                     </MenuItem>
                     <MenuItem Style="{StaticResource RoundedMenuItem}" Click="About_Click">

@@ -107,15 +107,6 @@
     <value>No se pudo abrir el navegador: {0}</value>
   </data>
   <!-- Language window -->
-  <data name="Language_Title" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="Language_SelectLanguage" xml:space="preserve">
-    <value>Elija un idioma</value>
-  </data>
-  <data name="Language_Subtitle" xml:space="preserve">
-    <value>HoboLibris se reinicia para mostrar el nuevo idioma.</value>
-  </data>
   <data name="Language_RestartPrompt" xml:space="preserve">
     <value>HoboLibris debe reiniciarse para mostrar el nuevo idioma. ¿Reiniciar ahora?</value>
   </data>

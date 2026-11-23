@@ -103,15 +103,6 @@
   <data name="About_BrowserError" xml:space="preserve">
     <value>تعذّر فتح المتصفح: {0}</value>
   </data>
-  <data name="Language_Title" xml:space="preserve">
-    <value>اللغة</value>
-  </data>
-  <data name="Language_SelectLanguage" xml:space="preserve">
-    <value>اختر لغة</value>
-  </data>
-  <data name="Language_Subtitle" xml:space="preserve">
-    <value>يُعاد تشغيل HoboLibris لعرض اللغة الجديدة.</value>
-  </data>
   <data name="Language_RestartPrompt" xml:space="preserve">
     <value>يحتاج HoboLibris إلى إعادة التشغيل لعرض اللغة الجديدة. هل تريد إعادة التشغيل الآن؟</value>
   </data>

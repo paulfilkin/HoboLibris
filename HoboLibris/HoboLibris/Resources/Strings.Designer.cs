@@ -111,21 +111,6 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("About_BrowserError", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Language.</summary>
-        public static string Language_Title {
-            get { return ResourceManager.GetString("Language_Title", resourceCulture); }
-        }
-
-        /// <summary>Looks up a localized string similar to Choose a language.</summary>
-        public static string Language_SelectLanguage {
-            get { return ResourceManager.GetString("Language_SelectLanguage", resourceCulture); }
-        }
-
-        /// <summary>Looks up a localized string similar to HoboLibris restarts to show the new language..</summary>
-        public static string Language_Subtitle {
-            get { return ResourceManager.GetString("Language_Subtitle", resourceCulture); }
-        }
-
         /// <summary>Looks up a localized string similar to HoboLibris needs to restart to show the new language. Restart now?.</summary>
         public static string Language_RestartPrompt {
             get { return ResourceManager.GetString("Language_RestartPrompt", resourceCulture); }

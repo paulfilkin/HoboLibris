@@ -103,15 +103,6 @@
   <data name="About_BrowserError" xml:space="preserve">
     <value>Não foi possível abrir o browser: {0}</value>
   </data>
-  <data name="Language_Title" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="Language_SelectLanguage" xml:space="preserve">
-    <value>Escolha um idioma</value>
-  </data>
-  <data name="Language_Subtitle" xml:space="preserve">
-    <value>O HoboLibris reinicia para mostrar o novo idioma.</value>
-  </data>
   <data name="Language_RestartPrompt" xml:space="preserve">
     <value>O HoboLibris tem de reiniciar para mostrar o novo idioma. Reiniciar agora?</value>
   </data>
