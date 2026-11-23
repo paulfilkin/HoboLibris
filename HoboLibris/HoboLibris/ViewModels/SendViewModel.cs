@@ -18,6 +18,9 @@ namespace HoboLibris.ViewModels
         public Verdict Verdict => Item.Verdict;
         public VerdictKind Kind => Item.Verdict.Kind;
 
+        /// <summary>What a screen reader reads for the row.</summary>
+        public override string ToString() => FileName;
+
         [ObservableProperty]
         private bool _isSelected;
 

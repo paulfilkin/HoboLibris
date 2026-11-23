@@ -29,6 +29,9 @@ namespace HoboLibris.ViewModels
         public DeviceBook? DeviceBook { get; }
         public SendItem? FolderItem { get; }
 
+        /// <summary>What a screen reader reads for the row.</summary>
+        public override string ToString() => Title;
+
         [ObservableProperty]
         private bool _isSelected;
 

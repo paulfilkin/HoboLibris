@@ -80,7 +80,8 @@
                         Visibility="{Binding ReaderConnected, Converter={StaticResource BoolToVisibilityConverter}}">
                     <DockPanel>
                         <Button DockPanel.Dock="Right" Style="{StaticResource SecondaryButton}" Command="{Binding EjectReaderCommand}"
-                                IsEnabled="{Binding CanEjectReader}" ToolTip="{x:Static res:Strings.Kobo_EjectReaderHint}">
+                                IsEnabled="{Binding CanEjectReader}" ToolTip="{x:Static res:Strings.Kobo_EjectReaderHint}"
+                                AutomationProperties.Name="{x:Static res:Strings.Kobo_EjectReader}">
                             <StackPanel Orientation="Horizontal">
                                 <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{StaticResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
                                 <TextBlock Text="{x:Static res:Strings.Kobo_EjectReader}"/>
@@ -99,7 +100,8 @@
             <WrapPanel Grid.Row="1" Margin="0,2,0,6">
                 <Button Style="{StaticResource SecondaryButton}" Command="{Binding RefreshListCommand}"
                         IsEnabled="{Binding Busy, Converter={StaticResource InverseBool}}"
-                        ToolTip="{x:Static res:Strings.Kobo_RefreshListHint}" Margin="0,0,6,6">
+                        ToolTip="{x:Static res:Strings.Kobo_RefreshListHint}" Margin="0,0,6,6"
+                        AutomationProperties.Name="{x:Static res:Strings.Kobo_RefreshList}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="⟳" FontSize="15" Margin="0,0,6,0"/>
                         <TextBlock Text="{x:Static res:Strings.Kobo_RefreshList}"/>
@@ -107,7 +109,8 @@
                 </Button>
                 <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
                 <Button Style="{StaticResource AccentButton}" Command="{Binding BackUpAllCommand}"
-                        IsEnabled="{Binding CanBackUpAll}" Margin="0,0,6,6">
+                        IsEnabled="{Binding CanBackUpAll}" Margin="0,0,6,6"
+                        AutomationProperties.Name="{Binding BackUpAllText}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="⬇" FontSize="15" Margin="0,0,6,0"/>
                         <TextBlock Text="{Binding BackUpAllText}"/>
@@ -160,13 +163,13 @@
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <CheckBox x:Name="AllBox" Style="{StaticResource ModernCheckBox}" Click="SelectAll_Click"
-                                              ToolTip="{x:Static res:Strings.Col_SelectAll}"
+                                              ToolTip="{x:Static res:Strings.Col_SelectAll}" AutomationProperties.Name="{x:Static res:Strings.Col_SelectAll}"
                                               IsChecked="{Binding DataContext.AllKoboSelected, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=OneWay}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="{Binding Title}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
