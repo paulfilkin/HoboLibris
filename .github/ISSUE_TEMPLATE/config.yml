@@ -3,3 +3,6 @@ contact_links:
   - name: How we work
     url: https://github.com/paulfilkin/HoboLibris/blob/main/CONTRIBUTING.md
     about: Read CONTRIBUTING.md for how issues become pull requests.
+  - name: No support
+    url: https://github.com/paulfilkin/HoboLibris#status
+    about: Issues are for bugs and ideas. No individual support is given, so questions and requests for help are closed.
