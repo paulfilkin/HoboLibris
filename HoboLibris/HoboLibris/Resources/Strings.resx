@@ -1410,7 +1410,7 @@ To back up more books, plug it in again: its books will appear here by themselve
     <value>Model</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>Pick one or type any model name the service offers.</value>
+    <value>Choose one of the models the service offers.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>API key</value>
@@ -1630,5 +1630,26 @@ To back up more books, plug it in again: its books will appear here by themselve
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>Show the list of collections</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>Asking the service for its models…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>The models appear here once HoboLibris has reached the service: add its key, or start it if it runs on this computer.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>The service offers no models.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>{0} isn't offered by this service; choose one of its models.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>The model {0} isn't on the AI service, which has: {1}. Choose one in Settings, under AI model.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>The model {0} isn't on the AI service, which has {1}. Choose it in Settings, under AI model.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>No model is chosen. Choose one in Settings, under AI model.</value>
   </data>
 </root>

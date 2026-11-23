@@ -1410,7 +1410,7 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
     <value>모델</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>목록에서 고르거나 서비스가 제공하는 모델 이름을 입력하세요.</value>
+    <value>서비스가 제공하는 모델 중 하나를 선택하세요.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>API 키</value>
@@ -1630,5 +1630,26 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>컬렉션 목록 표시</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>서비스에 모델 목록을 요청하는 중…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>HoboLibris가 서비스에 연결되면 여기에 모델이 표시됩니다. 키를 추가하거나, 이 컴퓨터에서 실행되는 서비스라면 시작하세요.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>서비스에 모델이 없습니다.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>이 서비스에는 {0}이(가) 없습니다. 서비스의 모델 중 하나를 선택하세요.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>모델 {0}이(가) AI 서비스에 없습니다. 서비스에 있는 모델: {1}. 설정의 AI 모델에서 하나를 선택하세요.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>모델 {0}이(가) AI 서비스에 없습니다. 서비스에는 {1}이(가) 있습니다. 설정의 AI 모델에서 선택하세요.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>선택한 모델이 없습니다. 설정의 AI 모델에서 하나를 선택하세요.</value>
   </data>
 </root>

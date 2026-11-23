@@ -1410,7 +1410,7 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
     <value>モデル</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>一覧から選ぶか、サービスが提供するモデル名を入力してください。</value>
+    <value>サービスが提供するモデルから選んでください。</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>API キー</value>
@@ -1630,5 +1630,26 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>コレクションの一覧を表示</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>サービスにモデルを問い合わせています…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>HoboLibris がサービスに接続すると、ここにモデルが表示されます。キーを追加するか、このコンピューターで動くサービスなら起動してください。</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>このサービスにはモデルがありません。</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>{0} はこのサービスにありません。サービスのモデルから選んでください。</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>モデル {0} は AI サービスにありません。サービスにあるモデル: {1}。設定の [AI モデル] で選んでください。</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>モデル {0} は AI サービスにありません。サービスにあるのは {1} です。設定の [AI モデル] で選んでください。</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>モデルが選ばれていません。設定の [AI モデル] で選んでください。</value>
   </data>
 </root>

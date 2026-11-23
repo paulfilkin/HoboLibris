@@ -21,6 +21,7 @@ namespace HoboLibris.Windows
                 if (Assistant != null)
                 {
                     await Assistant.RefreshOllamaAsync();
+                    await Assistant.RefreshModelsAsync();
                 }
             };
         }

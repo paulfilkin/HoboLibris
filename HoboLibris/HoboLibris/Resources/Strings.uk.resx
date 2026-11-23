@@ -1384,7 +1384,7 @@
     <value>Модель</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>Виберіть одну або введіть будь-яку назву моделі, яку пропонує служба.</value>
+    <value>Виберіть одну з моделей, які пропонує служба.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>Ключ API</value>
@@ -1604,5 +1604,26 @@
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>Показати список колекцій</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>Запит моделей у служби…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>Моделі з'являться тут, коли HoboLibris з'єднається зі службою: додайте її ключ або запустіть її, якщо вона працює на цьому комп'ютері.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>Служба не пропонує жодної моделі.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>Ця служба не пропонує {0}; виберіть одну з її моделей.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>Моделі {0} немає у службі ШІ. У ній є: {1}. Виберіть одну в налаштуваннях, у розділі «Модель ШІ».</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>Моделі {0} немає у службі ШІ, у ній є {1}. Виберіть її в налаштуваннях, у розділі «Модель ШІ».</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>Модель не вибрано. Виберіть її в налаштуваннях, у розділі «Модель ШІ».</value>
   </data>
 </root>

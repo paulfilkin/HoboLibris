@@ -119,7 +119,7 @@ namespace HoboLibris.ViewModels
                 new(ModelProvider.OpenAI, "OpenAI"),
                 new(ModelProvider.OpenAICompatible, Strings.Asst_ProviderCompatible),
             };
-            Models = new ObservableCollection<string>(ChatProviders.SuggestedModels(Settings.Provider));
+            Models = new ObservableCollection<string>();
             Catalogues = new ObservableCollection<CatalogueRow>(Settings.Sources.Catalogues.Select(c => new CatalogueRow(c, SaveSettings)));
         }
 
@@ -284,18 +284,11 @@ namespace HoboLibris.ViewModels
                 {
                     return;
                 }
-                var oldSuggestions = ChatProviders.SuggestedModels(Settings.Provider);
                 Settings.Provider = value;
-                // A model name from the old provider's list means nothing to the new one.
-                if (Settings.Model.Length == 0 || oldSuggestions.Contains(Settings.Model))
-                {
-                    Settings.Model = ChatProviders.DefaultModel(value);
-                }
+                // A model of the old service means nothing to the new one; one is chosen once it answers.
+                Settings.Model = "";
                 Models.Clear();
-                foreach (var m in ChatProviders.SuggestedModels(value))
-                {
-                    Models.Add(m);
-                }
+                ModelsLoaded = false;
                 SaveSettings();
                 TestResult = null;
                 OnPropertyChanged();
@@ -304,10 +297,71 @@ namespace HoboLibris.ViewModels
                 ModelSettingsChanged();
                 ProviderChanged?.Invoke();
                 _ = RefreshOllamaAsync();
+                _ = RefreshModelsAsync();
             }
         }
 
         public bool IsCompatible => Settings.Provider == ModelProvider.OpenAICompatible;
+
+        /// <summary>The service answered with its models, so one can be chosen; until then the Model box is off.</summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ModelStatus), nameof(HasModelStatus))]
+        private bool _modelsLoaded;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ModelStatus), nameof(HasModelStatus))]
+        private bool _loadingModels;
+
+        /// <summary>The line under the Model box: why there is no list yet, or that the chosen model isn't offered.</summary>
+        public string? ModelStatus => LoadingModels ? Strings.Asst_LoadingModels
+            : !ModelsLoaded ? Strings.Asst_ModelsAfterConnect
+            : Models.Count == 0 ? Strings.Asst_NoModels
+            : Settings.Model.Length > 0 && !Models.Contains(Settings.Model, StringComparer.OrdinalIgnoreCase)
+                ? string.Format(Strings.Asst_ModelNotOnService, Settings.Model)
+                : null;
+
+        public bool HasModelStatus => ModelStatus != null;
+
+        private int _modelsRequest;
+
+        /// <summary>
+        /// Asks the service for its models.  Only once it answers is the list filled and the box
+        /// switched on; with no model chosen yet, the usual one for the service (or the first) is taken.
+        /// </summary>
+        public async Task RefreshModelsAsync()
+        {
+            var request = ++_modelsRequest;
+            LoadingModels = true;
+            var (reached, models) = await ChatProviders.ListModelsAsync(Settings.Provider, Settings.Endpoint, Settings.GetApiKey(Settings.Provider));
+            if (request != _modelsRequest)
+            {
+                // The provider, address or key changed meanwhile; a newer request answers.
+                return;
+            }
+            LoadingModels = false;
+            Models.Clear();
+            ModelsLoaded = reached;
+            if (!reached)
+            {
+                OnPropertyChanged(nameof(Model));
+                return;
+            }
+            foreach (var m in models)
+            {
+                Models.Add(m);
+            }
+            if (Settings.Model.Length == 0 && models.Count > 0)
+            {
+                var usual = ChatProviders.DefaultModel(Settings.Provider);
+                Settings.Model = models.FirstOrDefault(m => m.Equals(usual, StringComparison.OrdinalIgnoreCase)) ?? models[0];
+                SaveSettings();
+                ModelSettingsChanged();
+            }
+            // Filling the list can clear the box: show the chosen name again.
+            OnPropertyChanged(nameof(Model));
+            OnPropertyChanged(nameof(ModelStatus));
+            OnPropertyChanged(nameof(HasModelStatus));
+        }
         public IReadOnlyList<string> Endpoints => ChatProviders.SuggestedEndpoints;
 
         public string Model
@@ -315,9 +369,16 @@ namespace HoboLibris.ViewModels
             get => Settings.Model;
             set
             {
+                // Emptying the list empties the drop-down's choice: that isn't the person choosing.
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    return;
+                }
                 Settings.Model = value.Trim();
                 SaveSettings();
                 ModelSettingsChanged();
+                OnPropertyChanged(nameof(ModelStatus));
+                OnPropertyChanged(nameof(HasModelStatus));
             }
         }
 
@@ -330,6 +391,7 @@ namespace HoboLibris.ViewModels
                 SaveSettings();
                 ModelSettingsChanged();
                 _ = RefreshOllamaAsync();
+                _ = RefreshModelsAsync();
             }
         }
 
@@ -344,6 +406,7 @@ namespace HoboLibris.ViewModels
             Settings.SetApiKey(Settings.Provider, key);
             SaveSettings();
             ModelSettingsChanged();
+            _ = RefreshModelsAsync();
         }
 
         [RelayCommand]
@@ -636,6 +699,7 @@ namespace HoboLibris.ViewModels
             var problem = await _ollama.StartAsync(Settings.Endpoint);
             OllamaBusy = false;
             await RefreshOllamaAsync();
+            await RefreshModelsAsync();
             if (problem != null)
             {
                 OllamaStatus = string.Format(Strings.Asst_OllamaDidNotStart, problem);
@@ -655,19 +719,44 @@ namespace HoboLibris.ViewModels
         /// </summary>
         private async Task<string?> PrepareAsync(CancellationToken cancel)
         {
-            if (!IsOllama || await OllamaServer.IsRunningAsync(Settings.Endpoint, cancel))
+            if (IsOllama && !await OllamaServer.IsRunningAsync(Settings.Endpoint, cancel))
             {
-                return null;
+                if (!Settings.AutoStartOllama)
+                {
+                    return Strings.Asst_OllamaNotRunning;
+                }
+                Session.SetStatusText(Strings.Asst_StartingOllama);
+                var problem = await _ollama.StartAsync(Settings.Endpoint, cancel);
+                await RefreshOllamaAsync();
+                if (problem != null)
+                {
+                    return string.Format(Strings.Asst_OllamaDidNotStart, problem);
+                }
             }
-            if (!Settings.AutoStartOllama)
-            {
-                return Strings.Asst_OllamaNotRunning;
-            }
-            Session.SetStatusText(Strings.Asst_StartingOllama);
-            var problem = await _ollama.StartAsync(Settings.Endpoint, cancel);
-            await RefreshOllamaAsync();
-            return problem == null ? null : string.Format(Strings.Asst_OllamaDidNotStart, problem);
+            return await CheckModelAsync(cancel);
         }
+
+        /// <summary>
+        /// For a service on this computer, whether it has the chosen model; a sentence naming the ones
+        /// it has when it doesn't, instead of the service's bare "not found".
+        /// </summary>
+        private async Task<string?> CheckModelAsync(CancellationToken cancel)
+        {
+            if (!ChatProviders.IsLocal(Settings.Provider, Settings.Endpoint))
+            {
+                return Settings.Model.Length == 0 ? Strings.Asst_ChooseModel : null;
+            }
+            var (_, installed) = await ChatProviders.ListModelsAsync(Settings.Provider, Settings.Endpoint, "", cancel);
+            return Settings.Model.Length == 0 && installed.Count == 0 ? Strings.Asst_ChooseModel : MissingModel(Settings.Model, installed);
+        }
+
+        /// <summary>Why the request can't go to the model, or null when it is installed or the list is unknown.</summary>
+        public static string? MissingModel(string model, IReadOnlyList<string> installed) =>
+            installed.Count == 0 || (model.Length > 0 && installed.Contains(model, StringComparer.OrdinalIgnoreCase))
+                ? null
+                : installed.Count == 1
+                    ? string.Format(Strings.Asst_ModelMissingOne, model, installed[0])
+                    : string.Format(Strings.Asst_ModelMissing, model, string.Join(", ", installed));
 
         /// <summary>The window is closing: the conversation is saved, and an Ollama HoboLibris started is stopped.</summary>
         public void Shutdown()

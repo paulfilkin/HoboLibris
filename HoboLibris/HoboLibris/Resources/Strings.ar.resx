@@ -1384,7 +1384,7 @@
     <value>النموذج</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>اختر نموذجًا أو اكتب أي اسم نموذج تقدمه الخدمة.</value>
+    <value>اختر أحد النماذج التي تقدمها الخدمة.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>مفتاح API</value>
@@ -1604,5 +1604,26 @@
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>إظهار قائمة المجموعات</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>جارٍ سؤال الخدمة عن نماذجها…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>تظهر النماذج هنا بعد أن يصل HoboLibris إلى الخدمة: أضف مفتاحها، أو شغّلها إن كانت تعمل على هذا الكمبيوتر.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>لا تقدم الخدمة أي نماذج.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>لا تقدم هذه الخدمة {0}؛ اختر أحد نماذجها.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>النموذج {0} غير موجود في خدمة الذكاء الاصطناعي، وهي تتضمن: {1}. اختر أحدها في الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>النموذج {0} غير موجود في خدمة الذكاء الاصطناعي، وهي تتضمن {1}. اختره في الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>لم يُختر أي نموذج. اختر نموذجًا في الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
   </data>
 </root>

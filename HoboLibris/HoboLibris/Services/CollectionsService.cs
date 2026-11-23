@@ -348,7 +348,8 @@ namespace HoboLibris.Services
 
             try
             {
-                using var conn = new SqliteConnection($"Data Source={DatabasePath};Mode=ReadWrite");
+                // Not pooled, so the file is closed even when writing fails (the eReader can then be ejected).
+                using var conn = new SqliteConnection($"Data Source={DatabasePath};Mode=ReadWrite;Pooling=False");
                 conn.Open();
                 WriteChanges(conn, changes, KoboTimestamp(DateTime.UtcNow));
             }
