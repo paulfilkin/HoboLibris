@@ -288,6 +288,118 @@
                     </StackPanel>
                 </Border>
 
+                <!-- E-book sources -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Text="{x:Static res:Strings.Src_Header}" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="{x:Static res:Strings.Src_Hint}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
+
+                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGutenberg}"
+                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_GutenbergHint}">
+                            <TextBlock Text="Project Gutenberg" FontWeight="SemiBold"/>
+                        </CheckBox>
+                        <TextBlock Text="{x:Static res:Strings.Src_GutenbergHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
+
+                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseOpenLibrary}"
+                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_OpenLibraryHint}">
+                            <TextBlock Text="{x:Static res:Strings.Src_OpenLibrary}" FontWeight="SemiBold"/>
+                        </CheckBox>
+                        <TextBlock Text="{x:Static res:Strings.Src_OpenLibraryHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
+
+                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGoogleBooks}"
+                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_GoogleHint}">
+                            <TextBlock Text="Google Books" FontWeight="SemiBold"/>
+                        </CheckBox>
+                        <TextBlock Text="{x:Static res:Strings.Src_GoogleHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,6"/>
+                        <Grid Margin="24,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <PasswordBox x:Name="GoogleKeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
+                                         LostKeyboardFocus="GoogleKeyBox_LostKeyboardFocus"
+                                         AutomationProperties.Name="{x:Static res:Strings.Src_GoogleKey}"/>
+                            <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
+                                    Command="{Binding Assistant.RemoveGoogleBooksKeyCommand}"/>
+                        </Grid>
+                        <TextBlock Text="{Binding Assistant.GoogleKeyStatus}" Style="{StaticResource HelperText}" Margin="24,0,0,12"
+                                   AutomationProperties.LiveSetting="Polite"/>
+
+                        <TextBlock Text="{x:Static res:Strings.Src_LinksOnly}" Style="{StaticResource FieldHint}" Margin="0,0,0,16"/>
+
+                        <TextBlock Text="{x:Static res:Strings.Src_Catalogues}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Src_CataloguesHint}" Style="{StaticResource FieldHint}"/>
+                        <TextBlock Text="{x:Static res:Strings.Src_NoCatalogues}" Style="{StaticResource MutedText}" Margin="0,0,0,6"
+                                   Visibility="{Binding Assistant.HasCatalogues, Converter={StaticResource InverseBoolToVisibility}}"/>
+                        <ItemsControl ItemsSource="{Binding Assistant.Catalogues}" Focusable="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,0,0,6">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox Grid.Column="0" Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Enabled}"
+                                                  AutomationProperties.Name="{Binding Name}">
+                                            <TextBlock TextWrapping="Wrap">
+                                                <Run Text="{Binding Name, Mode=OneWay}" FontWeight="SemiBold"/>
+                                                <Run Text="  "/>
+                                                <Run Text="{Binding Server, Mode=OneWay}" Foreground="{DynamicResource TextSecondaryBrush}"/>
+                                            </TextBlock>
+                                        </CheckBox>
+                                        <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Remove}" Style="{StaticResource SmallButton}"
+                                                VerticalAlignment="Center"
+                                                Command="{Binding DataContext.Assistant.RemoveCatalogueCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                CommandParameter="{Binding}" AutomationProperties.HelpText="{Binding Name}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <!-- A new catalogue -->
+                        <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,6,0,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock x:Name="CatNameLabel" Grid.Row="0" Text="{x:Static res:Strings.Src_CatalogueName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6"
+                                         Text="{Binding Assistant.NewCatalogueName, UpdateSourceTrigger=PropertyChanged}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=CatNameLabel}"/>
+                                <TextBlock x:Name="CatAddressLabel" Grid.Row="1" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,2" FlowDirection="LeftToRight"
+                                         Text="{Binding Assistant.NewCatalogueAddress, UpdateSourceTrigger=PropertyChanged}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=CatAddressLabel}"
+                                         AutomationProperties.HelpText="{x:Static res:Strings.Src_AddressHint}"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static res:Strings.Src_AddressHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBlock x:Name="CatUserLabel" Grid.Row="3" Text="{x:Static res:Strings.Src_UserName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6" FlowDirection="LeftToRight"
+                                         Text="{Binding Assistant.NewCatalogueUser, UpdateSourceTrigger=PropertyChanged}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=CatUserLabel}"/>
+                                <TextBlock x:Name="CatPasswordLabel" Grid.Row="4" Text="{x:Static res:Strings.Src_Password}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                <PasswordBox x:Name="CataloguePasswordBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource KeyBox}" Margin="0,0,0,6"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=CatPasswordLabel}"/>
+                                <DockPanel Grid.Row="5" Grid.Column="1">
+                                    <Button DockPanel.Dock="Left" Content="{x:Static res:Strings.Src_AddCatalogue}" Style="{StaticResource SecondaryButton}"
+                                            Click="AddCatalogue_Click"/>
+                                    <TextBlock Text="{Binding Assistant.CatalogueError}" Style="{StaticResource BadText}" Margin="12,0,0,0"
+                                               AutomationProperties.LiveSetting="Assertive"
+                                               Visibility="{Binding Assistant.HasCatalogueError, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                </DockPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
                 <!-- Built-in tools -->
                 <Border Style="{StaticResource Card}">
                     <StackPanel>

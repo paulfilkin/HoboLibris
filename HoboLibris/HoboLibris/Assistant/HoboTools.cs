@@ -17,14 +17,19 @@ namespace HoboLibris.Assistant
     {
         private const int DefaultLimit = 200;
         private readonly MainViewModel _main;
+        private readonly SourceTools _sources;
 
         public HoboTools(MainViewModel main)
         {
             _main = main;
-            All = Build();
+            _sources = new SourceTools(main);
+            All = Build().Concat(_sources.All).ToList();
         }
 
         public IReadOnlyList<AssistantTool> All { get; }
+
+        /// <summary>Background work the sources want at start-up (the Gutenberg catalogue).</summary>
+        public Task WarmUpAsync() => _sources.WarmUpAsync();
 
         private CollectionsViewModel Collections => _main.Collections;
 
@@ -382,6 +387,7 @@ namespace HoboLibris.Assistant
                 ["collections_loaded"] = Collections.Coll != null,
                 ["collection_changes_waiting"] = Collections.Pending,
                 ["send_new_books_automatically"] = _main.AutoSend,
+                ["ebook_sources_on"] = _sources.EnabledSources(),
                 ["busy"] = new JsonObject
                 {
                     ["backing_up"] = _main.KoboBusy || _main.Kindle.Copying,

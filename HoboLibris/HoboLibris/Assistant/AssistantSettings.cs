@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using HoboLibris.Assistant.Sources;
 using HoboLibris.Resources;
 
 namespace HoboLibris.Assistant
@@ -44,6 +45,10 @@ namespace HoboLibris.Assistant
         /// <summary>Policies for the tools that differ from their defaults.</summary>
         [JsonPropertyName("tool_policies")]
         public Dictionary<string, ToolPolicy> ToolPolicies { get; set; } = new();
+
+        /// <summary>The e-book sources the Assistant may search and download from.</summary>
+        [JsonPropertyName("sources")]
+        public SourceSettings Sources { get; set; } = new();
 
         /// <summary>The Assistant pane on the right of the main window: shown or not, and its width.</summary>
         [JsonPropertyName("pane_visible")]

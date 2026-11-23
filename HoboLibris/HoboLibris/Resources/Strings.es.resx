@@ -1481,4 +1481,91 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>Desactivada</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>Buscar libros electrónicos</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>Descargar un libro electrónico</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>Abrir la página de un libro</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>Abrir una búsqueda en una tienda</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>Descargar {0}, de {1}, desde {2} en la carpeta de Kobo.</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>Descargar el libro {0} en la carpeta de Kobo.</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>Abierto en el navegador</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>Guardado en la carpeta de Kobo</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>Ya está en la carpeta de Kobo</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>Fuentes de libros electrónicos</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>Dónde puede el Asistente buscar libros y descargarlos en la carpeta de Kobo. Solo se descargan libros gratuitos o de sus propios catálogos.</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>Libros de dominio público. El catálogo se descarga una vez por semana de un servidor espejo de Project Gutenberg y se busca en este equipo.</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library e Internet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>Solo libros de lectura libre, nunca copias de préstamo. Proceden de escaneos, así que la calidad varía.</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>Solo libros gratuitos de Google Books. Necesita su propia clave de API de Google Books.</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>Clave de API de Google Books</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>No hay ninguna clave guardada, así que no se busca en Google Books.</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks y la tienda Kobo son solo enlaces: el Asistente abre su búsqueda en el navegador y usted descarga o compra el libro allí. Standard Ebooks no permite que los asistentes de IA descarguen sus libros.</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>Sus catálogos OPDS</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre, Calibre-Web, Kavita o un servidor de biblioteca. La dirección, el nombre de usuario y la contraseña se cifran, y el inicio de sesión solo se envía a ese servidor.</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>Todavía ninguno.</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>La dirección OPDS del catálogo, como http://192.168.1.10:8080/opds para Calibre.</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>Añadir catálogo</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>Escriba primero un nombre para el catálogo.</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>Ya hay un catálogo llamado «{0}».</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>Escriba la dirección del catálogo, que empiece por http:// o https://.</value>
+  </data>
 </root>

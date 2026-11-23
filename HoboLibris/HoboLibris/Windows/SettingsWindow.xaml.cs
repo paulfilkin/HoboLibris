@@ -32,6 +32,22 @@ namespace HoboLibris.Windows
                 Assistant?.SetApiKey(KeyBox.Password);
                 KeyBox.Clear();
             }
+            if (GoogleKeyBox.Password.Trim().Length > 0)
+            {
+                Assistant?.SetGoogleBooksKey(GoogleKeyBox.Password);
+                GoogleKeyBox.Clear();
+            }
+        }
+
+        private void GoogleKeyBox_LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e) => SaveKey();
+
+        /// <summary>Adds the catalogue typed in; the password box is emptied once it is saved.</summary>
+        private void AddCatalogue_Click(object sender, RoutedEventArgs e)
+        {
+            if (Assistant?.AddCatalogue(CataloguePasswordBox.Password) == true)
+            {
+                CataloguePasswordBox.Clear();
+            }
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)

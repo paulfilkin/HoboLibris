@@ -1481,4 +1481,91 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>Search e-books</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>Download an e-book</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>Open a book's page</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>Open a store search</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>Download {0} by {1} from {2} into the Kobo folder.</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>Download the book {0} into the Kobo folder.</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>Opened in your browser</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>Saved to the Kobo folder</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>Already in the Kobo folder</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>E-book sources</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>Where the Assistant may search for books and download them into the Kobo folder. Only free books, or books from your own catalogues, are downloaded.</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>Public-domain books. The catalogue is fetched once a week from a Project Gutenberg mirror and searched on this computer.</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library and Internet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>Books free to read only, never lending copies. Made from scans, so quality varies.</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>Free Google Books only. Needs your own Google Books API key.</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>Google Books API key</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>No key saved, so Google Books isn't searched.</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks and the Kobo store are links only: the Assistant opens their search in your browser, and you download or buy the book there. Standard Ebooks doesn't allow AI assistants to download its books.</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>Your OPDS catalogues</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre, Calibre-Web, Kavita or a library server. The address, user name and password are encrypted, and the sign-in is sent only to that server.</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>None yet.</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>The catalogue's OPDS address, such as http://192.168.1.10:8080/opds for Calibre.</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>Add catalogue</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>Type a name for the catalogue first.</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>There is already a catalogue called "{0}".</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>Type the catalogue's address, starting http:// or https://.</value>
+  </data>
 </root>
