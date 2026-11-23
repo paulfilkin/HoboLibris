@@ -1,0 +1,37 @@
+{
+  "conventionVersion": 1,
+  "setUp": "2026-11-23",
+  "language": "dotnet",
+  "options": {
+    "releaseWorkflow": true,
+    "codeQl": true,
+    "discussions": false,
+    "reviewRequired": true
+  },
+  "board": {
+    "owner": "paulfilkin",
+    "number": 10
+  },
+  "selfTestCommand": "",
+  "requiredCheck": "Build and test",
+  "notAvailable": [],
+  "answers": {
+    "description": "",
+    "projectFile": "HoboLibris\\HoboLibris\\HoboLibris.csproj",
+    "testProject": "HoboLibris\\HoboLibris.Tests\\HoboLibris.Tests.csproj",
+    "buildCommand": "",
+    "testCommand": "",
+    "checklist": [
+      "one-issue",
+      "builds",
+      "tests",
+      "docs",
+      "no-secrets",
+      "no-packages",
+      "style"
+    ],
+    "behindLimit": 10,
+    "topics": []
+  },
+  "hasAnswers": true
+}
