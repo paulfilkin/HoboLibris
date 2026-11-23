@@ -65,14 +65,8 @@
             <Button Content="{Binding BackUpSelectedText}" Style="{StaticResource SecondaryButton}" IsEnabled="{Binding CanBackUpSelected}" Margin="0,0,6,6"
                     Command="{Binding DataContext.KindleBackUpSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
             <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
-            <Button Content="{x:Static res:Strings.Kobo_SaveTo}" Style="{StaticResource SecondaryButton}" Margin="0,0,6,6"
-                    ToolTip="{x:Static res:Strings.Kindle_SaveToHint}"
-                    Command="{Binding DataContext.ChooseKindleFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
             <Button Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource SecondaryButton}" Margin="0,0,6,6"
                     Command="{Binding DataContext.OpenKindleFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
-            <Button Content="{x:Static res:Strings.Kindle_AddFolder}" Style="{StaticResource SecondaryButton}" Margin="0,0,6,6"
-                    ToolTip="{x:Static res:Strings.Kindle_AddFolderHint}"
-                    Command="{Binding DataContext.KindleAddFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
         </WrapPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,8">

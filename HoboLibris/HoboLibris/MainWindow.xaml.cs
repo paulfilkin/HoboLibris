@@ -31,7 +31,12 @@ namespace HoboLibris
                     var window = new DeleteBooksWindow(request) { Owner = this };
                     return window.ShowDialog() == true ? (true, window.RemoveFromReader) : (false, false);
                 },
-                PickFolder = (title, initial) => Dialogs.PickFolder(this, title, initial),
+                PickFolder = (title, initial) => Dialogs.PickFolder(ActiveOwner(), title, initial),
+                ConfirmMoveBackups = count => MessageBox.Show(ActiveOwner(),
+                    count == 1 ? Strings.Settings_MoveBackupsOne : string.Format(Strings.Settings_MoveBackupsMany, count),
+                    Strings.Settings_MoveBackupsTitle, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes,
+                ShowError = message => MessageBox.Show(ActiveOwner(), message, Strings.Common_Error,
+                    MessageBoxButton.OK, MessageBoxImage.Error),
             };
             DataContext = ViewModel;
             BuildLanguageMenu();
@@ -93,6 +98,15 @@ namespace HoboLibris
                 Close();
             };
             timer.Start();
+        }
+
+        /// <summary>The window a dialog should belong to: Settings when it is open, otherwise this one.</summary>
+        private Window ActiveOwner() =>
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive) ?? this;
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            new SettingsWindow { Owner = this, DataContext = ViewModel }.ShowDialog();
         }
 
         private void About_Click(object sender, RoutedEventArgs e)

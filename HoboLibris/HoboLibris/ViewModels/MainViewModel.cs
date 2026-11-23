@@ -56,6 +56,10 @@ namespace HoboLibris.ViewModels
         /// <summary>Opens the sign-in window and returns the kobo:// address, or null when closed.</summary>
         public Func<string, string?>? ShowSignIn { get; set; }
         public Func<string, string?, string?>? PickFolder { get; set; }
+        /// <summary>Asks whether to move the given number of book-list backups to a new folder.</summary>
+        public Func<int, bool>? ConfirmMoveBackups { get; set; }
+        /// <summary>Shows a problem in a message box over the window in front.</summary>
+        public Action<string>? ShowError { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsKoboTab), nameof(IsKindleTab), nameof(Summary))]
@@ -119,6 +123,12 @@ namespace HoboLibris.ViewModels
         public string SignedInText => string.IsNullOrEmpty(Settings.Email) ? Strings.Main_SignedIn : string.Format(Strings.Main_SignedInAs, Settings.Email);
         public string KoboFolder => Settings.DownloadDir;
         public string KindleFolder => Settings.KindleDir;
+        public IReadOnlyList<string> KindleExtraFolders => Settings.KindleExtraDirs.ToList();
+        public bool HasKindleExtraFolders => Settings.KindleExtraDirs.Count > 0;
+        /// <summary>Where the eReader's book list is copied before collections are saved.</summary>
+        public string BackupFolder => string.IsNullOrEmpty(Settings.BookListBackupDir)
+            ? AppPaths.BookListBackupDir
+            : Settings.BookListBackupDir;
         public bool AutoSend
         {
             get => Settings.KoboAutoSend;
@@ -237,7 +247,7 @@ namespace HoboLibris.ViewModels
             Reader = new DeviceTabViewModel(DeviceKind.KoboReader, dispatcher);
             Kindle = new DeviceTabViewModel(DeviceKind.Kindle, dispatcher);
             Send = new SendViewModel(dispatcher);
-            Collections = new CollectionsViewModel();
+            Collections = new CollectionsViewModel { BackupFolder = () => BackupFolder };
             SignedInFlag = Settings.SignedIn;
 
             foreach (var tab in new[] { Reader, Kindle })
@@ -1067,8 +1077,56 @@ namespace HoboLibris.ViewModels
             {
                 Settings.KindleExtraDirs.Add(dir);
                 SettingsService.Save(Settings);
+                OnPropertyChanged(nameof(KindleExtraFolders));
+                OnPropertyChanged(nameof(HasKindleExtraFolders));
             }
             await Kindle.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.KindleDir, quiet: false);
         }
+
+        [RelayCommand]
+        private async Task RemoveKindleFolderAsync(string? dir)
+        {
+            if (string.IsNullOrEmpty(dir) || !Settings.KindleExtraDirs.Remove(dir))
+            {
+                return;
+            }
+            SettingsService.Save(Settings);
+            OnPropertyChanged(nameof(KindleExtraFolders));
+            OnPropertyChanged(nameof(HasKindleExtraFolders));
+            await Kindle.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.KindleDir, quiet: true);
+        }
+
+        // --- eReader book-list backups ------------------------------------------------------
+
+        [RelayCommand]
+        private void ChooseBackupFolder()
+        {
+            var old = BackupFolder;
+            var dir = PickFolder?.Invoke(Strings.Dialog_ChooseBackupFolder, old);
+            if (string.IsNullOrEmpty(dir) || BookListBackups.SameFolder(dir, old))
+            {
+                return;
+            }
+            var count = BookListBackups.Count(old);
+            if (count > 0 && ConfirmMoveBackups?.Invoke(count) == true)
+            {
+                try
+                {
+                    BookListBackups.Move(old, dir);
+                }
+                catch (Exception ex)
+                {
+                    // Whatever moved is in the new folder; the rest stays in the old one.
+                    LogManager.Error(ex, "Moving the book-list backups failed");
+                    ShowError?.Invoke(string.Format(Strings.Settings_MoveBackupsFailed, ex.Message));
+                }
+            }
+            Settings.BookListBackupDir = dir;
+            SettingsService.Save(Settings);
+            OnPropertyChanged(nameof(BackupFolder));
+        }
+
+        [RelayCommand]
+        private void OpenBackupFolder() => Dialogs.OpenFolder(BackupFolder);
     }
 }

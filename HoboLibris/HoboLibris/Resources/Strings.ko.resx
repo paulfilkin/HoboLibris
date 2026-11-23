@@ -86,7 +86,7 @@
     <value>내 데이터</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>설정, Kobo 로그인 정보, 라이브러리 목록, 로그 파일, 전자책 리더 책 목록 백업은 이 폴더에 보관됩니다. 백업한 책은 사용자가 선택한 폴더에 있습니다.</value>
+    <value>설정, Kobo 로그인 정보, 라이브러리 목록, 로그 파일은 이 폴더에 보관됩니다. 백업한 책과 전자책 리더 책 목록 백업은 설정에서 선택한 폴더에 있습니다.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>프로젝트</value>
@@ -491,9 +491,6 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>백업 사본을 삭제하고, 전자책 리더에서도 책을 제거할지 선택합니다</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>저장 위치…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Kobo 책을 저장할 폴더를 선택합니다</value>
@@ -1055,10 +1052,58 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Kindle 책을 저장할 폴더를 선택합니다</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>검색할 폴더 추가…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>옮겨 둔 Kindle for PC 폴더 등 다른 곳에 보관된 책용</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>책 폴더</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>스토어에서 다운로드한 책과 전자책 리더에서 복사한 책이 여기에 저장되며, 여기에 넣은 책은 전자책 리더로 보낼 수 있습니다.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Kindle, Kindle for PC 및 아래 추가 폴더의 책이 여기에 백업됩니다.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>검색할 추가 폴더</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>아직 없습니다.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>전자책 리더 책 목록 백업</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>컬렉션을 Kobo 전자책 리더에 저장하기 전에 책 목록의 사본이 여기에 보관됩니다.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>변경…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>추가…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>백업을 옮길까요?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>이전 폴더에 책 목록 백업이 1개 있습니다. 새 폴더로 옮길까요? [아니요]를 선택하면 그대로 남습니다.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>이전 폴더에 책 목록 백업이 {0}개 있습니다. 새 폴더로 옮길까요? [아니요]를 선택하면 그대로 남습니다.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>일부 백업을 옮기지 못했습니다: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>전자책 리더 책 목록 백업을 보관할 위치를 선택하세요</value>
   </data>
 </root>

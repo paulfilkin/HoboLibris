@@ -50,6 +50,13 @@
                             <TextBlock Text="&#xE774;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="16"/>
                         </MenuItem.Header>
                     </MenuItem>
+                    <MenuItem Style="{StaticResource RoundedMenuItem}" Click="Settings_Click"
+                              ToolTip="{x:Static res:Strings.Menu_Settings}"
+                              AutomationProperties.Name="{x:Static res:Strings.Menu_Settings}">
+                        <MenuItem.Header>
+                            <TextBlock Text="&#xE713;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="16"/>
+                        </MenuItem.Header>
+                    </MenuItem>
                     <MenuItem Style="{StaticResource RoundedMenuItem}" Click="About_Click">
                         <MenuItem.Header>
                             <TextBlock Text="{x:Static res:Strings.Menu_About}"/>

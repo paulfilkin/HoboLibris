@@ -83,7 +83,7 @@
     <value>הנתונים שלך</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>ההגדרות, פרטי הכניסה ל-Kobo, רשימת הספרייה, קובצי היומן וגיבויי רשימת הספרים של הקורא נשמרים בתיקייה זו. הספרים המגובים נמצאים בתיקיות שבחרת.</value>
+    <value>ההגדרות, פרטי הכניסה ל-Kobo, רשימת הספרייה וקובצי היומן נשמרים בתיקייה זו. הספרים המגובים וגיבויי רשימת הספרים של הקורא נמצאים בתיקיות שנבחרו בהגדרות.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>הפרויקט</value>
@@ -476,9 +476,6 @@
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>מחיקת עותקי הגיבוי, ובחירה אם להסיר את הספרים גם מהקורא</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>שמירה אל…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>בחירת התיקייה לספרי ה-Kobo שלך</value>
@@ -1029,10 +1026,58 @@
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>בחירת התיקייה לספרי ה-Kindle שלך</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>הוספת תיקייה לחיפוש…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>לספרים שנשמרו במקום אחר, למשל תיקיית Kindle for PC שהעברת</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>תיקיית הספרים</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>כאן נשמרים ספרים שהורדו מהחנות ועותקים מהקורא, ואפשר לשלוח לקורא ספרים שתשים כאן.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>ספרים מה-Kindle, מ-Kindle for PC ומהתיקיות הנוספות שלמטה מגובים כאן.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>תיקיות נוספות לחיפוש</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>אין עדיין.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>גיבויי רשימת הספרים של הקורא</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>לפני שהאוספים נשמרים בקורא Kobo, נשמר כאן עותק של רשימת הספרים שלו.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>שינוי…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>הוספה…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>הסרה</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>להעביר את הגיבויים?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>בתיקייה הישנה יש גיבוי אחד של רשימת הספרים. להעביר אותו לתיקייה החדשה? אם תבחר "לא", הוא יישאר במקומו.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>בתיקייה הישנה יש {0} גיבויים של רשימת הספרים. להעביר אותם לתיקייה החדשה? אם תבחר "לא", הם יישארו במקומם.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>לא ניתן היה להעביר את כל הגיבויים: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>בחר היכן לשמור את גיבויי רשימת הספרים של הקורא</value>
   </data>
 </root>

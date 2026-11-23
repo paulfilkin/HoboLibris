@@ -53,6 +53,13 @@ namespace HoboLibris.Models
         [JsonPropertyName("download_dir")]
         public string DownloadDir { get; set; } = "";
 
+        /// <summary>
+        /// Where copies of the eReader's book list are kept before collections are saved. Empty means
+        /// the default folder inside the data folder.
+        /// </summary>
+        [JsonPropertyName("book_list_backup_dir")]
+        public string BookListBackupDir { get; set; } = "";
+
         [JsonPropertyName("library_sync_url")]
         public string LibrarySyncUrl { get; set; } = "";
 
@@ -73,6 +80,7 @@ namespace HoboLibris.Models
             DeviceId = DeviceId,
             DownloadDir = DownloadDir,
             KindleDir = KindleDir,
+            BookListBackupDir = BookListBackupDir,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,
             KoboAutoSend = KoboAutoSend,

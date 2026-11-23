@@ -75,6 +75,9 @@ namespace HoboLibris.ViewModels
     {
         public Collections? Coll { get; private set; }
 
+        /// <summary>Where the eReader's book list is copied before saving; set from the settings.</summary>
+        public Func<string> BackupFolder { get; set; } = () => AppPaths.BookListBackupDir;
+
         public ObservableCollection<ShowEntry> ShowEntries { get; } = new();
         public ObservableCollection<CollectionRow> Rows { get; } = new();
         public ObservableCollection<CollectionRow> VisibleRows { get; } = new();
@@ -228,7 +231,7 @@ namespace HoboLibris.ViewModels
             var coll = Coll;
             try
             {
-                var backup = await Task.Run(() => coll.Save(AppPaths.BookListBackupDir));
+                var backup = await Task.Run(() => coll.Save(BackupFolder()));
                 Error = null;
                 Done = Strings.Coll_Saved;
                 StatusChanged?.Invoke(string.Format(Strings.Status_CollectionsSaved, backup));

@@ -122,8 +122,6 @@
                         Command="{Binding DeleteSelectedCommand}" IsEnabled="{Binding CanDelete}"
                         ToolTip="{x:Static res:Strings.Kobo_DeleteSelectedHint}" Margin="0,0,6,6"/>
                 <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
-                <Button Content="{x:Static res:Strings.Kobo_SaveTo}" Style="{StaticResource SecondaryButton}"
-                        Command="{Binding ChooseKoboFolderCommand}" ToolTip="{x:Static res:Strings.Kobo_SaveToHint}" Margin="0,0,6,6"/>
                 <Button Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource SecondaryButton}"
                         Command="{Binding OpenKoboFolderCommand}" Margin="0,0,6,6"/>
             </WrapPanel>

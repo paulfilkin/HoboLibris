@@ -86,7 +86,7 @@
     <value>您的数据</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>设置、Kobo 登录信息、图书库列表、日志文件以及电子书阅读器图书列表的备份都保存在此文件夹中。备份的图书则保存在您选择的文件夹中。</value>
+    <value>设置、Kobo 登录信息、图书库列表和日志文件都保存在此文件夹中。备份的图书和电子书阅读器图书列表的备份保存在“设置”中选择的文件夹中。</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>项目</value>
@@ -491,9 +491,6 @@
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>删除备份副本，并选择是否同时从电子书阅读器中移除这些图书</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>保存到…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>选择用于存放 Kobo 图书的文件夹</value>
@@ -1055,10 +1052,58 @@
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>选择用于存放 Kindle 图书的文件夹</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>添加要搜索的文件夹…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>用于存放在其他位置的图书，例如您移动过的 Kindle for PC 文件夹</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>图书文件夹</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>从商店下载的图书和从电子书阅读器复制的图书保存在这里，您放在这里的图书可以发送到电子书阅读器。</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Kindle、Kindle for PC 以及下方其他文件夹中的图书都备份到这里。</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>要搜索的其他文件夹</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>暂无。</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>电子书阅读器图书列表的备份</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>在将收藏集保存到 Kobo 电子书阅读器之前，会在这里保留一份其图书列表的副本。</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>更改…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>添加…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>要移动备份吗？</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>旧文件夹中有 1 个图书列表备份。要将它移到新文件夹吗？如果选择“否”，它会留在原处。</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>旧文件夹中有 {0} 个图书列表备份。要将它们移到新文件夹吗？如果选择“否”，它们会留在原处。</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>无法移动所有备份：{0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>选择电子书阅读器图书列表备份的保存位置</value>
   </data>
 </root>

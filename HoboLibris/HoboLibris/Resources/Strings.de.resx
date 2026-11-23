@@ -83,7 +83,7 @@
     <value>Ihre Daten</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>Einstellungen, Ihre Kobo-Anmeldung, die Bibliotheksliste, Protokolldateien und die Sicherungen der eReader-Bücherliste werden in diesem Ordner aufbewahrt. Ihre gesicherten Bücher liegen in den von Ihnen gewählten Ordnern.</value>
+    <value>Einstellungen, Ihre Kobo-Anmeldung, die Bibliotheksliste und Protokolldateien werden in diesem Ordner aufbewahrt. Ihre gesicherten Bücher und die Sicherungen der eReader-Bücherliste liegen in den Ordnern, die in den Einstellungen gewählt sind.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Projekt</value>
@@ -476,9 +476,6 @@ Zeigt der Kindle nur an, dass er lädt, probieren Sie einen anderen USB-Anschlus
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Sicherungskopien löschen und wählen, ob die Bücher auch vom eReader entfernt werden sollen</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Speichern unter…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Ordner für Ihre Kobo-Bücher wählen</value>
@@ -1029,10 +1026,58 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Ordner für Ihre Kindle-Bücher wählen</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Ordner zum Durchsuchen hinzufügen…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Für Bücher an einem anderen Ort, etwa einem verschobenen Kindle for PC-Ordner</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Bücherordner</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>Hier werden Downloads aus dem Store und Kopien vom eReader gespeichert. Bücher, die Sie hier ablegen, können an den eReader gesendet werden.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Bücher von Ihrem Kindle, aus Kindle for PC und aus den zusätzlichen Ordnern unten werden hier gesichert.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Weitere Ordner zum Durchsuchen</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Noch keine.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Sicherungen der eReader-Bücherliste</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Bevor Sammlungen auf Ihrem Kobo eReader gespeichert werden, wird hier eine Kopie seiner Bücherliste aufbewahrt.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Ändern…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Hinzufügen…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Sicherungen verschieben?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>Im alten Ordner liegt 1 Sicherung der Bücherliste. In den neuen Ordner verschieben? Wenn Sie „Nein“ wählen, bleibt sie, wo sie ist.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>Im alten Ordner liegen {0} Sicherungen der Bücherliste. In den neuen Ordner verschieben? Wenn Sie „Nein“ wählen, bleiben sie, wo sie sind.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Nicht alle Sicherungen konnten verschoben werden: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Wählen Sie, wo die Sicherungen der eReader-Bücherliste aufbewahrt werden</value>
   </data>
 </root>

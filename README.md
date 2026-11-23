@@ -41,7 +41,7 @@ HoboLibris puts all of that in one window that stays sharp on high-resolution sc
 ## The screens
 
 <p align="center">
-  <img src="Docs/images/kobo-screen.png" alt="HoboLibris on the Kobo tab's Back up books screen: the toolbar with Refresh list, Back up all not yet saved, Save to and Open folder; the backup folder; search and sort; and the list of books with their author, format, where each came from, and a green In the folder or Saved beside each one">
+  <img src="Docs/images/kobo-screen.png" alt="HoboLibris on the Kobo tab's Back up books screen: the toolbar with Refresh list, Back up all not yet saved and Open folder; the backup folder; search and sort; and the list of books with their author, format, where each came from, and a green In the folder or Saved beside each one">
 </p>
 
 | Screen | What it does |
@@ -57,13 +57,13 @@ You need Windows 10 or 11, 64-bit.
 
 1. Download `HoboLibrisSetup-<version>.exe` from the [latest release](https://github.com/paulfilkin/HoboLibris/releases/latest) and run it.  It installs for you alone, without an administrator password, and brings everything it needs.
 2. On the **Kobo** tab, press **Sign in** and sign in to your Kobo account in the window that opens.  Your library loads by itself.
-3. Press **Back up all not yet saved**.  Choose another folder first with **Save to…** if you like; the default is `Documents\HoboLibris\Kobo`.
+3. Press **Back up all not yet saved**.  The books go to `Documents\HoboLibris\Kobo`; to use another folder, change it first in **Settings** (the gear icon at the top right).
 4. Plug in your Kobo eReader and tap **Connect** on its screen.  The books you added to it join the list, and the **Collections** and **Send to eReader** screens can work with it.
 5. On the **Kindle** tab, plug in your Kindle.  If it doesn't appear, the tab says what Windows can see and what to do next.
 
 The release also has a zip with just the program.  It needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
 
-HoboLibris keeps its settings, your Kobo sign-in, its logs and the eReader book-list backups in `%APPDATA%\HoboLibris`.  Uninstalling leaves them, and your books, where they are.
+HoboLibris keeps its settings, your Kobo sign-in and its logs in `%APPDATA%\HoboLibris`.  The copies of the eReader's book list it takes before saving collections go in `%APPDATA%\HoboLibris\Kobo book list backups` unless you choose another folder in **Settings**.  Uninstalling leaves all of them, and your books, where they are.
 
 ## From a terminal
 

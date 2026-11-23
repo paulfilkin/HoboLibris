@@ -86,7 +86,7 @@
     <value>データの保存先</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>設定、Kobo のサインイン情報、ライブラリの一覧、ログ ファイル、電子書籍リーダーの書籍一覧のバックアップは、このフォルダーに保存されます。バックアップした書籍は、選択したフォルダーに保存されます。</value>
+    <value>設定、Kobo のサインイン情報、ライブラリの一覧、ログ ファイルは、このフォルダーに保存されます。バックアップした書籍と電子書籍リーダーの書籍一覧のバックアップは、[設定] で選択したフォルダーに保存されます。</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>プロジェクト</value>
@@ -491,9 +491,6 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>バックアップ コピーを削除し、電子書籍リーダーからも書籍を削除するかどうかを選択します</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>保存先…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Kobo の書籍を保存するフォルダーを選択します</value>
@@ -1055,10 +1052,58 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Kindle の書籍を保存するフォルダーを選択します</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>検索するフォルダーを追加…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>移動した Kindle for PC のフォルダーなど、別の場所に保管している書籍用です</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>書籍フォルダー</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>ストアからダウンロードした書籍と電子書籍リーダーからのコピーはここに保存されます。ここに置いた書籍は電子書籍リーダーに送信できます。</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>Kindle、Kindle for PC、および下の追加フォルダーの書籍はここにバックアップされます。</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>検索する追加フォルダー</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>まだありません。</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧のバックアップ</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>コレクションを Kobo 電子書籍リーダーに保存する前に、その書籍一覧のコピーがここに保管されます。</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>変更…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>追加…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>バックアップを移動しますか?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>以前のフォルダーに書籍一覧のバックアップが 1 件あります。新しいフォルダーに移動しますか? [いいえ] を選ぶと、そのまま残ります。</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>以前のフォルダーに書籍一覧のバックアップが {0} 件あります。新しいフォルダーに移動しますか? [いいえ] を選ぶと、そのまま残ります。</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>一部のバックアップを移動できませんでした: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧のバックアップの保存先を選択してください</value>
   </data>
 </root>

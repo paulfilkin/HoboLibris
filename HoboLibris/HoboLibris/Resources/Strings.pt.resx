@@ -83,7 +83,7 @@
     <value>Os seus dados</value>
   </data>
   <data name="About_DataText" xml:space="preserve">
-    <value>As definições, o início de sessão Kobo, a lista da biblioteca, os ficheiros de registo e as cópias de segurança da lista de livros do eReader são guardados nesta pasta. As cópias de segurança dos seus livros ficam nas pastas que escolher.</value>
+    <value>As definições, o início de sessão Kobo, a lista da biblioteca e os ficheiros de registo são guardados nesta pasta. As cópias de segurança dos seus livros e da lista de livros do eReader ficam nas pastas escolhidas em Definições.</value>
   </data>
   <data name="About_ProjectHeader" xml:space="preserve">
     <value>Projeto</value>
@@ -476,9 +476,6 @@ Se o Kindle só mostrar que está a carregar, experimente outra porta USB do com
   </data>
   <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
     <value>Eliminar as cópias de segurança e escolher se os livros também são removidos do eReader</value>
-  </data>
-  <data name="Kobo_SaveTo" xml:space="preserve">
-    <value>Guardar em…</value>
   </data>
   <data name="Kobo_SaveToHint" xml:space="preserve">
     <value>Escolha a pasta para os seus livros Kobo</value>
@@ -1029,10 +1026,58 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Kindle_SaveToHint" xml:space="preserve">
     <value>Escolha a pasta para os seus livros Kindle</value>
   </data>
-  <data name="Kindle_AddFolder" xml:space="preserve">
-    <value>Adicionar uma pasta a pesquisar…</value>
-  </data>
   <data name="Kindle_AddFolderHint" xml:space="preserve">
     <value>Para livros guardados noutro local, como uma pasta do Kindle for PC que tenha movido</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Definições</value>
+  </data>
+  <data name="Settings_BooksFolder" xml:space="preserve">
+    <value>Pasta dos livros</value>
+  </data>
+  <data name="Settings_KoboFolderHint" xml:space="preserve">
+    <value>As transferências da loja e as cópias do eReader são guardadas aqui, e os livros que colocar aqui podem ser enviados para o eReader.</value>
+  </data>
+  <data name="Settings_KindleFolderHint" xml:space="preserve">
+    <value>É aqui que ficam as cópias de segurança dos livros do Kindle, do Kindle for PC e das pastas adicionais abaixo.</value>
+  </data>
+  <data name="Settings_ExtraFolders" xml:space="preserve">
+    <value>Pastas adicionais onde procurar</value>
+  </data>
+  <data name="Settings_NoExtraFolders" xml:space="preserve">
+    <value>Nenhuma ainda.</value>
+  </data>
+  <data name="Settings_BackupsHeader" xml:space="preserve">
+    <value>Cópias de segurança da lista de livros do eReader</value>
+  </data>
+  <data name="Settings_BackupsHint" xml:space="preserve">
+    <value>Antes de as coleções serem guardadas no eReader Kobo, é guardada aqui uma cópia da respetiva lista de livros.</value>
+  </data>
+  <data name="Settings_Change" xml:space="preserve">
+    <value>Alterar…</value>
+  </data>
+  <data name="Settings_Add" xml:space="preserve">
+    <value>Adicionar…</value>
+  </data>
+  <data name="Settings_Remove" xml:space="preserve">
+    <value>Remover</value>
+  </data>
+  <data name="Settings_MoveBackupsTitle" xml:space="preserve">
+    <value>Mover as cópias de segurança?</value>
+  </data>
+  <data name="Settings_MoveBackupsOne" xml:space="preserve">
+    <value>Existe 1 cópia de segurança da lista de livros na pasta antiga. Movê-la para a nova pasta? Se escolher Não, fica onde está.</value>
+  </data>
+  <data name="Settings_MoveBackupsMany" xml:space="preserve">
+    <value>Existem {0} cópias de segurança da lista de livros na pasta antiga. Movê-las para a nova pasta? Se escolher Não, ficam onde estão.</value>
+  </data>
+  <data name="Settings_MoveBackupsFailed" xml:space="preserve">
+    <value>Não foi possível mover todas as cópias de segurança: {0}</value>
+  </data>
+  <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
+    <value>Escolha onde guardar as cópias de segurança da lista de livros do eReader</value>
   </data>
 </root>
