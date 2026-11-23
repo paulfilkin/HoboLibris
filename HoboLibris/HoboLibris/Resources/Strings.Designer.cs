@@ -2545,5 +2545,45 @@ namespace HoboLibris.Resources {
         public static string Asst_OllamaStopsHint {
             get { return ResourceManager.GetString("Asst_OllamaStopsHint", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Show email address.</summary>
+        public static string Main_ShowEmail {
+            get { return ResourceManager.GetString("Main_ShowEmail", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Hide email address.</summary>
+        public static string Main_HideEmail {
+            get { return ResourceManager.GetString("Main_HideEmail", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Resize.</summary>
+        public static string Layout_Resize {
+            get { return ResourceManager.GetString("Layout_Resize", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Drag to change the widths, or select it and use the arrow keys.</summary>
+        public static string Layout_ResizeTip {
+            get { return ResourceManager.GetString("Layout_ResizeTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Fold the Assistant to the edge.</summary>
+        public static string Asst_FoldTip {
+            get { return ResourceManager.GetString("Asst_FoldTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show the Assistant.</summary>
+        public static string Asst_Unfold {
+            get { return ResourceManager.GetString("Asst_Unfold", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Fold the list of collections to the edge.</summary>
+        public static string Coll_FoldList {
+            get { return ResourceManager.GetString("Coll_FoldList", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show the list of collections.</summary>
+        public static string Coll_UnfoldList {
+            get { return ResourceManager.GetString("Coll_UnfoldList", resourceCulture); }
+        }
     }
 }

@@ -1607,4 +1607,28 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama はウィンドウなしで実行されます。HoboLibris が起動した場合は、HoboLibris を閉じると停止します。それ以外の方法で起動した Ollama はそのまま実行されます。</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>メール アドレスを表示</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>メール アドレスを非表示</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>サイズ変更</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>ドラッグして幅を変更します。選択して方向キーでも変更できます</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>アシスタントを端に折りたたむ</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>アシスタントを表示</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>コレクションの一覧を端に折りたたむ</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>コレクションの一覧を表示</value>
+  </data>
 </root>

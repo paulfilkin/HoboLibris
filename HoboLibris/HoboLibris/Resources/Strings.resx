@@ -1607,4 +1607,28 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama runs with no window. If HoboLibris started it, it stops when HoboLibris closes. Ollama started any other way is left running.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>Show email address</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>Hide email address</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>Resize</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>Drag to change the widths, or select it and use the arrow keys</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>Fold the Assistant to the edge</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>Show the Assistant</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>Fold the list of collections to the edge</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>Show the list of collections</value>
+  </data>
 </root>

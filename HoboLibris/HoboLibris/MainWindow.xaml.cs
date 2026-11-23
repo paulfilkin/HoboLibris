@@ -59,11 +59,14 @@ namespace HoboLibris
             };
             ViewModel.Assistant.PropertyChanged += (_, e) =>
             {
-                if (e.PropertyName == nameof(AssistantViewModel.PaneVisible))
+                if (e.PropertyName is nameof(AssistantViewModel.PaneVisible) or nameof(AssistantViewModel.PaneFolded))
                 {
                     LayOutPane();
                 }
             };
+            _paneFold = new FoldColumn(PaneColumn, PaneSplitter, Pane, PaneStrip, PaneMinWidth, 900,
+                ViewModel.Assistant.PaneWidth, ViewModel.Assistant.PaneFolded);
+            _paneFold.WidthChanged += width => ViewModel.Assistant.PaneWidth = width;
             Pane.SettingsRequested += OpenSettings;
             DataContext = ViewModel;
             ThemeManager.Start(ViewModel.Theme);
@@ -84,21 +87,31 @@ namespace HoboLibris
             Closing += (_, _) => ViewModel.Assistant.Shutdown();
         }
 
-        /// <summary>The pane's column: its saved width when the pane is open, nothing when it is closed.</summary>
+        private const double PaneMinWidth = 300;
+        private const double ContentMinWidth = 520;
+        private readonly FoldColumn _paneFold;
+
+        /// <summary>The pane's column: its saved width when open, a strip when folded, nothing when closed.</summary>
         private void LayOutPane()
         {
             var assistant = ViewModel.Assistant!;
-            PaneColumn.MinWidth = assistant.PaneVisible ? 300 : 0;
-            PaneColumn.Width = assistant.PaneVisible ? new GridLength(assistant.PaneWidth) : new GridLength(0);
-            if (assistant.PaneVisible)
+            _paneFold.SetHidden(!assistant.PaneVisible);
+            _paneFold.SetFolded(assistant.PaneFolded);
+            _paneFold.Fit(Layout.ActualWidth, ContentMinWidth);
+            if (assistant.PaneVisible && !_paneFold.Folded)
             {
                 Pane.FocusInput();
             }
         }
 
-        private void PaneSplitter_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        /// <summary>A narrow window folds the pane to make room for the books; it opens again when there is room.</summary>
+        private void Layout_SizeChanged(object sender, SizeChangedEventArgs e) => _paneFold.Fit(e.NewSize.Width, ContentMinWidth);
+
+        private void PaneStrip_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.Assistant!.PaneWidth = PaneColumn.ActualWidth;
+            ViewModel.Assistant!.PaneFolded = false;
+            _paneFold.SetFolded(false);
+            Pane.FocusInput();
         }
 
         /// <summary>Save a picture of this window to a PNG after a few seconds, then close.</summary>
@@ -107,6 +120,8 @@ namespace HoboLibris
             if (assistant)
             {
                 // The pane with a sample exchange; the setting isn't saved, since nothing is kept in this mode.
+                // Wider, so the book list still fits beside the pane.
+                Width = Math.Max(Width, 1440);
                 ViewModel.Assistant!.ShowPaneWithoutSaving();
                 ViewModel.Assistant.Session.AddDemo();
             }

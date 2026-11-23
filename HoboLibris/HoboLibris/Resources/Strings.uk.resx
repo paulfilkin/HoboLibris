@@ -1581,4 +1581,28 @@
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama працює без вікна. Якщо його запустив HoboLibris, він зупиняється, коли HoboLibris закривається. Ollama, запущений інакше, продовжує працювати.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>Показати адресу електронної пошти</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>Сховати адресу електронної пошти</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>Змінити розмір</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>Перетягніть, щоб змінити ширину, або виберіть і скористайтеся клавішами зі стрілками</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>Згорнути Помічника до краю</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>Показати Помічника</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>Згорнути список колекцій до краю</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>Показати список колекцій</value>
+  </data>
 </root>

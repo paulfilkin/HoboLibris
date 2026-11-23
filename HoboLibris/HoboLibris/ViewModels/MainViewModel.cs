@@ -97,7 +97,7 @@ namespace HoboLibris.ViewModels
         private string _pasteLink = "";
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SignedIn), nameof(SignedInText), nameof(ShowSignedOutCard), nameof(ShowSignInBanner))]
+        [NotifyPropertyChangedFor(nameof(SignedIn), nameof(SignedInText), nameof(HasEmail), nameof(ShowSignedOutCard), nameof(ShowSignInBanner))]
         private bool _signedInFlag;
 
         [ObservableProperty]
@@ -121,7 +121,17 @@ namespace HoboLibris.ViewModels
         public bool KoboBusy => Downloading || Reader.Copying;
         public bool ShowSignedOutCard => !SignedIn && !ReaderConnected;
         public bool ShowSignInBanner => !SignedIn;
-        public string SignedInText => string.IsNullOrEmpty(Settings.Email) ? Strings.Main_SignedIn : string.Format(Strings.Main_SignedInAs, Settings.Email);
+        /// <summary>
+        /// The account's email address is hidden until the eye beside it is pressed: it needn't be on
+        /// screen all the time, or in screenshots.  Hidden again at every start.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(SignedInText), nameof(EmailToggleText))]
+        private bool _showEmail;
+
+        public bool HasEmail => !string.IsNullOrEmpty(Settings.Email);
+        public string SignedInText => !HasEmail || !ShowEmail ? Strings.Main_SignedIn : string.Format(Strings.Main_SignedInAs, Settings.Email);
+        public string EmailToggleText => ShowEmail ? Strings.Main_HideEmail : Strings.Main_ShowEmail;
         public string KoboFolder => Settings.DownloadDir;
         public string KindleFolder => Settings.KindleDir;
         public IReadOnlyList<string> KindleExtraFolders => Settings.KindleExtraDirs.ToList();

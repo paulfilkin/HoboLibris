@@ -1607,4 +1607,28 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_OllamaStopsHint" xml:space="preserve">
     <value>Ollama s'exécute sans fenêtre. S'il a été démarré par HoboLibris, il s'arrête à la fermeture de HoboLibris. Un Ollama démarré autrement continue de tourner.</value>
   </data>
+  <data name="Main_ShowEmail" xml:space="preserve">
+    <value>Afficher l'adresse e-mail</value>
+  </data>
+  <data name="Main_HideEmail" xml:space="preserve">
+    <value>Masquer l'adresse e-mail</value>
+  </data>
+  <data name="Layout_Resize" xml:space="preserve">
+    <value>Redimensionner</value>
+  </data>
+  <data name="Layout_ResizeTip" xml:space="preserve">
+    <value>Faites glisser pour changer les largeurs, ou sélectionnez-le et utilisez les touches fléchées</value>
+  </data>
+  <data name="Asst_FoldTip" xml:space="preserve">
+    <value>Replier l'Assistant sur le bord</value>
+  </data>
+  <data name="Asst_Unfold" xml:space="preserve">
+    <value>Afficher l'Assistant</value>
+  </data>
+  <data name="Coll_FoldList" xml:space="preserve">
+    <value>Replier la liste des collections sur le bord</value>
+  </data>
+  <data name="Coll_UnfoldList" xml:space="preserve">
+    <value>Afficher la liste des collections</value>
+  </data>
 </root>

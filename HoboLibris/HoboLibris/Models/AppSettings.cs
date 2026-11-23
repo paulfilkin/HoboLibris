@@ -65,6 +65,13 @@ namespace HoboLibris.Models
         [JsonPropertyName("theme")]
         public string Theme { get; set; } = "system";
 
+        /// <summary>The width of the Collections screen's list of collections, and whether it is folded to the edge.</summary>
+        [JsonPropertyName("collections_list_width")]
+        public double CollectionsListWidth { get; set; } = 300;
+
+        [JsonPropertyName("collections_list_folded")]
+        public bool CollectionsListFolded { get; set; }
+
         /// <summary>The Assistant: AI model, key, instructions, tool policies and the pane.</summary>
         [JsonPropertyName("assistant")]
         public AssistantSettings Assistant { get; set; } = new();
@@ -92,6 +99,8 @@ namespace HoboLibris.Models
             BookListBackupDir = BookListBackupDir,
             Theme = Theme,
             Assistant = Assistant,
+            CollectionsListWidth = CollectionsListWidth,
+            CollectionsListFolded = CollectionsListFolded,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,
             KoboAutoSend = KoboAutoSend,

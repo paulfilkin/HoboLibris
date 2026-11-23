@@ -10,7 +10,8 @@
 
 <p align="center">
   A Windows desktop app that keeps a copy of your Kobo and Kindle books on your computer,<br>
-  sorts your Kobo eReader into collections, and sends your own books to it.
+  sorts your Kobo eReader into collections, sends your own books to it,<br>
+  and has an Assistant that does it for you when you ask.
 </p>
 
 <p align="center">
@@ -35,13 +36,14 @@ HoboLibris puts all of that in one window that stays sharp on high-resolution sc
 - **Sorts your eReader into collections.**  See which collection each book is in, show only the books in none, then create, rename, move and remove in a proper window.  Nothing changes on the eReader until you save, and its book list is copied to your computer first.
 - **Sends your own books to the eReader.**  Books you put in your Kobo folder are checked: whether a Kobo can open them, whether they are damaged or copy-protected, and whether the eReader already has them.  Then they are copied across.  It can do this by itself each time the eReader is plugged in.
 - **Backs up your Kindle books.**  From a Kindle plugged in by USB, with or without a drive letter, from Kindle for PC, or from any folder you add.  Each book is copied unchanged, with its sidecar folder where it has one.
+- **Has an Assistant.**  Ask in plain words: "back up everything not yet saved", "sort my eReader into collections by subject", "find Middlemarch on Project Gutenberg".  It uses the AI model you choose, from Anthropic, OpenAI or one on your own computer such as Ollama, and works through the same screens, so you see what it did.  It finds free books on Project Gutenberg, Open Library and Google Books, and in your own OPDS catalogues such as Calibre, and downloads them into your Kobo folder.  Anything that writes to the eReader or deletes files waits for your approval, and your Kobo sign-in, tokens and email address are never sent to the model.
 - **Asks before removing anything.**  Deleted backups go to the Recycle Bin.  Nothing on the eReader is removed unless you tick the box that says so.
 - **Comes in 12 languages.**  English, German, French, Spanish, Italian, Portuguese, Japanese, Chinese, Korean, Arabic, Hebrew and Ukrainian, with right-to-left layout for Arabic and Hebrew.
 
 ## The screens
 
 <p align="center">
-  <img src="Docs/images/kobo-screen.png" alt="HoboLibris on the Kobo tab's Back up books screen: the toolbar with Refresh list, Back up all not yet saved and Open folder; the backup folder; search and sort; and the list of books with their author, format, where each came from, and a green In the folder or Saved beside each one">
+  <img src="Docs/images/kobo-screen.png" alt="HoboLibris on the Kobo tab's Back up books screen, with the Assistant pane open on the right. The list shows each book's title, author, format, where it came from and a green In the folder. In the pane, a request to find Middlemarch on Project Gutenberg, the search it ran, its reply, and a card asking to allow downloading the book into the Kobo folder, with Allow, Always allow and Decline">
 </p>
 
 | Screen | What it does |
@@ -50,6 +52,9 @@ HoboLibris puts all of that in one window that stays sharp on high-resolution sc
 | Kobo: Collections | Your eReader's collections and the books in each, changed here and saved in one go |
 | Kobo: Send to eReader | The books in your Kobo folder, whether each is ready to send, and why not when it isn't |
 | Kindle | The books on your Kindle, in Kindle for PC or in folders you add, and what is backed up |
+| Assistant | A pane beside every screen: ask in plain words, and approve what changes anything |
+
+Drag the divider between two panels to change their widths, or fold the Assistant or the list of collections to a strip at the edge.  HoboLibris remembers both, and folds the Assistant by itself when the window gets too narrow.
 
 ## Getting started
 
@@ -60,10 +65,11 @@ You need Windows 10 or 11, 64-bit.
 3. Press **Back up all not yet saved**.  The books go to `Documents\HoboLibris\Kobo`; to use another folder, change it first in **Settings** (the gear icon at the top right).
 4. Plug in your Kobo eReader and tap **Connect** on its screen.  The books you added to it join the list, and the **Collections** and **Send to eReader** screens can work with it.
 5. On the **Kindle** tab, plug in your Kindle.  If it doesn't appear, the tab says what Windows can see and what to do next.
+6. To use the Assistant, choose an AI model in **Settings**, under **AI model**: Anthropic or OpenAI with your API key, or a model on your computer, which needs no key.  For [Ollama](https://ollama.com), choose **OpenAI-compatible** and `http://localhost:11434/v1`.  HoboLibris can start Ollama for you, with no window, and stops it again when you close HoboLibris.  Then press the chat icon at the top right.
 
 The release also has a zip with just the program.  It needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
 
-HoboLibris keeps its settings, your Kobo sign-in and its logs in `%APPDATA%\HoboLibris`.  The copies of the eReader's book list it takes before saving collections go in `%APPDATA%\HoboLibris\Kobo book list backups` unless you choose another folder in **Settings**.  Uninstalling leaves all of them, and your books, where they are.
+HoboLibris keeps its settings, your Kobo sign-in and its logs in `%APPDATA%\HoboLibris`, and the Assistant's conversation and the Project Gutenberg catalogue in its `Assistant` folder.  API keys, catalogue sign-ins and the conversation are encrypted for your Windows account.  The copies of the eReader's book list it takes before saving collections go in `%APPDATA%\HoboLibris\Kobo book list backups` unless you choose another folder in **Settings**.  Uninstalling leaves all of them, and your books, where they are.
 
 ## From a terminal
 
@@ -72,6 +78,7 @@ HoboLibris keeps its settings, your Kobo sign-in and its logs in `%APPDATA%\Hobo
 | `--screenshot <file.png>` | Saves a picture of the main window after four seconds, then closes |
 | `--kindle`, `--send`, `--collections` | With `--screenshot`, shows that screen first |
 | `--theme light`, `--theme dark` | Shows HoboLibris light or dark for this run, whatever is chosen in Settings |
+| `--assistant` | With `--screenshot`, opens the Assistant pane with a sample exchange, in a wider window |
 
 ## Building from source
 
@@ -103,7 +110,7 @@ dotnet publish HoboLibris\HoboLibris\HoboLibris.csproj -c Release -r win-x64 --s
 & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" HoboLibris\HoboLibris.iss
 ```
 
-The solution is in `HoboLibris\`.  In the app, `Services\` holds the work with the store, the devices and the files, `ViewModels\` and `Views\` the screens, `Windows\` the dialogs, `Themes\` the colours and styles, and `Resources\` the text in each language.  `HoboLibris.Tests\` holds the unit tests, and `Tools\` the two string scripts.
+The solution is in `HoboLibris\`.  In the app, `Services\` holds the work with the store, the devices and the files, `Assistant\` the Assistant, its tools and the e-book sources, `ViewModels\` and `Views\` the screens, `Windows\` the dialogs, `Themes\` the colours and styles, and `Resources\` the text in each language.  `HoboLibris.Tests\` holds the unit tests, and `Tools\` the two string scripts.
 
 All text in the app is in `Resources\Strings.resx`, with one `Strings.<language>.resx` for each translation.  After adding or renaming a string, regenerate the strongly typed class, which the build does not do, and check the translations:
 
@@ -122,6 +129,8 @@ The app uses NLog, CommunityToolkit.Mvvm, Microsoft.Web.WebView2 for the Kobo si
 HoboLibris is at version 0.1.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
 
 Version 0.1.2 has been tried with a Kobo account and a Kobo eReader.  The store list refreshes from a saved sign-in, store books download, books copy from the eReader, and the Collections and Send to eReader screens read it.  Not yet tried on the rebuild: signing in from scratch, saving collections, sending books to the eReader, and the Kindle tab.
+
+The Assistant has been tried with a model on the same computer (Ollama with `qwen3:8b`): questions about the library, a Project Gutenberg search and download, and starting and stopping Ollama from Settings.  Not yet tried: Anthropic and OpenAI models, Google Books and OPDS catalogues.
 
 It runs on Windows only.  Bugs and ideas are welcome as [issues](https://github.com/paulfilkin/HoboLibris/issues/new/choose).
 
