@@ -107,15 +107,6 @@
     <value>Could not open the browser: {0}</value>
   </data>
   <!-- Language window -->
-  <data name="Language_Title" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="Language_SelectLanguage" xml:space="preserve">
-    <value>Choose a language</value>
-  </data>
-  <data name="Language_Subtitle" xml:space="preserve">
-    <value>HoboLibris restarts to show the new language.</value>
-  </data>
   <data name="Language_RestartPrompt" xml:space="preserve">
     <value>HoboLibris needs to restart to show the new language. Restart now?</value>
   </data>
