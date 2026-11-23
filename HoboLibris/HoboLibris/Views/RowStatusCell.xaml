@@ -1,0 +1,49 @@
+<UserControl x:Class="HoboLibris.Views.RowStatusCell"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:HoboLibris.Resources"
+             xmlns:h="clr-namespace:HoboLibris.Helpers"
+             xmlns:vm="clr-namespace:HoboLibris.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:BookRow}">
+    <UserControl.Resources>
+        <h:FractionToPercentConverter x:Key="FractionToPercent"/>
+        <h:NullToVisibilityConverter x:Key="NullToVisibility"/>
+    </UserControl.Resources>
+    <!-- The "On this computer" / "Backed up" cell: status text, progress, and the row's own buttons. -->
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+        <ProgressBar Style="{StaticResource ModernProgressBar}" Width="130" Minimum="0" Maximum="100" Margin="0,0,8,0"
+                     Value="{Binding Progress, Mode=OneWay, Converter={StaticResource FractionToPercent}}"
+                     Visibility="{Binding ShowProgress, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <TextBlock Text="{Binding StatusText}" ToolTip="{Binding StatusToolTip}" VerticalAlignment="Center" Margin="0,0,8,0"
+                   Visibility="{Binding StatusText, Converter={StaticResource NullToVisibility}}">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsGood}" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource SuccessBrush}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsFailed}" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource DangerBrush}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button Content="{x:Static res:Strings.Row_BackUp}" Style="{StaticResource SmallButton}"
+                Command="{Binding DataContext.BackUpRowCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                CommandParameter="{Binding}"
+                Visibility="{Binding ShowBackUp, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <Button Content="{x:Static res:Strings.Row_Again}" Style="{StaticResource SmallButton}" ToolTip="{x:Static res:Strings.Row_AgainTip}"
+                Command="{Binding DataContext.BackUpRowCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                CommandParameter="{Binding}"
+                Visibility="{Binding ShowAgain, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <Button Content="{x:Static res:Strings.Row_Copy}" Style="{StaticResource SmallButton}" ToolTip="{x:Static res:Strings.Row_CopyTip}"
+                Command="{Binding DataContext.BackUpRowCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                CommandParameter="{Binding}"
+                Visibility="{Binding ShowCopyAnyway, Converter={StaticResource BoolToVisibilityConverter}}"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Application -->
+  <data name="App_Title" xml:space="preserve">
+    <value>HoboLibris</value>
+  </data>
+  <!-- Menu -->
+  <data name="Menu_About" xml:space="preserve">
+    <value>バージョン情報</value>
+  </data>
+  <data name="Menu_Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <!-- About window -->
+  <data name="About_Title" xml:space="preserve">
+    <value>HoboLibris のバージョン情報</value>
+  </data>
+  <data name="About_Production" xml:space="preserve">
+    <value>multifarious 製作</value>
+  </data>
+  <data name="About_AboutHeader" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>HoboLibris は、Kobo と Kindle の書籍を保管、整理、同期します。Kobo アカウント、Kobo 電子書籍リーダー、Kindle にある書籍をこのコンピューターにバックアップし、電子書籍リーダーの書籍をコレクションに整理し、お手持ちの書籍を電子書籍リーダーに送信します。ファイルはそのままコピーされ、復号や変換は行われません。</value>
+  </data>
+  <data name="About_DataHeader" xml:space="preserve">
+    <value>データの保存先</value>
+  </data>
+  <data name="About_DataText" xml:space="preserve">
+    <value>設定、Kobo のサインイン情報、ライブラリの一覧、ログ ファイル、電子書籍リーダーの書籍一覧のバックアップは、このフォルダーに保存されます。バックアップした書籍は、選択したフォルダーに保存されます。</value>
+  </data>
+  <data name="About_SupportHeader" xml:space="preserve">
+    <value>サポート</value>
+  </data>
+  <data name="About_SupportText" xml:space="preserve">
+    <value>お困りですか? サポート Web サイトをご覧ください:</value>
+  </data>
+  <data name="About_SupportUrl" xml:space="preserve">
+    <value>multifarious.filkin.com/support</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>© {0} multifarious. All rights reserved.</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>バージョン {0}.{1}.{2}</value>
+  </data>
+  <data name="About_BrowserError" xml:space="preserve">
+    <value>ブラウザーを開けませんでした: {0}</value>
+  </data>
+  <!-- Language window -->
+  <data name="Language_Title" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Language_SelectLanguage" xml:space="preserve">
+    <value>言語を選択してください</value>
+  </data>
+  <data name="Language_Subtitle" xml:space="preserve">
+    <value>新しい言語を表示するために HoboLibris が再起動します。</value>
+  </data>
+  <data name="Language_RestartPrompt" xml:space="preserve">
+    <value>新しい言語を表示するには HoboLibris を再起動する必要があります。今すぐ再起動しますか?</value>
+  </data>
+  <data name="Language_RestartTitle" xml:space="preserve">
+    <value>HoboLibris を再起動しますか?</value>
+  </data>
+  <!-- Common -->
+  <data name="Common_Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <!-- Errors -->
+  <data name="Error_Critical" xml:space="preserve">
+    <value>重大な問題が発生したため、HoboLibris を終了する必要があります:
+
+{0}</value>
+  </data>
+  <data name="Error_CriticalTitle" xml:space="preserve">
+    <value>HoboLibris を終了する必要があります</value>
+  </data>
+  <data name="Error_Unexpected" xml:space="preserve">
+    <value>問題が発生しました:
+
+{0}</value>
+  </data>
+  <!-- Kobo store -->
+  <data name="Store_ServerAnswered" xml:space="preserve">
+    <value>Kobo サーバーが {0} を返しました。{1}</value>
+  </data>
+  <data name="Store_CouldNotReach" xml:space="preserve">
+    <value>Kobo サーバーに接続できませんでした: {0}</value>
+  </data>
+  <data name="Store_UnexpectedSignInReply" xml:space="preserve">
+    <value>予期しないサインイン応答です: {0}</value>
+  </data>
+  <data name="Store_NoAccessToken" xml:space="preserve">
+    <value>Kobo サーバーからアクセス トークンが返されませんでした。</value>
+  </data>
+  <data name="Store_SignInExpired" xml:space="preserve">
+    <value>サインインの有効期限が切れました。もう一度サインインしてください。</value>
+  </data>
+  <data name="Store_UnexpectedStartupReply" xml:space="preserve">
+    <value>予期しない起動時の応答です: {0}</value>
+  </data>
+  <data name="Store_NoSignInPage" xml:space="preserve">
+    <value>Kobo サーバーからサインイン ページが返されませんでした。</value>
+  </data>
+  <data name="Store_NotASignInLink" xml:space="preserve">
+    <value>これはサインイン リンクではありません。</value>
+  </data>
+  <data name="Store_LinkHasNoUserKey" xml:space="preserve">
+    <value>サインイン リンクにユーザー キーが含まれていません。</value>
+  </data>
+  <data name="Store_UnexpectedLibraryReply" xml:space="preserve">
+    <value>予期しないライブラリ応答です: {0}</value>
+  </data>
+  <data name="Store_NoDownload" xml:space="preserve">
+    <value>この書籍はダウンロードできません。</value>
+  </data>
+  <data name="Store_CouldNotCreateFolder" xml:space="preserve">
+    <value>フォルダーを作成できませんでした: {0}</value>
+  </data>
+  <data name="Store_CouldNotWriteFile" xml:space="preserve">
+    <value>ファイルを書き込めませんでした: {0}</value>
+  </data>
+  <data name="Store_DownloadInterrupted" xml:space="preserve">
+    <value>ダウンロードが中断されました: {0}</value>
+  </data>
+  <data name="Store_DownloadEmpty" xml:space="preserve">
+    <value>ダウンロードしたデータが空でした。</value>
+  </data>
+  <data name="Store_CouldNotSaveFile" xml:space="preserve">
+    <value>ファイルを保存できませんでした: {0}</value>
+  </data>
+  <data name="Store_Untitled" xml:space="preserve">
+    <value>無題</value>
+  </data>
+  <!-- Kobo eReader -->
+  <data name="Reader_Origin" xml:space="preserve">
+    <value>Kobo 電子書籍リーダー ({0})</value>
+  </data>
+  <data name="Reader_Duplicate" xml:space="preserve">
+    <value>Kobo ストアの一覧にもあります</value>
+  </data>
+  <data name="Reader_Note_Connect" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを開くには:
+1.  USB ケーブルでこのコンピューターに接続します (ハブを経由せず、コンピューターに直接接続してください)。
+2.  スリープを解除します。コンピューターに接続するかどうか確認されたら、画面の [Connect] をタップします。
+3.  書籍が自動的にここに表示されます。
+充電が始まるだけで確認が表示されない場合は、いったん取り外してからもう一度接続するか、別の USB ポートをお試しください。</value>
+  </data>
+  <!-- Collections -->
+  <data name="Coll_BookListNotFound" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーの書籍一覧が見つかりませんでした。まだ接続されていますか?</value>
+  </data>
+  <data name="Coll_CouldNotOpen" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧を開けませんでした: {0}</value>
+  </data>
+  <data name="Coll_CouldNotRead" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧を読み取れませんでした: {0}</value>
+  </data>
+  <data name="Coll_TypeNameFirst" xml:space="preserve">
+    <value>先にコレクションの名前を入力してください。</value>
+  </data>
+  <data name="Coll_AlreadyExists" xml:space="preserve">
+    <value>「{0}」というコレクションは既に存在します。</value>
+  </data>
+  <data name="Coll_TypeNewNameFirst" xml:space="preserve">
+    <value>先に新しい名前を入力してください。</value>
+  </data>
+  <data name="Coll_NoLongerExists" xml:space="preserve">
+    <value>そのコレクションは既に存在しません。</value>
+  </data>
+  <data name="Coll_NoChanges" xml:space="preserve">
+    <value>保存する変更はありません。</value>
+  </data>
+  <data name="Coll_ReaderGone" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが接続されていません。もう一度接続して [再読み込み] を押してください。</value>
+  </data>
+  <data name="Coll_ListChanged" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧が読み取り後に変更されました。[再読み込み] を押して、もう一度変更を行ってください。</value>
+  </data>
+  <data name="Coll_CouldNotCreateBackupFolder" xml:space="preserve">
+    <value>バックアップ フォルダーを作成できませんでした: {0}</value>
+  </data>
+  <data name="Coll_CouldNotBackUp" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧をバックアップできませんでした: {0}</value>
+  </data>
+  <data name="Coll_CouldNotOpenForWriting" xml:space="preserve">
+    <value>電子書籍リーダーの書籍一覧を書き込み用に開けませんでした: {0}</value>
+  </data>
+  <data name="Coll_CouldNotSave" xml:space="preserve">
+    <value>コレクションを保存できませんでした: {0}</value>
+  </data>
+  <!-- Send to eReader -->
+  <data name="Send_Verdict_Ready" xml:space="preserve">
+    <value>送信可能</value>
+  </data>
+  <data name="Send_Verdict_OnReader" xml:space="preserve">
+    <value>電子書籍リーダーにあります</value>
+  </data>
+  <data name="Send_Verdict_StoreBook" xml:space="preserve">
+    <value>Kobo ストアの書籍</value>
+  </data>
+  <data name="Send_Verdict_Protected" xml:space="preserve">
+    <value>保護されています</value>
+  </data>
+  <data name="Send_Verdict_NotKobo" xml:space="preserve">
+    <value>Kobo では開けません</value>
+  </data>
+  <data name="Send_Verdict_Unchecked" xml:space="preserve">
+    <value>確認するには電子書籍リーダーを接続してください</value>
+  </data>
+  <data name="Send_Why_Ready" xml:space="preserve">
+    <value>まだ電子書籍リーダーになく、Kobo で開ける形式です。</value>
+  </data>
+  <data name="Send_Why_OnReader" xml:space="preserve">
+    <value>この書籍は既に電子書籍リーダーにあります。</value>
+  </data>
+  <data name="Send_Why_StoreBook" xml:space="preserve">
+    <value>Kobo ストアで購入した書籍です。電子書籍リーダーは Kobo アカウントから取得します。</value>
+  </data>
+  <data name="Send_Why_Unchecked" xml:space="preserve">
+    <value>Kobo で開けます。既に電子書籍リーダーにあるかどうかを確認するには、電子書籍リーダーを接続してください。</value>
+  </data>
+  <data name="Send_FileCouldNotBeOpened" xml:space="preserve">
+    <value>ファイルを開けませんでした。</value>
+  </data>
+  <data name="Send_DamagedEpubNotZip" xml:space="preserve">
+    <value>破損した EPUB: 読み取り可能な EPUB ファイルではありません。</value>
+  </data>
+  <data name="Send_DamagedEpubNoContainer" xml:space="preserve">
+    <value>破損した EPUB: 目次ファイルがありません。</value>
+  </data>
+  <data name="Send_AdobeProtected" xml:space="preserve">
+    <value>Adobe のコピー保護: 書籍の購入に使用した Adobe ID を電子書籍リーダーが使用している場合にのみ、電子書籍リーダーで開けます。</value>
+  </data>
+  <data name="Send_DamagedPdf" xml:space="preserve">
+    <value>破損した PDF: PDF ファイルの形式で始まっていません。</value>
+  </data>
+  <data name="Send_DamagedMobi" xml:space="preserve">
+    <value>破損した MOBI ファイルです。</value>
+  </data>
+  <data name="Send_KindleProtected" xml:space="preserve">
+    <value>Kindle のコピー保護: Kobo 電子書籍リーダーでは開けません。</value>
+  </data>
+  <data name="Send_AcsmTicket" xml:space="preserve">
+    <value>これは Adobe Digital Editions 用のダウンロード チケットであり、書籍そのものではありません。</value>
+  </data>
+  <data name="Send_KoboDoesNotOpen" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーでは {0} ファイルを開けません。</value>
+  </data>
+  <data name="Send_CouldNotCreateBooksFolder" xml:space="preserve">
+    <value>電子書籍リーダーに Books フォルダーを作成できませんでした: {0}</value>
+  </data>
+  <data name="Send_AlreadyOnReader" xml:space="preserve">
+    <value>同じ名前のファイルが既に電子書籍リーダーの Books フォルダーにあります。</value>
+  </data>
+  <data name="Send_CouldNotReadBook" xml:space="preserve">
+    <value>書籍を読み取れませんでした: {0}</value>
+  </data>
+  <data name="Send_CouldNotWriteToReader" xml:space="preserve">
+    <value>電子書籍リーダーに書き込めませんでした: {0}</value>
+  </data>
+  <data name="Send_CouldNotFinishCopy" xml:space="preserve">
+    <value>電子書籍リーダーへのコピーを完了できませんでした: {0}</value>
+  </data>
+  <!-- Kindle -->
+  <data name="Kindle_Origin_Drive" xml:space="preserve">
+    <value>Kindle ({0})</value>
+  </data>
+  <data name="Kindle_Origin_ForPc" xml:space="preserve">
+    <value>Kindle for PC</value>
+  </data>
+  <data name="Kindle_Origin_Folder" xml:space="preserve">
+    <value>フォルダー {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCreateFolder" xml:space="preserve">
+    <value>フォルダーを作成できませんでした: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyBook" xml:space="preserve">
+    <value>書籍をコピーできませんでした: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyExtraFiles" xml:space="preserve">
+    <value>書籍の追加ファイルをコピーできませんでした: {0}</value>
+  </data>
+  <data name="Kindle_NoBackupFolder" xml:space="preserve">
+    <value>バックアップ フォルダーがありません。</value>
+  </data>
+  <data name="Kindle_NoLongerConnected" xml:space="preserve">
+    <value>Kindle が接続されていません。</value>
+  </data>
+  <data name="Kindle_FolderNotFound" xml:space="preserve">
+    <value>Kindle にフォルダーが見つかりません: {0}</value>
+  </data>
+  <data name="Kindle_BookNoLongerOnKindle" xml:space="preserve">
+    <value>この書籍は Kindle にはもうありません。</value>
+  </data>
+  <data name="Kindle_CopyTookTooLong" xml:space="preserve">
+    <value>Kindle からのコピーに時間がかかりすぎました。</value>
+  </data>
+  <data name="Kindle_Note_NotSeen" xml:space="preserve">
+    <value>Windows が Kindle を認識できません。Kindle のスリープを解除してから、別の USB ポートまたは別のケーブルをお試しください (充電専用のケーブルもあります)。</value>
+  </data>
+  <data name="Kindle_Note_StorageClosed" xml:space="preserve">
+    <value>Kindle は接続されていてケーブルもデータ転送に対応していますが、Kindle がストレージを開放していないため、Windows には空のドライブとして表示されています。取り出しの一覧に表示されないのもこのためです。そのまま取り外して構いません。
+開くには:
+1.  Kindle を取り外します。
+2.  Kindle を再起動します: 画面が消えるまで電源ボタンを約 40 秒間長押しし、指を離して起動するまで待ちます (または [設定]、[端末オプション]、[再起動] の順に選択します)。
+3.  ケーブルをハブ、キーボード、モニターではなく、このコンピューターに直接接続します。
+4.  Kindle の画面には触れないでください。画面が「USB Drive Mode」またはコンピューターの絵に切り替わり、書籍が自動的にここに表示されます。
+Kindle に充電中と表示されるだけの場合は、コンピューターの別の USB ポートをお試しください。</value>
+  </data>
+  <data name="Kindle_Note_Seen" xml:space="preserve">
+    <value>Windows は Kindle を認識していますが、書籍をまだ開けません。Kindle のロックを解除するか、いったん取り外してからもう一度接続してください。</value>
+  </data>
+  <!-- Main window -->
+  <data name="Main_Kobo" xml:space="preserve">
+    <value>Kobo</value>
+  </data>
+  <data name="Main_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Main_SignedIn" xml:space="preserve">
+    <value>サインイン済み</value>
+  </data>
+  <data name="Main_SignedInAs" xml:space="preserve">
+    <value>{0} としてサインイン済み</value>
+  </data>
+  <data name="Main_SignOut" xml:space="preserve">
+    <value>サインアウト</value>
+  </data>
+  <data name="Common_Dismiss" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <!-- Welcome card (signed out, no eReader) -->
+  <data name="Welcome_Heading" xml:space="preserve">
+    <value>書籍のコピーを手元に保管</value>
+  </data>
+  <data name="Welcome_Text1" xml:space="preserve">
+    <value>Kobo アカウントにサインインすると、購入した書籍を確認してこのコンピューターに保存できます。</value>
+  </data>
+  <data name="Welcome_Text2" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに自分で追加した書籍も、接続するとここに表示されます。</value>
+  </data>
+  <data name="Welcome_SignIn" xml:space="preserve">
+    <value>サインイン</value>
+  </data>
+  <data name="Welcome_DidntComeBack" xml:space="preserve">
+    <value>サインイン ウィンドウが戻ってきませんか?</value>
+  </data>
+  <data name="Welcome_PasteHint" xml:space="preserve">
+    <value>kobo://UserAuthenticated で始まるアドレスをここに貼り付けてください:</value>
+  </data>
+  <data name="Welcome_UseLink" xml:space="preserve">
+    <value>このリンクを使用</value>
+  </data>
+  <!-- Sign-in window -->
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Kobo アカウントにサインイン</value>
+  </data>
+  <data name="SignIn_Note" xml:space="preserve">
+    <value>Kobo アカウントでサインインしてください。Kobo から HoboLibris に戻ると、このウィンドウは自動的に閉じます。</value>
+  </data>
+  <data name="SignIn_WebViewMissing" xml:space="preserve">
+    <value>サインイン ページには、Windows 10 および 11 に含まれる Microsoft Edge WebView2 ランタイムが必要です。このコンピューターでは起動できませんでした。Microsoft からインストールしてから、もう一度お試しください。</value>
+  </data>
+  <data name="SignIn_WebViewLink" xml:space="preserve">
+    <value>Microsoft から WebView2 ランタイムを入手</value>
+  </data>
+  <!-- Kobo tab -->
+  <data name="Kobo_BackUpTab" xml:space="preserve">
+    <value>書籍のバックアップ</value>
+  </data>
+  <data name="Kobo_CollectionsTab" xml:space="preserve">
+    <value>コレクション</value>
+  </data>
+  <data name="Kobo_CollectionsTabTip" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーの書籍をコレクションに整理します</value>
+  </data>
+  <data name="Kobo_SendTab" xml:space="preserve">
+    <value>電子書籍リーダーに送信</value>
+  </data>
+  <data name="Kobo_SendTabCount" xml:space="preserve">
+    <value>電子書籍リーダーに送信 ({0})</value>
+  </data>
+  <data name="Kobo_SendTabTip" xml:space="preserve">
+    <value>Kobo フォルダーに自分で入れた書籍を電子書籍リーダーにコピーします</value>
+  </data>
+  <data name="Kobo_PlugInNote" xml:space="preserve">
+    <value>自分で追加した書籍もバックアップするには、Kobo 電子書籍リーダーを接続して画面の [Connect] をタップしてください。それまでは、Kobo フォルダーの書籍は「このコンピューター」として表示されます。</value>
+  </data>
+  <data name="Kobo_ReaderEjectedNote" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを取り出しました。自分で追加した書籍をバックアップするには、もう一度接続してください。</value>
+  </data>
+  <data name="Kobo_SignInBanner" xml:space="preserve">
+    <value>Kobo ストアで購入した書籍もバックアップするには、Kobo アカウントにサインインしてください。</value>
+  </data>
+  <data name="Kobo_SignIn" xml:space="preserve">
+    <value>サインイン</value>
+  </data>
+  <data name="Kobo_OneBookWaiting" xml:space="preserve">
+    <value>Kobo フォルダーの 1 冊の書籍がまだ電子書籍リーダーにありません。</value>
+  </data>
+  <data name="Kobo_BooksWaiting" xml:space="preserve">
+    <value>Kobo フォルダーの {0} 冊の書籍がまだ電子書籍リーダーにありません。</value>
+  </data>
+  <data name="Kobo_SeeAndSend" xml:space="preserve">
+    <value>確認して送信…</value>
+  </data>
+  <data name="Kobo_ReaderConnectedNote" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが接続されています。自分で追加した書籍も一覧に含まれています。バックアップ中は接続したままにしてください。</value>
+  </data>
+  <data name="Kobo_EjectReader" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを取り出す</value>
+  </data>
+  <data name="Kobo_EjectReaderHint" xml:space="preserve">
+    <value>電子書籍リーダーを安全に取り外して、読書と充電を再開できるようにします</value>
+  </data>
+  <data name="Kobo_RefreshList" xml:space="preserve">
+    <value>一覧を更新</value>
+  </data>
+  <data name="Kobo_RefreshListHint" xml:space="preserve">
+    <value>Kobo アカウントと電子書籍リーダーから最新の一覧を取得します</value>
+  </data>
+  <data name="Kobo_BackUpAll" xml:space="preserve">
+    <value>未保存をすべてバックアップ ({0})</value>
+  </data>
+  <data name="Kobo_BackUpSelected" xml:space="preserve">
+    <value>選択項目をバックアップ ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelected" xml:space="preserve">
+    <value>選択項目を削除 ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
+    <value>バックアップ コピーを削除し、電子書籍リーダーからも書籍を削除するかどうかを選択します</value>
+  </data>
+  <data name="Kobo_SaveTo" xml:space="preserve">
+    <value>保存先…</value>
+  </data>
+  <data name="Kobo_SaveToHint" xml:space="preserve">
+    <value>Kobo の書籍を保存するフォルダーを選択します</value>
+  </data>
+  <data name="Kobo_OpenFolder" xml:space="preserve">
+    <value>フォルダーを開く</value>
+  </data>
+  <data name="Kobo_FolderLabel" xml:space="preserve">
+    <value>フォルダー:</value>
+  </data>
+  <data name="Kobo_SearchHint" xml:space="preserve">
+    <value>タイトルまたは著者を検索</value>
+  </data>
+  <data name="Kobo_SortBy" xml:space="preserve">
+    <value>並べ替え</value>
+  </data>
+  <data name="Kobo_SortTitle" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="Kobo_SortAuthor" xml:space="preserve">
+    <value>著者</value>
+  </data>
+  <data name="Kobo_NoBooksYet" xml:space="preserve">
+    <value>書籍はまだありません。[一覧を更新] を押してください。</value>
+  </data>
+  <data name="List_NoMatch" xml:space="preserve">
+    <value>一致する書籍はありません。</value>
+  </data>
+  <!-- Columns -->
+  <data name="Col_Title" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="Col_Author" xml:space="preserve">
+    <value>著者</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>形式</value>
+  </data>
+  <data name="Col_From" xml:space="preserve">
+    <value>入手元</value>
+  </data>
+  <data name="Col_FromTip" xml:space="preserve">
+    <value>ストア: Kobo ストアで購入し、アカウントからダウンロードした書籍。保護されたストアの書籍は Kobo から配信されたままの形で保存され、Kobo または Adobe の読書アプリでのみ開けます。
+電子書籍リーダー: Kobo 電子書籍リーダーに自分で追加し、そこからコピーした書籍。
+このコンピューター: Kobo フォルダーにあるものの、ストアの一覧にも接続中の電子書籍リーダーにもない書籍。</value>
+  </data>
+  <data name="Col_OnThisComputer" xml:space="preserve">
+    <value>このコンピューター</value>
+  </data>
+  <data name="Col_SelectAll" xml:space="preserve">
+    <value>表示中をすべて選択</value>
+  </data>
+  <data name="Col_FoundOn" xml:space="preserve">
+    <value>検出場所</value>
+  </data>
+  <data name="Col_BackedUp" xml:space="preserve">
+    <value>バックアップ済み</value>
+  </data>
+  <data name="Col_BookFile" xml:space="preserve">
+    <value>書籍ファイル</value>
+  </data>
+  <data name="Col_OnReader" xml:space="preserve">
+    <value>電子書籍リーダー上</value>
+  </data>
+  <data name="Col_Collections" xml:space="preserve">
+    <value>コレクション</value>
+  </data>
+  <!-- List rows -->
+  <data name="Row_From_Store" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="Row_From_StoreProtected" xml:space="preserve">
+    <value>ストア · 保護</value>
+  </data>
+  <data name="Row_From_Reader" xml:space="preserve">
+    <value>電子書籍リーダー</value>
+  </data>
+  <data name="Row_From_Computer" xml:space="preserve">
+    <value>このコンピューター</value>
+  </data>
+  <data name="Row_From_StoreTip" xml:space="preserve">
+    <value>Kobo ストアで購入し、アカウントからダウンロードしました。</value>
+  </data>
+  <data name="Row_From_ReaderTip" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに自分で追加し、そこからコピーしました。</value>
+  </data>
+  <data name="Row_From_ComputerTip" xml:space="preserve">
+    <value>Kobo フォルダーにありますが、Kobo ストアの一覧にも接続中の電子書籍リーダーにもありません。電子書籍リーダーにあるかどうかを確認するには電子書籍リーダーを接続するか、[電子書籍リーダーに送信] を使用してください。</value>
+  </data>
+  <data name="Row_Waiting" xml:space="preserve">
+    <value>待機中…</value>
+  </data>
+  <data name="Row_Failed" xml:space="preserve">
+    <value>失敗</value>
+  </data>
+  <data name="Row_InTheFolder" xml:space="preserve">
+    <value>✔ フォルダーにあります</value>
+  </data>
+  <data name="Row_Saved" xml:space="preserve">
+    <value>✔ 保存済み</value>
+  </data>
+  <data name="Row_SameAsStore" xml:space="preserve">
+    <value>ストアの書籍と同じ</value>
+  </data>
+  <data name="Row_SameAsStoreTip" xml:space="preserve">
+    <value>この書籍は Kobo ストアの一覧にもあるため、「未保存をすべてバックアップ」ではストアのコピーを保存し、こちらはスキップします。ボタンを使えばこちらもコピーできます。</value>
+  </data>
+  <data name="Row_FromStore" xml:space="preserve">
+    <value>✔ ストアから</value>
+  </data>
+  <data name="Row_FromStoreTip" xml:space="preserve">
+    <value>{0}。そのため、「未保存をすべてバックアップ」の対象外です。ボタンを使えばコピーできます。</value>
+  </data>
+  <data name="Row_NotDownloadable" xml:space="preserve">
+    <value>ダウンロード不可</value>
+  </data>
+  <data name="Row_BackUp" xml:space="preserve">
+    <value>バックアップ</value>
+  </data>
+  <data name="Row_Again" xml:space="preserve">
+    <value>再実行</value>
+  </data>
+  <data name="Row_AgainTip" xml:space="preserve">
+    <value>もう一度コピーまたはダウンロードします</value>
+  </data>
+  <data name="Row_Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Row_CopyTip" xml:space="preserve">
+    <value>それでもコピーします</value>
+  </data>
+  <!-- Progress -->
+  <data name="Progress_BackingUp" xml:space="preserve">
+    <value>バックアップ中</value>
+  </data>
+  <data name="Progress_Sending" xml:space="preserve">
+    <value>送信中</value>
+  </data>
+  <data name="Progress_AllFinished" xml:space="preserve">
+    <value>{0}: {1} 冊すべて完了</value>
+  </data>
+  <data name="Progress_BookOf" xml:space="preserve">
+    <value>{0}: {2} 冊中 {1} 冊目   ·   {3}% 完了</value>
+  </data>
+  <!-- Status line -->
+  <data name="Status_LookingFor" xml:space="preserve">
+    <value>{0} の書籍を検索しています...</value>
+  </data>
+  <data name="Status_BooksFound" xml:space="preserve">
+    <value>{1} の書籍が {0} 冊見つかりました。</value>
+  </data>
+  <data name="Status_WaitForCopies" xml:space="preserve">
+    <value>現在のコピーが完了するまでお待ちください。</value>
+  </data>
+  <data name="Status_BackingUpBooks" xml:space="preserve">
+    <value>{1} の書籍 {0} 冊をバックアップしています...</value>
+  </data>
+  <data name="Status_DoneBackedUp" xml:space="preserve">
+    <value>完了。{2} の書籍 {1} 冊中 {0} 冊をバックアップしました。</value>
+  </data>
+  <data name="Status_FinishedWithFailures" xml:space="preserve">
+    <value>完了しましたが、{0} 件のコピーに失敗しました。理由を確認するには「失敗」にマウス ポインターを合わせてください。</value>
+  </data>
+  <data name="Status_Ejecting" xml:space="preserve">
+    <value>{0} を取り出しています...</value>
+  </data>
+  <data name="Status_CouldNotEject" xml:space="preserve">
+    <value>{0} を取り出せませんでした: {1}</value>
+  </data>
+  <data name="Status_Ejected" xml:space="preserve">
+    <value>{0} を取り出しました。取り外すことができます。</value>
+  </data>
+  <data name="Status_SendingBooks" xml:space="preserve">
+    <value>{0} 冊の書籍を Kobo 電子書籍リーダーに送信しています...</value>
+  </data>
+  <data name="Status_SentBooks" xml:space="preserve">
+    <value>{0} 冊の書籍を Kobo 電子書籍リーダーに送信しました。ライブラリに追加するには取り出してください。</value>
+  </data>
+  <data name="Status_SentWithFailures" xml:space="preserve">
+    <value>{0} 冊を送信しました。{1} 冊は失敗しました。理由を確認するには「失敗」にマウス ポインターを合わせてください。</value>
+  </data>
+  <data name="Status_BooksAndCollections" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに {0} 冊の書籍と {1} 個のコレクションがあります。</value>
+  </data>
+  <data name="Status_CollectionsSaved" xml:space="preserve">
+    <value>コレクションを保存しました。電子書籍リーダーの書籍一覧は先に次の場所にコピーされました: {0}</value>
+  </data>
+  <data name="Status_SignedInRefresh" xml:space="preserve">
+    <value>サインインしました。書籍を読み込むには [一覧を更新] を押してください。</value>
+  </data>
+  <data name="Status_OpeningSignIn" xml:space="preserve">
+    <value>Kobo のサインイン ウィンドウを開いています...</value>
+  </data>
+  <data name="Status_SignInInWindow" xml:space="preserve">
+    <value>開いたウィンドウで Kobo アカウントにサインインしてください。</value>
+  </data>
+  <data name="Status_SignInClosed" xml:space="preserve">
+    <value>サインインが完了する前にウィンドウが閉じられました。</value>
+  </data>
+  <data name="Status_ConnectingAccount" xml:space="preserve">
+    <value>サインインしました。このコンピューターをアカウントに接続しています...</value>
+  </data>
+  <data name="Status_SignedOut" xml:space="preserve">
+    <value>サインアウトしました。</value>
+  </data>
+  <data name="Status_LoadingLibrary" xml:space="preserve">
+    <value>ライブラリを読み込んでいます...</value>
+  </data>
+  <data name="Status_LoadingLibraryCount" xml:space="preserve">
+    <value>ライブラリを読み込んでいます... これまでに {0} 冊</value>
+  </data>
+  <data name="Status_WaitForDownloads" xml:space="preserve">
+    <value>現在のダウンロードが完了するまでお待ちください。</value>
+  </data>
+  <data name="Status_DownloadingBooks" xml:space="preserve">
+    <value>{0} 冊の書籍をダウンロードしています...</value>
+  </data>
+  <data name="Status_DoneStoreSaved" xml:space="preserve">
+    <value>完了。Kobo ストアの書籍 {1} 冊中 {0} 冊を保存しました。</value>
+  </data>
+  <data name="Status_FinishedWithFailedDownloads" xml:space="preserve">
+    <value>完了しましたが、{0} 件のダウンロードに失敗しました。理由を確認するには「失敗」にマウス ポインターを合わせてください。</value>
+  </data>
+  <!-- Summary (status line when nothing else is happening) -->
+  <data name="Summary_OneBook" xml:space="preserve">
+    <value>1 冊</value>
+  </data>
+  <data name="Summary_Books" xml:space="preserve">
+    <value>{0} 冊</value>
+  </data>
+  <data name="Summary_OneDeviceBook" xml:space="preserve">
+    <value>{0} の書籍が 1 冊見つかりました。</value>
+  </data>
+  <data name="Summary_DeviceBooks" xml:space="preserve">
+    <value>{1} の書籍が {0} 冊見つかりました。</value>
+  </data>
+  <data name="Summary_FromStore" xml:space="preserve">
+    <value>Kobo ストアから {0} 冊</value>
+  </data>
+  <data name="Summary_OnReader" xml:space="preserve">
+    <value>電子書籍リーダーに {0} 冊</value>
+  </data>
+  <data name="Summary_OnlyOnComputer" xml:space="preserve">
+    <value>このコンピューターのみに {0} 冊</value>
+  </data>
+  <data name="Summary_LibraryWithParts" xml:space="preserve">
+    <value>ライブラリに {0} あります: {1}。</value>
+  </data>
+  <data name="Summary_Library" xml:space="preserve">
+    <value>ライブラリに {0} あります。</value>
+  </data>
+  <!-- Devices -->
+  <data name="Device_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Device_KoboReader" xml:space="preserve">
+    <value>Kobo 電子書籍リーダー</value>
+  </data>
+  <data name="Device_Eject" xml:space="preserve">
+    <value>{0} を取り出す</value>
+  </data>
+  <data name="Device_EjectHint" xml:space="preserve">
+    <value>{0} を安全に取り外して、読書と充電を再開できるようにします</value>
+  </data>
+  <data name="Device_EjectWait" xml:space="preserve">
+    <value>先にバックアップの完了をお待ちください</value>
+  </data>
+  <data name="Device_EjectedHeading" xml:space="preserve">
+    <value>{0} を取り出しました</value>
+  </data>
+  <data name="Device_NoneFoundYet" xml:space="preserve">
+    <value>{0} はまだ見つかりません</value>
+  </data>
+  <data name="Device_EjectedText" xml:space="preserve">
+    <value>{0} を取り出しました。取り外して読書を続けることができます。
+さらに書籍をバックアップするには、もう一度接続してください。書籍は自動的にここに表示されます。</value>
+  </data>
+  <data name="Device_PlugIn" xml:space="preserve">
+    <value>{0} を USB ケーブルで接続し、ロックを解除してください。</value>
+  </data>
+  <data name="Device_CheckingAgain" xml:space="preserve">
+    <value>数秒ごとに再確認しています…</value>
+  </data>
+  <data name="Device_Looking" xml:space="preserve">
+    <value>{0} の書籍を検索しています…</value>
+  </data>
+  <data name="Device_NoBooks" xml:space="preserve">
+    <value>{0} の書籍が見つかりません。</value>
+  </data>
+  <!-- Folder dialogs -->
+  <data name="Dialog_ChooseKoboFolder" xml:space="preserve">
+    <value>Kobo の書籍の保存先を選択してください</value>
+  </data>
+  <data name="Dialog_ChooseKindleFolder" xml:space="preserve">
+    <value>Kindle の書籍の保存先を選択してください</value>
+  </data>
+  <data name="Dialog_ChooseKindleSearchFolder" xml:space="preserve">
+    <value>Kindle の書籍が入っているフォルダーを選択してください</value>
+  </data>
+  <!-- Delete selected -->
+  <data name="Delete_WindowTitle" xml:space="preserve">
+    <value>選択項目を削除</value>
+  </data>
+  <data name="Delete_TitleOne" xml:space="preserve">
+    <value>1 冊の書籍を削除しますか?</value>
+  </data>
+  <data name="Delete_TitleMany" xml:space="preserve">
+    <value>{0} 冊の書籍を削除しますか?</value>
+  </data>
+  <data name="Delete_NoCopies" xml:space="preserve">
+    <value>いずれも Kobo フォルダーにバックアップ コピーはありません。</value>
+  </data>
+  <data name="Delete_OneCopy" xml:space="preserve">
+    <value>Kobo フォルダーにある 1 件のバックアップ コピーはごみ箱に移動されるため、気が変わった場合は元に戻せます。</value>
+  </data>
+  <data name="Delete_Copies" xml:space="preserve">
+    <value>Kobo フォルダーにある {0} 件のバックアップ コピーはごみ箱に移動されるため、気が変わった場合は元に戻せます。</value>
+  </data>
+  <data name="Delete_AlsoRemoveOne" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーからも削除する</value>
+  </data>
+  <data name="Delete_AlsoRemoveMany" xml:space="preserve">
+    <value>自分で追加した {0} 冊の書籍を Kobo 電子書籍リーダーからも削除する</value>
+  </data>
+  <data name="Delete_RemoveNoteOn" xml:space="preserve">
+    <value>電子書籍リーダーからは今すぐ削除されます (電子書籍リーダーにはごみ箱がありません)。その後に電子書籍リーダーを取り出すと、ライブラリからも取り除かれます。</value>
+  </data>
+  <data name="Delete_RemoveNoteOff" xml:space="preserve">
+    <value>電子書籍リーダーには残ります。「未保存をすべてバックアップ」を実行すると、再びフォルダーにコピーされます。</value>
+  </data>
+  <data name="Delete_StoreNoteOne" xml:space="preserve">
+    <value>1 冊は Kobo ストアで購入した書籍です。Kobo アカウントと電子書籍リーダーには残ります。ストアの書籍を電子書籍リーダーから削除するには、電子書籍リーダー上で削除してください。</value>
+  </data>
+  <data name="Delete_StoreNoteMany" xml:space="preserve">
+    <value>{0} 冊は Kobo ストアで購入した書籍です。Kobo アカウントと電子書籍リーダーには残ります。ストアの書籍を電子書籍リーダーから削除するには、電子書籍リーダー上で削除してください。</value>
+  </data>
+  <data name="Delete_Button" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Delete_OneBinned" xml:space="preserve">
+    <value>1 件のバックアップ コピーをごみ箱に移動しました</value>
+  </data>
+  <data name="Delete_Binned" xml:space="preserve">
+    <value>{0} 件のバックアップ コピーをごみ箱に移動しました</value>
+  </data>
+  <data name="Delete_RemovedFromReader" xml:space="preserve">
+    <value>{0} 冊を電子書籍リーダーから削除しました (ライブラリを更新するには取り出してください)</value>
+  </data>
+  <data name="Delete_RemovedLater" xml:space="preserve">
+    <value>{0} 冊は次回電子書籍リーダーを接続したときに削除されます</value>
+  </data>
+  <data name="Delete_Nothing" xml:space="preserve">
+    <value>何も削除されませんでした。</value>
+  </data>
+  <data name="Delete_CouldNot" xml:space="preserve">
+    <value>削除できませんでした: {0}</value>
+  </data>
+  <data name="Delete_PendingOneDone" xml:space="preserve">
+    <value>以前の指示に従って、1 冊の書籍を電子書籍リーダーから削除しました。ライブラリを更新するには取り出してください。</value>
+  </data>
+  <data name="Delete_PendingDone" xml:space="preserve">
+    <value>以前の指示に従って、{0} 冊の書籍を電子書籍リーダーから削除しました。ライブラリを更新するには取り出してください。</value>
+  </data>
+  <!-- Send to eReader screen -->
+  <data name="Send_Intro" xml:space="preserve">
+    <value>Kobo フォルダーに自分で入れた書籍のうち、まだ電子書籍リーダーになく Kobo で開けるものは、Kobo 電子書籍リーダーの Books フォルダーにコピーされます。Kobo ストアで購入した書籍は対象外です。電子書籍リーダーはそれらを Kobo アカウントから取得します。どちら側でも何も削除されません。コピー後は、電子書籍リーダーが新しい書籍をライブラリに追加できるように取り出してください。</value>
+  </data>
+  <data name="Send_ReaderConnected" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが接続されています。</value>
+  </data>
+  <data name="Send_EjectHint" xml:space="preserve">
+    <value>電子書籍リーダーを安全に取り外して、新しい書籍を追加できるようにします</value>
+  </data>
+  <data name="Send_PlugIn" xml:space="preserve">
+    <value>書籍を送信するには、Kobo 電子書籍リーダーを接続して画面の [Connect] をタップしてください。それまでは、この一覧には Kobo フォルダーの内容が表示されます。</value>
+  </data>
+  <data name="Send_AllReady" xml:space="preserve">
+    <value>送信可能をすべて送信 ({0})</value>
+  </data>
+  <data name="Send_Selected" xml:space="preserve">
+    <value>選択項目を送信 ({0})</value>
+  </data>
+  <data name="Send_LookAgain" xml:space="preserve">
+    <value>再検索</value>
+  </data>
+  <data name="Send_LookAgainHint" xml:space="preserve">
+    <value>Kobo フォルダーをもう一度検索します</value>
+  </data>
+  <data name="Send_Auto" xml:space="preserve">
+    <value>電子書籍リーダーの接続時に新しい書籍を自動的に送信する</value>
+  </data>
+  <data name="Send_AutoHint" xml:space="preserve">
+    <value>「送信可能」と表示された書籍のみが自動的に送信されます</value>
+  </data>
+  <data name="Send_KoboFolder" xml:space="preserve">
+    <value>Kobo フォルダー:</value>
+  </data>
+  <data name="Send_NoFiles" xml:space="preserve">
+    <value>Kobo フォルダーに書籍ファイルはまだありません。</value>
+  </data>
+  <data name="Send_Sent" xml:space="preserve">
+    <value>✔ 送信済み</value>
+  </data>
+  <data name="Send_SentTip" xml:space="preserve">
+    <value>電子書籍リーダーの Books フォルダーにコピーしました。追加するには電子書籍リーダーを取り出してください。</value>
+  </data>
+  <data name="Send_Send" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="Send_SendAnyway" xml:space="preserve">
+    <value>それでも送信</value>
+  </data>
+  <data name="Send_NoReader" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが見つかりません。接続して画面の [Connect] をタップしてください。</value>
+  </data>
+  <data name="Send_TickAll" xml:space="preserve">
+    <value>すべてチェック</value>
+  </data>
+  <!-- Collections screen -->
+  <data name="Coll_Intro" xml:space="preserve">
+    <value>ここで Kobo 電子書籍リーダーの書籍をコレクションに整理し、[Kobo 電子書籍リーダーに保存] を押してください。保存するまで電子書籍リーダーは変更されず、保存時には先に書籍一覧がこのコンピューターにコピーされます。その後、新しいコレクションが表示されるように、(上の) [Kobo 電子書籍リーダーを取り出す] を押してください。</value>
+  </data>
+  <data name="Coll_NoReader" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが見つかりません。接続して画面の [Connect] をタップしてから、[再読み込み] を押してください。</value>
+  </data>
+  <data name="Coll_Reload" xml:space="preserve">
+    <value>再読み込み</value>
+  </data>
+  <data name="Coll_ReloadHint" xml:space="preserve">
+    <value>電子書籍リーダーからコレクションをもう一度読み取ります (未保存の変更は失われます)</value>
+  </data>
+  <data name="Coll_SaveButtonOne" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに保存 (1 件の変更)</value>
+  </data>
+  <data name="Coll_SaveButton" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに保存 ({0} 件の変更)</value>
+  </data>
+  <data name="Coll_UndoAll" xml:space="preserve">
+    <value>すべての変更を元に戻す</value>
+  </data>
+  <data name="Coll_Saved" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーに保存しました。新しいコレクションを表示するには、(上の) [Kobo 電子書籍リーダーを取り出す] を押してください。</value>
+  </data>
+  <data name="Coll_ReaderEjected" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを取り出しました。取り外して、電子書籍リーダー上でコレクションを確認できます。さらに変更するには、もう一度接続して [再読み込み] を押してください。</value>
+  </data>
+  <data name="Coll_ConnectedBanner" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーが接続されています。変更を保存したら、新しいコレクションが表示されるようにここで取り出してください。</value>
+  </data>
+  <data name="Coll_EjectSaveFirst" xml:space="preserve">
+    <value>先に変更を保存するか元に戻してください。そうしないと、変更は電子書籍リーダーに反映されません</value>
+  </data>
+  <data name="Coll_EjectHint" xml:space="preserve">
+    <value>電子書籍リーダーを安全に取り外して、新しいコレクションを表示できるようにします</value>
+  </data>
+  <data name="Coll_Show" xml:space="preserve">
+    <value>表示</value>
+  </data>
+  <data name="Coll_Show_All" xml:space="preserve">
+    <value>すべての書籍 ({0})</value>
+  </data>
+  <data name="Coll_Show_NotInAny" xml:space="preserve">
+    <value>どのコレクションにもない ({0})</value>
+  </data>
+  <data name="Coll_Show_Several" xml:space="preserve">
+    <value>複数のコレクションにある ({0})</value>
+  </data>
+  <data name="Coll_NoneYet" xml:space="preserve">
+    <value>コレクションはまだありません。</value>
+  </data>
+  <data name="Coll_NewCollection" xml:space="preserve">
+    <value>新しいコレクション</value>
+  </data>
+  <data name="Coll_NameHint" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Coll_Create" xml:space="preserve">
+    <value>作成</value>
+  </data>
+  <data name="Coll_NewNameHint" xml:space="preserve">
+    <value>新しい名前</value>
+  </data>
+  <data name="Coll_Rename" xml:space="preserve">
+    <value>名前の変更</value>
+  </data>
+  <data name="Coll_DeleteThis" xml:space="preserve">
+    <value>このコレクションを削除</value>
+  </data>
+  <data name="Coll_DeleteConfirm" xml:space="preserve">
+    <value>「{0}」を削除しますか? 書籍は電子書籍リーダーに残ります。</value>
+  </data>
+  <data name="Coll_Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Coll_Keep" xml:space="preserve">
+    <value>残す</value>
+  </data>
+  <data name="Coll_HideShelved" xml:space="preserve">
+    <value>既にコレクションにある書籍を非表示にする</value>
+  </data>
+  <data name="Coll_Ticked" xml:space="preserve">
+    <value>チェック済み: {0}</value>
+  </data>
+  <data name="Coll_TickAll" xml:space="preserve">
+    <value>表示中をすべてチェック</value>
+  </data>
+  <data name="Coll_Collection" xml:space="preserve">
+    <value>コレクション</value>
+  </data>
+  <data name="Coll_Move" xml:space="preserve">
+    <value>移動</value>
+  </data>
+  <data name="Coll_MoveHint" xml:space="preserve">
+    <value>チェックした書籍をこのコレクションのみに入れます。他のコレクションからは外れます</value>
+  </data>
+  <data name="Coll_AlsoAdd" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="Coll_AlsoAddHint" xml:space="preserve">
+    <value>チェックした書籍を、他のコレクションに残したまま、このコレクションにも入れます</value>
+  </data>
+  <data name="Coll_RemoveFrom" xml:space="preserve">
+    <value>{0} から削除</value>
+  </data>
+  <data name="Coll_EveryBookShelved" xml:space="preserve">
+    <value>すべての書籍がいずれかのコレクションにあります。</value>
+  </data>
+  <data name="Coll_NoneInSeveral" xml:space="preserve">
+    <value>複数のコレクションにある書籍はありません。</value>
+  </data>
+  <data name="Coll_EmptyCollection" xml:space="preserve">
+    <value>このコレクションにはまだ書籍がありません。別の表示で書籍をチェックして追加してください。</value>
+  </data>
+  <data name="Coll_NoMatch" xml:space="preserve">
+    <value>一致する書籍はありません。</value>
+  </data>
+  <data name="Coll_None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Coll_From_Store" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="Coll_From_Added" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <!-- Kindle tab -->
+  <data name="Kindle_Intro" xml:space="preserve">
+    <value>Amazon では Kindle アカウントからの書籍のダウンロードができなくなったため、ここでは USB で接続した Kindle (ドライブ文字の有無を問わず) または Kindle for PC アプリに既にある書籍を、そのままコピーします。</value>
+  </data>
+  <data name="Kindle_ConnectedNote" xml:space="preserve">
+    <value>Kindle は USB Drive Mode になっており、書籍が下に表示されています。バックアップ中は接続したままにしてください。Kindle に表示される取り出しに関するメッセージは、読書を再開したいときのためのものです。完了したら [Kindle を取り出す] を押してください。</value>
+  </data>
+  <data name="Kindle_LookAgain" xml:space="preserve">
+    <value>再検索</value>
+  </data>
+  <data name="Kindle_LookAgainHint" xml:space="preserve">
+    <value>Kindle とその書籍をもう一度検索します</value>
+  </data>
+  <data name="Kindle_SaveToHint" xml:space="preserve">
+    <value>Kindle の書籍を保存するフォルダーを選択します</value>
+  </data>
+  <data name="Kindle_AddFolder" xml:space="preserve">
+    <value>検索するフォルダーを追加…</value>
+  </data>
+  <data name="Kindle_AddFolderHint" xml:space="preserve">
+    <value>移動した Kindle for PC のフォルダーなど、別の場所に保管している書籍用です</value>
+  </data>
+</root>

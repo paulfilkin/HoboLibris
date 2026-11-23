@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Title" xml:space="preserve">
+    <value>HoboLibris</value>
+  </data>
+  <data name="Menu_About" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="Menu_Language" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>Про HoboLibris</value>
+  </data>
+  <data name="About_Production" xml:space="preserve">
+    <value>Розробка multifarious</value>
+  </data>
+  <data name="About_AboutHeader" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>HoboLibris зберігає, упорядковує та синхронізує ваші книги Kobo і Kindle. Програма створює на цьому комп’ютері резервні копії книг з вашого облікового запису Kobo, з рідера Kobo та з Kindle, сортує книги на рідері за колекціями та надсилає на рідер ваші власні книги. Файли копіюються як є: нічого не розшифровується й не конвертується.</value>
+  </data>
+  <data name="About_DataHeader" xml:space="preserve">
+    <value>Ваші дані</value>
+  </data>
+  <data name="About_DataText" xml:space="preserve">
+    <value>Налаштування, дані входу в Kobo, список бібліотеки, файли журналу та резервні копії списку книг рідера зберігаються в цій папці. Резервні копії книг зберігаються в папках, які ви вибрали.</value>
+  </data>
+  <data name="About_SupportHeader" xml:space="preserve">
+    <value>Підтримка</value>
+  </data>
+  <data name="About_SupportText" xml:space="preserve">
+    <value>Потрібна допомога? Відвідайте вебсайт підтримки:</value>
+  </data>
+  <data name="About_SupportUrl" xml:space="preserve">
+    <value>multifarious.filkin.com/support</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>© {0} multifarious. Усі права захищено.</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Версія {0}.{1}.{2}</value>
+  </data>
+  <data name="About_BrowserError" xml:space="preserve">
+    <value>Не вдалося відкрити браузер: {0}</value>
+  </data>
+  <data name="Language_Title" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="Language_SelectLanguage" xml:space="preserve">
+    <value>Виберіть мову</value>
+  </data>
+  <data name="Language_Subtitle" xml:space="preserve">
+    <value>HoboLibris перезапуститься, щоб показати нову мову.</value>
+  </data>
+  <data name="Language_RestartPrompt" xml:space="preserve">
+    <value>Щоб показати нову мову, HoboLibris потрібно перезапустити. Перезапустити зараз?</value>
+  </data>
+  <data name="Language_RestartTitle" xml:space="preserve">
+    <value>Перезапустити HoboLibris?</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Закрити</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="Error_Critical" xml:space="preserve">
+    <value>Сталася серйозна помилка, і HoboLibris потрібно закрити:
+
+{0}</value>
+  </data>
+  <data name="Error_CriticalTitle" xml:space="preserve">
+    <value>HoboLibris потрібно закрити</value>
+  </data>
+  <data name="Error_Unexpected" xml:space="preserve">
+    <value>Щось пішло не так:
+
+{0}</value>
+  </data>
+  <data name="Store_ServerAnswered" xml:space="preserve">
+    <value>Сервер Kobo відповів {0}. {1}</value>
+  </data>
+  <data name="Store_CouldNotReach" xml:space="preserve">
+    <value>Не вдалося з’єднатися із сервером Kobo: {0}</value>
+  </data>
+  <data name="Store_UnexpectedSignInReply" xml:space="preserve">
+    <value>Неочікувана відповідь під час входу: {0}</value>
+  </data>
+  <data name="Store_NoAccessToken" xml:space="preserve">
+    <value>Сервер Kobo не надав токен доступу.</value>
+  </data>
+  <data name="Store_SignInExpired" xml:space="preserve">
+    <value>Термін дії входу минув. Увійдіть знову.</value>
+  </data>
+  <data name="Store_UnexpectedStartupReply" xml:space="preserve">
+    <value>Неочікувана відповідь під час запуску: {0}</value>
+  </data>
+  <data name="Store_NoSignInPage" xml:space="preserve">
+    <value>Сервер Kobo не надав сторінку входу.</value>
+  </data>
+  <data name="Store_NotASignInLink" xml:space="preserve">
+    <value>Це не посилання для входу.</value>
+  </data>
+  <data name="Store_LinkHasNoUserKey" xml:space="preserve">
+    <value>У посиланні для входу немає ключа користувача.</value>
+  </data>
+  <data name="Store_UnexpectedLibraryReply" xml:space="preserve">
+    <value>Неочікувана відповідь бібліотеки: {0}</value>
+  </data>
+  <data name="Store_NoDownload" xml:space="preserve">
+    <value>Для цієї книги немає файлу для завантаження.</value>
+  </data>
+  <data name="Store_CouldNotCreateFolder" xml:space="preserve">
+    <value>Не вдалося створити папку: {0}</value>
+  </data>
+  <data name="Store_CouldNotWriteFile" xml:space="preserve">
+    <value>Не вдалося записати файл: {0}</value>
+  </data>
+  <data name="Store_DownloadInterrupted" xml:space="preserve">
+    <value>Завантаження перервано: {0}</value>
+  </data>
+  <data name="Store_DownloadEmpty" xml:space="preserve">
+    <value>Завантажений файл порожній.</value>
+  </data>
+  <data name="Store_CouldNotSaveFile" xml:space="preserve">
+    <value>Не вдалося зберегти файл: {0}</value>
+  </data>
+  <data name="Store_Untitled" xml:space="preserve">
+    <value>Без назви</value>
+  </data>
+  <data name="Reader_Origin" xml:space="preserve">
+    <value>Рідер Kobo ({0})</value>
+  </data>
+  <data name="Reader_Duplicate" xml:space="preserve">
+    <value>Також у вашому списку магазину Kobo</value>
+  </data>
+  <data name="Reader_Note_Connect" xml:space="preserve">
+    <value>Щоб відкрити рідер Kobo:
+1.  Підключіть його до цього комп’ютера USB-кабелем (безпосередньо до комп’ютера, не через концентратор).
+2.  Розбудіть його. Коли на екрані з’явиться запит на підключення до комп’ютера, торкніться Connect.
+3.  Його книги з’являться тут автоматично.
+Якщо він лише заряджається й запит не з’являється, відключіть його та підключіть знову або спробуйте інший USB-порт.</value>
+  </data>
+  <data name="Coll_BookListNotFound" xml:space="preserve">
+    <value>Список книг рідера Kobo не знайдено. Він досі підключений?</value>
+  </data>
+  <data name="Coll_CouldNotOpen" xml:space="preserve">
+    <value>Не вдалося відкрити список книг рідера: {0}</value>
+  </data>
+  <data name="Coll_CouldNotRead" xml:space="preserve">
+    <value>Не вдалося прочитати список книг рідера: {0}</value>
+  </data>
+  <data name="Coll_TypeNameFirst" xml:space="preserve">
+    <value>Спочатку введіть назву колекції.</value>
+  </data>
+  <data name="Coll_AlreadyExists" xml:space="preserve">
+    <value>Колекція з назвою «{0}» уже існує.</value>
+  </data>
+  <data name="Coll_TypeNewNameFirst" xml:space="preserve">
+    <value>Спочатку введіть нову назву.</value>
+  </data>
+  <data name="Coll_NoLongerExists" xml:space="preserve">
+    <value>Цієї колекції більше не існує.</value>
+  </data>
+  <data name="Coll_NoChanges" xml:space="preserve">
+    <value>Немає змін для збереження.</value>
+  </data>
+  <data name="Coll_ReaderGone" xml:space="preserve">
+    <value>Рідер Kobo більше не підключений. Підключіть його знову та натисніть «Перезавантажити».</value>
+  </data>
+  <data name="Coll_ListChanged" xml:space="preserve">
+    <value>Список книг рідера змінився після прочитання. Натисніть «Перезавантажити» та внесіть зміни ще раз.</value>
+  </data>
+  <data name="Coll_CouldNotCreateBackupFolder" xml:space="preserve">
+    <value>Не вдалося створити папку резервних копій: {0}</value>
+  </data>
+  <data name="Coll_CouldNotBackUp" xml:space="preserve">
+    <value>Не вдалося створити резервну копію списку книг рідера: {0}</value>
+  </data>
+  <data name="Coll_CouldNotOpenForWriting" xml:space="preserve">
+    <value>Не вдалося відкрити список книг рідера для запису: {0}</value>
+  </data>
+  <data name="Coll_CouldNotSave" xml:space="preserve">
+    <value>Не вдалося зберегти колекції: {0}</value>
+  </data>
+  <data name="Send_Verdict_Ready" xml:space="preserve">
+    <value>Готово до надсилання</value>
+  </data>
+  <data name="Send_Verdict_OnReader" xml:space="preserve">
+    <value>На рідері</value>
+  </data>
+  <data name="Send_Verdict_StoreBook" xml:space="preserve">
+    <value>Книга з магазину Kobo</value>
+  </data>
+  <data name="Send_Verdict_Protected" xml:space="preserve">
+    <value>Захищено</value>
+  </data>
+  <data name="Send_Verdict_NotKobo" xml:space="preserve">
+    <value>Не відкриється на Kobo</value>
+  </data>
+  <data name="Send_Verdict_Unchecked" xml:space="preserve">
+    <value>Підключіть рідер, щоб перевірити</value>
+  </data>
+  <data name="Send_Why_Ready" xml:space="preserve">
+    <value>Ще не на рідері, і у форматі, який Kobo відкриває.</value>
+  </data>
+  <data name="Send_Why_OnReader" xml:space="preserve">
+    <value>Ця книга вже є на рідері.</value>
+  </data>
+  <data name="Send_Why_StoreBook" xml:space="preserve">
+    <value>Куплено в магазині Kobo: рідер отримує її з вашого облікового запису Kobo.</value>
+  </data>
+  <data name="Send_Why_Unchecked" xml:space="preserve">
+    <value>Kobo може її відкрити. Підключіть рідер, щоб перевірити, чи вона вже на ньому.</value>
+  </data>
+  <data name="Send_FileCouldNotBeOpened" xml:space="preserve">
+    <value>Не вдалося відкрити файл.</value>
+  </data>
+  <data name="Send_DamagedEpubNotZip" xml:space="preserve">
+    <value>Пошкоджений EPUB: це не придатний для читання файл EPUB.</value>
+  </data>
+  <data name="Send_DamagedEpubNoContainer" xml:space="preserve">
+    <value>Пошкоджений EPUB: відсутній файл змісту.</value>
+  </data>
+  <data name="Send_AdobeProtected" xml:space="preserve">
+    <value>Захист від копіювання Adobe: відкриється на рідері, лише якщо рідер використовує той Adobe ID, з яким книгу було куплено.</value>
+  </data>
+  <data name="Send_DamagedPdf" xml:space="preserve">
+    <value>Пошкоджений PDF: файл не починається як PDF.</value>
+  </data>
+  <data name="Send_DamagedMobi" xml:space="preserve">
+    <value>Пошкоджений файл MOBI.</value>
+  </data>
+  <data name="Send_KindleProtected" xml:space="preserve">
+    <value>Захист від копіювання Kindle: рідери Kobo не можуть його відкрити.</value>
+  </data>
+  <data name="Send_AcsmTicket" xml:space="preserve">
+    <value>Це квиток на завантаження для Adobe Digital Editions, а не сама книга.</value>
+  </data>
+  <data name="Send_KoboDoesNotOpen" xml:space="preserve">
+    <value>Рідери Kobo не відкривають файли {0}.</value>
+  </data>
+  <data name="Send_CouldNotCreateBooksFolder" xml:space="preserve">
+    <value>Не вдалося створити папку Books на рідері: {0}</value>
+  </data>
+  <data name="Send_AlreadyOnReader" xml:space="preserve">
+    <value>Файл із такою назвою вже є в папці Books на рідері.</value>
+  </data>
+  <data name="Send_CouldNotReadBook" xml:space="preserve">
+    <value>Не вдалося прочитати книгу: {0}</value>
+  </data>
+  <data name="Send_CouldNotWriteToReader" xml:space="preserve">
+    <value>Не вдалося записати на рідер: {0}</value>
+  </data>
+  <data name="Send_CouldNotFinishCopy" xml:space="preserve">
+    <value>Не вдалося завершити копіювання на рідер: {0}</value>
+  </data>
+  <data name="Kindle_Origin_Drive" xml:space="preserve">
+    <value>Kindle ({0})</value>
+  </data>
+  <data name="Kindle_Origin_ForPc" xml:space="preserve">
+    <value>Kindle for PC</value>
+  </data>
+  <data name="Kindle_Origin_Folder" xml:space="preserve">
+    <value>Папка {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCreateFolder" xml:space="preserve">
+    <value>Не вдалося створити папку: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyBook" xml:space="preserve">
+    <value>Не вдалося скопіювати книгу: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyExtraFiles" xml:space="preserve">
+    <value>Не вдалося скопіювати додаткові файли книги: {0}</value>
+  </data>
+  <data name="Kindle_NoBackupFolder" xml:space="preserve">
+    <value>Немає папки резервних копій.</value>
+  </data>
+  <data name="Kindle_NoLongerConnected" xml:space="preserve">
+    <value>Kindle більше не підключений.</value>
+  </data>
+  <data name="Kindle_FolderNotFound" xml:space="preserve">
+    <value>Папку не знайдено на Kindle: {0}</value>
+  </data>
+  <data name="Kindle_BookNoLongerOnKindle" xml:space="preserve">
+    <value>Книги більше немає на Kindle.</value>
+  </data>
+  <data name="Kindle_CopyTookTooLong" xml:space="preserve">
+    <value>Копіювання з Kindle тривало надто довго.</value>
+  </data>
+  <data name="Kindle_Note_NotSeen" xml:space="preserve">
+    <value>Windows не бачить Kindle. Розбудіть Kindle, потім спробуйте інший USB-порт або інший кабель (деякі кабелі лише заряджають).</value>
+  </data>
+  <data name="Kindle_Note_StorageClosed" xml:space="preserve">
+    <value>Kindle підключено, і кабель передає дані, але Kindle не відкриває своє сховище, тому Windows бачить порожній диск. Саме тому його немає в списку для витягання: його можна просто відключити.
+Щоб відкрити його:
+1.  Відключіть Kindle.
+2.  Перезапустіть його: утримуйте кнопку живлення близько 40 секунд, доки екран не згасне, потім відпустіть і дочекайтеся запуску (або скористайтеся меню Settings, Device Options, Restart).
+3.  Підключіть кабель безпосередньо до цього комп’ютера, а не до концентратора, клавіатури чи монітора.
+4.  Нічого не торкайтеся на Kindle. На його екрані має з’явитися «USB Drive Mode» або зображення комп’ютера, і ваші книги з’являться тут автоматично.
+Якщо Kindle показує лише заряджання, спробуйте інший USB-порт на комп’ютері.</value>
+  </data>
+  <data name="Kindle_Note_Seen" xml:space="preserve">
+    <value>Windows бачить ваш Kindle, але його книги поки що не вдається відкрити. Розблокуйте Kindle або відключіть його та підключіть знову.</value>
+  </data>
+  <data name="Main_Kobo" xml:space="preserve">
+    <value>Kobo</value>
+  </data>
+  <data name="Main_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Main_SignedIn" xml:space="preserve">
+    <value>Ви ввійшли</value>
+  </data>
+  <data name="Main_SignedInAs" xml:space="preserve">
+    <value>Ви ввійшли як {0}</value>
+  </data>
+  <data name="Main_SignOut" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
+  <data name="Common_Dismiss" xml:space="preserve">
+    <value>Приховати</value>
+  </data>
+  <data name="Welcome_Heading" xml:space="preserve">
+    <value>Зберігайте копії своїх книг</value>
+  </data>
+  <data name="Welcome_Text1" xml:space="preserve">
+    <value>Увійдіть у свій обліковий запис Kobo, щоб побачити куплені книги та зберегти їх на цьому комп’ютері.</value>
+  </data>
+  <data name="Welcome_Text2" xml:space="preserve">
+    <value>Книги, які ви самі додали на рідер Kobo, також з’являться тут, коли ви його підключите.</value>
+  </data>
+  <data name="Welcome_SignIn" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="Welcome_DidntComeBack" xml:space="preserve">
+    <value>Вікно входу не повернулося?</value>
+  </data>
+  <data name="Welcome_PasteHint" xml:space="preserve">
+    <value>Вставте сюди адресу, що починається з kobo://UserAuthenticated:</value>
+  </data>
+  <data name="Welcome_UseLink" xml:space="preserve">
+    <value>Використати це посилання</value>
+  </data>
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Вхід в обліковий запис Kobo</value>
+  </data>
+  <data name="SignIn_Note" xml:space="preserve">
+    <value>Увійдіть за допомогою облікового запису Kobo. Це вікно закриється автоматично, коли Kobo поверне вас до HoboLibris.</value>
+  </data>
+  <data name="SignIn_WebViewMissing" xml:space="preserve">
+    <value>Для сторінки входу потрібне середовище виконання Microsoft Edge WebView2, яке входить до складу Windows 10 і 11. На цьому комп’ютері його не вдалося запустити. Установіть його з сайту Microsoft і повторіть спробу.</value>
+  </data>
+  <data name="SignIn_WebViewLink" xml:space="preserve">
+    <value>Отримати середовище виконання WebView2 від Microsoft</value>
+  </data>
+  <data name="Kobo_BackUpTab" xml:space="preserve">
+    <value>Резервні копії книг</value>
+  </data>
+  <data name="Kobo_CollectionsTab" xml:space="preserve">
+    <value>Колекції</value>
+  </data>
+  <data name="Kobo_CollectionsTabTip" xml:space="preserve">
+    <value>Сортуйте книги на рідері Kobo за колекціями</value>
+  </data>
+  <data name="Kobo_SendTab" xml:space="preserve">
+    <value>Надіслати на рідер</value>
+  </data>
+  <data name="Kobo_SendTabCount" xml:space="preserve">
+    <value>Надіслати на рідер ({0})</value>
+  </data>
+  <data name="Kobo_SendTabTip" xml:space="preserve">
+    <value>Копіюйте на рідер книги, які ви самі поклали в папку Kobo</value>
+  </data>
+  <data name="Kobo_PlugInNote" xml:space="preserve">
+    <value>Підключіть рідер Kobo й торкніться Connect на його екрані, щоб також зберегти книги, які ви самі на нього додали. До того часу книги з вашої папки Kobo позначені як «Цей комп’ютер».</value>
+  </data>
+  <data name="Kobo_ReaderEjectedNote" xml:space="preserve">
+    <value>Рідер Kobo витягнуто. Підключіть його знову, щоб зберегти книги, які ви самі на нього додали.</value>
+  </data>
+  <data name="Kobo_SignInBanner" xml:space="preserve">
+    <value>Увійдіть у свій обліковий запис Kobo, щоб також зберегти книги, куплені в магазині Kobo.</value>
+  </data>
+  <data name="Kobo_SignIn" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="Kobo_OneBookWaiting" xml:space="preserve">
+    <value>1 книги з вашої папки Kobo ще немає на рідері.</value>
+  </data>
+  <data name="Kobo_BooksWaiting" xml:space="preserve">
+    <value>Книг з вашої папки Kobo, яких ще немає на рідері: {0}.</value>
+  </data>
+  <data name="Kobo_SeeAndSend" xml:space="preserve">
+    <value>Переглянути й надіслати…</value>
+  </data>
+  <data name="Kobo_ReaderConnectedNote" xml:space="preserve">
+    <value>Рідер Kobo підключено: книги, які ви самі на нього додали, також є у списку. Не відключайте його під час збереження.</value>
+  </data>
+  <data name="Kobo_EjectReader" xml:space="preserve">
+    <value>Витягти рідер Kobo</value>
+  </data>
+  <data name="Kobo_EjectReaderHint" xml:space="preserve">
+    <value>Безпечно відключити рідер, щоб знову читати й заряджати</value>
+  </data>
+  <data name="Kobo_RefreshList" xml:space="preserve">
+    <value>Оновити список</value>
+  </data>
+  <data name="Kobo_RefreshListHint" xml:space="preserve">
+    <value>Отримати актуальний список з облікового запису Kobo та з рідера</value>
+  </data>
+  <data name="Kobo_BackUpAll" xml:space="preserve">
+    <value>Зберегти всі незбережені ({0})</value>
+  </data>
+  <data name="Kobo_BackUpSelected" xml:space="preserve">
+    <value>Зберегти вибрані ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelected" xml:space="preserve">
+    <value>Видалити вибрані ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
+    <value>Видалити резервні копії та вибрати, чи видаляти книги також з рідера</value>
+  </data>
+  <data name="Kobo_SaveTo" xml:space="preserve">
+    <value>Зберегти в…</value>
+  </data>
+  <data name="Kobo_SaveToHint" xml:space="preserve">
+    <value>Виберіть папку для книг Kobo</value>
+  </data>
+  <data name="Kobo_OpenFolder" xml:space="preserve">
+    <value>Відкрити папку</value>
+  </data>
+  <data name="Kobo_FolderLabel" xml:space="preserve">
+    <value>Папка:</value>
+  </data>
+  <data name="Kobo_SearchHint" xml:space="preserve">
+    <value>Пошук за назвою або автором</value>
+  </data>
+  <data name="Kobo_SortBy" xml:space="preserve">
+    <value>Сортування</value>
+  </data>
+  <data name="Kobo_SortTitle" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Kobo_SortAuthor" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="Kobo_NoBooksYet" xml:space="preserve">
+    <value>Книг поки що немає. Натисніть «Оновити список».</value>
+  </data>
+  <data name="List_NoMatch" xml:space="preserve">
+    <value>Немає книг, що відповідають запиту.</value>
+  </data>
+  <data name="Col_Title" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Col_Author" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>Формат</value>
+  </data>
+  <data name="Col_From" xml:space="preserve">
+    <value>Джерело</value>
+  </data>
+  <data name="Col_FromTip" xml:space="preserve">
+    <value>Магазин: куплено в магазині Kobo, завантажено з вашого облікового запису. Захищені книги з магазину зберігаються саме так, як їх надає Kobo, і відкриваються лише в програмах для читання Kobo або Adobe.
+Рідер: ви самі додали на рідер Kobo, скопійовано з нього.
+Цей комп’ютер: у вашій папці Kobo, але не у списку магазину й не на підключеному рідері.</value>
+  </data>
+  <data name="Col_OnThisComputer" xml:space="preserve">
+    <value>На цьому комп’ютері</value>
+  </data>
+  <data name="Col_SelectAll" xml:space="preserve">
+    <value>Вибрати всі показані</value>
+  </data>
+  <data name="Col_FoundOn" xml:space="preserve">
+    <value>Знайдено на</value>
+  </data>
+  <data name="Col_BackedUp" xml:space="preserve">
+    <value>Збережено</value>
+  </data>
+  <data name="Col_BookFile" xml:space="preserve">
+    <value>Файл книги</value>
+  </data>
+  <data name="Col_OnReader" xml:space="preserve">
+    <value>На рідері</value>
+  </data>
+  <data name="Col_Collections" xml:space="preserve">
+    <value>Колекції</value>
+  </data>
+  <data name="Row_From_Store" xml:space="preserve">
+    <value>Магазин</value>
+  </data>
+  <data name="Row_From_StoreProtected" xml:space="preserve">
+    <value>Магазин · захищено</value>
+  </data>
+  <data name="Row_From_Reader" xml:space="preserve">
+    <value>Рідер</value>
+  </data>
+  <data name="Row_From_Computer" xml:space="preserve">
+    <value>Цей комп’ютер</value>
+  </data>
+  <data name="Row_From_StoreTip" xml:space="preserve">
+    <value>Куплено в магазині Kobo та завантажено з вашого облікового запису.</value>
+  </data>
+  <data name="Row_From_ReaderTip" xml:space="preserve">
+    <value>Ви самі додали на рідер Kobo; скопійовано з нього.</value>
+  </data>
+  <data name="Row_From_ComputerTip" xml:space="preserve">
+    <value>У вашій папці Kobo, але не у списку магазину Kobo й не на підключеному рідері. Підключіть рідер, щоб перевірити, чи є вона на ньому, або скористайтеся вкладкою «Надіслати на рідер».</value>
+  </data>
+  <data name="Row_Waiting" xml:space="preserve">
+    <value>Очікування…</value>
+  </data>
+  <data name="Row_Failed" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="Row_InTheFolder" xml:space="preserve">
+    <value>✔ У папці</value>
+  </data>
+  <data name="Row_Saved" xml:space="preserve">
+    <value>✔ Збережено</value>
+  </data>
+  <data name="Row_SameAsStore" xml:space="preserve">
+    <value>Така сама, як у магазині</value>
+  </data>
+  <data name="Row_SameAsStoreTip" xml:space="preserve">
+    <value>Ця книга також є у вашому списку магазину Kobo, тому «Зберегти всі» зберігає копію з магазину й пропускає цю. Щоб усе одно скопіювати її, натисніть кнопку.</value>
+  </data>
+  <data name="Row_FromStore" xml:space="preserve">
+    <value>✔ З магазину</value>
+  </data>
+  <data name="Row_FromStoreTip" xml:space="preserve">
+    <value>{0}, тому її виключено зі «Зберегти всі». Щоб усе одно скопіювати її, натисніть кнопку.</value>
+  </data>
+  <data name="Row_NotDownloadable" xml:space="preserve">
+    <value>Недоступно для завантаження</value>
+  </data>
+  <data name="Row_BackUp" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="Row_Again" xml:space="preserve">
+    <value>Ще раз</value>
+  </data>
+  <data name="Row_AgainTip" xml:space="preserve">
+    <value>Скопіювати або завантажити ще раз</value>
+  </data>
+  <data name="Row_Copy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Row_CopyTip" xml:space="preserve">
+    <value>Усе одно скопіювати</value>
+  </data>
+  <data name="Progress_BackingUp" xml:space="preserve">
+    <value>Збереження</value>
+  </data>
+  <data name="Progress_Sending" xml:space="preserve">
+    <value>Надсилання</value>
+  </data>
+  <data name="Progress_AllFinished" xml:space="preserve">
+    <value>{0}: усі {1} завершено</value>
+  </data>
+  <data name="Progress_BookOf" xml:space="preserve">
+    <value>{0}: книга {1} з {2}   ·   {3}% виконано</value>
+  </data>
+  <data name="Status_LookingFor" xml:space="preserve">
+    <value>{0}: пошук книг...</value>
+  </data>
+  <data name="Status_BooksFound" xml:space="preserve">
+    <value>{1}: знайдено книг: {0}.</value>
+  </data>
+  <data name="Status_WaitForCopies" xml:space="preserve">
+    <value>Дочекайтеся завершення поточного копіювання.</value>
+  </data>
+  <data name="Status_BackingUpBooks" xml:space="preserve">
+    <value>{1}: збереження книг: {0}...</value>
+  </data>
+  <data name="Status_DoneBackedUp" xml:space="preserve">
+    <value>Готово. {2}: збережено книг: {0} з {1}.</value>
+  </data>
+  <data name="Status_FinishedWithFailures" xml:space="preserve">
+    <value>Завершено, копій з помилками: {0}. Наведіть вказівник на «Помилка», щоб дізнатися причину.</value>
+  </data>
+  <data name="Status_Ejecting" xml:space="preserve">
+    <value>Витягання: {0}...</value>
+  </data>
+  <data name="Status_CouldNotEject" xml:space="preserve">
+    <value>Не вдалося витягти {0}: {1}</value>
+  </data>
+  <data name="Status_Ejected" xml:space="preserve">
+    <value>{0} витягнуто. Можна відключити.</value>
+  </data>
+  <data name="Status_SendingBooks" xml:space="preserve">
+    <value>Надсилання книг на рідер Kobo: {0}...</value>
+  </data>
+  <data name="Status_SentBooks" xml:space="preserve">
+    <value>Надіслано книг на рідер Kobo: {0}. Витягніть його, щоб додати їх до бібліотеки.</value>
+  </data>
+  <data name="Status_SentWithFailures" xml:space="preserve">
+    <value>Надіслано книг: {0}; з помилками: {1}. Наведіть вказівник на «Помилка», щоб дізнатися причину.</value>
+  </data>
+  <data name="Status_BooksAndCollections" xml:space="preserve">
+    <value>На рідері Kobo книг: {0}, колекцій: {1}.</value>
+  </data>
+  <data name="Status_CollectionsSaved" xml:space="preserve">
+    <value>Колекції збережено. Список книг рідера спочатку скопійовано до {0}</value>
+  </data>
+  <data name="Status_SignedInRefresh" xml:space="preserve">
+    <value>Ви ввійшли. Натисніть «Оновити список», щоб завантажити книги.</value>
+  </data>
+  <data name="Status_OpeningSignIn" xml:space="preserve">
+    <value>Відкриття вікна входу Kobo...</value>
+  </data>
+  <data name="Status_SignInInWindow" xml:space="preserve">
+    <value>Увійдіть за допомогою облікового запису Kobo у відкритому вікні.</value>
+  </data>
+  <data name="Status_SignInClosed" xml:space="preserve">
+    <value>Вікно входу закрито до завершення входу.</value>
+  </data>
+  <data name="Status_ConnectingAccount" xml:space="preserve">
+    <value>Ви ввійшли. Підключення цього комп’ютера до облікового запису...</value>
+  </data>
+  <data name="Status_SignedOut" xml:space="preserve">
+    <value>Ви вийшли.</value>
+  </data>
+  <data name="Status_LoadingLibrary" xml:space="preserve">
+    <value>Завантаження бібліотеки...</value>
+  </data>
+  <data name="Status_LoadingLibraryCount" xml:space="preserve">
+    <value>Завантаження бібліотеки... поки що книг: {0}</value>
+  </data>
+  <data name="Status_WaitForDownloads" xml:space="preserve">
+    <value>Дочекайтеся завершення поточних завантажень.</value>
+  </data>
+  <data name="Status_DownloadingBooks" xml:space="preserve">
+    <value>Завантаження книг: {0}...</value>
+  </data>
+  <data name="Status_DoneStoreSaved" xml:space="preserve">
+    <value>Готово. Збережено книг з магазину Kobo: {0} з {1}.</value>
+  </data>
+  <data name="Status_FinishedWithFailedDownloads" xml:space="preserve">
+    <value>Завершено, завантажень з помилками: {0}. Наведіть вказівник на «Помилка», щоб дізнатися причину.</value>
+  </data>
+  <data name="Summary_OneBook" xml:space="preserve">
+    <value>1 книга</value>
+  </data>
+  <data name="Summary_Books" xml:space="preserve">
+    <value>{0} книг</value>
+  </data>
+  <data name="Summary_OneDeviceBook" xml:space="preserve">
+    <value>{0}: знайдено 1 книгу.</value>
+  </data>
+  <data name="Summary_DeviceBooks" xml:space="preserve">
+    <value>{1}: знайдено книг: {0}.</value>
+  </data>
+  <data name="Summary_FromStore" xml:space="preserve">
+    <value>{0} з магазину Kobo</value>
+  </data>
+  <data name="Summary_OnReader" xml:space="preserve">
+    <value>{0} на рідері</value>
+  </data>
+  <data name="Summary_OnlyOnComputer" xml:space="preserve">
+    <value>{0} лише на цьому комп’ютері</value>
+  </data>
+  <data name="Summary_LibraryWithParts" xml:space="preserve">
+    <value>У вашій бібліотеці {0}: {1}.</value>
+  </data>
+  <data name="Summary_Library" xml:space="preserve">
+    <value>У вашій бібліотеці {0}.</value>
+  </data>
+  <data name="Device_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Device_KoboReader" xml:space="preserve">
+    <value>Рідер Kobo</value>
+  </data>
+  <data name="Device_Eject" xml:space="preserve">
+    <value>Витягти {0}</value>
+  </data>
+  <data name="Device_EjectHint" xml:space="preserve">
+    <value>Безпечно відключити {0}, щоб знову читати й заряджати</value>
+  </data>
+  <data name="Device_EjectWait" xml:space="preserve">
+    <value>Спочатку дочекайтеся завершення збереження</value>
+  </data>
+  <data name="Device_EjectedHeading" xml:space="preserve">
+    <value>{0} витягнуто</value>
+  </data>
+  <data name="Device_NoneFoundYet" xml:space="preserve">
+    <value>{0} поки що не знайдено</value>
+  </data>
+  <data name="Device_EjectedText" xml:space="preserve">
+    <value>{0} витягнуто. Можна відключити його та продовжити читати.
+Щоб зберегти більше книг, підключіть його знову: його книги з’являться тут автоматично.</value>
+  </data>
+  <data name="Device_PlugIn" xml:space="preserve">
+    <value>Підключіть {0} USB-кабелем і розблокуйте.</value>
+  </data>
+  <data name="Device_CheckingAgain" xml:space="preserve">
+    <value>Повторна перевірка кожні кілька секунд…</value>
+  </data>
+  <data name="Device_Looking" xml:space="preserve">
+    <value>{0}: пошук книг…</value>
+  </data>
+  <data name="Device_NoBooks" xml:space="preserve">
+    <value>{0}: книг не знайдено.</value>
+  </data>
+  <data name="Dialog_ChooseKoboFolder" xml:space="preserve">
+    <value>Виберіть, де зберігати книги Kobo</value>
+  </data>
+  <data name="Dialog_ChooseKindleFolder" xml:space="preserve">
+    <value>Виберіть, де зберігати книги Kindle</value>
+  </data>
+  <data name="Dialog_ChooseKindleSearchFolder" xml:space="preserve">
+    <value>Виберіть папку з книгами Kindle</value>
+  </data>
+  <data name="Delete_WindowTitle" xml:space="preserve">
+    <value>Видалити вибрані</value>
+  </data>
+  <data name="Delete_TitleOne" xml:space="preserve">
+    <value>Видалити 1 книгу?</value>
+  </data>
+  <data name="Delete_TitleMany" xml:space="preserve">
+    <value>Видалити книги ({0})?</value>
+  </data>
+  <data name="Delete_NoCopies" xml:space="preserve">
+    <value>Жодна з них не має резервної копії у вашій папці Kobo.</value>
+  </data>
+  <data name="Delete_OneCopy" xml:space="preserve">
+    <value>1 резервну копію з вашої папки Kobo буде переміщено до Кошика, тож ви зможете її повернути, якщо передумаєте.</value>
+  </data>
+  <data name="Delete_Copies" xml:space="preserve">
+    <value>Резервні копії з вашої папки Kobo ({0}) буде переміщено до Кошика, тож ви зможете їх повернути, якщо передумаєте.</value>
+  </data>
+  <data name="Delete_AlsoRemoveOne" xml:space="preserve">
+    <value>Також видалити її з рідера Kobo</value>
+  </data>
+  <data name="Delete_AlsoRemoveMany" xml:space="preserve">
+    <value>Також видалити з рідера Kobo додані вами книги ({0})</value>
+  </data>
+  <data name="Delete_RemoveNoteOn" xml:space="preserve">
+    <value>Їх буде видалено з рідера одразу (на ньому немає Кошика). Витягніть рідер після цього, і він прибере їх зі своєї бібліотеки.</value>
+  </data>
+  <data name="Delete_RemoveNoteOff" xml:space="preserve">
+    <value>Вони залишаться на рідері. «Зберегти всі» знову скопіює їх до папки.</value>
+  </data>
+  <data name="Delete_StoreNoteOne" xml:space="preserve">
+    <value>1 куплено в магазині Kobo: вона залишиться у вашому обліковому записі Kobo та на рідері. Щоб прибрати книгу з магазину з рідера, видаліть її на самому рідері.</value>
+  </data>
+  <data name="Delete_StoreNoteMany" xml:space="preserve">
+    <value>Куплено в магазині Kobo: {0}. Вони залишаться у вашому обліковому записі Kobo та на рідері. Щоб прибрати книгу з магазину з рідера, видаліть її на самому рідері.</value>
+  </data>
+  <data name="Delete_Button" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Delete_OneBinned" xml:space="preserve">
+    <value>1 резервну копію переміщено до Кошика</value>
+  </data>
+  <data name="Delete_Binned" xml:space="preserve">
+    <value>Резервних копій переміщено до Кошика: {0}</value>
+  </data>
+  <data name="Delete_RemovedFromReader" xml:space="preserve">
+    <value>Видалено з рідера: {0} (витягніть його, щоб оновити бібліотеку)</value>
+  </data>
+  <data name="Delete_RemovedLater" xml:space="preserve">
+    <value>Буде видалено з рідера під час наступного підключення: {0}</value>
+  </data>
+  <data name="Delete_Nothing" xml:space="preserve">
+    <value>Нічого не видалено.</value>
+  </data>
+  <data name="Delete_CouldNot" xml:space="preserve">
+    <value>Не вдалося видалити: {0}</value>
+  </data>
+  <data name="Delete_PendingOneDone" xml:space="preserve">
+    <value>Видалено 1 книгу з рідера, як ви просили раніше. Витягніть його, щоб оновити бібліотеку.</value>
+  </data>
+  <data name="Delete_PendingDone" xml:space="preserve">
+    <value>Видалено книг з рідера, як ви просили раніше: {0}. Витягніть його, щоб оновити бібліотеку.</value>
+  </data>
+  <data name="Send_Intro" xml:space="preserve">
+    <value>Книги, які ви самі поклали в папку Kobo, копіюються до папки Books на рідері Kobo, якщо їх ще немає на ньому й Kobo може їх відкрити. Книги, куплені в магазині Kobo, пропускаються: рідер отримує їх з вашого облікового запису Kobo. Нічого не видаляється ні з одного боку. Після цього витягніть рідер, щоб він додав нові книги до своєї бібліотеки.</value>
+  </data>
+  <data name="Send_ReaderConnected" xml:space="preserve">
+    <value>Рідер Kobo підключено.</value>
+  </data>
+  <data name="Send_EjectHint" xml:space="preserve">
+    <value>Безпечно відключити рідер, щоб він додав нові книги</value>
+  </data>
+  <data name="Send_PlugIn" xml:space="preserve">
+    <value>Підключіть рідер Kobo й торкніться Connect на його екрані, щоб надіслати на нього книги. До того часу в цьому списку показано вміст вашої папки Kobo.</value>
+  </data>
+  <data name="Send_AllReady" xml:space="preserve">
+    <value>Надіслати всі готові ({0})</value>
+  </data>
+  <data name="Send_Selected" xml:space="preserve">
+    <value>Надіслати вибрані ({0})</value>
+  </data>
+  <data name="Send_LookAgain" xml:space="preserve">
+    <value>Шукати знову</value>
+  </data>
+  <data name="Send_LookAgainHint" xml:space="preserve">
+    <value>Переглянути папку Kobo ще раз</value>
+  </data>
+  <data name="Send_Auto" xml:space="preserve">
+    <value>Надсилати нові книги автоматично, коли рідер підключено</value>
+  </data>
+  <data name="Send_AutoHint" xml:space="preserve">
+    <value>Автоматично надсилаються лише книги з позначкою «Готово до надсилання»</value>
+  </data>
+  <data name="Send_KoboFolder" xml:space="preserve">
+    <value>Папка Kobo:</value>
+  </data>
+  <data name="Send_NoFiles" xml:space="preserve">
+    <value>У папці Kobo поки що немає файлів книг.</value>
+  </data>
+  <data name="Send_Sent" xml:space="preserve">
+    <value>✔ Надіслано</value>
+  </data>
+  <data name="Send_SentTip" xml:space="preserve">
+    <value>Скопійовано до папки Books на рідері. Витягніть рідер, щоб додати її.</value>
+  </data>
+  <data name="Send_Send" xml:space="preserve">
+    <value>Надіслати</value>
+  </data>
+  <data name="Send_SendAnyway" xml:space="preserve">
+    <value>Надіслати все одно</value>
+  </data>
+  <data name="Send_NoReader" xml:space="preserve">
+    <value>Рідер Kobo не знайдено. Підключіть його й торкніться Connect на його екрані.</value>
+  </data>
+  <data name="Send_TickAll" xml:space="preserve">
+    <value>Позначити всі</value>
+  </data>
+  <data name="Coll_Intro" xml:space="preserve">
+    <value>Сортуйте тут книги на рідері Kobo за колекціями, потім натисніть «Зберегти на рідер Kobo». На рідері нічого не зміниться, доки ви не збережете, а його список книг спочатку буде скопійовано на цей комп’ютер. Потім натисніть «Витягти рідер Kobo» (угорі), щоб він показав нові колекції.</value>
+  </data>
+  <data name="Coll_NoReader" xml:space="preserve">
+    <value>Рідер Kobo не знайдено. Підключіть його, торкніться Connect на його екрані, потім натисніть «Перезавантажити».</value>
+  </data>
+  <data name="Coll_Reload" xml:space="preserve">
+    <value>Перезавантажити</value>
+  </data>
+  <data name="Coll_ReloadHint" xml:space="preserve">
+    <value>Прочитати колекції з рідера знову (незбережені зміни буде втрачено)</value>
+  </data>
+  <data name="Coll_SaveButtonOne" xml:space="preserve">
+    <value>Зберегти на рідер Kobo (1 зміна)</value>
+  </data>
+  <data name="Coll_SaveButton" xml:space="preserve">
+    <value>Зберегти на рідер Kobo (змін: {0})</value>
+  </data>
+  <data name="Coll_UndoAll" xml:space="preserve">
+    <value>Скасувати всі зміни</value>
+  </data>
+  <data name="Coll_Saved" xml:space="preserve">
+    <value>Збережено на рідер Kobo. Натисніть «Витягти рідер Kobo» (угорі), щоб побачити нові колекції.</value>
+  </data>
+  <data name="Coll_ReaderEjected" xml:space="preserve">
+    <value>Рідер Kobo витягнуто: можна відключити його й переглянути колекції на ньому. Підключіть його знову та натисніть «Перезавантажити», щоб внести інші зміни.</value>
+  </data>
+  <data name="Coll_ConnectedBanner" xml:space="preserve">
+    <value>Рідер Kobo підключено. Коли збережете зміни, витягніть його тут, щоб він показав нові колекції.</value>
+  </data>
+  <data name="Coll_EjectSaveFirst" xml:space="preserve">
+    <value>Спочатку збережіть або скасуйте зміни, інакше вони не потраплять на рідер</value>
+  </data>
+  <data name="Coll_EjectHint" xml:space="preserve">
+    <value>Безпечно відключити рідер, щоб він показав нові колекції</value>
+  </data>
+  <data name="Coll_Show" xml:space="preserve">
+    <value>Показати</value>
+  </data>
+  <data name="Coll_Show_All" xml:space="preserve">
+    <value>Усі книги ({0})</value>
+  </data>
+  <data name="Coll_Show_NotInAny" xml:space="preserve">
+    <value>Поза колекціями ({0})</value>
+  </data>
+  <data name="Coll_Show_Several" xml:space="preserve">
+    <value>У кількох колекціях ({0})</value>
+  </data>
+  <data name="Coll_NoneYet" xml:space="preserve">
+    <value>Колекцій поки що немає.</value>
+  </data>
+  <data name="Coll_NewCollection" xml:space="preserve">
+    <value>Нова колекція</value>
+  </data>
+  <data name="Coll_NameHint" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Coll_Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="Coll_NewNameHint" xml:space="preserve">
+    <value>Нова назва</value>
+  </data>
+  <data name="Coll_Rename" xml:space="preserve">
+    <value>Перейменувати</value>
+  </data>
+  <data name="Coll_DeleteThis" xml:space="preserve">
+    <value>Видалити цю колекцію</value>
+  </data>
+  <data name="Coll_DeleteConfirm" xml:space="preserve">
+    <value>Видалити «{0}»? Її книги залишаться на рідері.</value>
+  </data>
+  <data name="Coll_Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Coll_Keep" xml:space="preserve">
+    <value>Залишити</value>
+  </data>
+  <data name="Coll_HideShelved" xml:space="preserve">
+    <value>Приховати книги, які вже є в колекції</value>
+  </data>
+  <data name="Coll_Ticked" xml:space="preserve">
+    <value>Позначено: {0}</value>
+  </data>
+  <data name="Coll_TickAll" xml:space="preserve">
+    <value>Позначити всі показані</value>
+  </data>
+  <data name="Coll_Collection" xml:space="preserve">
+    <value>Колекція</value>
+  </data>
+  <data name="Coll_Move" xml:space="preserve">
+    <value>Перемістити</value>
+  </data>
+  <data name="Coll_MoveHint" xml:space="preserve">
+    <value>Помістити позначені книги лише в цю колекцію: їх буде вилучено з усіх інших колекцій</value>
+  </data>
+  <data name="Coll_AlsoAdd" xml:space="preserve">
+    <value>Також додати</value>
+  </data>
+  <data name="Coll_AlsoAddHint" xml:space="preserve">
+    <value>Також помістити позначені книги в цю колекцію, залишивши їх в інших колекціях</value>
+  </data>
+  <data name="Coll_RemoveFrom" xml:space="preserve">
+    <value>Вилучити з {0}</value>
+  </data>
+  <data name="Coll_EveryBookShelved" xml:space="preserve">
+    <value>Кожна книга є в колекції.</value>
+  </data>
+  <data name="Coll_NoneInSeveral" xml:space="preserve">
+    <value>Жодна книга не входить до кількох колекцій.</value>
+  </data>
+  <data name="Coll_EmptyCollection" xml:space="preserve">
+    <value>У цій колекції поки що немає книг. Позначте книги в іншому поданні та додайте їх.</value>
+  </data>
+  <data name="Coll_NoMatch" xml:space="preserve">
+    <value>Немає книг, що відповідають запиту.</value>
+  </data>
+  <data name="Coll_None" xml:space="preserve">
+    <value>немає</value>
+  </data>
+  <data name="Coll_From_Store" xml:space="preserve">
+    <value>Магазин</value>
+  </data>
+  <data name="Coll_From_Added" xml:space="preserve">
+    <value>Додано</value>
+  </data>
+  <data name="Kindle_Intro" xml:space="preserve">
+    <value>Amazon більше не дозволяє завантажувати книги з облікового запису Kindle, тому тут копіюються як є книги, які вже є на Kindle, підключеному через USB (з літерою диска чи без неї), або в програмі Kindle for PC.</value>
+  </data>
+  <data name="Kindle_ConnectedNote" xml:space="preserve">
+    <value>Ваш Kindle у режимі USB Drive Mode, і його книги показано нижче. Не відключайте його під час збереження: повідомлення Kindle про витягання стосується лише того випадку, коли ви хочете знову читати. Коли закінчите, натисніть «Витягти Kindle».</value>
+  </data>
+  <data name="Kindle_LookAgain" xml:space="preserve">
+    <value>Шукати знову</value>
+  </data>
+  <data name="Kindle_LookAgainHint" xml:space="preserve">
+    <value>Шукати Kindle та його книги знову</value>
+  </data>
+  <data name="Kindle_SaveToHint" xml:space="preserve">
+    <value>Виберіть папку для книг Kindle</value>
+  </data>
+  <data name="Kindle_AddFolder" xml:space="preserve">
+    <value>Додати папку для пошуку…</value>
+  </data>
+  <data name="Kindle_AddFolderHint" xml:space="preserve">
+    <value>Для книг, що зберігаються деінде, наприклад у переміщеній папці Kindle for PC</value>
+  </data>
+</root>

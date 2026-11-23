@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Title" xml:space="preserve">
+    <value>HoboLibris</value>
+  </data>
+  <data name="Menu_About" xml:space="preserve">
+    <value>אודות</value>
+  </data>
+  <data name="Menu_Language" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>אודות HoboLibris</value>
+  </data>
+  <data name="About_Production" xml:space="preserve">
+    <value>הפקה של multifarious</value>
+  </data>
+  <data name="About_AboutHeader" xml:space="preserve">
+    <value>אודות</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>HoboLibris שומר, מארגן ומסנכרן את ספרי ה-Kobo וה-Kindle שלך. הוא מגבה למחשב זה את הספרים שבחשבון ה-Kobo שלך, בקורא הספרים האלקטרוני Kobo וב-Kindle, ממיין את הספרים שבקורא לאוספים ושולח את הספרים שלך לקורא. הקבצים מועתקים בדיוק כפי שהם: שום דבר לא מפוענח ולא מומר.</value>
+  </data>
+  <data name="About_DataHeader" xml:space="preserve">
+    <value>הנתונים שלך</value>
+  </data>
+  <data name="About_DataText" xml:space="preserve">
+    <value>ההגדרות, פרטי הכניסה ל-Kobo, רשימת הספרייה, קובצי היומן וגיבויי רשימת הספרים של הקורא נשמרים בתיקייה זו. הספרים המגובים נמצאים בתיקיות שבחרת.</value>
+  </data>
+  <data name="About_SupportHeader" xml:space="preserve">
+    <value>תמיכה</value>
+  </data>
+  <data name="About_SupportText" xml:space="preserve">
+    <value>דרושה עזרה? ניתן לבקר באתר התמיכה:</value>
+  </data>
+  <data name="About_SupportUrl" xml:space="preserve">
+    <value>multifarious.filkin.com/support</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>© {0} multifarious. כל הזכויות שמורות.</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>גרסה {0}.{1}.{2}</value>
+  </data>
+  <data name="About_BrowserError" xml:space="preserve">
+    <value>לא ניתן לפתוח את הדפדפן: {0}</value>
+  </data>
+  <data name="Language_Title" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="Language_SelectLanguage" xml:space="preserve">
+    <value>בחירת שפה</value>
+  </data>
+  <data name="Language_Subtitle" xml:space="preserve">
+    <value>HoboLibris יופעל מחדש כדי להציג את השפה החדשה.</value>
+  </data>
+  <data name="Language_RestartPrompt" xml:space="preserve">
+    <value>יש להפעיל מחדש את HoboLibris כדי להציג את השפה החדשה. להפעיל מחדש עכשיו?</value>
+  </data>
+  <data name="Language_RestartTitle" xml:space="preserve">
+    <value>להפעיל מחדש את HoboLibris?</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>סגירה</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>ביטול</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>אישור</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>שגיאה</value>
+  </data>
+  <data name="Error_Critical" xml:space="preserve">
+    <value>אירעה שגיאה חמורה ו-HoboLibris חייב להיסגר:
+
+{0}</value>
+  </data>
+  <data name="Error_CriticalTitle" xml:space="preserve">
+    <value>HoboLibris חייב להיסגר</value>
+  </data>
+  <data name="Error_Unexpected" xml:space="preserve">
+    <value>משהו השתבש:
+
+{0}</value>
+  </data>
+  <data name="Store_ServerAnswered" xml:space="preserve">
+    <value>שרת Kobo השיב {0}. {1}</value>
+  </data>
+  <data name="Store_CouldNotReach" xml:space="preserve">
+    <value>לא ניתן להתחבר לשרת Kobo: {0}</value>
+  </data>
+  <data name="Store_UnexpectedSignInReply" xml:space="preserve">
+    <value>תשובת כניסה לא צפויה: {0}</value>
+  </data>
+  <data name="Store_NoAccessToken" xml:space="preserve">
+    <value>שרת Kobo לא סיפק אסימון גישה.</value>
+  </data>
+  <data name="Store_SignInExpired" xml:space="preserve">
+    <value>תוקף הכניסה פג. יש להיכנס שוב.</value>
+  </data>
+  <data name="Store_UnexpectedStartupReply" xml:space="preserve">
+    <value>תשובת הפעלה לא צפויה: {0}</value>
+  </data>
+  <data name="Store_NoSignInPage" xml:space="preserve">
+    <value>שרת Kobo לא סיפק דף כניסה.</value>
+  </data>
+  <data name="Store_NotASignInLink" xml:space="preserve">
+    <value>זה אינו קישור כניסה.</value>
+  </data>
+  <data name="Store_LinkHasNoUserKey" xml:space="preserve">
+    <value>קישור הכניסה אינו מכיל מפתח משתמש.</value>
+  </data>
+  <data name="Store_UnexpectedLibraryReply" xml:space="preserve">
+    <value>תשובת ספרייה לא צפויה: {0}</value>
+  </data>
+  <data name="Store_NoDownload" xml:space="preserve">
+    <value>לספר זה אין הורדה זמינה.</value>
+  </data>
+  <data name="Store_CouldNotCreateFolder" xml:space="preserve">
+    <value>לא ניתן ליצור את התיקייה: {0}</value>
+  </data>
+  <data name="Store_CouldNotWriteFile" xml:space="preserve">
+    <value>לא ניתן לכתוב את הקובץ: {0}</value>
+  </data>
+  <data name="Store_DownloadInterrupted" xml:space="preserve">
+    <value>ההורדה נקטעה: {0}</value>
+  </data>
+  <data name="Store_DownloadEmpty" xml:space="preserve">
+    <value>ההורדה הייתה ריקה.</value>
+  </data>
+  <data name="Store_CouldNotSaveFile" xml:space="preserve">
+    <value>לא ניתן לשמור את הקובץ: {0}</value>
+  </data>
+  <data name="Store_Untitled" xml:space="preserve">
+    <value>ללא שם</value>
+  </data>
+  <data name="Reader_Origin" xml:space="preserve">
+    <value>קורא ספרים אלקטרוני Kobo ({0})</value>
+  </data>
+  <data name="Reader_Duplicate" xml:space="preserve">
+    <value>נמצא גם ברשימת חנות Kobo שלך</value>
+  </data>
+  <data name="Reader_Note_Connect" xml:space="preserve">
+    <value>כדי לפתוח את קורא הספרים האלקטרוני Kobo:
+1.  יש לחבר אותו למחשב זה בכבל ה-USB שלו (ישירות למחשב, לא דרך רכזת).
+2.  יש להעיר אותו. כשהוא שואל אם להתחבר למחשב, יש להקיש Connect על המסך שלו.
+3.  הספרים שבו יופיעו כאן מעצמם.
+אם הוא רק מתחיל להיטען ולא שואל, יש לנתק אותו ולחבר אותו שוב, או לנסות יציאת USB אחרת.</value>
+  </data>
+  <data name="Coll_BookListNotFound" xml:space="preserve">
+    <value>רשימת הספרים של קורא הספרים האלקטרוני Kobo לא נמצאה. האם הוא עדיין מחובר?</value>
+  </data>
+  <data name="Coll_CouldNotOpen" xml:space="preserve">
+    <value>לא ניתן לפתוח את רשימת הספרים של הקורא: {0}</value>
+  </data>
+  <data name="Coll_CouldNotRead" xml:space="preserve">
+    <value>לא ניתן לקרוא את רשימת הספרים של הקורא: {0}</value>
+  </data>
+  <data name="Coll_TypeNameFirst" xml:space="preserve">
+    <value>תחילה יש להקליד שם לאוסף.</value>
+  </data>
+  <data name="Coll_AlreadyExists" xml:space="preserve">
+    <value>כבר קיים אוסף בשם "{0}".</value>
+  </data>
+  <data name="Coll_TypeNewNameFirst" xml:space="preserve">
+    <value>תחילה יש להקליד את השם החדש.</value>
+  </data>
+  <data name="Coll_NoLongerExists" xml:space="preserve">
+    <value>האוסף הזה כבר אינו קיים.</value>
+  </data>
+  <data name="Coll_NoChanges" xml:space="preserve">
+    <value>אין שינויים לשמירה.</value>
+  </data>
+  <data name="Coll_ReaderGone" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo אינו מחובר עוד. יש לחבר אותו שוב וללחוץ על "טעינה מחדש".</value>
+  </data>
+  <data name="Coll_ListChanged" xml:space="preserve">
+    <value>רשימת הספרים של הקורא השתנתה מאז שנקראה. יש ללחוץ על "טעינה מחדש" ולבצע את השינויים שוב.</value>
+  </data>
+  <data name="Coll_CouldNotCreateBackupFolder" xml:space="preserve">
+    <value>לא ניתן ליצור את תיקיית הגיבוי: {0}</value>
+  </data>
+  <data name="Coll_CouldNotBackUp" xml:space="preserve">
+    <value>לא ניתן לגבות את רשימת הספרים של הקורא: {0}</value>
+  </data>
+  <data name="Coll_CouldNotOpenForWriting" xml:space="preserve">
+    <value>לא ניתן לפתוח את רשימת הספרים של הקורא לכתיבה: {0}</value>
+  </data>
+  <data name="Coll_CouldNotSave" xml:space="preserve">
+    <value>לא ניתן לשמור את האוספים: {0}</value>
+  </data>
+  <data name="Send_Verdict_Ready" xml:space="preserve">
+    <value>מוכן לשליחה</value>
+  </data>
+  <data name="Send_Verdict_OnReader" xml:space="preserve">
+    <value>נמצא בקורא</value>
+  </data>
+  <data name="Send_Verdict_StoreBook" xml:space="preserve">
+    <value>ספר מחנות Kobo</value>
+  </data>
+  <data name="Send_Verdict_Protected" xml:space="preserve">
+    <value>מוגן</value>
+  </data>
+  <data name="Send_Verdict_NotKobo" xml:space="preserve">
+    <value>לא ייפתח ב-Kobo</value>
+  </data>
+  <data name="Send_Verdict_Unchecked" xml:space="preserve">
+    <value>יש לחבר את הקורא לבדיקה</value>
+  </data>
+  <data name="Send_Why_Ready" xml:space="preserve">
+    <value>עדיין לא נמצא בקורא, ובפורמט ש-Kobo פותח.</value>
+  </data>
+  <data name="Send_Why_OnReader" xml:space="preserve">
+    <value>הספר הזה כבר נמצא בקורא.</value>
+  </data>
+  <data name="Send_Why_StoreBook" xml:space="preserve">
+    <value>נרכש בחנות Kobo: הקורא מקבל אותו מחשבון ה-Kobo שלך.</value>
+  </data>
+  <data name="Send_Why_Unchecked" xml:space="preserve">
+    <value>Kobo יכול לפתוח אותו. יש לחבר את הקורא כדי לבדוק אם הוא כבר נמצא בו.</value>
+  </data>
+  <data name="Send_FileCouldNotBeOpened" xml:space="preserve">
+    <value>לא ניתן לפתוח את הקובץ.</value>
+  </data>
+  <data name="Send_DamagedEpubNotZip" xml:space="preserve">
+    <value>קובץ EPUB פגום: זה אינו קובץ EPUB קריא.</value>
+  </data>
+  <data name="Send_DamagedEpubNoContainer" xml:space="preserve">
+    <value>קובץ EPUB פגום: קובץ תוכן העניינים שלו חסר.</value>
+  </data>
+  <data name="Send_AdobeProtected" xml:space="preserve">
+    <value>הגנת העתקה של Adobe: הוא נפתח בקורא רק אם הקורא משתמש ב-Adobe ID שאיתו נרכש הספר.</value>
+  </data>
+  <data name="Send_DamagedPdf" xml:space="preserve">
+    <value>קובץ PDF פגום: הוא אינו מתחיל כמו קובץ PDF.</value>
+  </data>
+  <data name="Send_DamagedMobi" xml:space="preserve">
+    <value>קובץ MOBI פגום.</value>
+  </data>
+  <data name="Send_KindleProtected" xml:space="preserve">
+    <value>הגנת העתקה של Kindle: קוראי Kobo אינם יכולים לפתוח אותו.</value>
+  </data>
+  <data name="Send_AcsmTicket" xml:space="preserve">
+    <value>זהו כרטיס הורדה עבור Adobe Digital Editions, לא הספר עצמו.</value>
+  </data>
+  <data name="Send_KoboDoesNotOpen" xml:space="preserve">
+    <value>קוראי Kobo אינם פותחים קובצי {0}.</value>
+  </data>
+  <data name="Send_CouldNotCreateBooksFolder" xml:space="preserve">
+    <value>לא ניתן ליצור את התיקייה Books בקורא: {0}</value>
+  </data>
+  <data name="Send_AlreadyOnReader" xml:space="preserve">
+    <value>קובץ בשם זה כבר נמצא בתיקיית Books של הקורא.</value>
+  </data>
+  <data name="Send_CouldNotReadBook" xml:space="preserve">
+    <value>לא ניתן לקרוא את הספר: {0}</value>
+  </data>
+  <data name="Send_CouldNotWriteToReader" xml:space="preserve">
+    <value>לא ניתן לכתוב לקורא: {0}</value>
+  </data>
+  <data name="Send_CouldNotFinishCopy" xml:space="preserve">
+    <value>לא ניתן להשלים את ההעתקה לקורא: {0}</value>
+  </data>
+  <data name="Kindle_Origin_Drive" xml:space="preserve">
+    <value>Kindle ({0})</value>
+  </data>
+  <data name="Kindle_Origin_ForPc" xml:space="preserve">
+    <value>Kindle for PC</value>
+  </data>
+  <data name="Kindle_Origin_Folder" xml:space="preserve">
+    <value>תיקייה {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCreateFolder" xml:space="preserve">
+    <value>לא ניתן ליצור את התיקייה: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyBook" xml:space="preserve">
+    <value>לא ניתן להעתיק את הספר: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyExtraFiles" xml:space="preserve">
+    <value>לא ניתן להעתיק את הקבצים הנלווים של הספר: {0}</value>
+  </data>
+  <data name="Kindle_NoBackupFolder" xml:space="preserve">
+    <value>אין תיקיית גיבוי.</value>
+  </data>
+  <data name="Kindle_NoLongerConnected" xml:space="preserve">
+    <value>ה-Kindle אינו מחובר עוד.</value>
+  </data>
+  <data name="Kindle_FolderNotFound" xml:space="preserve">
+    <value>התיקייה לא נמצאה ב-Kindle: {0}</value>
+  </data>
+  <data name="Kindle_BookNoLongerOnKindle" xml:space="preserve">
+    <value>הספר כבר אינו נמצא ב-Kindle.</value>
+  </data>
+  <data name="Kindle_CopyTookTooLong" xml:space="preserve">
+    <value>ההעתקה מה-Kindle ארכה זמן רב מדי.</value>
+  </data>
+  <data name="Kindle_Note_NotSeen" xml:space="preserve">
+    <value>Windows אינו מזהה Kindle. יש להעיר את ה-Kindle, ואז לנסות יציאת USB אחרת או כבל אחר (יש כבלים שרק טוענים).</value>
+  </data>
+  <data name="Kindle_Note_StorageClosed" xml:space="preserve">
+    <value>ה-Kindle מחובר והכבל מעביר נתונים, אבל ה-Kindle שומר את האחסון שלו סגור, ולכן Windows רואה כונן ריק. זו גם הסיבה שהוא אינו מופיע ברשימת ההתקנים להוצאה: אפשר פשוט לנתק אותו.
+כדי לפתוח אותו:
+1.  יש לנתק את ה-Kindle.
+2.  יש להפעיל אותו מחדש: להחזיק את לחצן ההפעלה כ-40 שניות עד שהמסך מתרוקן, ואז לשחרר ולהמתין שיופעל (או להשתמש ב"הגדרות", "אפשרויות מכשיר", "הפעלה מחדש").
+3.  יש לחבר את הכבל ישירות למחשב זה, לא לרכזת, למקלדת או לצג.
+4.  אין להקיש על שום דבר ב-Kindle. המסך שלו אמור להשתנות ל-"USB Drive Mode" או לתמונה של מחשב, והספרים יופיעו כאן מעצמם.
+אם ה-Kindle מציג רק שהוא נטען, יש לנסות יציאת USB אחרת במחשב.</value>
+  </data>
+  <data name="Kindle_Note_Seen" xml:space="preserve">
+    <value>Windows מזהה את ה-Kindle, אבל עדיין לא ניתן לפתוח את הספרים שבו. יש לבטל את נעילת ה-Kindle, או לנתק אותו ולחבר אותו שוב.</value>
+  </data>
+  <data name="Main_Kobo" xml:space="preserve">
+    <value>Kobo</value>
+  </data>
+  <data name="Main_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Main_SignedIn" xml:space="preserve">
+    <value>בוצעה כניסה</value>
+  </data>
+  <data name="Main_SignedInAs" xml:space="preserve">
+    <value>בוצעה כניסה בשם {0}</value>
+  </data>
+  <data name="Main_SignOut" xml:space="preserve">
+    <value>יציאה</value>
+  </data>
+  <data name="Common_Dismiss" xml:space="preserve">
+    <value>הסתרה</value>
+  </data>
+  <data name="Welcome_Heading" xml:space="preserve">
+    <value>שמירת עותק של הספרים שלך</value>
+  </data>
+  <data name="Welcome_Text1" xml:space="preserve">
+    <value>יש להיכנס לחשבון ה-Kobo שלך כדי לראות את הספרים שרכשת ולשמור אותם במחשב זה.</value>
+  </data>
+  <data name="Welcome_Text2" xml:space="preserve">
+    <value>ספרים שהוספת בעצמך לקורא הספרים האלקטרוני Kobo מופיעים כאן גם כן כשמחברים אותו.</value>
+  </data>
+  <data name="Welcome_SignIn" xml:space="preserve">
+    <value>כניסה</value>
+  </data>
+  <data name="Welcome_DidntComeBack" xml:space="preserve">
+    <value>חלון הכניסה לא חזר?</value>
+  </data>
+  <data name="Welcome_PasteHint" xml:space="preserve">
+    <value>יש להדביק כאן את הכתובת שמתחילה ב-kobo://UserAuthenticated:</value>
+  </data>
+  <data name="Welcome_UseLink" xml:space="preserve">
+    <value>שימוש בקישור זה</value>
+  </data>
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>כניסה לחשבון ה-Kobo שלך</value>
+  </data>
+  <data name="SignIn_Note" xml:space="preserve">
+    <value>יש להיכנס עם חשבון ה-Kobo שלך. חלון זה נסגר מעצמו כש-Kobo מחזיר אותך ל-HoboLibris.</value>
+  </data>
+  <data name="SignIn_WebViewMissing" xml:space="preserve">
+    <value>דף הכניסה זקוק לסביבת זמן הריצה של Microsoft Edge WebView2, שהיא חלק מ-Windows 10 ו-11. לא ניתן היה להפעיל אותה במחשב זה. יש להתקין אותה מ-Microsoft ואז לנסות שוב.</value>
+  </data>
+  <data name="SignIn_WebViewLink" xml:space="preserve">
+    <value>הורדת סביבת זמן הריצה של WebView2 מ-Microsoft</value>
+  </data>
+  <data name="Kobo_BackUpTab" xml:space="preserve">
+    <value>גיבוי ספרים</value>
+  </data>
+  <data name="Kobo_CollectionsTab" xml:space="preserve">
+    <value>אוספים</value>
+  </data>
+  <data name="Kobo_CollectionsTabTip" xml:space="preserve">
+    <value>מיון הספרים שבקורא הספרים האלקטרוני Kobo לאוספים</value>
+  </data>
+  <data name="Kobo_SendTab" xml:space="preserve">
+    <value>שליחה לקורא</value>
+  </data>
+  <data name="Kobo_SendTabCount" xml:space="preserve">
+    <value>שליחה לקורא ({0})</value>
+  </data>
+  <data name="Kobo_SendTabTip" xml:space="preserve">
+    <value>העתקת ספרים שהכנסת בעצמך לתיקיית Kobo אל הקורא</value>
+  </data>
+  <data name="Kobo_PlugInNote" xml:space="preserve">
+    <value>יש לחבר את קורא הספרים האלקטרוני Kobo ולהקיש Connect על המסך שלו כדי לגבות גם את הספרים שהוספת אליו בעצמך. עד אז, הספרים שבתיקיית Kobo מופיעים כ"מחשב זה".</value>
+  </data>
+  <data name="Kobo_ReaderEjectedNote" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo הוצא. יש לחבר אותו שוב כדי לגבות את הספרים שהוספת אליו בעצמך.</value>
+  </data>
+  <data name="Kobo_SignInBanner" xml:space="preserve">
+    <value>יש להיכנס לחשבון ה-Kobo שלך כדי לגבות גם את הספרים שרכשת בחנות Kobo.</value>
+  </data>
+  <data name="Kobo_SignIn" xml:space="preserve">
+    <value>כניסה</value>
+  </data>
+  <data name="Kobo_OneBookWaiting" xml:space="preserve">
+    <value>ספר אחד בתיקיית Kobo עדיין לא נמצא בקורא.</value>
+  </data>
+  <data name="Kobo_BooksWaiting" xml:space="preserve">
+    <value>{0} ספרים בתיקיית Kobo עדיין לא נמצאים בקורא.</value>
+  </data>
+  <data name="Kobo_SeeAndSend" xml:space="preserve">
+    <value>הצגה ושליחה…</value>
+  </data>
+  <data name="Kobo_ReaderConnectedNote" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo מחובר: גם הספרים שהוספת אליו בעצמך נמצאים ברשימה. יש להשאיר אותו מחובר במהלך הגיבוי.</value>
+  </data>
+  <data name="Kobo_EjectReader" xml:space="preserve">
+    <value>הוצאת קורא ספרים אלקטרוני Kobo</value>
+  </data>
+  <data name="Kobo_EjectReaderHint" xml:space="preserve">
+    <value>ניתוק בטוח של הקורא כדי שניתן יהיה לקרוא ולטעון שוב</value>
+  </data>
+  <data name="Kobo_RefreshList" xml:space="preserve">
+    <value>רענון הרשימה</value>
+  </data>
+  <data name="Kobo_RefreshListHint" xml:space="preserve">
+    <value>קבלת הרשימה העדכנית מחשבון ה-Kobo שלך ומהקורא</value>
+  </data>
+  <data name="Kobo_BackUpAll" xml:space="preserve">
+    <value>גיבוי כל מה שטרם נשמר ({0})</value>
+  </data>
+  <data name="Kobo_BackUpSelected" xml:space="preserve">
+    <value>גיבוי הפריטים שנבחרו ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelected" xml:space="preserve">
+    <value>מחיקת הפריטים שנבחרו ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
+    <value>מחיקת עותקי הגיבוי, ובחירה אם להסיר את הספרים גם מהקורא</value>
+  </data>
+  <data name="Kobo_SaveTo" xml:space="preserve">
+    <value>שמירה אל…</value>
+  </data>
+  <data name="Kobo_SaveToHint" xml:space="preserve">
+    <value>בחירת התיקייה לספרי ה-Kobo שלך</value>
+  </data>
+  <data name="Kobo_OpenFolder" xml:space="preserve">
+    <value>פתיחת התיקייה</value>
+  </data>
+  <data name="Kobo_FolderLabel" xml:space="preserve">
+    <value>תיקייה:</value>
+  </data>
+  <data name="Kobo_SearchHint" xml:space="preserve">
+    <value>חיפוש לפי שם או מחבר</value>
+  </data>
+  <data name="Kobo_SortBy" xml:space="preserve">
+    <value>מיון לפי</value>
+  </data>
+  <data name="Kobo_SortTitle" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="Kobo_SortAuthor" xml:space="preserve">
+    <value>מחבר</value>
+  </data>
+  <data name="Kobo_NoBooksYet" xml:space="preserve">
+    <value>אין ספרים עדיין. יש ללחוץ על "רענון הרשימה".</value>
+  </data>
+  <data name="List_NoMatch" xml:space="preserve">
+    <value>אין ספרים תואמים.</value>
+  </data>
+  <data name="Col_Title" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="Col_Author" xml:space="preserve">
+    <value>מחבר</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>פורמט</value>
+  </data>
+  <data name="Col_From" xml:space="preserve">
+    <value>מקור</value>
+  </data>
+  <data name="Col_FromTip" xml:space="preserve">
+    <value>חנות: נרכש בחנות Kobo והורד מהחשבון שלך. ספרי חנות מוגנים נשמרים בדיוק כפי ש-Kobo מספק אותם, ונפתחים רק ביישומי קריאה של Kobo או Adobe.
+קורא: הוספת אותו בעצמך לקורא הספרים האלקטרוני Kobo, והוא הועתק ממנו.
+מחשב זה: נמצא בתיקיית Kobo, אבל לא ברשימת החנות שלך ולא בקורא מחובר.</value>
+  </data>
+  <data name="Col_OnThisComputer" xml:space="preserve">
+    <value>במחשב זה</value>
+  </data>
+  <data name="Col_SelectAll" xml:space="preserve">
+    <value>בחירת כל המוצגים</value>
+  </data>
+  <data name="Col_FoundOn" xml:space="preserve">
+    <value>נמצא ב</value>
+  </data>
+  <data name="Col_BackedUp" xml:space="preserve">
+    <value>גובה</value>
+  </data>
+  <data name="Col_BookFile" xml:space="preserve">
+    <value>קובץ הספר</value>
+  </data>
+  <data name="Col_OnReader" xml:space="preserve">
+    <value>בקורא</value>
+  </data>
+  <data name="Col_Collections" xml:space="preserve">
+    <value>אוספים</value>
+  </data>
+  <data name="Row_From_Store" xml:space="preserve">
+    <value>חנות</value>
+  </data>
+  <data name="Row_From_StoreProtected" xml:space="preserve">
+    <value>חנות · מוגן</value>
+  </data>
+  <data name="Row_From_Reader" xml:space="preserve">
+    <value>קורא</value>
+  </data>
+  <data name="Row_From_Computer" xml:space="preserve">
+    <value>מחשב זה</value>
+  </data>
+  <data name="Row_From_StoreTip" xml:space="preserve">
+    <value>נרכש בחנות Kobo והורד מהחשבון שלך.</value>
+  </data>
+  <data name="Row_From_ReaderTip" xml:space="preserve">
+    <value>הוספת אותו בעצמך לקורא הספרים האלקטרוני Kobo; הועתק ממנו.</value>
+  </data>
+  <data name="Row_From_ComputerTip" xml:space="preserve">
+    <value>נמצא בתיקיית Kobo, אבל לא ברשימת חנות Kobo שלך ולא בקורא מחובר. יש לחבר את הקורא כדי לבדוק אם הוא נמצא בו, או להשתמש ב"שליחה לקורא".</value>
+  </data>
+  <data name="Row_Waiting" xml:space="preserve">
+    <value>ממתין…</value>
+  </data>
+  <data name="Row_Failed" xml:space="preserve">
+    <value>נכשל</value>
+  </data>
+  <data name="Row_InTheFolder" xml:space="preserve">
+    <value>✔ בתיקייה</value>
+  </data>
+  <data name="Row_Saved" xml:space="preserve">
+    <value>✔ נשמר</value>
+  </data>
+  <data name="Row_SameAsStore" xml:space="preserve">
+    <value>זהה לספר מהחנות</value>
+  </data>
+  <data name="Row_SameAsStoreTip" xml:space="preserve">
+    <value>ספר זה נמצא גם ברשימת חנות Kobo שלך, ולכן "גיבוי כל מה שטרם נשמר" שומר את עותק החנות ומדלג על זה. ניתן להעתיק אותו בכל זאת באמצעות הלחצן.</value>
+  </data>
+  <data name="Row_FromStore" xml:space="preserve">
+    <value>✔ מהחנות</value>
+  </data>
+  <data name="Row_FromStoreTip" xml:space="preserve">
+    <value>{0}, ולכן הוא לא נכלל ב"גיבוי כל מה שטרם נשמר". ניתן להעתיק אותו בכל זאת באמצעות הלחצן.</value>
+  </data>
+  <data name="Row_NotDownloadable" xml:space="preserve">
+    <value>לא ניתן להורדה</value>
+  </data>
+  <data name="Row_BackUp" xml:space="preserve">
+    <value>גיבוי</value>
+  </data>
+  <data name="Row_Again" xml:space="preserve">
+    <value>שוב</value>
+  </data>
+  <data name="Row_AgainTip" xml:space="preserve">
+    <value>העתקה או הורדה מחדש</value>
+  </data>
+  <data name="Row_Copy" xml:space="preserve">
+    <value>העתקה</value>
+  </data>
+  <data name="Row_CopyTip" xml:space="preserve">
+    <value>העתקה בכל זאת</value>
+  </data>
+  <data name="Progress_BackingUp" xml:space="preserve">
+    <value>גיבוי</value>
+  </data>
+  <data name="Progress_Sending" xml:space="preserve">
+    <value>שליחה</value>
+  </data>
+  <data name="Progress_AllFinished" xml:space="preserve">
+    <value>{0}: כל {1} הסתיימו</value>
+  </data>
+  <data name="Progress_BookOf" xml:space="preserve">
+    <value>{0}: ספר {1} מתוך {2}   ·   {3}% הושלמו</value>
+  </data>
+  <data name="Status_LookingFor" xml:space="preserve">
+    <value>מחפש ספרים ב-{0}...</value>
+  </data>
+  <data name="Status_BooksFound" xml:space="preserve">
+    <value>נמצאו {0} ספרים ב-{1}.</value>
+  </data>
+  <data name="Status_WaitForCopies" xml:space="preserve">
+    <value>יש להמתין לסיום ההעתקות הנוכחיות.</value>
+  </data>
+  <data name="Status_BackingUpBooks" xml:space="preserve">
+    <value>מגבה {0} ספרים מ-{1}...</value>
+  </data>
+  <data name="Status_DoneBackedUp" xml:space="preserve">
+    <value>הסתיים. גובו {0} מתוך {1} ספרים ב-{2}.</value>
+  </data>
+  <data name="Status_FinishedWithFailures" xml:space="preserve">
+    <value>הסתיים עם {0} העתקות שנכשלו. יש לרחף מעל "נכשל" כדי לראות מדוע.</value>
+  </data>
+  <data name="Status_Ejecting" xml:space="preserve">
+    <value>מוציא את {0}...</value>
+  </data>
+  <data name="Status_CouldNotEject" xml:space="preserve">
+    <value>לא ניתן להוציא את {0}: {1}</value>
+  </data>
+  <data name="Status_Ejected" xml:space="preserve">
+    <value>{0} הוצא. ניתן לנתק אותו.</value>
+  </data>
+  <data name="Status_SendingBooks" xml:space="preserve">
+    <value>שולח {0} ספרים לקורא הספרים האלקטרוני Kobo...</value>
+  </data>
+  <data name="Status_SentBooks" xml:space="preserve">
+    <value>נשלחו {0} ספרים לקורא הספרים האלקטרוני Kobo. יש להוציא אותו כדי להוסיף אותם לספרייה שלו.</value>
+  </data>
+  <data name="Status_SentWithFailures" xml:space="preserve">
+    <value>נשלחו {0} ספרים; {1} נכשלו. יש לרחף מעל "נכשל" כדי לראות מדוע.</value>
+  </data>
+  <data name="Status_BooksAndCollections" xml:space="preserve">
+    <value>{0} ספרים ו-{1} אוספים בקורא הספרים האלקטרוני Kobo.</value>
+  </data>
+  <data name="Status_CollectionsSaved" xml:space="preserve">
+    <value>האוספים נשמרו. רשימת הספרים של הקורא הועתקה תחילה אל {0}</value>
+  </data>
+  <data name="Status_SignedInRefresh" xml:space="preserve">
+    <value>בוצעה כניסה. יש ללחוץ על "רענון הרשימה" כדי לטעון את הספרים שלך.</value>
+  </data>
+  <data name="Status_OpeningSignIn" xml:space="preserve">
+    <value>פותח את חלון הכניסה של Kobo...</value>
+  </data>
+  <data name="Status_SignInInWindow" xml:space="preserve">
+    <value>יש להיכנס עם חשבון ה-Kobo שלך בחלון שנפתח.</value>
+  </data>
+  <data name="Status_SignInClosed" xml:space="preserve">
+    <value>הכניסה נסגרה לפני שהסתיימה.</value>
+  </data>
+  <data name="Status_ConnectingAccount" xml:space="preserve">
+    <value>בוצעה כניסה. מחבר את המחשב הזה לחשבון שלך...</value>
+  </data>
+  <data name="Status_SignedOut" xml:space="preserve">
+    <value>בוצעה יציאה.</value>
+  </data>
+  <data name="Status_LoadingLibrary" xml:space="preserve">
+    <value>טוען את הספרייה שלך...</value>
+  </data>
+  <data name="Status_LoadingLibraryCount" xml:space="preserve">
+    <value>טוען את הספרייה שלך... {0} ספרים עד כה</value>
+  </data>
+  <data name="Status_WaitForDownloads" xml:space="preserve">
+    <value>יש להמתין לסיום ההורדות הנוכחיות.</value>
+  </data>
+  <data name="Status_DownloadingBooks" xml:space="preserve">
+    <value>מוריד {0} ספרים...</value>
+  </data>
+  <data name="Status_DoneStoreSaved" xml:space="preserve">
+    <value>הסתיים. נשמרו {0} מתוך {1} ספרים מחנות Kobo.</value>
+  </data>
+  <data name="Status_FinishedWithFailedDownloads" xml:space="preserve">
+    <value>הסתיים עם {0} הורדות שנכשלו. יש לרחף מעל "נכשל" כדי לראות מדוע.</value>
+  </data>
+  <data name="Summary_OneBook" xml:space="preserve">
+    <value>ספר אחד</value>
+  </data>
+  <data name="Summary_Books" xml:space="preserve">
+    <value>{0} ספרים</value>
+  </data>
+  <data name="Summary_OneDeviceBook" xml:space="preserve">
+    <value>נמצא ספר אחד ב-{0}.</value>
+  </data>
+  <data name="Summary_DeviceBooks" xml:space="preserve">
+    <value>נמצאו {0} ספרים ב-{1}.</value>
+  </data>
+  <data name="Summary_FromStore" xml:space="preserve">
+    <value>{0} מחנות Kobo</value>
+  </data>
+  <data name="Summary_OnReader" xml:space="preserve">
+    <value>{0} בקורא</value>
+  </data>
+  <data name="Summary_OnlyOnComputer" xml:space="preserve">
+    <value>{0} רק במחשב זה</value>
+  </data>
+  <data name="Summary_LibraryWithParts" xml:space="preserve">
+    <value>{0} בספרייה שלך: {1}.</value>
+  </data>
+  <data name="Summary_Library" xml:space="preserve">
+    <value>{0} בספרייה שלך.</value>
+  </data>
+  <data name="Device_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Device_KoboReader" xml:space="preserve">
+    <value>קורא ספרים אלקטרוני Kobo</value>
+  </data>
+  <data name="Device_Eject" xml:space="preserve">
+    <value>הוצאת {0}</value>
+  </data>
+  <data name="Device_EjectHint" xml:space="preserve">
+    <value>ניתוק בטוח של {0} כדי שניתן יהיה לקרוא ולטעון שוב</value>
+  </data>
+  <data name="Device_EjectWait" xml:space="preserve">
+    <value>תחילה יש להמתין לסיום הגיבוי</value>
+  </data>
+  <data name="Device_EjectedHeading" xml:space="preserve">
+    <value>{0} הוצא</value>
+  </data>
+  <data name="Device_NoneFoundYet" xml:space="preserve">
+    <value>עדיין לא נמצא {0}</value>
+  </data>
+  <data name="Device_EjectedText" xml:space="preserve">
+    <value>{0} הוצא. ניתן לנתק אותו ולהמשיך לקרוא.
+כדי לגבות ספרים נוספים, יש לחבר אותו שוב: הספרים שבו יופיעו כאן מעצמם.</value>
+  </data>
+  <data name="Device_PlugIn" xml:space="preserve">
+    <value>יש לחבר את {0} בכבל ה-USB שלו ולבטל את הנעילה.</value>
+  </data>
+  <data name="Device_CheckingAgain" xml:space="preserve">
+    <value>בודק שוב כל כמה שניות…</value>
+  </data>
+  <data name="Device_Looking" xml:space="preserve">
+    <value>מחפש ספרים ב-{0}…</value>
+  </data>
+  <data name="Device_NoBooks" xml:space="preserve">
+    <value>לא נמצאו ספרים ב-{0}.</value>
+  </data>
+  <data name="Dialog_ChooseKoboFolder" xml:space="preserve">
+    <value>בחירת המיקום לשמירת ספרי ה-Kobo שלך</value>
+  </data>
+  <data name="Dialog_ChooseKindleFolder" xml:space="preserve">
+    <value>בחירת המיקום לשמירת ספרי ה-Kindle שלך</value>
+  </data>
+  <data name="Dialog_ChooseKindleSearchFolder" xml:space="preserve">
+    <value>בחירת תיקייה שמכילה ספרי Kindle</value>
+  </data>
+  <data name="Delete_WindowTitle" xml:space="preserve">
+    <value>מחיקת הפריטים שנבחרו</value>
+  </data>
+  <data name="Delete_TitleOne" xml:space="preserve">
+    <value>למחוק ספר אחד?</value>
+  </data>
+  <data name="Delete_TitleMany" xml:space="preserve">
+    <value>למחוק {0} ספרים?</value>
+  </data>
+  <data name="Delete_NoCopies" xml:space="preserve">
+    <value>לאף אחד מהם אין עותק גיבוי בתיקיית Kobo.</value>
+  </data>
+  <data name="Delete_OneCopy" xml:space="preserve">
+    <value>עותק גיבוי אחד בתיקיית Kobo יועבר לסל המיחזור, ולכן ניתן לשחזר אותו במקרה של חרטה.</value>
+  </data>
+  <data name="Delete_Copies" xml:space="preserve">
+    <value>{0} עותקי גיבוי בתיקיית Kobo יועברו לסל המיחזור, ולכן ניתן לשחזר אותם במקרה של חרטה.</value>
+  </data>
+  <data name="Delete_AlsoRemoveOne" xml:space="preserve">
+    <value>להסיר אותו גם מקורא הספרים האלקטרוני Kobo</value>
+  </data>
+  <data name="Delete_AlsoRemoveMany" xml:space="preserve">
+    <value>להסיר גם את {0} הספרים שהוספת אליו מקורא הספרים האלקטרוני Kobo</value>
+  </data>
+  <data name="Delete_RemoveNoteOn" xml:space="preserve">
+    <value>הם נמחקים מהקורא עכשיו (אין בו סל מיחזור). לאחר מכן יש להוציא את הקורא, והוא יסיר אותם מהספרייה שלו.</value>
+  </data>
+  <data name="Delete_RemoveNoteOff" xml:space="preserve">
+    <value>הם נשארים בקורא. "גיבוי כל מה שטרם נשמר" יעתיק אותם שוב לתיקייה.</value>
+  </data>
+  <data name="Delete_StoreNoteOne" xml:space="preserve">
+    <value>ספר אחד נרכש בחנות Kobo: הוא נשאר בחשבון ה-Kobo שלך ובקורא. כדי להסיר ספר מהחנות מהקורא, יש להסיר אותו בקורא עצמו.</value>
+  </data>
+  <data name="Delete_StoreNoteMany" xml:space="preserve">
+    <value>{0} נרכשו בחנות Kobo: הם נשארים בחשבון ה-Kobo שלך ובקורא. כדי להסיר ספר מהחנות מהקורא, יש להסיר אותו בקורא עצמו.</value>
+  </data>
+  <data name="Delete_Button" xml:space="preserve">
+    <value>מחיקה</value>
+  </data>
+  <data name="Delete_OneBinned" xml:space="preserve">
+    <value>עותק גיבוי אחד הועבר לסל המיחזור</value>
+  </data>
+  <data name="Delete_Binned" xml:space="preserve">
+    <value>{0} עותקי גיבוי הועברו לסל המיחזור</value>
+  </data>
+  <data name="Delete_RemovedFromReader" xml:space="preserve">
+    <value>{0} הוסרו מהקורא (יש להוציא אותו כדי לעדכן את הספרייה שלו)</value>
+  </data>
+  <data name="Delete_RemovedLater" xml:space="preserve">
+    <value>{0} יוסרו מהקורא בפעם הבאה שיחובר</value>
+  </data>
+  <data name="Delete_Nothing" xml:space="preserve">
+    <value>שום דבר לא נמחק.</value>
+  </data>
+  <data name="Delete_CouldNot" xml:space="preserve">
+    <value>לא ניתן למחוק: {0}</value>
+  </data>
+  <data name="Delete_PendingOneDone" xml:space="preserve">
+    <value>ספר אחד הוסר מהקורא, כפי שביקשת קודם. יש להוציא אותו כדי לעדכן את הספרייה שלו.</value>
+  </data>
+  <data name="Delete_PendingDone" xml:space="preserve">
+    <value>{0} ספרים הוסרו מהקורא, כפי שביקשת קודם. יש להוציא אותו כדי לעדכן את הספרייה שלו.</value>
+  </data>
+  <data name="Send_Intro" xml:space="preserve">
+    <value>ספרים שהכנסת בעצמך לתיקיית Kobo מועתקים לתיקיית Books שבקורא הספרים האלקטרוני Kobo, אם הם עדיין לא נמצאים בו ו-Kobo יכול לפתוח אותם. ספרים שנרכשו בחנות Kobo אינם נכללים: הקורא מקבל אותם מחשבון ה-Kobo שלך. שום דבר לא נמחק באף אחד מהצדדים. לאחר מכן יש להוציא את הקורא כדי שיוסיף את הספרים החדשים לספרייה שלו.</value>
+  </data>
+  <data name="Send_ReaderConnected" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo מחובר.</value>
+  </data>
+  <data name="Send_EjectHint" xml:space="preserve">
+    <value>ניתוק בטוח של הקורא כדי שיוסיף את הספרים החדשים</value>
+  </data>
+  <data name="Send_PlugIn" xml:space="preserve">
+    <value>יש לחבר את קורא הספרים האלקטרוני Kobo ולהקיש Connect על המסך שלו כדי לשלוח אליו ספרים. עד אז רשימה זו מציגה את תוכן תיקיית Kobo.</value>
+  </data>
+  <data name="Send_AllReady" xml:space="preserve">
+    <value>שליחת כל המוכנים ({0})</value>
+  </data>
+  <data name="Send_Selected" xml:space="preserve">
+    <value>שליחת הפריטים שנבחרו ({0})</value>
+  </data>
+  <data name="Send_LookAgain" xml:space="preserve">
+    <value>חיפוש מחדש</value>
+  </data>
+  <data name="Send_LookAgainHint" xml:space="preserve">
+    <value>סריקה חוזרת של תיקיית Kobo</value>
+  </data>
+  <data name="Send_Auto" xml:space="preserve">
+    <value>שליחת ספרים חדשים אוטומטית כשהקורא מחובר</value>
+  </data>
+  <data name="Send_AutoHint" xml:space="preserve">
+    <value>רק ספרים המסומנים "מוכן לשליחה" נשלחים אוטומטית</value>
+  </data>
+  <data name="Send_KoboFolder" xml:space="preserve">
+    <value>תיקיית Kobo:</value>
+  </data>
+  <data name="Send_NoFiles" xml:space="preserve">
+    <value>אין עדיין קובצי ספרים בתיקיית Kobo.</value>
+  </data>
+  <data name="Send_Sent" xml:space="preserve">
+    <value>✔ נשלח</value>
+  </data>
+  <data name="Send_SentTip" xml:space="preserve">
+    <value>הועתק לתיקיית Books של הקורא. יש להוציא את הקורא כדי להוסיף אותו.</value>
+  </data>
+  <data name="Send_Send" xml:space="preserve">
+    <value>שליחה</value>
+  </data>
+  <data name="Send_SendAnyway" xml:space="preserve">
+    <value>שליחה בכל זאת</value>
+  </data>
+  <data name="Send_NoReader" xml:space="preserve">
+    <value>לא נמצא קורא ספרים אלקטרוני Kobo. יש לחבר אותו ולהקיש Connect על המסך שלו.</value>
+  </data>
+  <data name="Send_TickAll" xml:space="preserve">
+    <value>סימון הכול</value>
+  </data>
+  <data name="Coll_Intro" xml:space="preserve">
+    <value>כאן ניתן למיין את הספרים שבקורא הספרים האלקטרוני Kobo לאוספים, ואז ללחוץ על "שמירה בקורא ספרים אלקטרוני Kobo". שום דבר לא משתנה בקורא עד לשמירה, ורשימת הספרים שלו מועתקת תחילה למחשב זה. לאחר מכן יש ללחוץ על "הוצאת קורא ספרים אלקטרוני Kobo" (למעלה) כדי שיציג את האוספים החדשים.</value>
+  </data>
+  <data name="Coll_NoReader" xml:space="preserve">
+    <value>לא נמצא קורא ספרים אלקטרוני Kobo. יש לחבר אותו, להקיש Connect על המסך שלו ואז ללחוץ על "טעינה מחדש".</value>
+  </data>
+  <data name="Coll_Reload" xml:space="preserve">
+    <value>טעינה מחדש</value>
+  </data>
+  <data name="Coll_ReloadHint" xml:space="preserve">
+    <value>קריאה חוזרת של האוספים מהקורא (שינויים שלא נשמרו יאבדו)</value>
+  </data>
+  <data name="Coll_SaveButtonOne" xml:space="preserve">
+    <value>שמירה בקורא ספרים אלקטרוני Kobo (שינוי אחד)</value>
+  </data>
+  <data name="Coll_SaveButton" xml:space="preserve">
+    <value>שמירה בקורא ספרים אלקטרוני Kobo ({0} שינויים)</value>
+  </data>
+  <data name="Coll_UndoAll" xml:space="preserve">
+    <value>ביטול כל השינויים</value>
+  </data>
+  <data name="Coll_Saved" xml:space="preserve">
+    <value>נשמר בקורא הספרים האלקטרוני Kobo. יש ללחוץ על "הוצאת קורא ספרים אלקטרוני Kobo" (למעלה) כדי לראות את האוספים החדשים.</value>
+  </data>
+  <data name="Coll_ReaderEjected" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo הוצא: ניתן לנתק אותו ולראות בו את האוספים. כדי לבצע שינויים נוספים, יש לחבר אותו שוב וללחוץ על "טעינה מחדש".</value>
+  </data>
+  <data name="Coll_ConnectedBanner" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo מחובר. לאחר שמירת השינויים, יש להוציא אותו כאן כדי שיציג את האוספים החדשים.</value>
+  </data>
+  <data name="Coll_EjectSaveFirst" xml:space="preserve">
+    <value>תחילה יש לשמור או לבטל את השינויים, אחרת הם לא יגיעו לקורא</value>
+  </data>
+  <data name="Coll_EjectHint" xml:space="preserve">
+    <value>ניתוק בטוח של הקורא כדי שיציג את האוספים החדשים</value>
+  </data>
+  <data name="Coll_Show" xml:space="preserve">
+    <value>הצגה</value>
+  </data>
+  <data name="Coll_Show_All" xml:space="preserve">
+    <value>כל הספרים ({0})</value>
+  </data>
+  <data name="Coll_Show_NotInAny" xml:space="preserve">
+    <value>לא באף אוסף ({0})</value>
+  </data>
+  <data name="Coll_Show_Several" xml:space="preserve">
+    <value>ביותר מאוסף אחד ({0})</value>
+  </data>
+  <data name="Coll_NoneYet" xml:space="preserve">
+    <value>אין אוספים עדיין.</value>
+  </data>
+  <data name="Coll_NewCollection" xml:space="preserve">
+    <value>אוסף חדש</value>
+  </data>
+  <data name="Coll_NameHint" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="Coll_Create" xml:space="preserve">
+    <value>יצירה</value>
+  </data>
+  <data name="Coll_NewNameHint" xml:space="preserve">
+    <value>שם חדש</value>
+  </data>
+  <data name="Coll_Rename" xml:space="preserve">
+    <value>שינוי שם</value>
+  </data>
+  <data name="Coll_DeleteThis" xml:space="preserve">
+    <value>מחיקת אוסף זה</value>
+  </data>
+  <data name="Coll_DeleteConfirm" xml:space="preserve">
+    <value>למחוק את "{0}"? הספרים שבו נשארים בקורא.</value>
+  </data>
+  <data name="Coll_Delete" xml:space="preserve">
+    <value>מחיקה</value>
+  </data>
+  <data name="Coll_Keep" xml:space="preserve">
+    <value>להשאיר</value>
+  </data>
+  <data name="Coll_HideShelved" xml:space="preserve">
+    <value>הסתרת ספרים שכבר נמצאים באוסף</value>
+  </data>
+  <data name="Coll_Ticked" xml:space="preserve">
+    <value>מסומנים: {0}</value>
+  </data>
+  <data name="Coll_TickAll" xml:space="preserve">
+    <value>סימון כל המוצגים</value>
+  </data>
+  <data name="Coll_Collection" xml:space="preserve">
+    <value>אוסף</value>
+  </data>
+  <data name="Coll_Move" xml:space="preserve">
+    <value>העברה</value>
+  </data>
+  <data name="Coll_MoveHint" xml:space="preserve">
+    <value>הכנסת הספרים המסומנים לאוסף זה בלבד: הם יוצאים מכל אוסף אחר</value>
+  </data>
+  <data name="Coll_AlsoAdd" xml:space="preserve">
+    <value>הוספה גם</value>
+  </data>
+  <data name="Coll_AlsoAddHint" xml:space="preserve">
+    <value>הכנסת הספרים המסומנים גם לאוסף זה, תוך שמירה על האוספים האחרים שלהם</value>
+  </data>
+  <data name="Coll_RemoveFrom" xml:space="preserve">
+    <value>הסרה מתוך {0}</value>
+  </data>
+  <data name="Coll_EveryBookShelved" xml:space="preserve">
+    <value>כל ספר נמצא באוסף.</value>
+  </data>
+  <data name="Coll_NoneInSeveral" xml:space="preserve">
+    <value>אף ספר אינו נמצא ביותר מאוסף אחד.</value>
+  </data>
+  <data name="Coll_EmptyCollection" xml:space="preserve">
+    <value>אין עדיין ספרים באוסף זה. יש לסמן ספרים בתצוגה אחרת ולהוסיף אותם.</value>
+  </data>
+  <data name="Coll_NoMatch" xml:space="preserve">
+    <value>אין ספרים תואמים.</value>
+  </data>
+  <data name="Coll_None" xml:space="preserve">
+    <value>ללא</value>
+  </data>
+  <data name="Coll_From_Store" xml:space="preserve">
+    <value>חנות</value>
+  </data>
+  <data name="Coll_From_Added" xml:space="preserve">
+    <value>נוסף</value>
+  </data>
+  <data name="Kindle_Intro" xml:space="preserve">
+    <value>Amazon כבר אינה מאפשרת להוריד ספרים מחשבון ה-Kindle שלך, ולכן פעולה זו מעתיקה, בדיוק כפי שהם, את הספרים שכבר נמצאים ב-Kindle המחובר ב-USB (עם או בלי אות כונן) או ביישום Kindle for PC.</value>
+  </data>
+  <data name="Kindle_ConnectedNote" xml:space="preserve">
+    <value>ה-Kindle נמצא ב-USB Drive Mode והספרים שבו מופיעים למטה. יש להשאיר אותו מחובר במהלך הגיבוי: ההודעה של ה-Kindle בנוגע להוצאה רלוונטית רק כשרוצים לחזור לקרוא. בסיום, יש ללחוץ על "הוצאת Kindle".</value>
+  </data>
+  <data name="Kindle_LookAgain" xml:space="preserve">
+    <value>חיפוש מחדש</value>
+  </data>
+  <data name="Kindle_LookAgainHint" xml:space="preserve">
+    <value>חיפוש חוזר של ה-Kindle והספרים שבו</value>
+  </data>
+  <data name="Kindle_SaveToHint" xml:space="preserve">
+    <value>בחירת התיקייה לספרי ה-Kindle שלך</value>
+  </data>
+  <data name="Kindle_AddFolder" xml:space="preserve">
+    <value>הוספת תיקייה לחיפוש…</value>
+  </data>
+  <data name="Kindle_AddFolderHint" xml:space="preserve">
+    <value>לספרים שנשמרו במקום אחר, למשל תיקיית Kindle for PC שהעברת</value>
+  </data>
+</root>

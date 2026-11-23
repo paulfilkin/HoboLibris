@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Application -->
+  <data name="App_Title" xml:space="preserve">
+    <value>HoboLibris</value>
+  </data>
+  <!-- Menu -->
+  <data name="Menu_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Menu_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <!-- About window -->
+  <data name="About_Title" xml:space="preserve">
+    <value>关于 HoboLibris</value>
+  </data>
+  <data name="About_Production" xml:space="preserve">
+    <value>multifarious 出品</value>
+  </data>
+  <data name="About_AboutHeader" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>HoboLibris 可保存、整理并同步您的 Kobo 和 Kindle 图书。它会将您 Kobo 帐户中以及 Kobo 电子书阅读器和 Kindle 上的图书备份到这台计算机，将电子书阅读器上的图书整理到收藏集中，并将您自己的图书发送到电子书阅读器。文件按原样复制：不会解密，也不会转换。</value>
+  </data>
+  <data name="About_DataHeader" xml:space="preserve">
+    <value>您的数据</value>
+  </data>
+  <data name="About_DataText" xml:space="preserve">
+    <value>设置、Kobo 登录信息、图书库列表、日志文件以及电子书阅读器图书列表的备份都保存在此文件夹中。备份的图书则保存在您选择的文件夹中。</value>
+  </data>
+  <data name="About_SupportHeader" xml:space="preserve">
+    <value>支持</value>
+  </data>
+  <data name="About_SupportText" xml:space="preserve">
+    <value>需要帮助？请访问支持网站：</value>
+  </data>
+  <data name="About_SupportUrl" xml:space="preserve">
+    <value>multifarious.filkin.com/support</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>© {0} multifarious。保留所有权利。</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>版本 {0}.{1}.{2}</value>
+  </data>
+  <data name="About_BrowserError" xml:space="preserve">
+    <value>无法打开浏览器：{0}</value>
+  </data>
+  <!-- Language window -->
+  <data name="Language_Title" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Language_SelectLanguage" xml:space="preserve">
+    <value>选择语言</value>
+  </data>
+  <data name="Language_Subtitle" xml:space="preserve">
+    <value>HoboLibris 将重新启动以显示新语言。</value>
+  </data>
+  <data name="Language_RestartPrompt" xml:space="preserve">
+    <value>HoboLibris 需要重新启动才能显示新语言。现在重新启动吗？</value>
+  </data>
+  <data name="Language_RestartTitle" xml:space="preserve">
+    <value>重新启动 HoboLibris？</value>
+  </data>
+  <!-- Common -->
+  <data name="Common_Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <!-- Errors -->
+  <data name="Error_Critical" xml:space="preserve">
+    <value>发生严重错误，HoboLibris 必须关闭：
+
+{0}</value>
+  </data>
+  <data name="Error_CriticalTitle" xml:space="preserve">
+    <value>HoboLibris 必须关闭</value>
+  </data>
+  <data name="Error_Unexpected" xml:space="preserve">
+    <value>出现问题：
+
+{0}</value>
+  </data>
+  <!-- Kobo store -->
+  <data name="Store_ServerAnswered" xml:space="preserve">
+    <value>Kobo 服务器返回 {0}。{1}</value>
+  </data>
+  <data name="Store_CouldNotReach" xml:space="preserve">
+    <value>无法连接到 Kobo 服务器：{0}</value>
+  </data>
+  <data name="Store_UnexpectedSignInReply" xml:space="preserve">
+    <value>意外的登录响应：{0}</value>
+  </data>
+  <data name="Store_NoAccessToken" xml:space="preserve">
+    <value>Kobo 服务器未提供访问令牌。</value>
+  </data>
+  <data name="Store_SignInExpired" xml:space="preserve">
+    <value>登录已过期。请重新登录。</value>
+  </data>
+  <data name="Store_UnexpectedStartupReply" xml:space="preserve">
+    <value>意外的启动响应：{0}</value>
+  </data>
+  <data name="Store_NoSignInPage" xml:space="preserve">
+    <value>Kobo 服务器未提供登录页面。</value>
+  </data>
+  <data name="Store_NotASignInLink" xml:space="preserve">
+    <value>这不是登录链接。</value>
+  </data>
+  <data name="Store_LinkHasNoUserKey" xml:space="preserve">
+    <value>登录链接中没有用户密钥。</value>
+  </data>
+  <data name="Store_UnexpectedLibraryReply" xml:space="preserve">
+    <value>意外的图书库响应：{0}</value>
+  </data>
+  <data name="Store_NoDownload" xml:space="preserve">
+    <value>此书没有可用的下载。</value>
+  </data>
+  <data name="Store_CouldNotCreateFolder" xml:space="preserve">
+    <value>无法创建文件夹：{0}</value>
+  </data>
+  <data name="Store_CouldNotWriteFile" xml:space="preserve">
+    <value>无法写入文件：{0}</value>
+  </data>
+  <data name="Store_DownloadInterrupted" xml:space="preserve">
+    <value>下载中断：{0}</value>
+  </data>
+  <data name="Store_DownloadEmpty" xml:space="preserve">
+    <value>下载内容为空。</value>
+  </data>
+  <data name="Store_CouldNotSaveFile" xml:space="preserve">
+    <value>无法保存文件：{0}</value>
+  </data>
+  <data name="Store_Untitled" xml:space="preserve">
+    <value>无标题</value>
+  </data>
+  <!-- Kobo eReader -->
+  <data name="Reader_Origin" xml:space="preserve">
+    <value>Kobo 电子书阅读器（{0}）</value>
+  </data>
+  <data name="Reader_Duplicate" xml:space="preserve">
+    <value>也在您的 Kobo 商店列表中</value>
+  </data>
+  <data name="Reader_Note_Connect" xml:space="preserve">
+    <value>要打开您的 Kobo 电子书阅读器：
+1.  用 USB 数据线将它连接到这台计算机（直接插在计算机上，不要经过集线器）。
+2.  唤醒它。当屏幕上询问是否连接到计算机时，点按 Connect。
+3.  它的图书会自动显示在这里。
+如果它只是开始充电而一直没有询问，请拔下后重新插入，或换一个 USB 端口。</value>
+  </data>
+  <!-- Collections -->
+  <data name="Coll_BookListNotFound" xml:space="preserve">
+    <value>未找到 Kobo 电子书阅读器的图书列表。它是否仍处于连接状态？</value>
+  </data>
+  <data name="Coll_CouldNotOpen" xml:space="preserve">
+    <value>无法打开电子书阅读器的图书列表：{0}</value>
+  </data>
+  <data name="Coll_CouldNotRead" xml:space="preserve">
+    <value>无法读取电子书阅读器的图书列表：{0}</value>
+  </data>
+  <data name="Coll_TypeNameFirst" xml:space="preserve">
+    <value>请先输入收藏集的名称。</value>
+  </data>
+  <data name="Coll_AlreadyExists" xml:space="preserve">
+    <value>已有一个名为“{0}”的收藏集。</value>
+  </data>
+  <data name="Coll_TypeNewNameFirst" xml:space="preserve">
+    <value>请先输入新名称。</value>
+  </data>
+  <data name="Coll_NoLongerExists" xml:space="preserve">
+    <value>该收藏集已不存在。</value>
+  </data>
+  <data name="Coll_NoChanges" xml:space="preserve">
+    <value>没有需要保存的更改。</value>
+  </data>
+  <data name="Coll_ReaderGone" xml:space="preserve">
+    <value>Kobo 电子书阅读器已断开连接。请重新插入，然后按“重新加载”。</value>
+  </data>
+  <data name="Coll_ListChanged" xml:space="preserve">
+    <value>电子书阅读器的图书列表在读取后已发生变化。请按“重新加载”，然后重新进行更改。</value>
+  </data>
+  <data name="Coll_CouldNotCreateBackupFolder" xml:space="preserve">
+    <value>无法创建备份文件夹：{0}</value>
+  </data>
+  <data name="Coll_CouldNotBackUp" xml:space="preserve">
+    <value>无法备份电子书阅读器的图书列表：{0}</value>
+  </data>
+  <data name="Coll_CouldNotOpenForWriting" xml:space="preserve">
+    <value>无法以写入方式打开电子书阅读器的图书列表：{0}</value>
+  </data>
+  <data name="Coll_CouldNotSave" xml:space="preserve">
+    <value>无法保存收藏集：{0}</value>
+  </data>
+  <!-- Send to eReader -->
+  <data name="Send_Verdict_Ready" xml:space="preserve">
+    <value>可以发送</value>
+  </data>
+  <data name="Send_Verdict_OnReader" xml:space="preserve">
+    <value>已在电子书阅读器上</value>
+  </data>
+  <data name="Send_Verdict_StoreBook" xml:space="preserve">
+    <value>Kobo 商店图书</value>
+  </data>
+  <data name="Send_Verdict_Protected" xml:space="preserve">
+    <value>受保护</value>
+  </data>
+  <data name="Send_Verdict_NotKobo" xml:space="preserve">
+    <value>无法在 Kobo 上打开</value>
+  </data>
+  <data name="Send_Verdict_Unchecked" xml:space="preserve">
+    <value>插入电子书阅读器以检查</value>
+  </data>
+  <data name="Send_Why_Ready" xml:space="preserve">
+    <value>尚未在电子书阅读器上，且格式可在 Kobo 上打开。</value>
+  </data>
+  <data name="Send_Why_OnReader" xml:space="preserve">
+    <value>电子书阅读器上已有此书。</value>
+  </data>
+  <data name="Send_Why_StoreBook" xml:space="preserve">
+    <value>在 Kobo 商店购买：电子书阅读器会从您的 Kobo 帐户获取。</value>
+  </data>
+  <data name="Send_Why_Unchecked" xml:space="preserve">
+    <value>Kobo 可以打开它。请插入电子书阅读器，以查看它是否已在上面。</value>
+  </data>
+  <data name="Send_FileCouldNotBeOpened" xml:space="preserve">
+    <value>无法打开该文件。</value>
+  </data>
+  <data name="Send_DamagedEpubNotZip" xml:space="preserve">
+    <value>EPUB 已损坏：它不是可读取的 EPUB 文件。</value>
+  </data>
+  <data name="Send_DamagedEpubNoContainer" xml:space="preserve">
+    <value>EPUB 已损坏：缺少目录文件。</value>
+  </data>
+  <data name="Send_AdobeProtected" xml:space="preserve">
+    <value>Adobe 版权保护：只有当电子书阅读器使用购买此书时所用的 Adobe ID，才能在上面打开。</value>
+  </data>
+  <data name="Send_DamagedPdf" xml:space="preserve">
+    <value>PDF 已损坏：其开头不符合 PDF 文件格式。</value>
+  </data>
+  <data name="Send_DamagedMobi" xml:space="preserve">
+    <value>MOBI 文件已损坏。</value>
+  </data>
+  <data name="Send_KindleProtected" xml:space="preserve">
+    <value>Kindle 版权保护：Kobo 电子书阅读器无法打开。</value>
+  </data>
+  <data name="Send_AcsmTicket" xml:space="preserve">
+    <value>这是 Adobe Digital Editions 的下载凭证，不是图书本身。</value>
+  </data>
+  <data name="Send_KoboDoesNotOpen" xml:space="preserve">
+    <value>Kobo 电子书阅读器无法打开 {0} 文件。</value>
+  </data>
+  <data name="Send_CouldNotCreateBooksFolder" xml:space="preserve">
+    <value>无法在电子书阅读器上创建 Books 文件夹：{0}</value>
+  </data>
+  <data name="Send_AlreadyOnReader" xml:space="preserve">
+    <value>电子书阅读器的 Books 文件夹中已有同名文件。</value>
+  </data>
+  <data name="Send_CouldNotReadBook" xml:space="preserve">
+    <value>无法读取图书：{0}</value>
+  </data>
+  <data name="Send_CouldNotWriteToReader" xml:space="preserve">
+    <value>无法写入电子书阅读器：{0}</value>
+  </data>
+  <data name="Send_CouldNotFinishCopy" xml:space="preserve">
+    <value>无法在电子书阅读器上完成复制：{0}</value>
+  </data>
+  <!-- Kindle -->
+  <data name="Kindle_Origin_Drive" xml:space="preserve">
+    <value>Kindle（{0}）</value>
+  </data>
+  <data name="Kindle_Origin_ForPc" xml:space="preserve">
+    <value>Kindle for PC</value>
+  </data>
+  <data name="Kindle_Origin_Folder" xml:space="preserve">
+    <value>文件夹 {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCreateFolder" xml:space="preserve">
+    <value>无法创建文件夹：{0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyBook" xml:space="preserve">
+    <value>无法复制图书：{0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyExtraFiles" xml:space="preserve">
+    <value>无法复制图书的附加文件：{0}</value>
+  </data>
+  <data name="Kindle_NoBackupFolder" xml:space="preserve">
+    <value>没有备份文件夹。</value>
+  </data>
+  <data name="Kindle_NoLongerConnected" xml:space="preserve">
+    <value>Kindle 已断开连接。</value>
+  </data>
+  <data name="Kindle_FolderNotFound" xml:space="preserve">
+    <value>在 Kindle 上未找到文件夹：{0}</value>
+  </data>
+  <data name="Kindle_BookNoLongerOnKindle" xml:space="preserve">
+    <value>该书已不在 Kindle 上。</value>
+  </data>
+  <data name="Kindle_CopyTookTooLong" xml:space="preserve">
+    <value>从 Kindle 复制耗时过长。</value>
+  </data>
+  <data name="Kindle_Note_NotSeen" xml:space="preserve">
+    <value>Windows 未检测到 Kindle。请唤醒 Kindle，然后换一个 USB 端口或另一根数据线（有些数据线只能充电）。</value>
+  </data>
+  <data name="Kindle_Note_StorageClosed" xml:space="preserve">
+    <value>您的 Kindle 已连接，数据线也能传输数据，但 Kindle 未开放其存储空间，因此 Windows 看到的是一个空驱动器。这也是它没有出现在弹出列表中的原因：您可以直接拔下它。
+要打开它：
+1.  拔下 Kindle。
+2.  重新启动它：按住电源键约 40 秒，直到屏幕变为空白，然后松开并等待它启动（或使用“设置”、“设备选项”、“重启”）。
+3.  将数据线直接插入这台计算机，不要插在集线器、键盘或显示器上。
+4.  不要在 Kindle 上点按任何内容。它的屏幕应会变为“USB Drive Mode”或一张计算机图片，您的图书会自动显示在这里。
+如果 Kindle 只显示正在充电，请换用计算机上的另一个 USB 端口。</value>
+  </data>
+  <data name="Kindle_Note_Seen" xml:space="preserve">
+    <value>Windows 可以检测到您的 Kindle，但还无法打开其中的图书。请解锁 Kindle，或拔下后重新插入。</value>
+  </data>
+  <!-- Main window -->
+  <data name="Main_Kobo" xml:space="preserve">
+    <value>Kobo</value>
+  </data>
+  <data name="Main_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Main_SignedIn" xml:space="preserve">
+    <value>已登录</value>
+  </data>
+  <data name="Main_SignedInAs" xml:space="preserve">
+    <value>已以 {0} 身份登录</value>
+  </data>
+  <data name="Main_SignOut" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="Common_Dismiss" xml:space="preserve">
+    <value>忽略</value>
+  </data>
+  <!-- Welcome card (signed out, no eReader) -->
+  <data name="Welcome_Heading" xml:space="preserve">
+    <value>为您的图书留一份副本</value>
+  </data>
+  <data name="Welcome_Text1" xml:space="preserve">
+    <value>登录您的 Kobo 帐户，查看您购买的图书并将其保存到这台计算机。</value>
+  </data>
+  <data name="Welcome_Text2" xml:space="preserve">
+    <value>插入 Kobo 电子书阅读器后，您自己添加到上面的图书也会显示在这里。</value>
+  </data>
+  <data name="Welcome_SignIn" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Welcome_DidntComeBack" xml:space="preserve">
+    <value>登录窗口没有返回？</value>
+  </data>
+  <data name="Welcome_PasteHint" xml:space="preserve">
+    <value>请在此粘贴以 kobo://UserAuthenticated 开头的地址：</value>
+  </data>
+  <data name="Welcome_UseLink" xml:space="preserve">
+    <value>使用此链接</value>
+  </data>
+  <!-- Sign-in window -->
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>登录您的 Kobo 帐户</value>
+  </data>
+  <data name="SignIn_Note" xml:space="preserve">
+    <value>使用您的 Kobo 帐户登录。当 Kobo 将您送回 HoboLibris 时，此窗口会自动关闭。</value>
+  </data>
+  <data name="SignIn_WebViewMissing" xml:space="preserve">
+    <value>登录页面需要 Microsoft Edge WebView2 运行时，它是 Windows 10 和 11 的一部分。在这台计算机上无法启动它。请从 Microsoft 安装后重试。</value>
+  </data>
+  <data name="SignIn_WebViewLink" xml:space="preserve">
+    <value>从 Microsoft 获取 WebView2 运行时</value>
+  </data>
+  <!-- Kobo tab -->
+  <data name="Kobo_BackUpTab" xml:space="preserve">
+    <value>备份图书</value>
+  </data>
+  <data name="Kobo_CollectionsTab" xml:space="preserve">
+    <value>收藏集</value>
+  </data>
+  <data name="Kobo_CollectionsTabTip" xml:space="preserve">
+    <value>将 Kobo 电子书阅读器上的图书整理到收藏集中</value>
+  </data>
+  <data name="Kobo_SendTab" xml:space="preserve">
+    <value>发送到电子书阅读器</value>
+  </data>
+  <data name="Kobo_SendTabCount" xml:space="preserve">
+    <value>发送到电子书阅读器（{0}）</value>
+  </data>
+  <data name="Kobo_SendTabTip" xml:space="preserve">
+    <value>将您自己放入 Kobo 文件夹的图书复制到电子书阅读器</value>
+  </data>
+  <data name="Kobo_PlugInNote" xml:space="preserve">
+    <value>插入您的 Kobo 电子书阅读器并在其屏幕上点按 Connect，即可同时备份您自己添加到上面的图书。在此之前，Kobo 文件夹中的图书会列为“这台计算机”。</value>
+  </data>
+  <data name="Kobo_ReaderEjectedNote" xml:space="preserve">
+    <value>Kobo 电子书阅读器已弹出。请重新插入，以备份您自己添加到上面的图书。</value>
+  </data>
+  <data name="Kobo_SignInBanner" xml:space="preserve">
+    <value>登录您的 Kobo 帐户，即可同时备份您在 Kobo 商店购买的图书。</value>
+  </data>
+  <data name="Kobo_SignIn" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Kobo_OneBookWaiting" xml:space="preserve">
+    <value>Kobo 文件夹中有 1 本书尚未在电子书阅读器上。</value>
+  </data>
+  <data name="Kobo_BooksWaiting" xml:space="preserve">
+    <value>Kobo 文件夹中有 {0} 本书尚未在电子书阅读器上。</value>
+  </data>
+  <data name="Kobo_SeeAndSend" xml:space="preserve">
+    <value>查看并发送…</value>
+  </data>
+  <data name="Kobo_ReaderConnectedNote" xml:space="preserve">
+    <value>您的 Kobo 电子书阅读器已连接：您自己添加到上面的图书也已在列表中。备份期间请保持连接。</value>
+  </data>
+  <data name="Kobo_EjectReader" xml:space="preserve">
+    <value>弹出 Kobo 电子书阅读器</value>
+  </data>
+  <data name="Kobo_EjectReaderHint" xml:space="preserve">
+    <value>安全断开电子书阅读器，以便继续阅读和充电</value>
+  </data>
+  <data name="Kobo_RefreshList" xml:space="preserve">
+    <value>刷新列表</value>
+  </data>
+  <data name="Kobo_RefreshListHint" xml:space="preserve">
+    <value>从您的 Kobo 帐户和电子书阅读器获取最新列表</value>
+  </data>
+  <data name="Kobo_BackUpAll" xml:space="preserve">
+    <value>备份所有尚未保存的图书（{0}）</value>
+  </data>
+  <data name="Kobo_BackUpSelected" xml:space="preserve">
+    <value>备份所选图书（{0}）</value>
+  </data>
+  <data name="Kobo_DeleteSelected" xml:space="preserve">
+    <value>删除所选图书（{0}）</value>
+  </data>
+  <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
+    <value>删除备份副本，并选择是否同时从电子书阅读器中移除这些图书</value>
+  </data>
+  <data name="Kobo_SaveTo" xml:space="preserve">
+    <value>保存到…</value>
+  </data>
+  <data name="Kobo_SaveToHint" xml:space="preserve">
+    <value>选择用于存放 Kobo 图书的文件夹</value>
+  </data>
+  <data name="Kobo_OpenFolder" xml:space="preserve">
+    <value>打开文件夹</value>
+  </data>
+  <data name="Kobo_FolderLabel" xml:space="preserve">
+    <value>文件夹：</value>
+  </data>
+  <data name="Kobo_SearchHint" xml:space="preserve">
+    <value>搜索书名或作者</value>
+  </data>
+  <data name="Kobo_SortBy" xml:space="preserve">
+    <value>排序方式</value>
+  </data>
+  <data name="Kobo_SortTitle" xml:space="preserve">
+    <value>书名</value>
+  </data>
+  <data name="Kobo_SortAuthor" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="Kobo_NoBooksYet" xml:space="preserve">
+    <value>还没有图书。请按“刷新列表”。</value>
+  </data>
+  <data name="List_NoMatch" xml:space="preserve">
+    <value>没有匹配的图书。</value>
+  </data>
+  <!-- Columns -->
+  <data name="Col_Title" xml:space="preserve">
+    <value>书名</value>
+  </data>
+  <data name="Col_Author" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="Col_From" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="Col_FromTip" xml:space="preserve">
+    <value>商店：在 Kobo 商店购买，从您的帐户下载。受保护的商店图书按 Kobo 提供的原样保存，只能在 Kobo 或 Adobe 阅读应用中打开。
+电子书阅读器：您自己添加到 Kobo 电子书阅读器上，并从中复制而来。
+这台计算机：位于您的 Kobo 文件夹中，但不在您的商店列表中，也不在已连接的电子书阅读器上。</value>
+  </data>
+  <data name="Col_OnThisComputer" xml:space="preserve">
+    <value>在这台计算机上</value>
+  </data>
+  <data name="Col_SelectAll" xml:space="preserve">
+    <value>全选显示的图书</value>
+  </data>
+  <data name="Col_FoundOn" xml:space="preserve">
+    <value>发现于</value>
+  </data>
+  <data name="Col_BackedUp" xml:space="preserve">
+    <value>已备份</value>
+  </data>
+  <data name="Col_BookFile" xml:space="preserve">
+    <value>图书文件</value>
+  </data>
+  <data name="Col_OnReader" xml:space="preserve">
+    <value>在电子书阅读器上</value>
+  </data>
+  <data name="Col_Collections" xml:space="preserve">
+    <value>收藏集</value>
+  </data>
+  <!-- List rows -->
+  <data name="Row_From_Store" xml:space="preserve">
+    <value>商店</value>
+  </data>
+  <data name="Row_From_StoreProtected" xml:space="preserve">
+    <value>商店 · 受保护</value>
+  </data>
+  <data name="Row_From_Reader" xml:space="preserve">
+    <value>电子书阅读器</value>
+  </data>
+  <data name="Row_From_Computer" xml:space="preserve">
+    <value>这台计算机</value>
+  </data>
+  <data name="Row_From_StoreTip" xml:space="preserve">
+    <value>在 Kobo 商店购买，并从您的帐户下载。</value>
+  </data>
+  <data name="Row_From_ReaderTip" xml:space="preserve">
+    <value>您自己添加到 Kobo 电子书阅读器上，并从中复制而来。</value>
+  </data>
+  <data name="Row_From_ComputerTip" xml:space="preserve">
+    <value>位于您的 Kobo 文件夹中，但不在您的 Kobo 商店列表中，也不在已连接的电子书阅读器上。请插入电子书阅读器以查看它是否在上面，或使用“发送到电子书阅读器”。</value>
+  </data>
+  <data name="Row_Waiting" xml:space="preserve">
+    <value>等待中…</value>
+  </data>
+  <data name="Row_Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Row_InTheFolder" xml:space="preserve">
+    <value>✔ 已在文件夹中</value>
+  </data>
+  <data name="Row_Saved" xml:space="preserve">
+    <value>✔ 已保存</value>
+  </data>
+  <data name="Row_SameAsStore" xml:space="preserve">
+    <value>与商店图书相同</value>
+  </data>
+  <data name="Row_SameAsStoreTip" xml:space="preserve">
+    <value>此书也在您的 Kobo 商店列表中，因此“全部备份”会保存商店副本并跳过此书。如仍要复制，请使用按钮。</value>
+  </data>
+  <data name="Row_FromStore" xml:space="preserve">
+    <value>✔ 来自商店</value>
+  </data>
+  <data name="Row_FromStoreTip" xml:space="preserve">
+    <value>{0}，因此不包含在“全部备份”中。如仍要复制，请使用按钮。</value>
+  </data>
+  <data name="Row_NotDownloadable" xml:space="preserve">
+    <value>无法下载</value>
+  </data>
+  <data name="Row_BackUp" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="Row_Again" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="Row_AgainTip" xml:space="preserve">
+    <value>再次复制或下载</value>
+  </data>
+  <data name="Row_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Row_CopyTip" xml:space="preserve">
+    <value>仍然复制</value>
+  </data>
+  <!-- Progress -->
+  <data name="Progress_BackingUp" xml:space="preserve">
+    <value>正在备份</value>
+  </data>
+  <data name="Progress_Sending" xml:space="preserve">
+    <value>正在发送</value>
+  </data>
+  <data name="Progress_AllFinished" xml:space="preserve">
+    <value>{0}：全部 {1} 本已完成</value>
+  </data>
+  <data name="Progress_BookOf" xml:space="preserve">
+    <value>{0}第 {1} 本，共 {2} 本   ·   已完成 {3}%</value>
+  </data>
+  <!-- Status line -->
+  <data name="Status_LookingFor" xml:space="preserve">
+    <value>正在查找 {0} 图书...</value>
+  </data>
+  <data name="Status_BooksFound" xml:space="preserve">
+    <value>找到 {0} 本 {1} 图书。</value>
+  </data>
+  <data name="Status_WaitForCopies" xml:space="preserve">
+    <value>请等待当前复制完成。</value>
+  </data>
+  <data name="Status_BackingUpBooks" xml:space="preserve">
+    <value>正在备份 {0} 本 {1} 图书...</value>
+  </data>
+  <data name="Status_DoneBackedUp" xml:space="preserve">
+    <value>完成。{2} 图书已备份 {0} 本，共 {1} 本。</value>
+  </data>
+  <data name="Status_FinishedWithFailures" xml:space="preserve">
+    <value>已完成，其中 {0} 项复制失败。将鼠标悬停在“失败”上可查看原因。</value>
+  </data>
+  <data name="Status_Ejecting" xml:space="preserve">
+    <value>正在弹出 {0}...</value>
+  </data>
+  <data name="Status_CouldNotEject" xml:space="preserve">
+    <value>无法弹出 {0}：{1}</value>
+  </data>
+  <data name="Status_Ejected" xml:space="preserve">
+    <value>{0} 已弹出。您可以拔下它。</value>
+  </data>
+  <data name="Status_SendingBooks" xml:space="preserve">
+    <value>正在向 Kobo 电子书阅读器发送 {0} 本书...</value>
+  </data>
+  <data name="Status_SentBooks" xml:space="preserve">
+    <value>已向 Kobo 电子书阅读器发送 {0} 本书。弹出它即可将这些图书添加到其图书库中。</value>
+  </data>
+  <data name="Status_SentWithFailures" xml:space="preserve">
+    <value>已发送 {0} 本书；{1} 本失败。将鼠标悬停在“失败”上可查看原因。</value>
+  </data>
+  <data name="Status_BooksAndCollections" xml:space="preserve">
+    <value>Kobo 电子书阅读器上有 {0} 本书和 {1} 个收藏集。</value>
+  </data>
+  <data name="Status_CollectionsSaved" xml:space="preserve">
+    <value>收藏集已保存。电子书阅读器的图书列表已先复制到 {0}</value>
+  </data>
+  <data name="Status_SignedInRefresh" xml:space="preserve">
+    <value>已登录。请按“刷新列表”加载您的图书。</value>
+  </data>
+  <data name="Status_OpeningSignIn" xml:space="preserve">
+    <value>正在打开 Kobo 登录窗口...</value>
+  </data>
+  <data name="Status_SignInInWindow" xml:space="preserve">
+    <value>请在打开的窗口中使用您的 Kobo 帐户登录。</value>
+  </data>
+  <data name="Status_SignInClosed" xml:space="preserve">
+    <value>登录在完成前已被关闭。</value>
+  </data>
+  <data name="Status_ConnectingAccount" xml:space="preserve">
+    <value>已登录。正在将这台计算机连接到您的帐户...</value>
+  </data>
+  <data name="Status_SignedOut" xml:space="preserve">
+    <value>已退出登录。</value>
+  </data>
+  <data name="Status_LoadingLibrary" xml:space="preserve">
+    <value>正在加载您的图书库...</value>
+  </data>
+  <data name="Status_LoadingLibraryCount" xml:space="preserve">
+    <value>正在加载您的图书库... 目前已有 {0} 本书</value>
+  </data>
+  <data name="Status_WaitForDownloads" xml:space="preserve">
+    <value>请等待当前下载完成。</value>
+  </data>
+  <data name="Status_DownloadingBooks" xml:space="preserve">
+    <value>正在下载 {0} 本书...</value>
+  </data>
+  <data name="Status_DoneStoreSaved" xml:space="preserve">
+    <value>完成。Kobo 商店图书已保存 {0} 本，共 {1} 本。</value>
+  </data>
+  <data name="Status_FinishedWithFailedDownloads" xml:space="preserve">
+    <value>已完成，其中 {0} 项下载失败。将鼠标悬停在“失败”上可查看原因。</value>
+  </data>
+  <!-- Summary (status line when nothing else is happening) -->
+  <data name="Summary_OneBook" xml:space="preserve">
+    <value>1 本书</value>
+  </data>
+  <data name="Summary_Books" xml:space="preserve">
+    <value>{0} 本书</value>
+  </data>
+  <data name="Summary_OneDeviceBook" xml:space="preserve">
+    <value>找到 1 本 {0} 图书。</value>
+  </data>
+  <data name="Summary_DeviceBooks" xml:space="preserve">
+    <value>找到 {0} 本 {1} 图书。</value>
+  </data>
+  <data name="Summary_FromStore" xml:space="preserve">
+    <value>{0} 本来自 Kobo 商店</value>
+  </data>
+  <data name="Summary_OnReader" xml:space="preserve">
+    <value>{0} 本在电子书阅读器上</value>
+  </data>
+  <data name="Summary_OnlyOnComputer" xml:space="preserve">
+    <value>{0} 本仅在这台计算机上</value>
+  </data>
+  <data name="Summary_LibraryWithParts" xml:space="preserve">
+    <value>您的图书库中有 {0}：{1}。</value>
+  </data>
+  <data name="Summary_Library" xml:space="preserve">
+    <value>您的图书库中有 {0}。</value>
+  </data>
+  <!-- Devices -->
+  <data name="Device_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Device_KoboReader" xml:space="preserve">
+    <value>Kobo 电子书阅读器</value>
+  </data>
+  <data name="Device_Eject" xml:space="preserve">
+    <value>弹出 {0}</value>
+  </data>
+  <data name="Device_EjectHint" xml:space="preserve">
+    <value>安全断开 {0}，以便继续阅读和充电</value>
+  </data>
+  <data name="Device_EjectWait" xml:space="preserve">
+    <value>请先等待备份完成</value>
+  </data>
+  <data name="Device_EjectedHeading" xml:space="preserve">
+    <value>{0} 已弹出</value>
+  </data>
+  <data name="Device_NoneFoundYet" xml:space="preserve">
+    <value>尚未找到 {0}</value>
+  </data>
+  <data name="Device_EjectedText" xml:space="preserve">
+    <value>您的 {0} 已弹出。您可以拔下它，继续阅读。
+要备份更多图书，请重新插入：它的图书会自动显示在这里。</value>
+  </data>
+  <data name="Device_PlugIn" xml:space="preserve">
+    <value>用 USB 数据线插入您的 {0} 并将其解锁。</value>
+  </data>
+  <data name="Device_CheckingAgain" xml:space="preserve">
+    <value>每隔几秒重新检查一次…</value>
+  </data>
+  <data name="Device_Looking" xml:space="preserve">
+    <value>正在查找 {0} 图书…</value>
+  </data>
+  <data name="Device_NoBooks" xml:space="preserve">
+    <value>未找到 {0} 图书。</value>
+  </data>
+  <!-- Folder dialogs -->
+  <data name="Dialog_ChooseKoboFolder" xml:space="preserve">
+    <value>选择 Kobo 图书的存放位置</value>
+  </data>
+  <data name="Dialog_ChooseKindleFolder" xml:space="preserve">
+    <value>选择 Kindle 图书的存放位置</value>
+  </data>
+  <data name="Dialog_ChooseKindleSearchFolder" xml:space="preserve">
+    <value>选择一个存有 Kindle 图书的文件夹</value>
+  </data>
+  <!-- Delete selected -->
+  <data name="Delete_WindowTitle" xml:space="preserve">
+    <value>删除所选图书</value>
+  </data>
+  <data name="Delete_TitleOne" xml:space="preserve">
+    <value>删除 1 本书？</value>
+  </data>
+  <data name="Delete_TitleMany" xml:space="preserve">
+    <value>删除 {0} 本书？</value>
+  </data>
+  <data name="Delete_NoCopies" xml:space="preserve">
+    <value>这些图书在您的 Kobo 文件夹中都没有备份副本。</value>
+  </data>
+  <data name="Delete_OneCopy" xml:space="preserve">
+    <value>Kobo 文件夹中的 1 个备份副本将移至回收站，如果您改变主意，可以找回。</value>
+  </data>
+  <data name="Delete_Copies" xml:space="preserve">
+    <value>Kobo 文件夹中的 {0} 个备份副本将移至回收站，如果您改变主意，可以找回。</value>
+  </data>
+  <data name="Delete_AlsoRemoveOne" xml:space="preserve">
+    <value>同时从 Kobo 电子书阅读器中移除此书</value>
+  </data>
+  <data name="Delete_AlsoRemoveMany" xml:space="preserve">
+    <value>同时从 Kobo 电子书阅读器中移除您自己添加的这 {0} 本书</value>
+  </data>
+  <data name="Delete_RemoveNoteOn" xml:space="preserve">
+    <value>这些图书会立即从电子书阅读器中删除（阅读器上没有回收站）。之后弹出电子书阅读器，它会将这些图书从其图书库中移除。</value>
+  </data>
+  <data name="Delete_RemoveNoteOff" xml:space="preserve">
+    <value>这些图书会保留在电子书阅读器上。“全部备份”会再次将它们复制到文件夹中。</value>
+  </data>
+  <data name="Delete_StoreNoteOne" xml:space="preserve">
+    <value>其中 1 本是在 Kobo 商店购买的：它会保留在您的 Kobo 帐户和电子书阅读器上。要将商店图书从电子书阅读器中移除，请在电子书阅读器上操作。</value>
+  </data>
+  <data name="Delete_StoreNoteMany" xml:space="preserve">
+    <value>其中 {0} 本是在 Kobo 商店购买的：它们会保留在您的 Kobo 帐户和电子书阅读器上。要将商店图书从电子书阅读器中移除，请在电子书阅读器上操作。</value>
+  </data>
+  <data name="Delete_Button" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Delete_OneBinned" xml:space="preserve">
+    <value>1 个备份副本已移至回收站</value>
+  </data>
+  <data name="Delete_Binned" xml:space="preserve">
+    <value>{0} 个备份副本已移至回收站</value>
+  </data>
+  <data name="Delete_RemovedFromReader" xml:space="preserve">
+    <value>已从电子书阅读器中移除 {0} 本（弹出它以更新其图书库）</value>
+  </data>
+  <data name="Delete_RemovedLater" xml:space="preserve">
+    <value>{0} 本将在电子书阅读器下次插入时移除</value>
+  </data>
+  <data name="Delete_Nothing" xml:space="preserve">
+    <value>未删除任何内容。</value>
+  </data>
+  <data name="Delete_CouldNot" xml:space="preserve">
+    <value>无法删除：{0}</value>
+  </data>
+  <data name="Delete_PendingOneDone" xml:space="preserve">
+    <value>已按您之前的要求从电子书阅读器中移除 1 本书。弹出它以更新其图书库。</value>
+  </data>
+  <data name="Delete_PendingDone" xml:space="preserve">
+    <value>已按您之前的要求从电子书阅读器中移除 {0} 本书。弹出它以更新其图书库。</value>
+  </data>
+  <!-- Send to eReader screen -->
+  <data name="Send_Intro" xml:space="preserve">
+    <value>您自己放入 Kobo 文件夹的图书，如果尚未在 Kobo 电子书阅读器上且 Kobo 可以打开，会被复制到电子书阅读器的 Books 文件夹中。在 Kobo 商店购买的图书不包括在内：电子书阅读器会从您的 Kobo 帐户获取。两边都不会删除任何内容。之后请弹出电子书阅读器，它会将新图书添加到其图书库中。</value>
+  </data>
+  <data name="Send_ReaderConnected" xml:space="preserve">
+    <value>您的 Kobo 电子书阅读器已连接。</value>
+  </data>
+  <data name="Send_EjectHint" xml:space="preserve">
+    <value>安全断开电子书阅读器，以便它添加新图书</value>
+  </data>
+  <data name="Send_PlugIn" xml:space="preserve">
+    <value>插入您的 Kobo 电子书阅读器并在其屏幕上点按 Connect，即可向其发送图书。在此之前，此列表显示的是 Kobo 文件夹中的内容。</value>
+  </data>
+  <data name="Send_AllReady" xml:space="preserve">
+    <value>发送所有可发送的图书（{0}）</value>
+  </data>
+  <data name="Send_Selected" xml:space="preserve">
+    <value>发送所选图书（{0}）</value>
+  </data>
+  <data name="Send_LookAgain" xml:space="preserve">
+    <value>重新查找</value>
+  </data>
+  <data name="Send_LookAgainHint" xml:space="preserve">
+    <value>再次查看 Kobo 文件夹</value>
+  </data>
+  <data name="Send_Auto" xml:space="preserve">
+    <value>插入电子书阅读器时自动发送新图书</value>
+  </data>
+  <data name="Send_AutoHint" xml:space="preserve">
+    <value>只有标记为“可以发送”的图书才会自动发送</value>
+  </data>
+  <data name="Send_KoboFolder" xml:space="preserve">
+    <value>Kobo 文件夹：</value>
+  </data>
+  <data name="Send_NoFiles" xml:space="preserve">
+    <value>Kobo 文件夹中还没有图书文件。</value>
+  </data>
+  <data name="Send_Sent" xml:space="preserve">
+    <value>✔ 已发送</value>
+  </data>
+  <data name="Send_SentTip" xml:space="preserve">
+    <value>已复制到电子书阅读器的 Books 文件夹。弹出电子书阅读器即可添加。</value>
+  </data>
+  <data name="Send_Send" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="Send_SendAnyway" xml:space="preserve">
+    <value>仍然发送</value>
+  </data>
+  <data name="Send_NoReader" xml:space="preserve">
+    <value>未找到 Kobo 电子书阅读器。请插入并在其屏幕上点按 Connect。</value>
+  </data>
+  <data name="Send_TickAll" xml:space="preserve">
+    <value>全部勾选</value>
+  </data>
+  <!-- Collections screen -->
+  <data name="Coll_Intro" xml:space="preserve">
+    <value>在这里将 Kobo 电子书阅读器上的图书整理到收藏集中，然后按“保存到 Kobo 电子书阅读器”。保存之前，电子书阅读器上不会有任何变化，并且其图书列表会先复制到这台计算机。然后按“弹出 Kobo 电子书阅读器”（上方），它就会显示新的收藏集。</value>
+  </data>
+  <data name="Coll_NoReader" xml:space="preserve">
+    <value>未找到 Kobo 电子书阅读器。请插入并在其屏幕上点按 Connect，然后按“重新加载”。</value>
+  </data>
+  <data name="Coll_Reload" xml:space="preserve">
+    <value>重新加载</value>
+  </data>
+  <data name="Coll_ReloadHint" xml:space="preserve">
+    <value>再次从电子书阅读器读取收藏集（未保存的更改将丢失）</value>
+  </data>
+  <data name="Coll_SaveButtonOne" xml:space="preserve">
+    <value>保存到 Kobo 电子书阅读器（1 项更改）</value>
+  </data>
+  <data name="Coll_SaveButton" xml:space="preserve">
+    <value>保存到 Kobo 电子书阅读器（{0} 项更改）</value>
+  </data>
+  <data name="Coll_UndoAll" xml:space="preserve">
+    <value>撤销所有更改</value>
+  </data>
+  <data name="Coll_Saved" xml:space="preserve">
+    <value>已保存到 Kobo 电子书阅读器。按“弹出 Kobo 电子书阅读器”（上方）即可查看新的收藏集。</value>
+  </data>
+  <data name="Coll_ReaderEjected" xml:space="preserve">
+    <value>Kobo 电子书阅读器已弹出：您可以拔下它，在上面查看您的收藏集。要进行更多更改，请重新插入并按“重新加载”。</value>
+  </data>
+  <data name="Coll_ConnectedBanner" xml:space="preserve">
+    <value>您的 Kobo 电子书阅读器已连接。保存更改后，请在此处弹出它，它就会显示新的收藏集。</value>
+  </data>
+  <data name="Coll_EjectSaveFirst" xml:space="preserve">
+    <value>请先保存或撤销您的更改，否则它们不会写入电子书阅读器</value>
+  </data>
+  <data name="Coll_EjectHint" xml:space="preserve">
+    <value>安全断开电子书阅读器，以便它显示新的收藏集</value>
+  </data>
+  <data name="Coll_Show" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Coll_Show_All" xml:space="preserve">
+    <value>所有图书（{0}）</value>
+  </data>
+  <data name="Coll_Show_NotInAny" xml:space="preserve">
+    <value>不在任何收藏集中（{0}）</value>
+  </data>
+  <data name="Coll_Show_Several" xml:space="preserve">
+    <value>在多个收藏集中（{0}）</value>
+  </data>
+  <data name="Coll_NoneYet" xml:space="preserve">
+    <value>还没有收藏集。</value>
+  </data>
+  <data name="Coll_NewCollection" xml:space="preserve">
+    <value>新建收藏集</value>
+  </data>
+  <data name="Coll_NameHint" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Coll_Create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="Coll_NewNameHint" xml:space="preserve">
+    <value>新名称</value>
+  </data>
+  <data name="Coll_Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="Coll_DeleteThis" xml:space="preserve">
+    <value>删除此收藏集</value>
+  </data>
+  <data name="Coll_DeleteConfirm" xml:space="preserve">
+    <value>删除“{0}”？其中的图书会保留在电子书阅读器上。</value>
+  </data>
+  <data name="Coll_Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Coll_Keep" xml:space="preserve">
+    <value>保留</value>
+  </data>
+  <data name="Coll_HideShelved" xml:space="preserve">
+    <value>隐藏已在收藏集中的图书</value>
+  </data>
+  <data name="Coll_Ticked" xml:space="preserve">
+    <value>已勾选：{0}</value>
+  </data>
+  <data name="Coll_TickAll" xml:space="preserve">
+    <value>勾选所有显示的图书</value>
+  </data>
+  <data name="Coll_Collection" xml:space="preserve">
+    <value>收藏集</value>
+  </data>
+  <data name="Coll_Move" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="Coll_MoveHint" xml:space="preserve">
+    <value>仅将已勾选的图书放入此收藏集：它们会退出其他所有收藏集</value>
+  </data>
+  <data name="Coll_AlsoAdd" xml:space="preserve">
+    <value>同时添加</value>
+  </data>
+  <data name="Coll_AlsoAddHint" xml:space="preserve">
+    <value>将已勾选的图书也放入此收藏集，并保留它们所在的其他收藏集</value>
+  </data>
+  <data name="Coll_RemoveFrom" xml:space="preserve">
+    <value>从 {0} 中移除</value>
+  </data>
+  <data name="Coll_EveryBookShelved" xml:space="preserve">
+    <value>每本书都已在收藏集中。</value>
+  </data>
+  <data name="Coll_NoneInSeveral" xml:space="preserve">
+    <value>没有图书同时在多个收藏集中。</value>
+  </data>
+  <data name="Coll_EmptyCollection" xml:space="preserve">
+    <value>此收藏集中还没有图书。请在其他视图中勾选图书并添加。</value>
+  </data>
+  <data name="Coll_NoMatch" xml:space="preserve">
+    <value>没有匹配的图书。</value>
+  </data>
+  <data name="Coll_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Coll_From_Store" xml:space="preserve">
+    <value>商店</value>
+  </data>
+  <data name="Coll_From_Added" xml:space="preserve">
+    <value>已添加</value>
+  </data>
+  <!-- Kindle tab -->
+  <data name="Kindle_Intro" xml:space="preserve">
+    <value>Amazon 已不再允许从您的 Kindle 帐户下载图书，因此这里会按原样复制已在通过 USB 连接的 Kindle 上（无论有没有驱动器号）或 Kindle for PC 应用中的图书。</value>
+  </data>
+  <data name="Kindle_ConnectedNote" xml:space="preserve">
+    <value>您的 Kindle 处于 USB Drive Mode，其图书已列在下方。备份期间请保持连接：Kindle 上关于弹出的提示只在您想继续阅读时才需要理会。完成后，请按“弹出 Kindle”。</value>
+  </data>
+  <data name="Kindle_LookAgain" xml:space="preserve">
+    <value>重新查找</value>
+  </data>
+  <data name="Kindle_LookAgainHint" xml:space="preserve">
+    <value>再次查找 Kindle 及其图书</value>
+  </data>
+  <data name="Kindle_SaveToHint" xml:space="preserve">
+    <value>选择用于存放 Kindle 图书的文件夹</value>
+  </data>
+  <data name="Kindle_AddFolder" xml:space="preserve">
+    <value>添加要搜索的文件夹…</value>
+  </data>
+  <data name="Kindle_AddFolderHint" xml:space="preserve">
+    <value>用于存放在其他位置的图书，例如您移动过的 Kindle for PC 文件夹</value>
+  </data>
+</root>

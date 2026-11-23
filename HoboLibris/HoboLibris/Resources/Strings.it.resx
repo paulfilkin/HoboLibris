@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Application -->
+  <data name="App_Title" xml:space="preserve">
+    <value>HoboLibris</value>
+  </data>
+  <!-- Menu -->
+  <data name="Menu_About" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
+  <data name="Menu_Language" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <!-- About window -->
+  <data name="About_Title" xml:space="preserve">
+    <value>Informazioni su HoboLibris</value>
+  </data>
+  <data name="About_Production" xml:space="preserve">
+    <value>Una produzione multifarious</value>
+  </data>
+  <data name="About_AboutHeader" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>HoboLibris conserva, organizza e sincronizza i tuoi libri Kobo e Kindle. Esegue il backup su questo computer dei libri del tuo account Kobo e di quelli presenti sul tuo eReader Kobo e sul Kindle, ordina l'eReader in collezioni e invia i tuoi libri all'eReader. I file vengono copiati esattamente come sono: nulla viene decifrato o convertito.</value>
+  </data>
+  <data name="About_DataHeader" xml:space="preserve">
+    <value>I tuoi dati</value>
+  </data>
+  <data name="About_DataText" xml:space="preserve">
+    <value>Le impostazioni, l'accesso Kobo, l'elenco della libreria, i file di log e i backup dell'elenco dei libri dell'eReader sono conservati in questa cartella. I libri di cui hai fatto il backup si trovano nelle cartelle che hai scelto.</value>
+  </data>
+  <data name="About_SupportHeader" xml:space="preserve">
+    <value>Supporto</value>
+  </data>
+  <data name="About_SupportText" xml:space="preserve">
+    <value>Serve aiuto? Visita il sito di supporto:</value>
+  </data>
+  <data name="About_SupportUrl" xml:space="preserve">
+    <value>multifarious.filkin.com/support</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>© {0} multifarious. Tutti i diritti riservati.</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Versione {0}.{1}.{2}</value>
+  </data>
+  <data name="About_BrowserError" xml:space="preserve">
+    <value>Impossibile aprire il browser: {0}</value>
+  </data>
+  <!-- Language window -->
+  <data name="Language_Title" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <data name="Language_SelectLanguage" xml:space="preserve">
+    <value>Scegli una lingua</value>
+  </data>
+  <data name="Language_Subtitle" xml:space="preserve">
+    <value>HoboLibris si riavvia per mostrare la nuova lingua.</value>
+  </data>
+  <data name="Language_RestartPrompt" xml:space="preserve">
+    <value>HoboLibris deve riavviarsi per mostrare la nuova lingua. Riavviare adesso?</value>
+  </data>
+  <data name="Language_RestartTitle" xml:space="preserve">
+    <value>Riavviare HoboLibris?</value>
+  </data>
+  <!-- Common -->
+  <data name="Common_Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <!-- Errors -->
+  <data name="Error_Critical" xml:space="preserve">
+    <value>Si è verificato un errore grave e HoboLibris deve chiudersi:
+
+{0}</value>
+  </data>
+  <data name="Error_CriticalTitle" xml:space="preserve">
+    <value>HoboLibris deve chiudersi</value>
+  </data>
+  <data name="Error_Unexpected" xml:space="preserve">
+    <value>Si è verificato un errore:
+
+{0}</value>
+  </data>
+  <!-- Kobo store -->
+  <data name="Store_ServerAnswered" xml:space="preserve">
+    <value>Il server Kobo ha risposto {0}. {1}</value>
+  </data>
+  <data name="Store_CouldNotReach" xml:space="preserve">
+    <value>Impossibile raggiungere il server Kobo: {0}</value>
+  </data>
+  <data name="Store_UnexpectedSignInReply" xml:space="preserve">
+    <value>Risposta di accesso imprevista: {0}</value>
+  </data>
+  <data name="Store_NoAccessToken" xml:space="preserve">
+    <value>Il server Kobo non ha fornito alcun token di accesso.</value>
+  </data>
+  <data name="Store_SignInExpired" xml:space="preserve">
+    <value>Accesso scaduto. Accedi di nuovo.</value>
+  </data>
+  <data name="Store_UnexpectedStartupReply" xml:space="preserve">
+    <value>Risposta di avvio imprevista: {0}</value>
+  </data>
+  <data name="Store_NoSignInPage" xml:space="preserve">
+    <value>Il server Kobo non ha fornito una pagina di accesso.</value>
+  </data>
+  <data name="Store_NotASignInLink" xml:space="preserve">
+    <value>Questo non è un link di accesso.</value>
+  </data>
+  <data name="Store_LinkHasNoUserKey" xml:space="preserve">
+    <value>Il link di accesso non contiene la chiave utente.</value>
+  </data>
+  <data name="Store_UnexpectedLibraryReply" xml:space="preserve">
+    <value>Risposta della libreria imprevista: {0}</value>
+  </data>
+  <data name="Store_NoDownload" xml:space="preserve">
+    <value>Per questo libro non è disponibile alcun download.</value>
+  </data>
+  <data name="Store_CouldNotCreateFolder" xml:space="preserve">
+    <value>Impossibile creare la cartella: {0}</value>
+  </data>
+  <data name="Store_CouldNotWriteFile" xml:space="preserve">
+    <value>Impossibile scrivere il file: {0}</value>
+  </data>
+  <data name="Store_DownloadInterrupted" xml:space="preserve">
+    <value>Download interrotto: {0}</value>
+  </data>
+  <data name="Store_DownloadEmpty" xml:space="preserve">
+    <value>Il download era vuoto.</value>
+  </data>
+  <data name="Store_CouldNotSaveFile" xml:space="preserve">
+    <value>Impossibile salvare il file: {0}</value>
+  </data>
+  <data name="Store_Untitled" xml:space="preserve">
+    <value>Senza titolo</value>
+  </data>
+  <!-- Kobo eReader -->
+  <data name="Reader_Origin" xml:space="preserve">
+    <value>eReader Kobo ({0})</value>
+  </data>
+  <data name="Reader_Duplicate" xml:space="preserve">
+    <value>Anche nell'elenco del tuo Kobo Store</value>
+  </data>
+  <data name="Reader_Note_Connect" xml:space="preserve">
+    <value>Per aprire il tuo eReader Kobo:
+1.  Collegalo a questo computer con il suo cavo USB (direttamente al computer, non a un hub).
+2.  Riattivalo. Sul suo schermo, tocca Connect quando chiede se connettersi al computer.
+3.  I suoi libri compariranno qui da soli.
+Se si limita a caricarsi e non chiede nulla, scollegalo e ricollegalo, oppure prova un'altra porta USB.</value>
+  </data>
+  <!-- Collections -->
+  <data name="Coll_BookListNotFound" xml:space="preserve">
+    <value>L'elenco dei libri dell'eReader Kobo non è stato trovato. È ancora collegato?</value>
+  </data>
+  <data name="Coll_CouldNotOpen" xml:space="preserve">
+    <value>Impossibile aprire l'elenco dei libri dell'eReader: {0}</value>
+  </data>
+  <data name="Coll_CouldNotRead" xml:space="preserve">
+    <value>Impossibile leggere l'elenco dei libri dell'eReader: {0}</value>
+  </data>
+  <data name="Coll_TypeNameFirst" xml:space="preserve">
+    <value>Digita prima un nome per la collezione.</value>
+  </data>
+  <data name="Coll_AlreadyExists" xml:space="preserve">
+    <value>Esiste già una collezione chiamata "{0}".</value>
+  </data>
+  <data name="Coll_TypeNewNameFirst" xml:space="preserve">
+    <value>Digita prima il nuovo nome.</value>
+  </data>
+  <data name="Coll_NoLongerExists" xml:space="preserve">
+    <value>Quella collezione non esiste più.</value>
+  </data>
+  <data name="Coll_NoChanges" xml:space="preserve">
+    <value>Non ci sono modifiche da salvare.</value>
+  </data>
+  <data name="Coll_ReaderGone" xml:space="preserve">
+    <value>L'eReader Kobo non è più collegato. Ricollegalo e premi Ricarica.</value>
+  </data>
+  <data name="Coll_ListChanged" xml:space="preserve">
+    <value>L'elenco dei libri dell'eReader è cambiato dopo la lettura. Premi Ricarica e ripeti le modifiche.</value>
+  </data>
+  <data name="Coll_CouldNotCreateBackupFolder" xml:space="preserve">
+    <value>Impossibile creare la cartella di backup: {0}</value>
+  </data>
+  <data name="Coll_CouldNotBackUp" xml:space="preserve">
+    <value>Impossibile eseguire il backup dell'elenco dei libri dell'eReader: {0}</value>
+  </data>
+  <data name="Coll_CouldNotOpenForWriting" xml:space="preserve">
+    <value>Impossibile aprire in scrittura l'elenco dei libri dell'eReader: {0}</value>
+  </data>
+  <data name="Coll_CouldNotSave" xml:space="preserve">
+    <value>Impossibile salvare le collezioni: {0}</value>
+  </data>
+  <!-- Send to eReader -->
+  <data name="Send_Verdict_Ready" xml:space="preserve">
+    <value>Pronto per l'invio</value>
+  </data>
+  <data name="Send_Verdict_OnReader" xml:space="preserve">
+    <value>Sull'eReader</value>
+  </data>
+  <data name="Send_Verdict_StoreBook" xml:space="preserve">
+    <value>Libro del Kobo Store</value>
+  </data>
+  <data name="Send_Verdict_Protected" xml:space="preserve">
+    <value>Protetto</value>
+  </data>
+  <data name="Send_Verdict_NotKobo" xml:space="preserve">
+    <value>Non si apre su un Kobo</value>
+  </data>
+  <data name="Send_Verdict_Unchecked" xml:space="preserve">
+    <value>Collega l'eReader per verificare</value>
+  </data>
+  <data name="Send_Why_Ready" xml:space="preserve">
+    <value>Non è ancora sull'eReader ed è in un formato che un Kobo può aprire.</value>
+  </data>
+  <data name="Send_Why_OnReader" xml:space="preserve">
+    <value>L'eReader ha già questo libro.</value>
+  </data>
+  <data name="Send_Why_StoreBook" xml:space="preserve">
+    <value>Acquistato nel Kobo Store: l'eReader lo riceve dal tuo account Kobo.</value>
+  </data>
+  <data name="Send_Why_Unchecked" xml:space="preserve">
+    <value>Un Kobo può aprirlo. Collega l'eReader per vedere se è già presente.</value>
+  </data>
+  <data name="Send_FileCouldNotBeOpened" xml:space="preserve">
+    <value>Impossibile aprire il file.</value>
+  </data>
+  <data name="Send_DamagedEpubNotZip" xml:space="preserve">
+    <value>EPUB danneggiato: non è un file EPUB leggibile.</value>
+  </data>
+  <data name="Send_DamagedEpubNoContainer" xml:space="preserve">
+    <value>EPUB danneggiato: manca il file dell'indice.</value>
+  </data>
+  <data name="Send_AdobeProtected" xml:space="preserve">
+    <value>Protezione anticopia Adobe: si apre sull'eReader solo se l'eReader usa l'ID Adobe con cui è stato acquistato il libro.</value>
+  </data>
+  <data name="Send_DamagedPdf" xml:space="preserve">
+    <value>PDF danneggiato: non inizia come un file PDF.</value>
+  </data>
+  <data name="Send_DamagedMobi" xml:space="preserve">
+    <value>File MOBI danneggiato.</value>
+  </data>
+  <data name="Send_KindleProtected" xml:space="preserve">
+    <value>Protezione anticopia Kindle: gli eReader Kobo non possono aprirlo.</value>
+  </data>
+  <data name="Send_AcsmTicket" xml:space="preserve">
+    <value>Questo è un biglietto di download per Adobe Digital Editions, non il libro vero e proprio.</value>
+  </data>
+  <data name="Send_KoboDoesNotOpen" xml:space="preserve">
+    <value>Gli eReader Kobo non aprono i file {0}.</value>
+  </data>
+  <data name="Send_CouldNotCreateBooksFolder" xml:space="preserve">
+    <value>Impossibile creare la cartella Books sull'eReader: {0}</value>
+  </data>
+  <data name="Send_AlreadyOnReader" xml:space="preserve">
+    <value>Un file con questo nome è già nella cartella Books dell'eReader.</value>
+  </data>
+  <data name="Send_CouldNotReadBook" xml:space="preserve">
+    <value>Impossibile leggere il libro: {0}</value>
+  </data>
+  <data name="Send_CouldNotWriteToReader" xml:space="preserve">
+    <value>Impossibile scrivere sull'eReader: {0}</value>
+  </data>
+  <data name="Send_CouldNotFinishCopy" xml:space="preserve">
+    <value>Impossibile completare la copia sull'eReader: {0}</value>
+  </data>
+  <!-- Kindle -->
+  <data name="Kindle_Origin_Drive" xml:space="preserve">
+    <value>Kindle ({0})</value>
+  </data>
+  <data name="Kindle_Origin_ForPc" xml:space="preserve">
+    <value>Kindle for PC</value>
+  </data>
+  <data name="Kindle_Origin_Folder" xml:space="preserve">
+    <value>Cartella {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCreateFolder" xml:space="preserve">
+    <value>Impossibile creare la cartella: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyBook" xml:space="preserve">
+    <value>Impossibile copiare il libro: {0}</value>
+  </data>
+  <data name="Kindle_CouldNotCopyExtraFiles" xml:space="preserve">
+    <value>Impossibile copiare i file aggiuntivi del libro: {0}</value>
+  </data>
+  <data name="Kindle_NoBackupFolder" xml:space="preserve">
+    <value>Nessuna cartella di backup.</value>
+  </data>
+  <data name="Kindle_NoLongerConnected" xml:space="preserve">
+    <value>Il Kindle non è più collegato.</value>
+  </data>
+  <data name="Kindle_FolderNotFound" xml:space="preserve">
+    <value>Cartella non trovata sul Kindle: {0}</value>
+  </data>
+  <data name="Kindle_BookNoLongerOnKindle" xml:space="preserve">
+    <value>Il libro non è più sul Kindle.</value>
+  </data>
+  <data name="Kindle_CopyTookTooLong" xml:space="preserve">
+    <value>La copia dal Kindle ha richiesto troppo tempo.</value>
+  </data>
+  <data name="Kindle_Note_NotSeen" xml:space="preserve">
+    <value>Windows non vede alcun Kindle. Riattiva il Kindle, poi prova un'altra porta USB o un altro cavo (alcuni cavi servono solo per la ricarica).</value>
+  </data>
+  <data name="Kindle_Note_StorageClosed" xml:space="preserve">
+    <value>Il Kindle è collegato e il cavo trasmette dati, ma il Kindle tiene chiusa la sua memoria, quindi Windows vede un'unità vuota. Per questo non compare nemmeno tra i dispositivi da espellere: puoi semplicemente scollegarlo.
+Per aprirlo:
+1.  Scollega il Kindle.
+2.  Riavvialo: tieni premuto il pulsante di accensione per circa 40 secondi finché lo schermo non diventa vuoto, poi lascialo e attendi che si riavvii (oppure usa Impostazioni, Opzioni dispositivo, Riavvia).
+3.  Collega il cavo direttamente a questo computer, non a un hub, a una tastiera o a un monitor.
+4.  Non toccare nulla sul Kindle. Il suo schermo dovrebbe mostrare "USB Drive Mode" o l'immagine di un computer, e i tuoi libri compariranno qui da soli.
+Se il Kindle mostra solo che è in carica, prova un'altra porta USB del computer.</value>
+  </data>
+  <data name="Kindle_Note_Seen" xml:space="preserve">
+    <value>Windows vede il Kindle, ma i suoi libri non possono ancora essere aperti. Sblocca il Kindle, oppure scollegalo e ricollegalo.</value>
+  </data>
+  <!-- Main window -->
+  <data name="Main_Kobo" xml:space="preserve">
+    <value>Kobo</value>
+  </data>
+  <data name="Main_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Main_SignedIn" xml:space="preserve">
+    <value>Accesso effettuato</value>
+  </data>
+  <data name="Main_SignedInAs" xml:space="preserve">
+    <value>Accesso effettuato come {0}</value>
+  </data>
+  <data name="Main_SignOut" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="Common_Dismiss" xml:space="preserve">
+    <value>Ignora</value>
+  </data>
+  <!-- Welcome card (signed out, no eReader) -->
+  <data name="Welcome_Heading" xml:space="preserve">
+    <value>Conserva una copia dei tuoi libri</value>
+  </data>
+  <data name="Welcome_Text1" xml:space="preserve">
+    <value>Accedi al tuo account Kobo per vedere i libri che hai acquistato e salvarli su questo computer.</value>
+  </data>
+  <data name="Welcome_Text2" xml:space="preserve">
+    <value>Anche i libri che hai aggiunto tu stesso al tuo eReader Kobo compaiono qui quando lo colleghi.</value>
+  </data>
+  <data name="Welcome_SignIn" xml:space="preserve">
+    <value>Accedi</value>
+  </data>
+  <data name="Welcome_DidntComeBack" xml:space="preserve">
+    <value>La finestra di accesso non è tornata?</value>
+  </data>
+  <data name="Welcome_PasteHint" xml:space="preserve">
+    <value>Incolla qui l'indirizzo che inizia con kobo://UserAuthenticated:</value>
+  </data>
+  <data name="Welcome_UseLink" xml:space="preserve">
+    <value>Usa questo link</value>
+  </data>
+  <!-- Sign-in window -->
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Accedi al tuo account Kobo</value>
+  </data>
+  <data name="SignIn_Note" xml:space="preserve">
+    <value>Accedi con il tuo account Kobo. Questa finestra si chiude da sola quando Kobo ti rimanda a HoboLibris.</value>
+  </data>
+  <data name="SignIn_WebViewMissing" xml:space="preserve">
+    <value>La pagina di accesso richiede il runtime Microsoft Edge WebView2, che fa parte di Windows 10 e 11. Non è stato possibile avviarlo su questo computer. Installalo da Microsoft, poi riprova.</value>
+  </data>
+  <data name="SignIn_WebViewLink" xml:space="preserve">
+    <value>Scarica il runtime WebView2 da Microsoft</value>
+  </data>
+  <!-- Kobo tab -->
+  <data name="Kobo_BackUpTab" xml:space="preserve">
+    <value>Backup dei libri</value>
+  </data>
+  <data name="Kobo_CollectionsTab" xml:space="preserve">
+    <value>Collezioni</value>
+  </data>
+  <data name="Kobo_CollectionsTabTip" xml:space="preserve">
+    <value>Ordina in collezioni i libri sul tuo eReader Kobo</value>
+  </data>
+  <data name="Kobo_SendTab" xml:space="preserve">
+    <value>Invia all'eReader</value>
+  </data>
+  <data name="Kobo_SendTabCount" xml:space="preserve">
+    <value>Invia all'eReader ({0})</value>
+  </data>
+  <data name="Kobo_SendTabTip" xml:space="preserve">
+    <value>Copia sull'eReader i libri che hai messo tu stesso nella cartella Kobo</value>
+  </data>
+  <data name="Kobo_PlugInNote" xml:space="preserve">
+    <value>Collega il tuo eReader Kobo e tocca Connect sul suo schermo per eseguire il backup anche dei libri che vi hai aggiunto tu stesso. Fino ad allora, i libri nella cartella Kobo sono elencati come "Questo computer".</value>
+  </data>
+  <data name="Kobo_ReaderEjectedNote" xml:space="preserve">
+    <value>eReader Kobo espulso. Ricollegalo per eseguire il backup dei libri che vi hai aggiunto tu stesso.</value>
+  </data>
+  <data name="Kobo_SignInBanner" xml:space="preserve">
+    <value>Accedi al tuo account Kobo per eseguire il backup anche dei libri acquistati nel Kobo Store.</value>
+  </data>
+  <data name="Kobo_SignIn" xml:space="preserve">
+    <value>Accedi</value>
+  </data>
+  <data name="Kobo_OneBookWaiting" xml:space="preserve">
+    <value>1 libro nella cartella Kobo non è ancora sull'eReader.</value>
+  </data>
+  <data name="Kobo_BooksWaiting" xml:space="preserve">
+    <value>{0} libri nella cartella Kobo non sono ancora sull'eReader.</value>
+  </data>
+  <data name="Kobo_SeeAndSend" xml:space="preserve">
+    <value>Vedili e invia…</value>
+  </data>
+  <data name="Kobo_ReaderConnectedNote" xml:space="preserve">
+    <value>Il tuo eReader Kobo è collegato: anche i libri che vi hai aggiunto tu stesso sono nell'elenco. Lascialo collegato durante il backup.</value>
+  </data>
+  <data name="Kobo_EjectReader" xml:space="preserve">
+    <value>Espelli eReader Kobo</value>
+  </data>
+  <data name="Kobo_EjectReaderHint" xml:space="preserve">
+    <value>Scollega in sicurezza l'eReader per poter tornare a leggere e ricaricare</value>
+  </data>
+  <data name="Kobo_RefreshList" xml:space="preserve">
+    <value>Aggiorna elenco</value>
+  </data>
+  <data name="Kobo_RefreshListHint" xml:space="preserve">
+    <value>Scarica l'elenco più recente dal tuo account Kobo e dal tuo eReader</value>
+  </data>
+  <data name="Kobo_BackUpAll" xml:space="preserve">
+    <value>Backup di tutti i non ancora salvati ({0})</value>
+  </data>
+  <data name="Kobo_BackUpSelected" xml:space="preserve">
+    <value>Backup dei selezionati ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelected" xml:space="preserve">
+    <value>Elimina selezionati ({0})</value>
+  </data>
+  <data name="Kobo_DeleteSelectedHint" xml:space="preserve">
+    <value>Elimina le copie di backup e scegli se rimuovere i libri anche dall'eReader</value>
+  </data>
+  <data name="Kobo_SaveTo" xml:space="preserve">
+    <value>Salva in…</value>
+  </data>
+  <data name="Kobo_SaveToHint" xml:space="preserve">
+    <value>Scegli la cartella per i tuoi libri Kobo</value>
+  </data>
+  <data name="Kobo_OpenFolder" xml:space="preserve">
+    <value>Apri cartella</value>
+  </data>
+  <data name="Kobo_FolderLabel" xml:space="preserve">
+    <value>Cartella:</value>
+  </data>
+  <data name="Kobo_SearchHint" xml:space="preserve">
+    <value>Cerca titolo o autore</value>
+  </data>
+  <data name="Kobo_SortBy" xml:space="preserve">
+    <value>Ordina per</value>
+  </data>
+  <data name="Kobo_SortTitle" xml:space="preserve">
+    <value>Titolo</value>
+  </data>
+  <data name="Kobo_SortAuthor" xml:space="preserve">
+    <value>Autore</value>
+  </data>
+  <data name="Kobo_NoBooksYet" xml:space="preserve">
+    <value>Ancora nessun libro. Premi Aggiorna elenco.</value>
+  </data>
+  <data name="List_NoMatch" xml:space="preserve">
+    <value>Nessun libro corrispondente.</value>
+  </data>
+  <!-- Columns -->
+  <data name="Col_Title" xml:space="preserve">
+    <value>Titolo</value>
+  </data>
+  <data name="Col_Author" xml:space="preserve">
+    <value>Autore</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>Formato</value>
+  </data>
+  <data name="Col_From" xml:space="preserve">
+    <value>Origine</value>
+  </data>
+  <data name="Col_FromTip" xml:space="preserve">
+    <value>Store: acquistato nel Kobo Store, scaricato dal tuo account. I libri protetti dello store vengono salvati esattamente come li fornisce Kobo e si aprono solo nelle app di lettura Kobo o Adobe.
+eReader: aggiunto da te al tuo eReader Kobo, copiato da lì.
+Questo computer: nella cartella Kobo, ma non nell'elenco dello store né su un eReader collegato.</value>
+  </data>
+  <data name="Col_OnThisComputer" xml:space="preserve">
+    <value>Su questo computer</value>
+  </data>
+  <data name="Col_SelectAll" xml:space="preserve">
+    <value>Seleziona tutti i visibili</value>
+  </data>
+  <data name="Col_FoundOn" xml:space="preserve">
+    <value>Trovato su</value>
+  </data>
+  <data name="Col_BackedUp" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="Col_BookFile" xml:space="preserve">
+    <value>File del libro</value>
+  </data>
+  <data name="Col_OnReader" xml:space="preserve">
+    <value>Sull'eReader</value>
+  </data>
+  <data name="Col_Collections" xml:space="preserve">
+    <value>Collezioni</value>
+  </data>
+  <!-- List rows -->
+  <data name="Row_From_Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="Row_From_StoreProtected" xml:space="preserve">
+    <value>Store · protetto</value>
+  </data>
+  <data name="Row_From_Reader" xml:space="preserve">
+    <value>eReader</value>
+  </data>
+  <data name="Row_From_Computer" xml:space="preserve">
+    <value>Questo computer</value>
+  </data>
+  <data name="Row_From_StoreTip" xml:space="preserve">
+    <value>Acquistato nel Kobo Store e scaricato dal tuo account.</value>
+  </data>
+  <data name="Row_From_ReaderTip" xml:space="preserve">
+    <value>Aggiunto da te al tuo eReader Kobo; copiato da lì.</value>
+  </data>
+  <data name="Row_From_ComputerTip" xml:space="preserve">
+    <value>Nella cartella Kobo, ma non nell'elenco del Kobo Store né su un eReader collegato. Collega l'eReader per vedere se è presente, oppure usa Invia all'eReader.</value>
+  </data>
+  <data name="Row_Waiting" xml:space="preserve">
+    <value>In attesa…</value>
+  </data>
+  <data name="Row_Failed" xml:space="preserve">
+    <value>Non riuscito</value>
+  </data>
+  <data name="Row_InTheFolder" xml:space="preserve">
+    <value>✔ Nella cartella</value>
+  </data>
+  <data name="Row_Saved" xml:space="preserve">
+    <value>✔ Salvato</value>
+  </data>
+  <data name="Row_SameAsStore" xml:space="preserve">
+    <value>Uguale al libro dello store</value>
+  </data>
+  <data name="Row_SameAsStoreTip" xml:space="preserve">
+    <value>Questo libro è anche nell'elenco del tuo Kobo Store, quindi "Backup di tutti" salva la copia dello store e salta questa. Copialo comunque con il pulsante.</value>
+  </data>
+  <data name="Row_FromStore" xml:space="preserve">
+    <value>✔ Dallo store</value>
+  </data>
+  <data name="Row_FromStoreTip" xml:space="preserve">
+    <value>{0}, quindi è escluso da "Backup di tutti". Copialo comunque con il pulsante.</value>
+  </data>
+  <data name="Row_NotDownloadable" xml:space="preserve">
+    <value>Non scaricabile</value>
+  </data>
+  <data name="Row_BackUp" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="Row_Again" xml:space="preserve">
+    <value>Di nuovo</value>
+  </data>
+  <data name="Row_AgainTip" xml:space="preserve">
+    <value>Copialo o scaricalo di nuovo</value>
+  </data>
+  <data name="Row_Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Row_CopyTip" xml:space="preserve">
+    <value>Copialo comunque</value>
+  </data>
+  <!-- Progress -->
+  <data name="Progress_BackingUp" xml:space="preserve">
+    <value>Backup in corso</value>
+  </data>
+  <data name="Progress_Sending" xml:space="preserve">
+    <value>Invio in corso</value>
+  </data>
+  <data name="Progress_AllFinished" xml:space="preserve">
+    <value>{0}: tutti i {1} completati</value>
+  </data>
+  <data name="Progress_BookOf" xml:space="preserve">
+    <value>{0} libro {1} di {2}   ·   {3}% completato</value>
+  </data>
+  <!-- Status line -->
+  <data name="Status_LookingFor" xml:space="preserve">
+    <value>Ricerca dei libri {0} in corso...</value>
+  </data>
+  <data name="Status_BooksFound" xml:space="preserve">
+    <value>{0} libri {1} trovati.</value>
+  </data>
+  <data name="Status_WaitForCopies" xml:space="preserve">
+    <value>Attendi che le copie in corso siano completate.</value>
+  </data>
+  <data name="Status_BackingUpBooks" xml:space="preserve">
+    <value>Backup di {0} libri {1} in corso...</value>
+  </data>
+  <data name="Status_DoneBackedUp" xml:space="preserve">
+    <value>Fatto. Backup eseguito per {0} libri {2} su {1}.</value>
+  </data>
+  <data name="Status_FinishedWithFailures" xml:space="preserve">
+    <value>Completato con {0} copie non riuscite. Passa il mouse su "Non riuscito" per vedere il motivo.</value>
+  </data>
+  <data name="Status_Ejecting" xml:space="preserve">
+    <value>{0}: espulsione in corso...</value>
+  </data>
+  <data name="Status_CouldNotEject" xml:space="preserve">
+    <value>Impossibile espellere il dispositivo {0}: {1}</value>
+  </data>
+  <data name="Status_Ejected" xml:space="preserve">
+    <value>{0} espulso. Puoi scollegarlo.</value>
+  </data>
+  <data name="Status_SendingBooks" xml:space="preserve">
+    <value>Invio di {0} libri all'eReader Kobo in corso...</value>
+  </data>
+  <data name="Status_SentBooks" xml:space="preserve">
+    <value>{0} libri inviati all'eReader Kobo. Espellilo per aggiungerli alla sua libreria.</value>
+  </data>
+  <data name="Status_SentWithFailures" xml:space="preserve">
+    <value>{0} libri inviati; {1} non riusciti. Passa il mouse su "Non riuscito" per vedere il motivo.</value>
+  </data>
+  <data name="Status_BooksAndCollections" xml:space="preserve">
+    <value>{0} libri e {1} collezioni sull'eReader Kobo.</value>
+  </data>
+  <data name="Status_CollectionsSaved" xml:space="preserve">
+    <value>Collezioni salvate. L'elenco dei libri dell'eReader è stato prima copiato in {0}</value>
+  </data>
+  <data name="Status_SignedInRefresh" xml:space="preserve">
+    <value>Accesso effettuato. Premi Aggiorna elenco per caricare i tuoi libri.</value>
+  </data>
+  <data name="Status_OpeningSignIn" xml:space="preserve">
+    <value>Apertura della finestra di accesso Kobo...</value>
+  </data>
+  <data name="Status_SignInInWindow" xml:space="preserve">
+    <value>Accedi con il tuo account Kobo nella finestra che si è aperta.</value>
+  </data>
+  <data name="Status_SignInClosed" xml:space="preserve">
+    <value>L'accesso è stato chiuso prima di essere completato.</value>
+  </data>
+  <data name="Status_ConnectingAccount" xml:space="preserve">
+    <value>Accesso effettuato. Collegamento di questo computer al tuo account...</value>
+  </data>
+  <data name="Status_SignedOut" xml:space="preserve">
+    <value>Disconnesso.</value>
+  </data>
+  <data name="Status_LoadingLibrary" xml:space="preserve">
+    <value>Caricamento della libreria...</value>
+  </data>
+  <data name="Status_LoadingLibraryCount" xml:space="preserve">
+    <value>Caricamento della libreria... {0} libri finora</value>
+  </data>
+  <data name="Status_WaitForDownloads" xml:space="preserve">
+    <value>Attendi che i download in corso siano completati.</value>
+  </data>
+  <data name="Status_DownloadingBooks" xml:space="preserve">
+    <value>Download di {0} libri in corso...</value>
+  </data>
+  <data name="Status_DoneStoreSaved" xml:space="preserve">
+    <value>Fatto. {0} libri del Kobo Store su {1} salvati.</value>
+  </data>
+  <data name="Status_FinishedWithFailedDownloads" xml:space="preserve">
+    <value>Completato con {0} download non riusciti. Passa il mouse su "Non riuscito" per vedere il motivo.</value>
+  </data>
+  <!-- Summary (status line when nothing else is happening) -->
+  <data name="Summary_OneBook" xml:space="preserve">
+    <value>1 libro</value>
+  </data>
+  <data name="Summary_Books" xml:space="preserve">
+    <value>{0} libri</value>
+  </data>
+  <data name="Summary_OneDeviceBook" xml:space="preserve">
+    <value>1 libro {0} trovato.</value>
+  </data>
+  <data name="Summary_DeviceBooks" xml:space="preserve">
+    <value>{0} libri {1} trovati.</value>
+  </data>
+  <data name="Summary_FromStore" xml:space="preserve">
+    <value>{0} dal Kobo Store</value>
+  </data>
+  <data name="Summary_OnReader" xml:space="preserve">
+    <value>{0} sull'eReader</value>
+  </data>
+  <data name="Summary_OnlyOnComputer" xml:space="preserve">
+    <value>{0} solo su questo computer</value>
+  </data>
+  <data name="Summary_LibraryWithParts" xml:space="preserve">
+    <value>{0} nella tua libreria: {1}.</value>
+  </data>
+  <data name="Summary_Library" xml:space="preserve">
+    <value>{0} nella tua libreria.</value>
+  </data>
+  <!-- Devices -->
+  <data name="Device_Kindle" xml:space="preserve">
+    <value>Kindle</value>
+  </data>
+  <data name="Device_KoboReader" xml:space="preserve">
+    <value>eReader Kobo</value>
+  </data>
+  <data name="Device_Eject" xml:space="preserve">
+    <value>Espelli {0}</value>
+  </data>
+  <data name="Device_EjectHint" xml:space="preserve">
+    <value>Scollega in sicurezza il dispositivo {0} per poter tornare a leggere e ricaricare</value>
+  </data>
+  <data name="Device_EjectWait" xml:space="preserve">
+    <value>Attendi prima che il backup sia completato</value>
+  </data>
+  <data name="Device_EjectedHeading" xml:space="preserve">
+    <value>{0} espulso</value>
+  </data>
+  <data name="Device_NoneFoundYet" xml:space="preserve">
+    <value>Nessun {0} trovato finora</value>
+  </data>
+  <data name="Device_EjectedText" xml:space="preserve">
+    <value>Il tuo {0} è stato espulso. Puoi scollegarlo e continuare a leggere.
+Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qui da soli.</value>
+  </data>
+  <data name="Device_PlugIn" xml:space="preserve">
+    <value>Collega il tuo {0} con il suo cavo USB e sbloccalo.</value>
+  </data>
+  <data name="Device_CheckingAgain" xml:space="preserve">
+    <value>Nuovo controllo ogni pochi secondi…</value>
+  </data>
+  <data name="Device_Looking" xml:space="preserve">
+    <value>Ricerca dei libri {0} in corso…</value>
+  </data>
+  <data name="Device_NoBooks" xml:space="preserve">
+    <value>Nessun libro {0} trovato.</value>
+  </data>
+  <!-- Folder dialogs -->
+  <data name="Dialog_ChooseKoboFolder" xml:space="preserve">
+    <value>Scegli dove conservare i tuoi libri Kobo</value>
+  </data>
+  <data name="Dialog_ChooseKindleFolder" xml:space="preserve">
+    <value>Scegli dove conservare i tuoi libri Kindle</value>
+  </data>
+  <data name="Dialog_ChooseKindleSearchFolder" xml:space="preserve">
+    <value>Scegli una cartella che contiene libri Kindle</value>
+  </data>
+  <!-- Delete selected -->
+  <data name="Delete_WindowTitle" xml:space="preserve">
+    <value>Elimina selezionati</value>
+  </data>
+  <data name="Delete_TitleOne" xml:space="preserve">
+    <value>Eliminare 1 libro?</value>
+  </data>
+  <data name="Delete_TitleMany" xml:space="preserve">
+    <value>Eliminare {0} libri?</value>
+  </data>
+  <data name="Delete_NoCopies" xml:space="preserve">
+    <value>Nessuno di questi ha una copia di backup nella cartella Kobo.</value>
+  </data>
+  <data name="Delete_OneCopy" xml:space="preserve">
+    <value>1 copia di backup nella cartella Kobo verrà spostata nel Cestino, così potrai recuperarla se cambi idea.</value>
+  </data>
+  <data name="Delete_Copies" xml:space="preserve">
+    <value>{0} copie di backup nella cartella Kobo verranno spostate nel Cestino, così potrai recuperarle se cambi idea.</value>
+  </data>
+  <data name="Delete_AlsoRemoveOne" xml:space="preserve">
+    <value>Rimuovilo anche dall'eReader Kobo</value>
+  </data>
+  <data name="Delete_AlsoRemoveMany" xml:space="preserve">
+    <value>Rimuovi dall'eReader Kobo anche i {0} libri che vi hai aggiunto</value>
+  </data>
+  <data name="Delete_RemoveNoteOn" xml:space="preserve">
+    <value>Vengono eliminati subito dall'eReader (che non ha un Cestino). Espelli poi l'eReader e li toglierà dalla sua libreria.</value>
+  </data>
+  <data name="Delete_RemoveNoteOff" xml:space="preserve">
+    <value>Restano sull'eReader. "Backup di tutti" li copierà di nuovo nella cartella.</value>
+  </data>
+  <data name="Delete_StoreNoteOne" xml:space="preserve">
+    <value>1 è stato acquistato nel Kobo Store: resta nel tuo account Kobo e sull'eReader. Per togliere un libro dello store dall'eReader, rimuovilo direttamente sull'eReader.</value>
+  </data>
+  <data name="Delete_StoreNoteMany" xml:space="preserve">
+    <value>{0} sono stati acquistati nel Kobo Store: restano nel tuo account Kobo e sull'eReader. Per togliere un libro dello store dall'eReader, rimuovilo direttamente sull'eReader.</value>
+  </data>
+  <data name="Delete_Button" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="Delete_OneBinned" xml:space="preserve">
+    <value>1 copia di backup spostata nel Cestino</value>
+  </data>
+  <data name="Delete_Binned" xml:space="preserve">
+    <value>{0} copie di backup spostate nel Cestino</value>
+  </data>
+  <data name="Delete_RemovedFromReader" xml:space="preserve">
+    <value>{0} rimossi dall'eReader (espellilo per aggiornare la sua libreria)</value>
+  </data>
+  <data name="Delete_RemovedLater" xml:space="preserve">
+    <value>{0} verranno rimossi dall'eReader la prossima volta che viene collegato</value>
+  </data>
+  <data name="Delete_Nothing" xml:space="preserve">
+    <value>Non è stato eliminato nulla.</value>
+  </data>
+  <data name="Delete_CouldNot" xml:space="preserve">
+    <value>Impossibile eliminare: {0}</value>
+  </data>
+  <data name="Delete_PendingOneDone" xml:space="preserve">
+    <value>1 libro rimosso dall'eReader, come richiesto in precedenza. Espellilo per aggiornare la sua libreria.</value>
+  </data>
+  <data name="Delete_PendingDone" xml:space="preserve">
+    <value>{0} libri rimossi dall'eReader, come richiesto in precedenza. Espellilo per aggiornare la sua libreria.</value>
+  </data>
+  <!-- Send to eReader screen -->
+  <data name="Send_Intro" xml:space="preserve">
+    <value>I libri che hai messo tu stesso nella cartella Kobo vengono copiati nella cartella Books del tuo eReader Kobo, se non sono già presenti e un Kobo può aprirli. I libri acquistati nel Kobo Store sono esclusi: l'eReader li riceve dal tuo account Kobo. Non viene eliminato nulla da nessuna delle due parti. Espelli poi l'eReader in modo che aggiunga i nuovi libri alla sua libreria.</value>
+  </data>
+  <data name="Send_ReaderConnected" xml:space="preserve">
+    <value>Il tuo eReader Kobo è collegato.</value>
+  </data>
+  <data name="Send_EjectHint" xml:space="preserve">
+    <value>Scollega in sicurezza l'eReader in modo che aggiunga i nuovi libri</value>
+  </data>
+  <data name="Send_PlugIn" xml:space="preserve">
+    <value>Collega il tuo eReader Kobo e tocca Connect sul suo schermo per inviargli dei libri. Fino ad allora questo elenco mostra il contenuto della cartella Kobo.</value>
+  </data>
+  <data name="Send_AllReady" xml:space="preserve">
+    <value>Invia tutti i pronti ({0})</value>
+  </data>
+  <data name="Send_Selected" xml:space="preserve">
+    <value>Invia selezionati ({0})</value>
+  </data>
+  <data name="Send_LookAgain" xml:space="preserve">
+    <value>Cerca di nuovo</value>
+  </data>
+  <data name="Send_LookAgainHint" xml:space="preserve">
+    <value>Esamina di nuovo la cartella Kobo</value>
+  </data>
+  <data name="Send_Auto" xml:space="preserve">
+    <value>Invia automaticamente i nuovi libri quando l'eReader viene collegato</value>
+  </data>
+  <data name="Send_AutoHint" xml:space="preserve">
+    <value>Vengono inviati automaticamente solo i libri contrassegnati come "Pronto per l'invio"</value>
+  </data>
+  <data name="Send_KoboFolder" xml:space="preserve">
+    <value>Cartella Kobo:</value>
+  </data>
+  <data name="Send_NoFiles" xml:space="preserve">
+    <value>Ancora nessun file di libri nella cartella Kobo.</value>
+  </data>
+  <data name="Send_Sent" xml:space="preserve">
+    <value>✔ Inviato</value>
+  </data>
+  <data name="Send_SentTip" xml:space="preserve">
+    <value>Copiato nella cartella Books dell'eReader. Espelli l'eReader per aggiungerlo.</value>
+  </data>
+  <data name="Send_Send" xml:space="preserve">
+    <value>Invia</value>
+  </data>
+  <data name="Send_SendAnyway" xml:space="preserve">
+    <value>Invia comunque</value>
+  </data>
+  <data name="Send_NoReader" xml:space="preserve">
+    <value>Nessun eReader Kobo trovato. Collegalo e tocca Connect sul suo schermo.</value>
+  </data>
+  <data name="Send_TickAll" xml:space="preserve">
+    <value>Seleziona tutto</value>
+  </data>
+  <!-- Collections screen -->
+  <data name="Coll_Intro" xml:space="preserve">
+    <value>Ordina qui in collezioni i libri sul tuo eReader Kobo, poi premi Salva su eReader Kobo. Nulla cambia sull'eReader finché non salvi, e il suo elenco dei libri viene prima copiato su questo computer. Premi poi Espelli eReader Kobo (in alto) perché mostri le nuove collezioni.</value>
+  </data>
+  <data name="Coll_NoReader" xml:space="preserve">
+    <value>Nessun eReader Kobo trovato. Collegalo, tocca Connect sul suo schermo, poi premi Ricarica.</value>
+  </data>
+  <data name="Coll_Reload" xml:space="preserve">
+    <value>Ricarica</value>
+  </data>
+  <data name="Coll_ReloadHint" xml:space="preserve">
+    <value>Rileggi le collezioni dall'eReader (le modifiche non salvate vanno perse)</value>
+  </data>
+  <data name="Coll_SaveButtonOne" xml:space="preserve">
+    <value>Salva su eReader Kobo (1 modifica)</value>
+  </data>
+  <data name="Coll_SaveButton" xml:space="preserve">
+    <value>Salva su eReader Kobo ({0} modifiche)</value>
+  </data>
+  <data name="Coll_UndoAll" xml:space="preserve">
+    <value>Annulla tutte le modifiche</value>
+  </data>
+  <data name="Coll_Saved" xml:space="preserve">
+    <value>Salvato sull'eReader Kobo. Premi Espelli eReader Kobo (in alto) per vedere le nuove collezioni.</value>
+  </data>
+  <data name="Coll_ReaderEjected" xml:space="preserve">
+    <value>eReader Kobo espulso: puoi scollegarlo e vedere le tue collezioni su di esso. Ricollegalo e premi Ricarica per fare altre modifiche.</value>
+  </data>
+  <data name="Coll_ConnectedBanner" xml:space="preserve">
+    <value>Il tuo eReader Kobo è collegato. Dopo aver salvato le modifiche, espellilo da qui perché mostri le nuove collezioni.</value>
+  </data>
+  <data name="Coll_EjectSaveFirst" xml:space="preserve">
+    <value>Salva o annulla prima le modifiche, altrimenti non arriveranno all'eReader</value>
+  </data>
+  <data name="Coll_EjectHint" xml:space="preserve">
+    <value>Scollega in sicurezza l'eReader perché mostri le nuove collezioni</value>
+  </data>
+  <data name="Coll_Show" xml:space="preserve">
+    <value>Mostra</value>
+  </data>
+  <data name="Coll_Show_All" xml:space="preserve">
+    <value>Tutti i libri ({0})</value>
+  </data>
+  <data name="Coll_Show_NotInAny" xml:space="preserve">
+    <value>In nessuna collezione ({0})</value>
+  </data>
+  <data name="Coll_Show_Several" xml:space="preserve">
+    <value>In più di una collezione ({0})</value>
+  </data>
+  <data name="Coll_NoneYet" xml:space="preserve">
+    <value>Ancora nessuna collezione.</value>
+  </data>
+  <data name="Coll_NewCollection" xml:space="preserve">
+    <value>Nuova collezione</value>
+  </data>
+  <data name="Coll_NameHint" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Coll_Create" xml:space="preserve">
+    <value>Crea</value>
+  </data>
+  <data name="Coll_NewNameHint" xml:space="preserve">
+    <value>Nuovo nome</value>
+  </data>
+  <data name="Coll_Rename" xml:space="preserve">
+    <value>Rinomina</value>
+  </data>
+  <data name="Coll_DeleteThis" xml:space="preserve">
+    <value>Elimina questa collezione</value>
+  </data>
+  <data name="Coll_DeleteConfirm" xml:space="preserve">
+    <value>Eliminare "{0}"? I suoi libri restano sull'eReader.</value>
+  </data>
+  <data name="Coll_Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="Coll_Keep" xml:space="preserve">
+    <value>Mantieni</value>
+  </data>
+  <data name="Coll_HideShelved" xml:space="preserve">
+    <value>Nascondi i libri già in una collezione</value>
+  </data>
+  <data name="Coll_Ticked" xml:space="preserve">
+    <value>Selezionati: {0}</value>
+  </data>
+  <data name="Coll_TickAll" xml:space="preserve">
+    <value>Seleziona tutti i visibili</value>
+  </data>
+  <data name="Coll_Collection" xml:space="preserve">
+    <value>Collezione</value>
+  </data>
+  <data name="Coll_Move" xml:space="preserve">
+    <value>Sposta</value>
+  </data>
+  <data name="Coll_MoveHint" xml:space="preserve">
+    <value>Metti i libri selezionati solo in questa collezione: vengono tolti da ogni altra collezione</value>
+  </data>
+  <data name="Coll_AlsoAdd" xml:space="preserve">
+    <value>Aggiungi anche</value>
+  </data>
+  <data name="Coll_AlsoAddHint" xml:space="preserve">
+    <value>Metti i libri selezionati anche in questa collezione, mantenendo le altre collezioni</value>
+  </data>
+  <data name="Coll_RemoveFrom" xml:space="preserve">
+    <value>Rimuovi da {0}</value>
+  </data>
+  <data name="Coll_EveryBookShelved" xml:space="preserve">
+    <value>Tutti i libri sono in una collezione.</value>
+  </data>
+  <data name="Coll_NoneInSeveral" xml:space="preserve">
+    <value>Nessun libro è in più di una collezione.</value>
+  </data>
+  <data name="Coll_EmptyCollection" xml:space="preserve">
+    <value>Ancora nessun libro in questa collezione. Seleziona dei libri in un'altra vista e aggiungili.</value>
+  </data>
+  <data name="Coll_NoMatch" xml:space="preserve">
+    <value>Nessun libro corrispondente.</value>
+  </data>
+  <data name="Coll_None" xml:space="preserve">
+    <value>nessuna</value>
+  </data>
+  <data name="Coll_From_Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="Coll_From_Added" xml:space="preserve">
+    <value>Aggiunto</value>
+  </data>
+  <!-- Kindle tab -->
+  <data name="Kindle_Intro" xml:space="preserve">
+    <value>Amazon non consente più di scaricare i libri dal tuo account Kindle, quindi qui vengono copiati esattamente come sono i libri già presenti su un Kindle collegato via USB (con o senza lettera di unità) o nell'app Kindle for PC.</value>
+  </data>
+  <data name="Kindle_ConnectedNote" xml:space="preserve">
+    <value>Il Kindle è in USB Drive Mode e i suoi libri sono elencati qui sotto. Lascialo collegato durante il backup: il messaggio del Kindle sull'espulsione vale solo per quando vuoi tornare a leggere. Quando hai finito, premi Espelli Kindle.</value>
+  </data>
+  <data name="Kindle_LookAgain" xml:space="preserve">
+    <value>Cerca di nuovo</value>
+  </data>
+  <data name="Kindle_LookAgainHint" xml:space="preserve">
+    <value>Cerca di nuovo il Kindle e i suoi libri</value>
+  </data>
+  <data name="Kindle_SaveToHint" xml:space="preserve">
+    <value>Scegli la cartella per i tuoi libri Kindle</value>
+  </data>
+  <data name="Kindle_AddFolder" xml:space="preserve">
+    <value>Aggiungi una cartella in cui cercare…</value>
+  </data>
+  <data name="Kindle_AddFolderHint" xml:space="preserve">
+    <value>Per libri conservati altrove, ad esempio una cartella Kindle for PC che hai spostato</value>
+  </data>
+</root>

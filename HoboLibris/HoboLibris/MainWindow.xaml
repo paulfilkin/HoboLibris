@@ -1,0 +1,113 @@
+<Window x:Class="HoboLibris.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="clr-namespace:HoboLibris.Resources"
+        xmlns:h="clr-namespace:HoboLibris.Helpers"
+        xmlns:vm="clr-namespace:HoboLibris.ViewModels"
+        xmlns:views="clr-namespace:HoboLibris.Views"
+        Title="{x:Static res:Strings.App_Title}"
+        Height="780"
+        Width="1200"
+        MinHeight="540"
+        MinWidth="860"
+        Background="{StaticResource BackgroundBrush}"
+        WindowStartupLocation="CenterScreen"
+        Icon="/icon.ico"
+        TextOptions.TextFormattingMode="Display"
+        TextOptions.TextRenderingMode="ClearType"
+        UseLayoutRounding="True"
+        d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <h:EnumEqualsConverter x:Key="EnumEquals"/>
+        <h:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibility"/>
+        <h:NullToVisibilityConverter x:Key="NullToVisibility"/>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Title bar: name, main tabs, account, menu -->
+        <Border DockPanel.Dock="Top" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="16,8">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <Image Source="/HoboLibris.png" Width="30" Height="30" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Static res:Strings.App_Title}" FontSize="22" FontWeight="SemiBold"
+                               Foreground="{StaticResource PrimaryBrush}" VerticalAlignment="Center" Margin="0,0,24,0"/>
+                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Main_Kobo}"
+                                 IsChecked="{Binding Tab, Converter={StaticResource EnumEquals}, ConverterParameter=Kobo}"/>
+                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Main_Kindle}"
+                                 IsChecked="{Binding Tab, Converter={StaticResource EnumEquals}, ConverterParameter=Kindle}"/>
+                </StackPanel>
+                <Menu DockPanel.Dock="Right" Background="Transparent" VerticalAlignment="Center" Margin="12,0,0,0">
+                    <MenuItem Style="{StaticResource RoundedMenuItem}" Click="Language_Click">
+                        <MenuItem.Header>
+                            <TextBlock Text="{x:Static res:Strings.Menu_Language}"/>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem Style="{StaticResource RoundedMenuItem}" Click="About_Click">
+                        <MenuItem.Header>
+                            <TextBlock Text="{x:Static res:Strings.Menu_About}"/>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </Menu>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" VerticalAlignment="Center">
+                    <StackPanel.Visibility>
+                        <MultiBinding Converter="{StaticResource AllTrueToVisibility}">
+                            <Binding Path="IsKoboTab"/>
+                            <Binding Path="SignedIn"/>
+                        </MultiBinding>
+                    </StackPanel.Visibility>
+                    <TextBlock Text="{Binding SignedInText}" Style="{StaticResource MutedText}" Margin="0,0,10,0"/>
+                    <Button Content="{x:Static res:Strings.Main_SignOut}" Style="{StaticResource SecondaryButton}"
+                            Command="{Binding SignOutCommand}" Padding="10,4"/>
+                </StackPanel>
+                <Grid/>
+            </DockPanel>
+        </Border>
+
+        <!-- Status bar -->
+        <Border DockPanel.Dock="Bottom" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="16,6">
+            <DockPanel>
+                <views:Spinner DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center"
+                               Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding HasError, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <TextBlock Text="{Binding Error}" Style="{StaticResource BadText}" MaxWidth="900"/>
+                    <Button Content="{x:Static res:Strings.Common_Dismiss}" Style="{StaticResource SmallButton}"
+                            Command="{Binding DismissErrorCommand}" Margin="10,0,0,0"/>
+                </StackPanel>
+                <TextBlock Text="{Binding StatusLine}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                           Visibility="{Binding HasError, Converter={StaticResource InverseBoolToVisibility}}"/>
+            </DockPanel>
+        </Border>
+
+        <!-- Content -->
+        <Grid Margin="16,12,16,12">
+            <!-- Kobo tab -->
+            <Grid Visibility="{Binding IsKoboTab, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_BackUpTab}"
+                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Backup}"/>
+                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_CollectionsTab}"
+                                 ToolTip="{x:Static res:Strings.Kobo_CollectionsTabTip}"
+                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Collections}"/>
+                    <RadioButton Style="{StaticResource NavButton}" Content="{Binding SendTabLabel}"
+                                 ToolTip="{x:Static res:Strings.Kobo_SendTabTip}"
+                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Send}"/>
+                </StackPanel>
+                <views:KoboBackupView Grid.Row="1" Visibility="{Binding IsBackupMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                <views:CollectionsView Grid.Row="1" Visibility="{Binding IsCollectionsMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                <views:SendView Grid.Row="1" Visibility="{Binding IsSendMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            </Grid>
+            <!-- Kindle tab -->
+            <views:KindleView Visibility="{Binding IsKindleTab, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        </Grid>
+    </DockPanel>
+</Window>
