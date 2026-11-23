@@ -118,7 +118,11 @@ The app uses NLog, CommunityToolkit.Mvvm, Microsoft.Web.WebView2 for the Kobo si
 
 ## Status
 
-HoboLibris is at version 0.1.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle.  The rebuild keeps the prototype's behaviour and has its tests, but signing in, downloading and plugged-in devices have not yet been tried on it.  It runs on Windows only.  Bugs and ideas are welcome as [issues](https://github.com/paulfilkin/HoboLibris/issues/new/choose).
+HoboLibris is at version 0.1.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
+
+Version 0.1.2 has been tried with a Kobo account and a Kobo eReader.  The store list refreshes from a saved sign-in, store books download, books copy from the eReader, and the Collections and Send to eReader screens read it.  Not yet tried on the rebuild: signing in from scratch, saving collections, sending books to the eReader, and the Kindle tab.
+
+It runs on Windows only.  Bugs and ideas are welcome as [issues](https://github.com/paulfilkin/HoboLibris/issues/new/choose).
 
 ## Documentation
 
