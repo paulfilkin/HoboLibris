@@ -5,6 +5,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        Issues are for bugs and ideas. No individual support is given, so questions and requests for help are closed.
+
         One feature per issue. Don't include passwords, keys or personal data, or screenshots that show them.
   - type: textarea
     id: what
