@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>Settings, your Kobo sign-in, the library list, log files and the eReader book-list backups are kept in this folder. Your backed-up books are in the folders you choose.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>Support</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>Project</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>Need help? Visit the support website:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris is developed on GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. All rights reserved.</value>

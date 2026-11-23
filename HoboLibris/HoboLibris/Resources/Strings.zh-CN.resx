@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>设置、Kobo 登录信息、图书库列表、日志文件以及电子书阅读器图书列表的备份都保存在此文件夹中。备份的图书则保存在您选择的文件夹中。</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>支持</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>项目</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>需要帮助？请访问支持网站：</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris 在 GitHub 上开发。</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious。保留所有权利。</value>

@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>Le impostazioni, l'accesso Kobo, l'elenco della libreria, i file di log e i backup dell'elenco dei libri dell'eReader sono conservati in questa cartella. I libri di cui hai fatto il backup si trovano nelle cartelle che hai scelto.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>Supporto</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>Progetto</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>Serve aiuto? Visita il sito di supporto:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris è sviluppato su GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. Tutti i diritti riservati.</value>

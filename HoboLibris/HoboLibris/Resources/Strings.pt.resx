@@ -85,14 +85,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>As definições, o início de sessão Kobo, a lista da biblioteca, os ficheiros de registo e as cópias de segurança da lista de livros do eReader são guardados nesta pasta. As cópias de segurança dos seus livros ficam nas pastas que escolher.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>Suporte</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>Projeto</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>Precisa de ajuda? Visite o site de suporte:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>O HoboLibris é desenvolvido no GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. Todos os direitos reservados.</value>

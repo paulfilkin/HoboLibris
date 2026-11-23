@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>설정, Kobo 로그인 정보, 라이브러리 목록, 로그 파일, 전자책 리더 책 목록 백업은 이 폴더에 보관됩니다. 백업한 책은 사용자가 선택한 폴더에 있습니다.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>지원</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>프로젝트</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>도움이 필요하신가요? 지원 웹사이트를 방문하세요:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris는 GitHub에서 개발됩니다.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. 모든 권리 보유.</value>

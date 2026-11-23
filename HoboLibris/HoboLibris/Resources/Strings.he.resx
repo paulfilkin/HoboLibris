@@ -85,14 +85,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>ההגדרות, פרטי הכניסה ל-Kobo, רשימת הספרייה, קובצי היומן וגיבויי רשימת הספרים של הקורא נשמרים בתיקייה זו. הספרים המגובים נמצאים בתיקיות שבחרת.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>תמיכה</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>הפרויקט</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>דרושה עזרה? ניתן לבקר באתר התמיכה:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris מפותח ב-GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. כל הזכויות שמורות.</value>
