@@ -1410,7 +1410,7 @@
     <value>模型</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>从列表中选择，或输入该服务提供的任意模型名称。</value>
+    <value>请选择该服务提供的一个模型。</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>API 密钥</value>
@@ -1630,5 +1630,26 @@
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>显示收藏集列表</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>正在向服务查询其模型…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>HoboLibris 连接到服务后，模型会显示在这里：请添加其密钥；如果服务在本机运行，请启动它。</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>该服务没有提供任何模型。</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>此服务不提供 {0}；请选择它的一个模型。</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>AI 服务中没有模型 {0}，它有：{1}。请在设置的“AI 模型”中选择一个。</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>AI 服务中没有模型 {0}，它有 {1}。请在设置的“AI 模型”中选择它。</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>尚未选择模型。请在设置的“AI 模型”中选择一个。</value>
   </data>
 </root>

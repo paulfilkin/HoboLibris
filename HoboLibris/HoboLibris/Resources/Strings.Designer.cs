@@ -2216,7 +2216,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_Model", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Pick one or type any model name the service offers..</summary>
+        /// <summary>Looks up a localized string similar to Choose one of the models the service offers..</summary>
         public static string Asst_ModelHint {
             get { return ResourceManager.GetString("Asst_ModelHint", resourceCulture); }
         }
@@ -2584,6 +2584,41 @@ namespace HoboLibris.Resources {
         /// <summary>Looks up a localized string similar to Show the list of collections.</summary>
         public static string Coll_UnfoldList {
             get { return ResourceManager.GetString("Coll_UnfoldList", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Asking the service for its models….</summary>
+        public static string Asst_LoadingModels {
+            get { return ResourceManager.GetString("Asst_LoadingModels", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The models appear here once HoboLibris has reached the service: add its key, or start it if it runs on this computer..</summary>
+        public static string Asst_ModelsAfterConnect {
+            get { return ResourceManager.GetString("Asst_ModelsAfterConnect", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The service offers no models..</summary>
+        public static string Asst_NoModels {
+            get { return ResourceManager.GetString("Asst_NoModels", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} isn't offered by this service; choose one of its models..</summary>
+        public static string Asst_ModelNotOnService {
+            get { return ResourceManager.GetString("Asst_ModelNotOnService", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The model {0} isn't on the AI service, which has: {1}. Choose one in Settings, under AI model..</summary>
+        public static string Asst_ModelMissing {
+            get { return ResourceManager.GetString("Asst_ModelMissing", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The model {0} isn't on the AI service, which has {1}. Choose it in Settings, under AI model..</summary>
+        public static string Asst_ModelMissingOne {
+            get { return ResourceManager.GetString("Asst_ModelMissingOne", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No model is chosen. Choose one in Settings, under AI model..</summary>
+        public static string Asst_ChooseModel {
+            get { return ResourceManager.GetString("Asst_ChooseModel", resourceCulture); }
         }
     }
 }

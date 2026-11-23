@@ -1384,7 +1384,7 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
     <value>Modell</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>Wählen Sie eines aus oder geben Sie einen beliebigen Modellnamen des Dienstes ein.</value>
+    <value>Wählen Sie eines der Modelle, die der Dienst anbietet.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>API-Schlüssel</value>
@@ -1604,5 +1604,26 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>Liste der Sammlungen anzeigen</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>Der Dienst wird nach seinen Modellen gefragt…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>Die Modelle erscheinen hier, sobald HoboLibris den Dienst erreicht hat: Fügen Sie seinen Schlüssel hinzu, oder starten Sie ihn, wenn er auf diesem Computer läuft.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>Der Dienst bietet keine Modelle an.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>{0} wird von diesem Dienst nicht angeboten; wählen Sie eines seiner Modelle.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>Das Modell {0} gibt es beim KI-Dienst nicht. Er hat: {1}. Wählen Sie eines in den Einstellungen unter KI-Modell.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>Das Modell {0} gibt es beim KI-Dienst nicht. Er hat {1}. Wählen Sie es in den Einstellungen unter KI-Modell.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>Es ist kein Modell gewählt. Wählen Sie eines in den Einstellungen unter KI-Modell.</value>
   </data>
 </root>

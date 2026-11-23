@@ -92,6 +92,100 @@ namespace HoboLibris.Assistant
 
         internal static readonly HttpClient Http = new() { Timeout = TimeSpan.FromMinutes(5) };
 
+        /// <summary>
+        /// The models a service offers, read from it: Anthropic's and OpenAI's lists with the person's
+        /// key (OpenAI's chat models only), and an OpenAI-compatible service's installed models (Ollama,
+        /// LM Studio: GET {base}/models).  Reached is false when the service couldn't be reached or
+        /// refused the key within a few seconds; then the Model list stays empty.
+        /// </summary>
+        public static async Task<(bool Reached, IReadOnlyList<string> Models)> ListModelsAsync(
+            ModelProvider provider, string endpoint, string apiKey, CancellationToken cancel = default)
+        {
+            if (NeedsKey(provider, endpoint) && apiKey.Length == 0)
+            {
+                return (false, Array.Empty<string>());
+            }
+            var url = ModelsUrl(provider, endpoint);
+            if (url == null)
+            {
+                return (false, Array.Empty<string>());
+            }
+            using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancel);
+            timeout.CancelAfter(TimeSpan.FromSeconds(8));
+            try
+            {
+                using var request = new HttpRequestMessage(HttpMethod.Get, url);
+                if (provider == ModelProvider.Anthropic)
+                {
+                    request.Headers.Add("x-api-key", apiKey);
+                    request.Headers.Add("anthropic-version", AnthropicVersion);
+                }
+                else if (apiKey.Length > 0)
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                }
+                using var response = await Http.SendAsync(request, timeout.Token);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return (false, Array.Empty<string>());
+                }
+                var models = ParseModels(await response.Content.ReadAsStringAsync(timeout.Token));
+                if (provider == ModelProvider.OpenAI)
+                {
+                    models = models.Where(IsOpenAiChatModel).ToList();
+                }
+                return (true, models);
+            }
+            catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException or JsonException)
+            {
+                return (false, Array.Empty<string>());
+            }
+        }
+
+        /// <summary>Where a service lists its models: the base address (the chat address without its last part) plus /models.</summary>
+        public static Uri? ModelsUrl(ModelProvider provider, string endpoint)
+        {
+            var given = endpoint.Trim().TrimEnd('/');
+            string baseUrl = provider switch
+            {
+                ModelProvider.Anthropic => given.Length == 0 ? "https://api.anthropic.com/v1" : Strip(given, "/messages"),
+                ModelProvider.OpenAI => given.Length == 0 ? OpenAiEndpoint : Strip(given, "/chat/completions"),
+                _ => Strip(given, "/chat/completions"),
+            };
+            return baseUrl.Length > 0 && Uri.TryCreate(baseUrl + "/models" + (provider == ModelProvider.Anthropic ? "?limit=100" : ""), UriKind.Absolute, out var url)
+                ? url
+                : null;
+        }
+
+        private static string Strip(string url, string tail) =>
+            url.EndsWith(tail, StringComparison.OrdinalIgnoreCase) ? url[..^tail.Length] : url;
+
+        /// <summary>OpenAI lists every model it has (speech, images, embeddings); the Assistant needs a chat model.</summary>
+        public static bool IsOpenAiChatModel(string id) =>
+            (id.StartsWith("gpt-", StringComparison.OrdinalIgnoreCase) || id.StartsWith("o1", StringComparison.OrdinalIgnoreCase)
+             || id.StartsWith("o3", StringComparison.OrdinalIgnoreCase) || id.StartsWith("o4", StringComparison.OrdinalIgnoreCase)
+             || id.StartsWith("chatgpt", StringComparison.OrdinalIgnoreCase))
+            && !new[] { "audio", "realtime", "transcribe", "tts", "image", "search", "embedding", "instruct" }
+                .Any(word => id.Contains(word, StringComparison.OrdinalIgnoreCase));
+
+        /// <summary>The ids in an OpenAI-style model list ({"data":[{"id":"qwen3:8b"}]}), sorted.</summary>
+        public static IReadOnlyList<string> ParseModels(string json)
+        {
+            try
+            {
+                return (JsonNode.Parse(json)?["data"] as JsonArray ?? new JsonArray())
+                    .Select(m => (m?["id"] as JsonValue)?.ToString() ?? "")
+                    .Where(id => id.Length > 0)
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .OrderBy(id => id, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+            }
+            catch (JsonException)
+            {
+                return Array.Empty<string>();
+            }
+        }
+
         internal static async Task<JsonObject> PostAsync(HttpRequestMessage request, string providerName, CancellationToken cancel)
         {
             HttpResponseMessage response;

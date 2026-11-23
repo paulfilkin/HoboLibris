@@ -141,6 +141,28 @@ namespace HoboLibris.Tests
             var t = DateTime.UnixEpoch.AddSeconds(1_763_733_909);
             Assert.Equal("2025-11-21T14:05:09Z", Collections.KoboTimestamp(t));
         }
+
+        /// <summary>
+        /// Reading the book list mustn't leave it open: a pooled connection kept it open, and Windows
+        /// refused to eject the eReader because HoboLibris was using it (#41).
+        /// </summary>
+        [Fact]
+        public void ReadingTheBookListLeavesNothingOpen()
+        {
+            var db = Fixture("coll-nothing-open");
+            Assert.Equal(3, Collections.LoadDb(db).Books.Count);
+            using (var conn = KoboDeviceService.OpenReadOnly(db))
+            {
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT COUNT(*) FROM content";
+                Assert.Equal(4L, cmd.ExecuteScalar());
+            }
+
+            // No ClearAllPools here: the file must already be free to move, as an eject needs.
+            var moved = db + ".moved";
+            File.Move(db, moved);
+            Assert.True(File.Exists(moved));
+        }
     }
 }
 

@@ -50,11 +50,15 @@ namespace HoboLibris.Services
 
         public static string DatabasePath(string root) => Path.Combine(root, ".kobo", "KoboReader.sqlite");
 
-        /// <summary>A read-only connection that writes nothing to the eReader (immutable=1).</summary>
+        /// <summary>
+        /// A read-only connection that writes nothing to the eReader (immutable=1).  Not pooled: a
+        /// pooled connection keeps the file open after it is closed, and Windows then refuses to
+        /// eject the eReader because HoboLibris is using it.
+        /// </summary>
         public static SqliteConnection OpenReadOnly(string db)
         {
             var uri = "file:///" + db.Replace('\\', '/') + "?immutable=1";
-            var conn = new SqliteConnection($"Data Source={uri};Mode=ReadOnly");
+            var conn = new SqliteConnection($"Data Source={uri};Mode=ReadOnly;Pooling=False");
             conn.Open();
             return conn;
         }

@@ -316,6 +316,8 @@ namespace HoboLibris.ViewModels
                 return false;
             }
             StatusChanged?.Invoke(string.Format(Strings.Status_Ejecting, Name));
+            // Nothing of HoboLibris's may hold a file on the eReader open, or Windows refuses the eject.
+            Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
             try
             {
                 await Task.Run(() =>

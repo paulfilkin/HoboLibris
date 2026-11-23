@@ -1410,7 +1410,7 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
     <value>Modello</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>Scegline uno o scrivi qualsiasi nome di modello offerto dal servizio.</value>
+    <value>Scegli uno dei modelli offerti dal servizio.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>Chiave API</value>
@@ -1630,5 +1630,26 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>Mostra l'elenco delle collezioni</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>Richiesta dei modelli al servizio…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>I modelli compaiono qui quando HoboLibris raggiunge il servizio: aggiungi la sua chiave, oppure avvialo se funziona su questo computer.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>Il servizio non offre alcun modello.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>{0} non è offerto da questo servizio; scegli uno dei suoi modelli.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>Il modello {0} non è sul servizio di IA, che ha: {1}. Scegline uno in Impostazioni, sotto Modello di IA.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>Il modello {0} non è sul servizio di IA, che ha {1}. Sceglilo in Impostazioni, sotto Modello di IA.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>Nessun modello scelto. Scegline uno in Impostazioni, sotto Modello di IA.</value>
   </data>
 </root>

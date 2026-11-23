@@ -241,11 +241,14 @@
 
                         <TextBlock x:Name="ModelLabel" Text="{x:Static res:Strings.Asst_Model}" Style="{StaticResource FieldLabel}"/>
                         <TextBlock Text="{x:Static res:Strings.Asst_ModelHint}" Style="{StaticResource FieldHint}"/>
-                        <ComboBox Style="{StaticResource ModernComboBox}" IsEditable="True" Width="300" HorizontalAlignment="Left"
-                                  Margin="0,0,0,12" FlowDirection="LeftToRight"
+                        <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left"
+                                  Margin="0,0,0,12" FlowDirection="LeftToRight" IsEnabled="{Binding Assistant.ModelsLoaded}"
                                   ItemsSource="{Binding Assistant.Models}"
-                                  Text="{Binding Assistant.Model, UpdateSourceTrigger=LostFocus}"
+                                  SelectedItem="{Binding Assistant.Model}"
                                   AutomationProperties.LabeledBy="{Binding ElementName=ModelLabel}"/>
+                        <TextBlock Text="{Binding Assistant.ModelStatus}" Style="{StaticResource HelperText}" Margin="0,-6,0,12"
+                                   AutomationProperties.LiveSetting="Polite"
+                                   Visibility="{Binding Assistant.HasModelStatus, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
                         <TextBlock x:Name="KeyLabel" Text="{x:Static res:Strings.Asst_ApiKey}" Style="{StaticResource FieldLabel}"/>
                         <TextBlock Text="{x:Static res:Strings.Asst_ApiKeyHint}" Style="{StaticResource FieldHint}"/>

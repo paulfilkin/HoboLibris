@@ -1384,7 +1384,7 @@
     <value>מודל</value>
   </data>
   <data name="Asst_ModelHint" xml:space="preserve">
-    <value>אפשר לבחור מהרשימה או להקליד כל שם מודל שהשירות מציע.</value>
+    <value>יש לבחור אחד מהמודלים שהשירות מציע.</value>
   </data>
   <data name="Asst_ApiKey" xml:space="preserve">
     <value>מפתח API</value>
@@ -1604,5 +1604,26 @@
   </data>
   <data name="Coll_UnfoldList" xml:space="preserve">
     <value>הצגת רשימת האוספים</value>
+  </data>
+  <data name="Asst_LoadingModels" xml:space="preserve">
+    <value>שואל את השירות אילו מודלים יש לו…</value>
+  </data>
+  <data name="Asst_ModelsAfterConnect" xml:space="preserve">
+    <value>המודלים מופיעים כאן אחרי ש-HoboLibris מגיע לשירות: יש להוסיף את המפתח שלו, או להפעיל אותו אם הוא פועל במחשב הזה.</value>
+  </data>
+  <data name="Asst_NoModels" xml:space="preserve">
+    <value>השירות לא מציע מודלים.</value>
+  </data>
+  <data name="Asst_ModelNotOnService" xml:space="preserve">
+    <value>השירות הזה לא מציע את {0}; יש לבחור אחד מהמודלים שלו.</value>
+  </data>
+  <data name="Asst_ModelMissing" xml:space="preserve">
+    <value>המודל {0} לא נמצא בשירות ה-AI, שיש בו: {1}. יש לבחור אחד בהגדרות, תחת מודל AI.</value>
+  </data>
+  <data name="Asst_ModelMissingOne" xml:space="preserve">
+    <value>המודל {0} לא נמצא בשירות ה-AI, שיש בו {1}. יש לבחור אותו בהגדרות, תחת מודל AI.</value>
+  </data>
+  <data name="Asst_ChooseModel" xml:space="preserve">
+    <value>לא נבחר מודל. יש לבחור אחד בהגדרות, תחת מודל AI.</value>
   </data>
 </root>
