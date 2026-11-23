@@ -1568,4 +1568,43 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>Type the catalogue's address, starting http:// or https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama is running.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama is running, started by HoboLibris.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama isn't running.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>Ollama isn't installed on this computer.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>Ollama stopped straight away (exit code {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>Ollama didn't answer within 30 seconds.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>Starting Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>Ollama didn't start: {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama isn't running. Start it in Settings, under AI model, or let HoboLibris start it when it's needed.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>Start Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>Stop Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>Start Ollama when the Assistant needs it</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>Ollama runs with no window. If HoboLibris started it, it stops when HoboLibris closes. Ollama started any other way is left running.</value>
+  </data>
 </root>

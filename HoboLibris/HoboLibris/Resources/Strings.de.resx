@@ -1542,4 +1542,43 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>Geben Sie die Adresse des Katalogs ein, beginnend mit http:// oder https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama läuft.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama läuft, von HoboLibris gestartet.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama läuft nicht.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>Ollama ist auf diesem Computer nicht installiert.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>Ollama wurde sofort beendet (Exitcode {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>Ollama hat nicht innerhalb von 30 Sekunden geantwortet.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>Ollama wird gestartet…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>Ollama wurde nicht gestartet: {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama läuft nicht. Starten Sie es in den Einstellungen unter KI-Modell, oder lassen Sie HoboLibris es bei Bedarf starten.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>Ollama starten</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>Ollama beenden</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>Ollama starten, wenn der Assistent es braucht</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>Ollama läuft ohne Fenster. Hat HoboLibris es gestartet, wird es beim Schließen von HoboLibris beendet. Ein auf andere Weise gestartetes Ollama läuft weiter.</value>
+  </data>
 </root>

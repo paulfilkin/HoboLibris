@@ -1568,4 +1568,43 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>Scrivi l'indirizzo del catalogo, che inizi con http:// o https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama è in esecuzione.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama è in esecuzione, avviato da HoboLibris.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama non è in esecuzione.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>Ollama non è installato su questo computer.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>Ollama si è fermato subito (codice di uscita {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>Ollama non ha risposto entro 30 secondi.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>Avvio di Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>Ollama non si è avviato: {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama non è in esecuzione. Avvialo in Impostazioni, sotto Modello di IA, o lascia che HoboLibris lo avvii quando serve.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>Avvia Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>Arresta Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>Avvia Ollama quando l'Assistente ne ha bisogno</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>Ollama funziona senza finestra. Se l'ha avviato HoboLibris, si ferma alla chiusura di HoboLibris. Un Ollama avviato in altro modo resta in esecuzione.</value>
+  </data>
 </root>

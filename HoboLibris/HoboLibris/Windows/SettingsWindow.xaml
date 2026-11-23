@@ -203,7 +203,7 @@
                         <TextBlock Text="{x:Static res:Strings.Asst_WhatIsSent}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
 
                         <TextBlock x:Name="ProviderLabel" Text="{x:Static res:Strings.Asst_Provider}" Style="{StaticResource FieldLabel}"/>
-                        <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left" Margin="0,0,0,12"
+                        <ComboBox Style="{StaticResource ModernComboBox}" Width="460" HorizontalAlignment="Left" Margin="0,0,0,12"
                                   ItemsSource="{Binding Assistant.Providers}" SelectedValuePath="Value" DisplayMemberPath="Label"
                                   SelectedValue="{Binding Assistant.Provider}"
                                   AutomationProperties.LabeledBy="{Binding ElementName=ProviderLabel}"/>
@@ -216,6 +216,28 @@
                                       Text="{Binding Assistant.Endpoint, UpdateSourceTrigger=LostFocus}"
                                       AutomationProperties.LabeledBy="{Binding ElementName=EndpointLabel}"/>
                         </StackPanel>
+
+                        <!-- Ollama on this computer: HoboLibris can start it with no window, and stops what it started -->
+                        <Border Style="{StaticResource NoteCard}" Margin="0,0,0,12"
+                                Visibility="{Binding Assistant.IsOllama, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <StackPanel>
+                                <DockPanel>
+                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Button Content="{x:Static res:Strings.Asst_OllamaStart}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                                                Command="{Binding Assistant.StartOllamaCommand}" IsEnabled="{Binding Assistant.CanStartOllama}"/>
+                                        <Button Content="{x:Static res:Strings.Asst_OllamaStop}" Style="{StaticResource SmallButton}" Margin="6,0,0,0"
+                                                Command="{Binding Assistant.StopOllamaCommand}" IsEnabled="{Binding Assistant.CanStopOllama}"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Assistant.OllamaStatus}" TextWrapping="Wrap" VerticalAlignment="Center"
+                                               AutomationProperties.LiveSetting="Polite"/>
+                                </DockPanel>
+                                <CheckBox Style="{StaticResource ModernCheckBox}" Margin="0,10,0,0" IsChecked="{Binding Assistant.AutoStartOllama}"
+                                          AutomationProperties.HelpText="{x:Static res:Strings.Asst_OllamaStopsHint}">
+                                    <TextBlock Text="{x:Static res:Strings.Asst_OllamaAutoStart}" TextWrapping="Wrap"/>
+                                </CheckBox>
+                                <TextBlock Text="{x:Static res:Strings.Asst_OllamaStopsHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,0"/>
+                            </StackPanel>
+                        </Border>
 
                         <TextBlock x:Name="ModelLabel" Text="{x:Static res:Strings.Asst_Model}" Style="{StaticResource FieldLabel}"/>
                         <TextBlock Text="{x:Static res:Strings.Asst_ModelHint}" Style="{StaticResource FieldHint}"/>

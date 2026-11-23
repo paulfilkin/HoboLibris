@@ -1568,4 +1568,43 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>Saisissez l'adresse du catalogue, commençant par http:// ou https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama est en cours d'exécution.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama est en cours d'exécution, démarré par HoboLibris.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama n'est pas en cours d'exécution.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>Ollama n'est pas installé sur cet ordinateur.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>Ollama s'est arrêté aussitôt (code de sortie {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>Ollama n'a pas répondu dans les 30 secondes.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>Démarrage d'Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>Ollama n'a pas démarré : {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama n'est pas en cours d'exécution. Démarrez-le dans les Paramètres, sous Modèle d'IA, ou laissez HoboLibris le démarrer quand il le faut.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>Démarrer Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>Arrêter Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>Démarrer Ollama quand l'Assistant en a besoin</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>Ollama s'exécute sans fenêtre. S'il a été démarré par HoboLibris, il s'arrête à la fermeture de HoboLibris. Un Ollama démarré autrement continue de tourner.</value>
+  </data>
 </root>

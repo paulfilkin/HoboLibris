@@ -15,6 +15,14 @@ namespace HoboLibris.Windows
             InitializeComponent();
             // Fit the screen; the sections scroll when they don't.
             MaxHeight = SystemParameters.WorkArea.Height - 40;
+            // Whether Ollama is running, for the AI model section.
+            Loaded += async (_, _) =>
+            {
+                if (Assistant != null)
+                {
+                    await Assistant.RefreshOllamaAsync();
+                }
+            };
         }
 
         private AssistantViewModel? Assistant => (DataContext as MainViewModel)?.Assistant;

@@ -1542,4 +1542,43 @@
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>اكتب عنوان الفهرس، بادئًا بـ http:// أو https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama قيد التشغيل.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama قيد التشغيل، وقد شغّله HoboLibris.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama ليس قيد التشغيل.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>Ollama غير مثبّت على هذا الكمبيوتر.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>توقف Ollama فورًا (رمز الخروج {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>لم يُجب Ollama خلال 30 ثانية.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>جارٍ تشغيل Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>لم يبدأ Ollama: {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama ليس قيد التشغيل. شغّله من الإعدادات، ضمن نموذج الذكاء الاصطناعي، أو اسمح لـ HoboLibris بتشغيله عند الحاجة.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>تشغيل Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>إيقاف Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>تشغيل Ollama عندما يحتاج إليه المساعد</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>يعمل Ollama دون نافذة. إذا شغّله HoboLibris فإنه يتوقف عند إغلاق HoboLibris. أما Ollama الذي شُغّل بأي طريقة أخرى فيظل قيد التشغيل.</value>
+  </data>
 </root>
