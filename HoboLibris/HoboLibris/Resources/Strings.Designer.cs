@@ -2335,5 +2335,150 @@ namespace HoboLibris.Resources {
         public static string Asst_PolicyOff {
             get { return ResourceManager.GetString("Asst_PolicyOff", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Search e-books.</summary>
+        public static string Asst_Tool_SearchEbooks {
+            get { return ResourceManager.GetString("Asst_Tool_SearchEbooks", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Download an e-book.</summary>
+        public static string Asst_Tool_DownloadEbook {
+            get { return ResourceManager.GetString("Asst_Tool_DownloadEbook", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open a book's page.</summary>
+        public static string Asst_Tool_OpenBookPage {
+            get { return ResourceManager.GetString("Asst_Tool_OpenBookPage", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open a store search.</summary>
+        public static string Asst_Tool_OpenStoreSearch {
+            get { return ResourceManager.GetString("Asst_Tool_OpenStoreSearch", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Download {0} by {1} from {2} into the Kobo folder..</summary>
+        public static string Asst_Desc_Download {
+            get { return ResourceManager.GetString("Asst_Desc_Download", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Download the book {0} into the Kobo folder..</summary>
+        public static string Asst_Desc_DownloadId {
+            get { return ResourceManager.GetString("Asst_Desc_DownloadId", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Opened in your browser.</summary>
+        public static string Asst_OpenedInBrowser {
+            get { return ResourceManager.GetString("Asst_OpenedInBrowser", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Saved to the Kobo folder.</summary>
+        public static string Asst_Downloaded {
+            get { return ResourceManager.GetString("Asst_Downloaded", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Already in the Kobo folder.</summary>
+        public static string Asst_AlreadyInFolder {
+            get { return ResourceManager.GetString("Asst_AlreadyInFolder", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to E-book sources.</summary>
+        public static string Src_Header {
+            get { return ResourceManager.GetString("Src_Header", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Where the Assistant may search for books and download them into the Kobo folder. Only free books, or books from your ....</summary>
+        public static string Src_Hint {
+            get { return ResourceManager.GetString("Src_Hint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Public-domain books. The catalogue is fetched once a week from a Project Gutenberg mirror and searched on this computer..</summary>
+        public static string Src_GutenbergHint {
+            get { return ResourceManager.GetString("Src_GutenbergHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open Library and Internet Archive.</summary>
+        public static string Src_OpenLibrary {
+            get { return ResourceManager.GetString("Src_OpenLibrary", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books free to read only, never lending copies. Made from scans, so quality varies..</summary>
+        public static string Src_OpenLibraryHint {
+            get { return ResourceManager.GetString("Src_OpenLibraryHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Free Google Books only. Needs your own Google Books API key..</summary>
+        public static string Src_GoogleHint {
+            get { return ResourceManager.GetString("Src_GoogleHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Google Books API key.</summary>
+        public static string Src_GoogleKey {
+            get { return ResourceManager.GetString("Src_GoogleKey", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No key saved, so Google Books isn't searched..</summary>
+        public static string Src_GoogleNoKey {
+            get { return ResourceManager.GetString("Src_GoogleNoKey", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Standard Ebooks and the Kobo store are links only: the Assistant opens their search in your browser, and you download....</summary>
+        public static string Src_LinksOnly {
+            get { return ResourceManager.GetString("Src_LinksOnly", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Your OPDS catalogues.</summary>
+        public static string Src_Catalogues {
+            get { return ResourceManager.GetString("Src_Catalogues", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Calibre, Calibre-Web, Kavita or a library server. The address, user name and password are encrypted, and the sign-in ....</summary>
+        public static string Src_CataloguesHint {
+            get { return ResourceManager.GetString("Src_CataloguesHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to None yet..</summary>
+        public static string Src_NoCatalogues {
+            get { return ResourceManager.GetString("Src_NoCatalogues", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Name.</summary>
+        public static string Src_CatalogueName {
+            get { return ResourceManager.GetString("Src_CatalogueName", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The catalogue's OPDS address, such as http://192.168.1.10:8080/opds for Calibre..</summary>
+        public static string Src_AddressHint {
+            get { return ResourceManager.GetString("Src_AddressHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to User name.</summary>
+        public static string Src_UserName {
+            get { return ResourceManager.GetString("Src_UserName", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Password.</summary>
+        public static string Src_Password {
+            get { return ResourceManager.GetString("Src_Password", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add catalogue.</summary>
+        public static string Src_AddCatalogue {
+            get { return ResourceManager.GetString("Src_AddCatalogue", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Type a name for the catalogue first..</summary>
+        public static string Src_NameFirst {
+            get { return ResourceManager.GetString("Src_NameFirst", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to There is already a catalogue called "{0}"..</summary>
+        public static string Src_NameTaken {
+            get { return ResourceManager.GetString("Src_NameTaken", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Type the catalogue's address, starting http:// or https://..</summary>
+        public static string Src_AddressFirst {
+            get { return ResourceManager.GetString("Src_AddressFirst", resourceCulture); }
+        }
     }
 }

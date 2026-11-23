@@ -1481,4 +1481,91 @@
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>关闭</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>搜索电子书</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>下载电子书</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>打开图书页面</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>打开商店搜索</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>从 {2} 将 {1} 的《{0}》下载到 Kobo 文件夹。</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>将图书 {0} 下载到 Kobo 文件夹。</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>已在浏览器中打开</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>已保存到 Kobo 文件夹</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>已在 Kobo 文件夹中</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>电子书来源</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>助手可以在这些地方搜索图书并下载到 Kobo 文件夹。只会下载免费图书或你自己目录中的图书。</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>公有领域图书。目录每周从 Project Gutenberg 镜像获取一次，并在本机上搜索。</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library 和 Internet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>仅限可免费阅读的图书，绝不包括借阅副本。由扫描件制成，质量参差不齐。</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>仅限免费的 Google 图书。需要你自己的 Google Books API 密钥。</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>Google Books API 密钥</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>未保存密钥，因此不会搜索 Google 图书。</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks 和 Kobo 商店仅提供链接：助手会在浏览器中打开它们的搜索，由你在那里下载或购买图书。Standard Ebooks 不允许 AI 助手下载其图书。</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>你的 OPDS 目录</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre、Calibre-Web、Kavita 或图书馆服务器。地址、用户名和密码均已加密，登录信息只会发送到该服务器。</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>暂无。</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>目录的 OPDS 地址，例如 Calibre 为 http://192.168.1.10:8080/opds。</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>添加目录</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>请先输入目录名称。</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>已有名为“{0}”的目录。</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>请输入以 http:// 或 https:// 开头的目录地址。</value>
+  </data>
 </root>

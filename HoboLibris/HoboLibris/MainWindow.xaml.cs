@@ -70,6 +70,17 @@ namespace HoboLibris
             BuildLanguageMenu();
             LayOutPane();
             Loaded += async (_, _) => await ViewModel.StartAsync();
+            if (!screenshot)
+            {
+                // Half a minute after start-up, so the eReader scan comes first.
+                var warmUp = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
+                warmUp.Tick += async (_, _) =>
+                {
+                    warmUp.Stop();
+                    await ViewModel.Assistant.WarmUpAsync();
+                };
+                warmUp.Start();
+            }
             Closing += (_, _) => ViewModel.Assistant.Shutdown();
         }
 

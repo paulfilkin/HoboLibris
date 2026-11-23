@@ -3,6 +3,7 @@ using System.Text.Json.Nodes;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HoboLibris.Assistant;
+using HoboLibris.Assistant.Sources;
 using HoboLibris.Resources;
 using HoboLibris.Services;
 
@@ -12,6 +13,36 @@ namespace HoboLibris.ViewModels
     public sealed record Choice<T>(T Value, string Label)
     {
         public override string ToString() => Label;
+    }
+
+    /// <summary>One OPDS catalogue in Settings › E-book sources.</summary>
+    public sealed class CatalogueRow
+    {
+        public CatalogueRow(OpdsCatalogue catalogue, Action save)
+        {
+            Catalogue = catalogue;
+            _save = save;
+        }
+
+        private readonly Action _save;
+
+        public OpdsCatalogue Catalogue { get; }
+        public string Name => Catalogue.Name;
+
+        /// <summary>The server only: the path may hold a key (Kavita).</summary>
+        public string Server => Catalogue.Server;
+
+        public bool Enabled
+        {
+            get => Catalogue.Enabled;
+            set
+            {
+                Catalogue.Enabled = value;
+                _save();
+            }
+        }
+
+        public override string ToString() => Name;
     }
 
     /// <summary>One tool in Settings › Built-in tools: Allow, Ask first or Off.</summary>
@@ -88,9 +119,13 @@ namespace HoboLibris.ViewModels
                 new(ModelProvider.OpenAICompatible, Strings.Asst_ProviderCompatible),
             };
             Models = new ObservableCollection<string>(ChatProviders.SuggestedModels(Settings.Provider));
+            Catalogues = new ObservableCollection<CatalogueRow>(Settings.Sources.Catalogues.Select(c => new CatalogueRow(c, SaveSettings)));
         }
 
         public AssistantSession Session { get; }
+
+        /// <summary>Called once the window is up: fetches what the sources need in the background.</summary>
+        public Task WarmUpAsync() => _tools.WarmUpAsync();
         public ObservableCollection<ChatItem> Items => Session.Items;
 
         // ---- IAssistantHost ---------------------------------------------------------------------
@@ -374,6 +409,119 @@ namespace HoboLibris.ViewModels
                 SaveSettings();
                 OnPropertyChanged();
             }
+        }
+
+        // ---- Settings › E-book sources -------------------------------------------------------------
+
+        private SourceSettings Sources => Settings.Sources;
+
+        public bool UseGutenberg
+        {
+            get => Sources.Gutenberg;
+            set
+            {
+                Sources.Gutenberg = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        public bool UseOpenLibrary
+        {
+            get => Sources.OpenLibrary;
+            set
+            {
+                Sources.OpenLibrary = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        public bool UseGoogleBooks
+        {
+            get => Sources.GoogleBooks;
+            set
+            {
+                Sources.GoogleBooks = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        public string GoogleKeyStatus => Sources.GetGoogleBooksKey().Length > 0 ? Strings.Asst_KeySaved : Strings.Src_GoogleNoKey;
+
+        /// <summary>The Google Books key typed in Settings; encrypted at once and never read back into the box.</summary>
+        public void SetGoogleBooksKey(string key)
+        {
+            Sources.SetGoogleBooksKey(key);
+            SaveSettings();
+            OnPropertyChanged(nameof(GoogleKeyStatus));
+        }
+
+        [RelayCommand]
+        private void RemoveGoogleBooksKey() => SetGoogleBooksKey("");
+
+        public ObservableCollection<CatalogueRow> Catalogues { get; }
+        public bool HasCatalogues => Catalogues.Count > 0;
+
+        [ObservableProperty]
+        private string _newCatalogueName = "";
+
+        [ObservableProperty]
+        private string _newCatalogueAddress = "";
+
+        [ObservableProperty]
+        private string _newCatalogueUser = "";
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(HasCatalogueError))]
+        private string? _catalogueError;
+
+        public bool HasCatalogueError => CatalogueError != null;
+
+        /// <summary>Adds the catalogue typed in Settings; the password comes from its box.  False when something is missing.</summary>
+        public bool AddCatalogue(string password)
+        {
+            var name = NewCatalogueName.Trim();
+            var address = NewCatalogueAddress.Trim();
+            if (name.Length == 0)
+            {
+                CatalogueError = Strings.Src_NameFirst;
+                return false;
+            }
+            if (Sources.Catalogues.Any(c => string.Equals(c.Name, name, StringComparison.CurrentCultureIgnoreCase)))
+            {
+                CatalogueError = string.Format(Strings.Src_NameTaken, name);
+                return false;
+            }
+            if (!Uri.TryCreate(address, UriKind.Absolute, out var uri) || (uri.Scheme != "https" && uri.Scheme != "http"))
+            {
+                CatalogueError = Strings.Src_AddressFirst;
+                return false;
+            }
+            var catalogue = OpdsCatalogue.Create(name, address, NewCatalogueUser, password);
+            Sources.Catalogues.Add(catalogue);
+            SaveSettings();
+            Catalogues.Add(new CatalogueRow(catalogue, SaveSettings));
+            OnPropertyChanged(nameof(HasCatalogues));
+            NewCatalogueName = "";
+            NewCatalogueAddress = "";
+            NewCatalogueUser = "";
+            CatalogueError = null;
+            return true;
+        }
+
+        [RelayCommand]
+        private void RemoveCatalogue(CatalogueRow? row)
+        {
+            if (row == null)
+            {
+                return;
+            }
+            Sources.Catalogues.Remove(row.Catalogue);
+            SaveSettings();
+            Catalogues.Remove(row);
+            OnPropertyChanged(nameof(HasCatalogues));
         }
 
         // ---- Settings › Built-in tools --------------------------------------------------------------

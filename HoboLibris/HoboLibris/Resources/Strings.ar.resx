@@ -1455,4 +1455,91 @@
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>إيقاف</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>البحث عن كتب إلكترونية</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>تنزيل كتاب إلكتروني</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>فتح صفحة كتاب</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>فتح بحث في متجر</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>تنزيل {0} لـ {1} من {2} إلى مجلد Kobo.</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>تنزيل الكتاب {0} إلى مجلد Kobo.</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>فُتح في متصفحك</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>حُفظ في مجلد Kobo</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>موجود مسبقًا في مجلد Kobo</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>مصادر الكتب الإلكترونية</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>الأماكن التي يمكن للمساعد البحث فيها عن الكتب وتنزيلها إلى مجلد Kobo. لا تُنزَّل إلا الكتب المجانية أو الكتب من فهارسك الخاصة.</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>كتب في الملك العام. يُجلب الفهرس مرة في الأسبوع من مرآة لمشروع غوتنبرغ ويُبحث فيه على هذا الكمبيوتر.</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library وInternet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>الكتب المتاحة للقراءة مجانًا فقط، وليس نسخ الإعارة أبدًا. مصنوعة من مسح ضوئي، لذا تتفاوت جودتها.</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>كتب Google Books المجانية فقط. يحتاج إلى مفتاح Google Books API الخاص بك.</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>مفتاح Google Books API</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>لا يوجد مفتاح محفوظ، لذا لا يُبحث في Google Books.</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks ومتجر Kobo روابط فقط: يفتح المساعد البحث فيهما في متصفحك، وأنت من ينزّل الكتاب أو يشتريه هناك. لا يسمح Standard Ebooks لمساعدي الذكاء الاصطناعي بتنزيل كتبه.</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>فهارس OPDS الخاصة بك</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre أو Calibre-Web أو Kavita أو خادم مكتبة. يُشفَّر العنوان واسم المستخدم وكلمة المرور، ولا تُرسل بيانات الدخول إلا إلى ذلك الخادم.</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>لا شيء بعد.</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>عنوان OPDS للفهرس، مثل http://192.168.1.10:8080/opds لـ Calibre.</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>إضافة فهرس</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>اكتب اسمًا للفهرس أولًا.</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>يوجد فهرس باسم "{0}" بالفعل.</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>اكتب عنوان الفهرس، بادئًا بـ http:// أو https://.</value>
+  </data>
 </root>

@@ -1455,4 +1455,91 @@
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>כבוי</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>חיפוש ספרים אלקטרוניים</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>הורדת ספר אלקטרוני</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>פתיחת דף של ספר</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>פתיחת חיפוש בחנות</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>הורדת {0} מאת {1} מ-{2} לתיקיית Kobo.</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>הורדת הספר {0} לתיקיית Kobo.</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>נפתח בדפדפן</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>נשמר בתיקיית Kobo</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>כבר נמצא בתיקיית Kobo</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>מקורות לספרים אלקטרוניים</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>היכן העוזר רשאי לחפש ספרים ולהוריד אותם לתיקיית Kobo. רק ספרים חינמיים, או ספרים מהקטלוגים שלך, מורדים.</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>ספרים שנמצאים בנחלת הכלל. הקטלוג מורד פעם בשבוע מאתר מראה של Project Gutenberg ומחופש במחשב הזה.</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library ו-Internet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>רק ספרים שזמינים לקריאה חופשית, אף פעם לא עותקים להשאלה. נוצרו מסריקות, ולכן האיכות משתנה.</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>רק ספרים חינמיים מ-Google Books. נדרש מפתח API משלך ל-Google Books.</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>מפתח API של Google Books</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>לא נשמר מפתח, ולכן לא מתבצע חיפוש ב-Google Books.</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks וחנות Kobo הם קישורים בלבד: העוזר פותח את החיפוש בהם בדפדפן, ואת/ה מוריד/ה או קונה את הספר שם. Standard Ebooks לא מתיר לעוזרי AI להוריד את הספרים שלו.</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>קטלוגי OPDS שלך</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre‏, Calibre-Web‏, Kavita או שרת ספרייה. הכתובת, שם המשתמש והסיסמה מוצפנים, ופרטי הכניסה נשלחים רק לשרת הזה.</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>עדיין אין.</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>כתובת ה-OPDS של הקטלוג, למשל http://192.168.1.10:8080/opds עבור Calibre.</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>שם משתמש</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>סיסמה</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>הוספת קטלוג</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>יש להקליד קודם שם לקטלוג.</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>כבר קיים קטלוג בשם "{0}".</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>יש להקליד את כתובת הקטלוג, שמתחילה ב-http://‎ או https://‎.</value>
+  </data>
 </root>

@@ -1481,4 +1481,91 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_PolicyOff" xml:space="preserve">
     <value>オフ</value>
   </data>
+  <data name="Asst_Tool_SearchEbooks" xml:space="preserve">
+    <value>電子書籍を検索</value>
+  </data>
+  <data name="Asst_Tool_DownloadEbook" xml:space="preserve">
+    <value>電子書籍をダウンロード</value>
+  </data>
+  <data name="Asst_Tool_OpenBookPage" xml:space="preserve">
+    <value>書籍のページを開く</value>
+  </data>
+  <data name="Asst_Tool_OpenStoreSearch" xml:space="preserve">
+    <value>ストアの検索を開く</value>
+  </data>
+  <data name="Asst_Desc_Download" xml:space="preserve">
+    <value>{2} から {1} の {0} を Kobo フォルダーにダウンロードします。</value>
+  </data>
+  <data name="Asst_Desc_DownloadId" xml:space="preserve">
+    <value>書籍 {0} を Kobo フォルダーにダウンロードします。</value>
+  </data>
+  <data name="Asst_OpenedInBrowser" xml:space="preserve">
+    <value>ブラウザーで開きました</value>
+  </data>
+  <data name="Asst_Downloaded" xml:space="preserve">
+    <value>Kobo フォルダーに保存しました</value>
+  </data>
+  <data name="Asst_AlreadyInFolder" xml:space="preserve">
+    <value>すでに Kobo フォルダーにあります</value>
+  </data>
+  <data name="Src_Header" xml:space="preserve">
+    <value>電子書籍の入手先</value>
+  </data>
+  <data name="Src_Hint" xml:space="preserve">
+    <value>アシスタントが書籍を検索し、Kobo フォルダーにダウンロードできる場所です。ダウンロードされるのは無料の書籍か、あなた自身のカタログの書籍だけです。</value>
+  </data>
+  <data name="Src_GutenbergHint" xml:space="preserve">
+    <value>パブリック ドメインの書籍。カタログは週に 1 回 Project Gutenberg のミラーから取得し、このコンピューター上で検索します。</value>
+  </data>
+  <data name="Src_OpenLibrary" xml:space="preserve">
+    <value>Open Library と Internet Archive</value>
+  </data>
+  <data name="Src_OpenLibraryHint" xml:space="preserve">
+    <value>自由に読める書籍だけで、貸出用のコピーは含みません。スキャンから作られているため、品質はまちまちです。</value>
+  </data>
+  <data name="Src_GoogleHint" xml:space="preserve">
+    <value>無料の Google ブックスのみ。ご自身の Google Books API キーが必要です。</value>
+  </data>
+  <data name="Src_GoogleKey" xml:space="preserve">
+    <value>Google Books API キー</value>
+  </data>
+  <data name="Src_GoogleNoKey" xml:space="preserve">
+    <value>キーが保存されていないため、Google ブックスは検索されません。</value>
+  </data>
+  <data name="Src_LinksOnly" xml:space="preserve">
+    <value>Standard Ebooks と Kobo ストアはリンクのみです。アシスタントがブラウザーで検索を開き、あなたがそこで書籍をダウンロードまたは購入します。Standard Ebooks は AI アシスタントによる書籍のダウンロードを認めていません。</value>
+  </data>
+  <data name="Src_Catalogues" xml:space="preserve">
+    <value>あなたの OPDS カタログ</value>
+  </data>
+  <data name="Src_CataloguesHint" xml:space="preserve">
+    <value>Calibre、Calibre-Web、Kavita、または図書館のサーバー。アドレス、ユーザー名、パスワードは暗号化され、サインイン情報はそのサーバーにだけ送信されます。</value>
+  </data>
+  <data name="Src_NoCatalogues" xml:space="preserve">
+    <value>まだありません。</value>
+  </data>
+  <data name="Src_CatalogueName" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Src_AddressHint" xml:space="preserve">
+    <value>カタログの OPDS アドレス。Calibre なら http://192.168.1.10:8080/opds など。</value>
+  </data>
+  <data name="Src_UserName" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
+  <data name="Src_Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="Src_AddCatalogue" xml:space="preserve">
+    <value>カタログを追加</value>
+  </data>
+  <data name="Src_NameFirst" xml:space="preserve">
+    <value>先にカタログの名前を入力してください。</value>
+  </data>
+  <data name="Src_NameTaken" xml:space="preserve">
+    <value>「{0}」という名前のカタログはすでにあります。</value>
+  </data>
+  <data name="Src_AddressFirst" xml:space="preserve">
+    <value>http:// または https:// で始まるカタログのアドレスを入力してください。</value>
+  </data>
 </root>
