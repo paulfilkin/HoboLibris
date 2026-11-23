@@ -1118,4 +1118,367 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>어둡게</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>도우미</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>도우미 열기 또는 닫기</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>대화 복사</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>새 대화</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>새 대화 (도우미가 이 대화를 잊습니다)</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>도우미 닫기</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>도우미 닫기 (도우미 아이콘으로 다시 열 수 있습니다)</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>질문하기 전에 설정에서 AI 모델을 선택하고 API 키를 추가하세요.</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>책에 대해 물어보세요</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>도우미는 책 목록을 보여 주고 백업하며, 컬렉션으로 정리하고 전자책 리더로 보낼 수 있습니다. 전자책 리더에 쓰거나 파일을 삭제하는 작업은 사용자의 승인을 기다립니다.</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>도우미에게 보낼 메시지</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>Enter를 누르면 보내고, Shift+Enter를 누르면 줄이 바뀝니다. /clear를 입력하면 새 대화가 시작됩니다.</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>보내기 (Enter)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>요청 중지</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>복사됨</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>이 답변 복사</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>새 대화를 시작할까요? 도우미가 이 대화를 잊으며 되돌릴 수 없습니다.</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>도우미와 새 대화를 시작했습니다.</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>나</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>보낸 내용과 돌아온 내용 표시 또는 숨기기</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>보낸 내용</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>돌아온 내용</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>허용할까요?</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>확인함</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>자세히 보기</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>자세히 숨기기</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>허용</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>항상 허용</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>이제부터 이 도구를 묻지 않고 허용합니다 (설정에서 바꿀 수 있습니다)</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>거부</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>허용됨</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>허용됨 (이 도구는 항상)</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>거부됨</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>{0} 사용.</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>생각하는 중…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>결과를 검토하는 중…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>답변을 기다리는 중…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>실행 중…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>완료</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>실패</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>중지했습니다.</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>거부했습니다.</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>설정의 AI 모델에서 {0}의 API 키를 추가한 다음 다시 질문하세요.</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>{0}단계 후 중지했습니다 (설정의 도우미). 필요하면 계속하라고 요청하세요.</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>가장 긴 답변 설정({0}토큰, 추론 모델은 추론도 여기에 포함) 때문에 답변이 잘렸습니다. 설정의 AI 모델에서 값을 올린 다음 "계속"이라고 입력하세요.</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>대화가 이제 모델에 비해 너무 길 수 있습니다. 새 대화를 시작하거나 /clear를 입력하세요.</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>{0}에 연결할 수 없습니다: {1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>{0}이(가) 5분 안에 응답하지 않았습니다.</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>{0} 응답 {1}: {2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>{0} 응답 {1}: {2} 설정의 AI 모델에서 API 키를 확인하세요.</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>{0}이(가) JSON이 아닌 응답을 보냈습니다.</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>{0}이(가) 응답을 보내지 않았습니다.</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>AI 서비스</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>이 컴퓨터의 AI 서비스</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>Kobo 책 목록</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>목록 새로 고침</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>Kobo 책 백업</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>백업 사본 삭제</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>컬렉션 목록</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>컬렉션의 책 목록</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>컬렉션 만들기</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>컬렉션 이름 바꾸기</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>컬렉션 삭제</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>컬렉션에 책 추가</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>컬렉션에서 책 빼기</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>컬렉션 변경 취소</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>컬렉션을 전자책 리더에 저장</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>보낼 책 목록</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>전자책 리더로 책 보내기</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>전자책 리더 꺼내기</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>Kindle 책 목록</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>Kindle 책 백업</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>화면 표시</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>다음 책({0})을 Kobo 폴더에 백업합니다: {1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>다음 책({0})의 백업 사본을 휴지통으로 옮깁니다: {1}. 전자책 리더에서는 아무것도 지우지 않습니다.</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>컬렉션 변경({0})을 Kobo 전자책 리더에 저장합니다. 먼저 리더의 책 목록을 백업합니다.</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>다음 파일({0})을 Kobo 전자책 리더에 복사합니다: {1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>Kobo 전자책 리더를 분리할 수 있도록 꺼냅니다.</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>다음 Kindle 책({0})을 Kindle 폴더에 백업합니다: {1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0} 외 {1}개</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>찾은 책: {0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>컬렉션: {0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>저장 대기 중인 변경: {0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>보낼 준비 완료: {0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>백업함: {0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>백업함: {0}. 실패: {1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>보냄: {0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>보냄: {0}. 실패: {1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>꺼냄</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>AI 모델</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>도우미는 요청과 함께 살펴본 책 제목, 저자, 파일 이름, 컬렉션 이름을 여기서 선택한 AI 서비스로 보냅니다. Kobo 로그인 정보, 토큰, 이메일 주소, 폴더 경로는 보내지 않습니다. Ollama나 LM Studio처럼 이 컴퓨터에서 실행되는 서비스를 쓰면 모든 내용이 이 컴퓨터에 남습니다.</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>서비스</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>OpenAI 호환 (Gemini, Mistral, Ollama, LM Studio…)</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>주소</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>서비스의 기본 주소입니다. 예: Ollama는 http://localhost:11434/v1.</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>목록에서 고르거나 서비스가 제공하는 모델 이름을 입력하세요.</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>API 키</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>키를 입력하거나 붙여 넣으세요. Windows 계정용으로 암호화되며 다시는 표시되지 않습니다.</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>키 제거</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>이 서비스의 키가 저장되어 있습니다.</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>아직 저장된 키가 없습니다.</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>이 컴퓨터의 서비스에는 키가 필요 없습니다.</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>가장 긴 답변 (토큰)</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>256에서 64,000까지. 추론 모델은 추론도 여기에 포함합니다.</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>테스트</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>이 설정으로 모델에 짧은 메시지를 하나 보냅니다</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>테스트하는 중…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>{0}의 답변: {1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>내 지시 사항</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>모든 대화에 추가됩니다. 예를 들어 컬렉션 이름을 짓는 방식.</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>요청당 단계 수</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>한 요청에서 도우미가 모델에 다시 묻는 최대 횟수(1~100)입니다.</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>도구를 실행하기 전에 묻지 않습니다. 전자책 리더에 쓰기와 파일 삭제는 계속 묻습니다.</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>기본 제공 도구</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>도우미가 스스로 할 수 있는 일입니다. 전자책 리더에 쓰거나 파일을 삭제하는 도구는 항상 묻습니다.</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>허용</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>먼저 묻기</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>항상 묻기</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>끄기</value>
+  </data>
 </root>

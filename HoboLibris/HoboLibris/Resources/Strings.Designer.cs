@@ -1730,5 +1730,610 @@ namespace HoboLibris.Resources {
         public static string Settings_ThemeDark {
             get { return ResourceManager.GetString("Settings_ThemeDark", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Assistant.</summary>
+        public static string Asst_Title {
+            get { return ResourceManager.GetString("Asst_Title", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open or close the Assistant.</summary>
+        public static string Asst_ToggleTip {
+            get { return ResourceManager.GetString("Asst_ToggleTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy the conversation.</summary>
+        public static string Asst_CopyConversation {
+            get { return ResourceManager.GetString("Asst_CopyConversation", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to New conversation.</summary>
+        public static string Asst_NewConversation {
+            get { return ResourceManager.GetString("Asst_NewConversation", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to New conversation (the Assistant forgets this one).</summary>
+        public static string Asst_NewConversationTip {
+            get { return ResourceManager.GetString("Asst_NewConversationTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Close the Assistant.</summary>
+        public static string Asst_Close {
+            get { return ResourceManager.GetString("Asst_Close", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Close the Assistant (the Assistant icon brings it back).</summary>
+        public static string Asst_CloseTip {
+            get { return ResourceManager.GetString("Asst_CloseTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Choose an AI model and add its API key in Settings before asking..</summary>
+        public static string Asst_SetUpBanner {
+            get { return ResourceManager.GetString("Asst_SetUpBanner", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ask about your books.</summary>
+        public static string Asst_EmptyHeading {
+            get { return ResourceManager.GetString("Asst_EmptyHeading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The Assistant can list and back up your books, sort them into collections and send them to your eReader. Anything tha....</summary>
+        public static string Asst_EmptyText {
+            get { return ResourceManager.GetString("Asst_EmptyText", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Message to the Assistant.</summary>
+        public static string Asst_InputName {
+            get { return ResourceManager.GetString("Asst_InputName", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Enter sends; Shift+Enter starts a new line. /clear starts a new conversation..</summary>
+        public static string Asst_InputTip {
+            get { return ResourceManager.GetString("Asst_InputTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Send (Enter).</summary>
+        public static string Asst_SendTip {
+            get { return ResourceManager.GetString("Asst_SendTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Stop the request.</summary>
+        public static string Asst_StopTip {
+            get { return ResourceManager.GetString("Asst_StopTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy.</summary>
+        public static string Asst_Copy {
+            get { return ResourceManager.GetString("Asst_Copy", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copied.</summary>
+        public static string Asst_Copied {
+            get { return ResourceManager.GetString("Asst_Copied", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy this answer.</summary>
+        public static string Asst_CopyTip {
+            get { return ResourceManager.GetString("Asst_CopyTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Start a new conversation? The Assistant forgets this one, and it can't be brought back..</summary>
+        public static string Asst_ClearPrompt {
+            get { return ResourceManager.GetString("Asst_ClearPrompt", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Started a new conversation with the Assistant..</summary>
+        public static string Asst_Cleared {
+            get { return ResourceManager.GetString("Asst_Cleared", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to You.</summary>
+        public static string Asst_You {
+            get { return ResourceManager.GetString("Asst_You", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show or hide what was sent and what came back.</summary>
+        public static string Asst_ToolDetailsTip {
+            get { return ResourceManager.GetString("Asst_ToolDetailsTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Sent.</summary>
+        public static string Asst_Arguments {
+            get { return ResourceManager.GetString("Asst_Arguments", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Came back.</summary>
+        public static string Asst_Result {
+            get { return ResourceManager.GetString("Asst_Result", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allow this?.</summary>
+        public static string Asst_AllowThis {
+            get { return ResourceManager.GetString("Asst_AllowThis", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Asked.</summary>
+        public static string Asst_Asked {
+            get { return ResourceManager.GetString("Asst_Asked", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show details.</summary>
+        public static string Asst_ShowDetails {
+            get { return ResourceManager.GetString("Asst_ShowDetails", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Hide details.</summary>
+        public static string Asst_HideDetails {
+            get { return ResourceManager.GetString("Asst_HideDetails", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allow.</summary>
+        public static string Asst_Allow {
+            get { return ResourceManager.GetString("Asst_Allow", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Always allow.</summary>
+        public static string Asst_AlwaysAllow {
+            get { return ResourceManager.GetString("Asst_AlwaysAllow", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allow this tool from now on without asking (Settings can change it back).</summary>
+        public static string Asst_AlwaysAllowTip {
+            get { return ResourceManager.GetString("Asst_AlwaysAllowTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Decline.</summary>
+        public static string Asst_Decline {
+            get { return ResourceManager.GetString("Asst_Decline", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allowed.</summary>
+        public static string Asst_Allowed {
+            get { return ResourceManager.GetString("Asst_Allowed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allowed (always for this tool).</summary>
+        public static string Asst_AllowedAlways {
+            get { return ResourceManager.GetString("Asst_AllowedAlways", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Declined.</summary>
+        public static string Asst_Declined {
+            get { return ResourceManager.GetString("Asst_Declined", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Use {0}..</summary>
+        public static string Asst_UseTool {
+            get { return ResourceManager.GetString("Asst_UseTool", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Thinking….</summary>
+        public static string Asst_Thinking {
+            get { return ResourceManager.GetString("Asst_Thinking", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Thinking about the results….</summary>
+        public static string Asst_ThinkingResults {
+            get { return ResourceManager.GetString("Asst_ThinkingResults", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Waiting for your answer….</summary>
+        public static string Asst_WaitingForAnswer {
+            get { return ResourceManager.GetString("Asst_WaitingForAnswer", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Running….</summary>
+        public static string Asst_Running {
+            get { return ResourceManager.GetString("Asst_Running", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Done.</summary>
+        public static string Asst_Done {
+            get { return ResourceManager.GetString("Asst_Done", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Failed.</summary>
+        public static string Asst_Failed {
+            get { return ResourceManager.GetString("Asst_Failed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Stopped..</summary>
+        public static string Asst_Stopped {
+            get { return ResourceManager.GetString("Asst_Stopped", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to You declined this..</summary>
+        public static string Asst_YouDeclined {
+            get { return ResourceManager.GetString("Asst_YouDeclined", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add an API key for {0} in Settings, under AI model, then ask again..</summary>
+        public static string Asst_AddKeyFirst {
+            get { return ResourceManager.GetString("Asst_AddKeyFirst", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Stopped after {0} steps (Settings, under Assistant). Ask it to carry on if needed..</summary>
+        public static string Asst_StoppedAfterSteps {
+            get { return ResourceManager.GetString("Asst_StoppedAfterSteps", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The answer was cut short by the longest answer setting ({0} tokens; reasoning models count their reasoning in it). Ra....</summary>
+        public static string Asst_CutShort {
+            get { return ResourceManager.GetString("Asst_CutShort", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The conversation may now be too long for the model. Start a new conversation, or type /clear..</summary>
+        public static string Asst_TooLong {
+            get { return ResourceManager.GetString("Asst_TooLong", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} couldn't be reached: {1}.</summary>
+        public static string Asst_ProviderUnreachable {
+            get { return ResourceManager.GetString("Asst_ProviderUnreachable", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} didn't answer within five minutes..</summary>
+        public static string Asst_ProviderTimeout {
+            get { return ResourceManager.GetString("Asst_ProviderTimeout", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} answered {1}: {2}.</summary>
+        public static string Asst_ProviderError {
+            get { return ResourceManager.GetString("Asst_ProviderError", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} answered {1}: {2} Check the API key in Settings, under AI model..</summary>
+        public static string Asst_ProviderErrorKey {
+            get { return ResourceManager.GetString("Asst_ProviderErrorKey", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} sent an answer that isn't JSON..</summary>
+        public static string Asst_ProviderNotJson {
+            get { return ResourceManager.GetString("Asst_ProviderNotJson", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} sent no answer..</summary>
+        public static string Asst_ProviderNoAnswer {
+            get { return ResourceManager.GetString("Asst_ProviderNoAnswer", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to AI service.</summary>
+        public static string Asst_AiService {
+            get { return ResourceManager.GetString("Asst_AiService", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to AI service on this computer.</summary>
+        public static string Asst_LocalAiService {
+            get { return ResourceManager.GetString("Asst_LocalAiService", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List Kobo books.</summary>
+        public static string Asst_Tool_ListBooks {
+            get { return ResourceManager.GetString("Asst_Tool_ListBooks", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Refresh the list.</summary>
+        public static string Asst_Tool_Refresh {
+            get { return ResourceManager.GetString("Asst_Tool_Refresh", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Back up Kobo books.</summary>
+        public static string Asst_Tool_BackUp {
+            get { return ResourceManager.GetString("Asst_Tool_BackUp", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Delete backup copies.</summary>
+        public static string Asst_Tool_DeleteBackups {
+            get { return ResourceManager.GetString("Asst_Tool_DeleteBackups", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List collections.</summary>
+        public static string Asst_Tool_ListCollections {
+            get { return ResourceManager.GetString("Asst_Tool_ListCollections", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List books in collections.</summary>
+        public static string Asst_Tool_ListCollectionBooks {
+            get { return ResourceManager.GetString("Asst_Tool_ListCollectionBooks", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Create a collection.</summary>
+        public static string Asst_Tool_CreateCollection {
+            get { return ResourceManager.GetString("Asst_Tool_CreateCollection", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Rename a collection.</summary>
+        public static string Asst_Tool_RenameCollection {
+            get { return ResourceManager.GetString("Asst_Tool_RenameCollection", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Delete a collection.</summary>
+        public static string Asst_Tool_DeleteCollection {
+            get { return ResourceManager.GetString("Asst_Tool_DeleteCollection", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add books to a collection.</summary>
+        public static string Asst_Tool_AddToCollection {
+            get { return ResourceManager.GetString("Asst_Tool_AddToCollection", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove books from a collection.</summary>
+        public static string Asst_Tool_RemoveFromCollection {
+            get { return ResourceManager.GetString("Asst_Tool_RemoveFromCollection", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Undo collection changes.</summary>
+        public static string Asst_Tool_UndoCollections {
+            get { return ResourceManager.GetString("Asst_Tool_UndoCollections", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Save collections to the eReader.</summary>
+        public static string Asst_Tool_SaveCollections {
+            get { return ResourceManager.GetString("Asst_Tool_SaveCollections", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List books to send.</summary>
+        public static string Asst_Tool_ListSend {
+            get { return ResourceManager.GetString("Asst_Tool_ListSend", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Send books to the eReader.</summary>
+        public static string Asst_Tool_Send {
+            get { return ResourceManager.GetString("Asst_Tool_Send", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Eject the eReader.</summary>
+        public static string Asst_Tool_Eject {
+            get { return ResourceManager.GetString("Asst_Tool_Eject", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List Kindle books.</summary>
+        public static string Asst_Tool_ListKindle {
+            get { return ResourceManager.GetString("Asst_Tool_ListKindle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Back up Kindle books.</summary>
+        public static string Asst_Tool_BackUpKindle {
+            get { return ResourceManager.GetString("Asst_Tool_BackUpKindle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show a screen.</summary>
+        public static string Asst_Tool_ShowScreen {
+            get { return ResourceManager.GetString("Asst_Tool_ShowScreen", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Back up these books ({0}) to the Kobo folder: {1}.</summary>
+        public static string Asst_Desc_BackUp {
+            get { return ResourceManager.GetString("Asst_Desc_BackUp", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Move the backup copies of these books ({0}) to the Recycle Bin: {1}. Nothing is removed from the eReader..</summary>
+        public static string Asst_Desc_DeleteBackups {
+            get { return ResourceManager.GetString("Asst_Desc_DeleteBackups", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Save the collection changes ({0}) to the Kobo eReader. Its book list is backed up first..</summary>
+        public static string Asst_Desc_SaveCollections {
+            get { return ResourceManager.GetString("Asst_Desc_SaveCollections", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy these files ({0}) to the Kobo eReader: {1}.</summary>
+        public static string Asst_Desc_Send {
+            get { return ResourceManager.GetString("Asst_Desc_Send", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Eject the Kobo eReader so it can be unplugged..</summary>
+        public static string Asst_Desc_Eject {
+            get { return ResourceManager.GetString("Asst_Desc_Eject", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Back up these Kindle books ({0}) to the Kindle folder: {1}.</summary>
+        public static string Asst_Desc_BackUpKindle {
+            get { return ResourceManager.GetString("Asst_Desc_BackUpKindle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} and {1} more.</summary>
+        public static string Asst_AndMore {
+            get { return ResourceManager.GetString("Asst_AndMore", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books found: {0}.</summary>
+        public static string Asst_BooksFound {
+            get { return ResourceManager.GetString("Asst_BooksFound", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Collections: {0}.</summary>
+        public static string Asst_CollectionsFound {
+            get { return ResourceManager.GetString("Asst_CollectionsFound", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Changes waiting to be saved: {0}.</summary>
+        public static string Asst_ChangesWaiting {
+            get { return ResourceManager.GetString("Asst_ChangesWaiting", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ready to send: {0}.</summary>
+        public static string Asst_FilesReady {
+            get { return ResourceManager.GetString("Asst_FilesReady", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Backed up: {0}.</summary>
+        public static string Asst_BackedUp {
+            get { return ResourceManager.GetString("Asst_BackedUp", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Backed up: {0}. Failed: {1}.</summary>
+        public static string Asst_BackedUpWithFailures {
+            get { return ResourceManager.GetString("Asst_BackedUpWithFailures", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Sent: {0}.</summary>
+        public static string Asst_Sent {
+            get { return ResourceManager.GetString("Asst_Sent", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Sent: {0}. Failed: {1}.</summary>
+        public static string Asst_SentWithFailures {
+            get { return ResourceManager.GetString("Asst_SentWithFailures", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ejected.</summary>
+        public static string Asst_Ejected {
+            get { return ResourceManager.GetString("Asst_Ejected", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to AI model.</summary>
+        public static string Asst_ModelHeader {
+            get { return ResourceManager.GetString("Asst_ModelHeader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The Assistant sends your requests, with the titles, authors, file names and collection names it looks at, to the AI s....</summary>
+        public static string Asst_WhatIsSent {
+            get { return ResourceManager.GetString("Asst_WhatIsSent", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Service.</summary>
+        public static string Asst_Provider {
+            get { return ResourceManager.GetString("Asst_Provider", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to OpenAI-compatible (Gemini, Mistral, Ollama, LM Studio…).</summary>
+        public static string Asst_ProviderCompatible {
+            get { return ResourceManager.GetString("Asst_ProviderCompatible", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Address.</summary>
+        public static string Asst_Endpoint {
+            get { return ResourceManager.GetString("Asst_Endpoint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The service's base address, such as http://localhost:11434/v1 for Ollama..</summary>
+        public static string Asst_EndpointHint {
+            get { return ResourceManager.GetString("Asst_EndpointHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Model.</summary>
+        public static string Asst_Model {
+            get { return ResourceManager.GetString("Asst_Model", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Pick one or type any model name the service offers..</summary>
+        public static string Asst_ModelHint {
+            get { return ResourceManager.GetString("Asst_ModelHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to API key.</summary>
+        public static string Asst_ApiKey {
+            get { return ResourceManager.GetString("Asst_ApiKey", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Type or paste the key. It is encrypted for your Windows account and never shown again..</summary>
+        public static string Asst_ApiKeyHint {
+            get { return ResourceManager.GetString("Asst_ApiKeyHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove key.</summary>
+        public static string Asst_RemoveKey {
+            get { return ResourceManager.GetString("Asst_RemoveKey", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to A key is saved for this service..</summary>
+        public static string Asst_KeySaved {
+            get { return ResourceManager.GetString("Asst_KeySaved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No key saved yet..</summary>
+        public static string Asst_KeyNone {
+            get { return ResourceManager.GetString("Asst_KeyNone", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to A service on this computer needs no key..</summary>
+        public static string Asst_KeyNotNeeded {
+            get { return ResourceManager.GetString("Asst_KeyNotNeeded", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Longest answer (tokens).</summary>
+        public static string Asst_MaxTokens {
+            get { return ResourceManager.GetString("Asst_MaxTokens", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to From 256 to 64,000. Reasoning models count their reasoning in it..</summary>
+        public static string Asst_MaxTokensHint {
+            get { return ResourceManager.GetString("Asst_MaxTokensHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Test.</summary>
+        public static string Asst_Test {
+            get { return ResourceManager.GetString("Asst_Test", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Send one short message to the model with these settings.</summary>
+        public static string Asst_TestTip {
+            get { return ResourceManager.GetString("Asst_TestTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Testing….</summary>
+        public static string Asst_Testing {
+            get { return ResourceManager.GetString("Asst_Testing", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} answered: {1}.</summary>
+        public static string Asst_TestOk {
+            get { return ResourceManager.GetString("Asst_TestOk", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Your instructions.</summary>
+        public static string Asst_Instructions {
+            get { return ResourceManager.GetString("Asst_Instructions", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Added to every conversation, for example how to name collections..</summary>
+        public static string Asst_InstructionsHint {
+            get { return ResourceManager.GetString("Asst_InstructionsHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Steps per request.</summary>
+        public static string Asst_MaxSteps {
+            get { return ResourceManager.GetString("Asst_MaxSteps", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The most times the Assistant goes back to the model in one request, from 1 to 100..</summary>
+        public static string Asst_MaxStepsHint {
+            get { return ResourceManager.GetString("Asst_MaxStepsHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Don't ask before tools run. Writing to the eReader and deleting files still ask..</summary>
+        public static string Asst_SkipApprovals {
+            get { return ResourceManager.GetString("Asst_SkipApprovals", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Built-in tools.</summary>
+        public static string Asst_ToolsHeader {
+            get { return ResourceManager.GetString("Asst_ToolsHeader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to What the Assistant may do by itself. Tools that write to the eReader or delete files always ask..</summary>
+        public static string Asst_ToolsHint {
+            get { return ResourceManager.GetString("Asst_ToolsHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Allow.</summary>
+        public static string Asst_PolicyAllow {
+            get { return ResourceManager.GetString("Asst_PolicyAllow", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ask first.</summary>
+        public static string Asst_PolicyAsk {
+            get { return ResourceManager.GetString("Asst_PolicyAsk", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Always ask.</summary>
+        public static string Asst_PolicyAlwaysAsk {
+            get { return ResourceManager.GetString("Asst_PolicyAlwaysAsk", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Off.</summary>
+        public static string Asst_PolicyOff {
+            get { return ResourceManager.GetString("Asst_PolicyOff", resourceCulture); }
+        }
     }
 }

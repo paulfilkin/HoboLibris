@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using HoboLibris.Assistant;
 
 namespace HoboLibris.Models
 {
@@ -64,6 +65,10 @@ namespace HoboLibris.Models
         [JsonPropertyName("theme")]
         public string Theme { get; set; } = "system";
 
+        /// <summary>The Assistant: AI model, key, instructions, tool policies and the pane.</summary>
+        [JsonPropertyName("assistant")]
+        public AssistantSettings Assistant { get; set; } = new();
+
         [JsonPropertyName("library_sync_url")]
         public string LibrarySyncUrl { get; set; } = "";
 
@@ -86,6 +91,7 @@ namespace HoboLibris.Models
             KindleDir = KindleDir,
             BookListBackupDir = BookListBackupDir,
             Theme = Theme,
+            Assistant = Assistant,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,
             KoboAutoSend = KoboAutoSend,

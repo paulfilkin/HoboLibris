@@ -48,6 +48,37 @@
             <Setter Property="Margin" Value="0,0,6,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <!-- The API key box: typed into, never filled from the saved key -->
+        <Style x:Key="KeyBox" TargetType="PasswordBox">
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="{DynamicResource SurfaceBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource TextPrimaryBrush}"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="Box" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1" CornerRadius="6" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="Box" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- A small number: tokens, steps -->
+        <Style x:Key="NumberBox" TargetType="TextBox" BasedOn="{StaticResource ModernTextBox}">
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+        </Style>
     </Window.Resources>
 
     <Grid Margin="24">
@@ -145,7 +176,7 @@
                 </Border>
 
                 <!-- eReader book-list backups -->
-                <Border Style="{StaticResource Card}">
+                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
                     <StackPanel>
                         <TextBlock x:Name="BackupFolderLabel" Text="{x:Static res:Strings.Settings_BackupsHeader}" Style="{StaticResource SectionHeader}"/>
                         <TextBlock Text="{x:Static res:Strings.Settings_BackupsHint}" Style="{StaticResource FieldHint}"/>
@@ -162,6 +193,122 @@
                             <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
                                     Command="{Binding OpenBackupFolderCommand}" Margin="0"/>
                         </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- AI model -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Text="{x:Static res:Strings.Asst_ModelHeader}" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_WhatIsSent}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
+
+                        <TextBlock x:Name="ProviderLabel" Text="{x:Static res:Strings.Asst_Provider}" Style="{StaticResource FieldLabel}"/>
+                        <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left" Margin="0,0,0,12"
+                                  ItemsSource="{Binding Assistant.Providers}" SelectedValuePath="Value" DisplayMemberPath="Label"
+                                  SelectedValue="{Binding Assistant.Provider}"
+                                  AutomationProperties.LabeledBy="{Binding ElementName=ProviderLabel}"/>
+
+                        <StackPanel Visibility="{Binding Assistant.IsCompatible, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock x:Name="EndpointLabel" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}"/>
+                            <TextBlock Text="{x:Static res:Strings.Asst_EndpointHint}" Style="{StaticResource FieldHint}"/>
+                            <ComboBox Style="{StaticResource ModernComboBox}" IsEditable="True" Margin="0,0,0,12" FlowDirection="LeftToRight"
+                                      ItemsSource="{Binding Assistant.Endpoints}"
+                                      Text="{Binding Assistant.Endpoint, UpdateSourceTrigger=LostFocus}"
+                                      AutomationProperties.LabeledBy="{Binding ElementName=EndpointLabel}"/>
+                        </StackPanel>
+
+                        <TextBlock x:Name="ModelLabel" Text="{x:Static res:Strings.Asst_Model}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_ModelHint}" Style="{StaticResource FieldHint}"/>
+                        <ComboBox Style="{StaticResource ModernComboBox}" IsEditable="True" Width="300" HorizontalAlignment="Left"
+                                  Margin="0,0,0,12" FlowDirection="LeftToRight"
+                                  ItemsSource="{Binding Assistant.Models}"
+                                  Text="{Binding Assistant.Model, UpdateSourceTrigger=LostFocus}"
+                                  AutomationProperties.LabeledBy="{Binding ElementName=ModelLabel}"/>
+
+                        <TextBlock x:Name="KeyLabel" Text="{x:Static res:Strings.Asst_ApiKey}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_ApiKeyHint}" Style="{StaticResource FieldHint}"/>
+                        <Grid Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <PasswordBox x:Name="KeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
+                                         LostKeyboardFocus="KeyBox_LostKeyboardFocus"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=KeyLabel}"/>
+                            <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
+                                    Command="{Binding Assistant.RemoveApiKeyCommand}"/>
+                        </Grid>
+                        <TextBlock Text="{Binding Assistant.KeyStatus}" Style="{StaticResource HelperText}" Margin="0,0,0,12"
+                                   AutomationProperties.LiveSetting="Polite"/>
+
+                        <TextBlock x:Name="TokensLabel" Text="{x:Static res:Strings.Asst_MaxTokens}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_MaxTokensHint}" Style="{StaticResource FieldHint}"/>
+                        <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
+                                 Text="{Binding Assistant.MaxTokens, UpdateSourceTrigger=LostFocus}"
+                                 AutomationProperties.LabeledBy="{Binding ElementName=TokensLabel}"/>
+
+                        <Button Content="{x:Static res:Strings.Asst_Test}" Style="{StaticResource SecondaryButton}" HorizontalAlignment="Left"
+                                Command="{Binding Assistant.TestCommand}" ToolTip="{x:Static res:Strings.Asst_TestTip}"/>
+                        <TextBlock Text="{Binding Assistant.TestResult}" Margin="0,8,0,0" AutomationProperties.LiveSetting="Polite"
+                                   Visibility="{Binding Assistant.HasTestResult, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource GoodText}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Assistant.TestFailed}" Value="True">
+                                            <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Assistant.Testing}" Value="True">
+                                            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <!-- Assistant -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                    <StackPanel>
+                        <TextBlock Text="{x:Static res:Strings.Asst_Title}" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock x:Name="InstructionsLabel" Text="{x:Static res:Strings.Asst_Instructions}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_InstructionsHint}" Style="{StaticResource FieldHint}"/>
+                        <TextBox Style="{StaticResource ModernTextBox}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="70" MaxHeight="160"
+                                 VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto" Margin="0,0,0,12"
+                                 Text="{Binding Assistant.Instructions, UpdateSourceTrigger=LostFocus}"
+                                 AutomationProperties.LabeledBy="{Binding ElementName=InstructionsLabel}"/>
+                        <TextBlock x:Name="StepsLabel" Text="{x:Static res:Strings.Asst_MaxSteps}" Style="{StaticResource FieldLabel}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_MaxStepsHint}" Style="{StaticResource FieldHint}"/>
+                        <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
+                                 Text="{Binding Assistant.MaxSteps, UpdateSourceTrigger=LostFocus}"
+                                 AutomationProperties.LabeledBy="{Binding ElementName=StepsLabel}"/>
+                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.SkipApprovals}">
+                            <TextBlock Text="{x:Static res:Strings.Asst_SkipApprovals}" TextWrapping="Wrap"/>
+                        </CheckBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- Built-in tools -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{x:Static res:Strings.Asst_ToolsHeader}" Style="{StaticResource SectionHeader}"/>
+                        <TextBlock Text="{x:Static res:Strings.Asst_ToolsHint}" Style="{StaticResource FieldHint}" Margin="0,0,0,10"/>
+                        <ItemsControl ItemsSource="{Binding Assistant.ToolRows}" Focusable="False">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,0,0,6">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="170"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,12,0"/>
+                                        <ComboBox Grid.Column="1" Style="{StaticResource ModernComboBox}"
+                                                  ItemsSource="{Binding Choices}" SelectedValuePath="Value" DisplayMemberPath="Label"
+                                                  SelectedValue="{Binding Policy}" AutomationProperties.Name="{Binding Title}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </StackPanel>
                 </Border>
             </StackPanel>

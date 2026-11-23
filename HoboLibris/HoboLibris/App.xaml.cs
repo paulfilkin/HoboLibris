@@ -43,13 +43,14 @@ namespace HoboLibris
             MainWindow = mainWindow;
             mainWindow.Show();
 
-            // --screenshot <file.png> [--kindle|--send|--collections]: save a picture of the main
-            // window a few seconds after start-up and exit. For checking the look without a hand.
+            // --screenshot <file.png> [--kindle|--send|--collections] [--assistant]: save a picture of
+            // the main window a few seconds after start-up and exit. For checking the look without a
+            // hand. --assistant opens the Assistant pane with a sample exchange.
             var args = e.Args;
             var shot = Array.IndexOf(args, "--screenshot");
             if (shot >= 0 && shot + 1 < args.Length)
             {
-                mainWindow.PrepareScreenshot(args[shot + 1], args.Contains("--kindle"), args.Contains("--send"), args.Contains("--collections"));
+                mainWindow.PrepareScreenshot(args[shot + 1], args.Contains("--kindle"), args.Contains("--send"), args.Contains("--collections"), args.Contains("--assistant"));
             }
         }
 

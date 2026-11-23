@@ -1092,4 +1092,367 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>Dunkel</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>Assistent</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>Assistenten öffnen oder schließen</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>Unterhaltung kopieren</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>Neue Unterhaltung</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>Neue Unterhaltung (der Assistent vergisst diese)</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>Assistenten schließen</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>Assistenten schließen (das Assistenten-Symbol öffnet ihn wieder)</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>Wählen Sie in den Einstellungen ein KI-Modell und fügen Sie dessen API-Schlüssel hinzu, bevor Sie fragen.</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>Fragen Sie nach Ihren Büchern</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>Der Assistent kann Ihre Bücher auflisten und sichern, sie in Sammlungen einordnen und an Ihren eReader senden. Alles, was auf den eReader schreibt oder Dateien löscht, wartet auf Ihre Zustimmung.</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>Nachricht an den Assistenten</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>Eingabetaste sendet; Umschalt+Eingabetaste beginnt eine neue Zeile. /clear beginnt eine neue Unterhaltung.</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>Senden (Eingabetaste)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>Anfrage abbrechen</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>Kopiert</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>Diese Antwort kopieren</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>Eine neue Unterhaltung beginnen? Der Assistent vergisst diese, und sie lässt sich nicht wiederherstellen.</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>Neue Unterhaltung mit dem Assistenten begonnen.</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>Sie</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>Anzeigen oder ausblenden, was gesendet wurde und was zurückkam</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>Gesendet</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>Zurückgekommen</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>Zulassen?</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>Gefragt</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>Details ausblenden</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>Zulassen</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>Immer zulassen</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>Dieses Werkzeug ab jetzt ohne Nachfrage zulassen (in den Einstellungen änderbar)</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>Ablehnen</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>Zugelassen</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>Zugelassen (immer für dieses Werkzeug)</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>Abgelehnt</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>{0} verwenden.</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>Denkt nach…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>Denkt über die Ergebnisse nach…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>Wartet auf Ihre Antwort…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>Läuft…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>Erledigt</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>Fehlgeschlagen</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>Abgebrochen.</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>Sie haben abgelehnt.</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>Fügen Sie in den Einstellungen unter KI-Modell einen API-Schlüssel für {0} hinzu und fragen Sie dann erneut.</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>Nach {0} Schritten angehalten (Einstellungen, unter Assistent). Bitten Sie ihn bei Bedarf, weiterzumachen.</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>Die Antwort wurde durch die Einstellung für die längste Antwort gekürzt ({0} Token; Reasoning-Modelle zählen ihr Nachdenken mit). Erhöhen Sie sie in den Einstellungen unter KI-Modell und schreiben Sie dann „weiter“.</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>Die Unterhaltung ist für das Modell jetzt möglicherweise zu lang. Beginnen Sie eine neue Unterhaltung oder geben Sie /clear ein.</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>{0} ist nicht erreichbar: {1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>{0} hat nicht innerhalb von fünf Minuten geantwortet.</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>{0} hat mit {1} geantwortet: {2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>{0} hat mit {1} geantwortet: {2} Prüfen Sie den API-Schlüssel in den Einstellungen unter KI-Modell.</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>{0} hat eine Antwort gesendet, die kein JSON ist.</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>{0} hat keine Antwort gesendet.</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>KI-Dienst</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>KI-Dienst auf diesem Computer</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>Kobo-Bücher auflisten</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>Liste aktualisieren</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>Kobo-Bücher sichern</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>Sicherungskopien löschen</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>Sammlungen auflisten</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>Bücher in Sammlungen auflisten</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>Sammlung erstellen</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>Sammlung umbenennen</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>Sammlung löschen</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>Bücher zu einer Sammlung hinzufügen</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>Bücher aus einer Sammlung entfernen</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>Sammlungsänderungen rückgängig machen</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>Sammlungen auf dem eReader speichern</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>Zu sendende Bücher auflisten</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>Bücher an den eReader senden</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>eReader auswerfen</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>Kindle-Bücher auflisten</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>Kindle-Bücher sichern</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>Ansicht zeigen</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>Diese Bücher ({0}) im Kobo-Ordner sichern: {1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>Die Sicherungskopien dieser Bücher ({0}) in den Papierkorb verschieben: {1}. Vom eReader wird nichts entfernt.</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>Die Sammlungsänderungen ({0}) auf dem Kobo eReader speichern. Seine Bücherliste wird vorher gesichert.</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>Diese Dateien ({0}) auf den Kobo eReader kopieren: {1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>Den Kobo eReader auswerfen, damit er abgesteckt werden kann.</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>Diese Kindle-Bücher ({0}) im Kindle-Ordner sichern: {1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0} und {1} weitere</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>Gefundene Bücher: {0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>Sammlungen: {0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>Ungespeicherte Änderungen: {0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>Bereit zum Senden: {0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>Gesichert: {0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>Gesichert: {0}. Fehlgeschlagen: {1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>Gesendet: {0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>Gesendet: {0}. Fehlgeschlagen: {1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>Ausgeworfen</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>KI-Modell</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>Der Assistent sendet Ihre Anfragen zusammen mit den Titeln, Autoren, Dateinamen und Sammlungsnamen, die er sich ansieht, an den hier gewählten KI-Dienst. Ihre Kobo-Anmeldung, Token, E-Mail-Adresse und Ordnerpfade werden nie gesendet. Ein Dienst auf diesem Computer, etwa Ollama oder LM Studio, behält alles hier.</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>Dienst</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>OpenAI-kompatibel (Gemini, Mistral, Ollama, LM Studio…)</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>Die Basisadresse des Dienstes, etwa http://localhost:11434/v1 für Ollama.</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>Modell</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>Wählen Sie eines aus oder geben Sie einen beliebigen Modellnamen des Dienstes ein.</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>API-Schlüssel</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>Geben Sie den Schlüssel ein oder fügen Sie ihn ein. Er wird für Ihr Windows-Konto verschlüsselt und nie wieder angezeigt.</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>Schlüssel entfernen</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>Für diesen Dienst ist ein Schlüssel gespeichert.</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>Noch kein Schlüssel gespeichert.</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>Ein Dienst auf diesem Computer braucht keinen Schlüssel.</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>Längste Antwort (Token)</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>Von 256 bis 64.000. Reasoning-Modelle zählen ihr Nachdenken mit.</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>Testen</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>Eine kurze Nachricht mit diesen Einstellungen an das Modell senden</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>Wird getestet…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>{0} hat geantwortet: {1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>Ihre Anweisungen</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>Wird jeder Unterhaltung hinzugefügt, zum Beispiel wie Sammlungen benannt werden sollen.</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>Schritte pro Anfrage</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>Wie oft der Assistent in einer Anfrage höchstens zum Modell zurückgeht, von 1 bis 100.</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>Nicht fragen, bevor Werkzeuge ausgeführt werden. Schreiben auf den eReader und Löschen von Dateien fragen weiterhin.</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>Integrierte Werkzeuge</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>Was der Assistent von sich aus tun darf. Werkzeuge, die auf den eReader schreiben oder Dateien löschen, fragen immer.</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>Zulassen</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>Vorher fragen</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>Immer fragen</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>Aus</value>
+  </data>
 </root>

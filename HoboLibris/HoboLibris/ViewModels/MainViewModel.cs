@@ -1147,5 +1147,39 @@ namespace HoboLibris.ViewModels
 
         [RelayCommand]
         private void OpenBackupFolder() => Dialogs.OpenFolder(BackupFolder);
+
+        // --- For the Assistant's tools (Assistant/HoboTools.cs) -----------------------------
+
+        /// <summary>The Assistant pane; set by the window.</summary>
+        public AssistantViewModel? Assistant { get; set; }
+
+        /// <summary>Every row of the Kobo list, whatever the search box holds.</summary>
+        internal IEnumerable<BookRow> AllKoboRows()
+        {
+            var folderRows = KoboRows.Where(r => r.Source == RowSource.Folder).ToDictionary(r => r.Id, r => r);
+            return _storeRows.Values
+                .Concat(Reader.Rows)
+                .Concat(Send.FolderOnly().Select(f => folderRows.GetValueOrDefault(f.Id) ?? new BookRow(f.Item)))
+                .ToList();
+        }
+
+        internal Task RefreshForAssistantAsync() => RefreshListAsync();
+
+        /// <summary>Back up store and eReader books, and wait until both are done.</summary>
+        internal Task BackUpForAssistantAsync(IReadOnlyList<string> store, IReadOnlyList<string> reader) =>
+            Task.WhenAll(
+                store.Count > 0 ? QueueDownloadsAsync(store) : Task.CompletedTask,
+                reader.Count > 0 ? Reader.BackUpAsync(reader, Settings.DownloadDir) : Task.CompletedTask);
+
+        /// <summary>Move the backup copies of these books to the Recycle Bin; nothing is removed from the eReader.</summary>
+        internal Task DeleteBackupsForAssistantAsync(List<string> store, List<string> reader, List<string> folder)
+        {
+            Error = null;
+            return DeleteBooksAsync(new DeleteRequest(store, reader, folder, FolderCopies(store, reader, folder)), removeFromReader: false);
+        }
+
+        internal Task EjectForAssistantAsync() => EjectReaderAsync();
+
+        internal Task ScanKindleForAssistantAsync() => Kindle.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.KindleDir, quiet: false);
     }
 }
