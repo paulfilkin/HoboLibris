@@ -2480,5 +2480,70 @@ namespace HoboLibris.Resources {
         public static string Src_AddressFirst {
             get { return ResourceManager.GetString("Src_AddressFirst", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Ollama is running..</summary>
+        public static string Asst_OllamaRunning {
+            get { return ResourceManager.GetString("Asst_OllamaRunning", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama is running, started by HoboLibris..</summary>
+        public static string Asst_OllamaRunningHere {
+            get { return ResourceManager.GetString("Asst_OllamaRunningHere", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama isn't running..</summary>
+        public static string Asst_OllamaStopped {
+            get { return ResourceManager.GetString("Asst_OllamaStopped", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama isn't installed on this computer..</summary>
+        public static string Asst_OllamaMissing {
+            get { return ResourceManager.GetString("Asst_OllamaMissing", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama stopped straight away (exit code {0})..</summary>
+        public static string Asst_OllamaExited {
+            get { return ResourceManager.GetString("Asst_OllamaExited", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama didn't answer within 30 seconds..</summary>
+        public static string Asst_OllamaNoAnswer {
+            get { return ResourceManager.GetString("Asst_OllamaNoAnswer", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Starting Ollama….</summary>
+        public static string Asst_StartingOllama {
+            get { return ResourceManager.GetString("Asst_StartingOllama", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama didn't start: {0}.</summary>
+        public static string Asst_OllamaDidNotStart {
+            get { return ResourceManager.GetString("Asst_OllamaDidNotStart", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama isn't running. Start it in Settings, under AI model, or let HoboLibris start it when it's needed..</summary>
+        public static string Asst_OllamaNotRunning {
+            get { return ResourceManager.GetString("Asst_OllamaNotRunning", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Start Ollama.</summary>
+        public static string Asst_OllamaStart {
+            get { return ResourceManager.GetString("Asst_OllamaStart", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Stop Ollama.</summary>
+        public static string Asst_OllamaStop {
+            get { return ResourceManager.GetString("Asst_OllamaStop", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Start Ollama when the Assistant needs it.</summary>
+        public static string Asst_OllamaAutoStart {
+            get { return ResourceManager.GetString("Asst_OllamaAutoStart", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ollama runs with no window. If HoboLibris started it, it stops when HoboLibris closes. Ollama started any other way i....</summary>
+        public static string Asst_OllamaStopsHint {
+            get { return ResourceManager.GetString("Asst_OllamaStopsHint", resourceCulture); }
+        }
     }
 }

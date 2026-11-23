@@ -1568,4 +1568,43 @@
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>请输入以 http:// 或 https:// 开头的目录地址。</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>Ollama 正在运行。</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>Ollama 正在运行，由 HoboLibris 启动。</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>Ollama 未运行。</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>本机未安装 Ollama。</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>Ollama 立即停止了（退出代码 {0}）。</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>Ollama 在 30 秒内没有响应。</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>正在启动 Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>Ollama 未能启动：{0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>Ollama 未运行。请在设置的“AI 模型”中启动它，或让 HoboLibris 在需要时启动它。</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>启动 Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>停止 Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>助手需要时启动 Ollama</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>Ollama 在无窗口状态下运行。如果由 HoboLibris 启动，它会在 HoboLibris 关闭时停止。以其他方式启动的 Ollama 会继续运行。</value>
+  </data>
 </root>

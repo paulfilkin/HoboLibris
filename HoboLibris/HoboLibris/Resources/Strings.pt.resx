@@ -1542,4 +1542,43 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Src_AddressFirst" xml:space="preserve">
     <value>Escreva o endereço do catálogo, a começar por http:// ou https://.</value>
   </data>
+  <data name="Asst_OllamaRunning" xml:space="preserve">
+    <value>O Ollama está em execução.</value>
+  </data>
+  <data name="Asst_OllamaRunningHere" xml:space="preserve">
+    <value>O Ollama está em execução, iniciado pelo HoboLibris.</value>
+  </data>
+  <data name="Asst_OllamaStopped" xml:space="preserve">
+    <value>O Ollama não está em execução.</value>
+  </data>
+  <data name="Asst_OllamaMissing" xml:space="preserve">
+    <value>O Ollama não está instalado neste computador.</value>
+  </data>
+  <data name="Asst_OllamaExited" xml:space="preserve">
+    <value>O Ollama parou de imediato (código de saída {0}).</value>
+  </data>
+  <data name="Asst_OllamaNoAnswer" xml:space="preserve">
+    <value>O Ollama não respondeu em 30 segundos.</value>
+  </data>
+  <data name="Asst_StartingOllama" xml:space="preserve">
+    <value>A iniciar o Ollama…</value>
+  </data>
+  <data name="Asst_OllamaDidNotStart" xml:space="preserve">
+    <value>O Ollama não iniciou: {0}</value>
+  </data>
+  <data name="Asst_OllamaNotRunning" xml:space="preserve">
+    <value>O Ollama não está em execução. Inicie-o nas Definições, em Modelo de IA, ou deixe o HoboLibris iniciá-lo quando for preciso.</value>
+  </data>
+  <data name="Asst_OllamaStart" xml:space="preserve">
+    <value>Iniciar o Ollama</value>
+  </data>
+  <data name="Asst_OllamaStop" xml:space="preserve">
+    <value>Parar o Ollama</value>
+  </data>
+  <data name="Asst_OllamaAutoStart" xml:space="preserve">
+    <value>Iniciar o Ollama quando o Assistente precisar</value>
+  </data>
+  <data name="Asst_OllamaStopsHint" xml:space="preserve">
+    <value>O Ollama é executado sem janela. Se foi o HoboLibris a iniciá-lo, para quando o HoboLibris fecha. Um Ollama iniciado de outra forma continua em execução.</value>
+  </data>
 </root>

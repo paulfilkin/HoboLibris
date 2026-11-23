@@ -110,6 +110,7 @@ namespace HoboLibris.ViewModels
                 SendOrStopCommand.NotifyCanExecuteChanged();
             };
             Session.Status += s => _main.Status = s;
+            Session.Prepare = PrepareAsync;
             Session.Items.CollectionChanged += (_, _) => OnPropertyChanged(nameof(IsEmpty));
             ToolRows = _tools.All.Select(t => new ToolPolicyRow(t, SetPolicy)).ToList();
             Providers = new List<Choice<ModelProvider>>
@@ -271,6 +272,7 @@ namespace HoboLibris.ViewModels
                 OnPropertyChanged(nameof(IsCompatible));
                 ModelSettingsChanged();
                 ProviderChanged?.Invoke();
+                _ = RefreshOllamaAsync();
             }
         }
 
@@ -296,6 +298,7 @@ namespace HoboLibris.ViewModels
                 Settings.Endpoint = value.Trim();
                 SaveSettings();
                 ModelSettingsChanged();
+                _ = RefreshOllamaAsync();
             }
         }
 
@@ -542,7 +545,104 @@ namespace HoboLibris.ViewModels
             Session.ApplyPolicies();
         }
 
-        /// <summary>The window is closing.</summary>
-        public void Shutdown() => Session.Shutdown();
+        // ---- Settings › AI model: Ollama on this computer --------------------------------------------
+
+        private readonly OllamaServer _ollama = new();
+
+        /// <summary>The address is Ollama's on this computer, so HoboLibris can start and stop it.</summary>
+        public bool IsOllama => OllamaServer.IsOllamaEndpoint(Settings.Provider, Settings.Endpoint);
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanStartOllama), nameof(CanStopOllama))]
+        private bool _ollamaRunning;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanStartOllama), nameof(CanStopOllama))]
+        private bool _ollamaBusy;
+
+        [ObservableProperty]
+        private string _ollamaStatus = "";
+
+        public bool OllamaInstalled => OllamaServer.FindExecutable() != null;
+        public bool CanStartOllama => !OllamaRunning && !OllamaBusy && OllamaInstalled;
+
+        /// <summary>Only a server HoboLibris started can be stopped here.</summary>
+        public bool CanStopOllama => OllamaRunning && !OllamaBusy && _ollama.StartedHere;
+
+        public bool AutoStartOllama
+        {
+            get => Settings.AutoStartOllama;
+            set
+            {
+                Settings.AutoStartOllama = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>Looks whether Ollama is running, for the line in Settings.</summary>
+        public async Task RefreshOllamaAsync()
+        {
+            OnPropertyChanged(nameof(IsOllama));
+            if (!IsOllama)
+            {
+                return;
+            }
+            OllamaRunning = await OllamaServer.IsRunningAsync(Settings.Endpoint);
+            OllamaStatus = !OllamaInstalled && !OllamaRunning
+                ? Strings.Asst_OllamaMissing
+                : !OllamaRunning ? Strings.Asst_OllamaStopped
+                : _ollama.StartedHere ? Strings.Asst_OllamaRunningHere : Strings.Asst_OllamaRunning;
+            OnPropertyChanged(nameof(CanStartOllama));
+            OnPropertyChanged(nameof(CanStopOllama));
+        }
+
+        [RelayCommand]
+        private async Task StartOllamaAsync()
+        {
+            OllamaBusy = true;
+            OllamaStatus = Strings.Asst_StartingOllama;
+            var problem = await _ollama.StartAsync(Settings.Endpoint);
+            OllamaBusy = false;
+            await RefreshOllamaAsync();
+            if (problem != null)
+            {
+                OllamaStatus = string.Format(Strings.Asst_OllamaDidNotStart, problem);
+            }
+        }
+
+        [RelayCommand]
+        private async Task StopOllamaAsync()
+        {
+            _ollama.Stop();
+            await RefreshOllamaAsync();
+        }
+
+        /// <summary>
+        /// Before a request to Ollama on this computer: start it when the person asked for that, or
+        /// say it isn't running (rather than "couldn't be reached").
+        /// </summary>
+        private async Task<string?> PrepareAsync(CancellationToken cancel)
+        {
+            if (!IsOllama || await OllamaServer.IsRunningAsync(Settings.Endpoint, cancel))
+            {
+                return null;
+            }
+            if (!Settings.AutoStartOllama)
+            {
+                return Strings.Asst_OllamaNotRunning;
+            }
+            Session.SetStatusText(Strings.Asst_StartingOllama);
+            var problem = await _ollama.StartAsync(Settings.Endpoint, cancel);
+            await RefreshOllamaAsync();
+            return problem == null ? null : string.Format(Strings.Asst_OllamaDidNotStart, problem);
+        }
+
+        /// <summary>The window is closing: the conversation is saved, and an Ollama HoboLibris started is stopped.</summary>
+        public void Shutdown()
+        {
+            Session.Shutdown();
+            _ollama.Dispose();
+        }
     }
 }

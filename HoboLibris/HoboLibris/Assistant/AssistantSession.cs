@@ -54,6 +54,12 @@ namespace HoboLibris.Assistant
         public bool IsBusy { get; private set; }
         public string BusyText { get; private set; } = string.Empty;
 
+        /// <summary>
+        /// Readies the model before a request (starts Ollama when asked to); returns why the request
+        /// can't go ahead, or null.  Null in tests.
+        /// </summary>
+        public Func<CancellationToken, Task<string?>>? Prepare { get; set; }
+
         /// <summary>Makes the model's client; replaced in tests by a scripted one.</summary>
         public Func<ChatProviderOptions, IChatProvider> ProviderFactory { get; set; } = ChatProviders.Create;
 
@@ -80,6 +86,9 @@ namespace HoboLibris.Assistant
             BusyText = text;
             BusyChanged?.Invoke();
         }
+
+        /// <summary>What a request is waiting for, shown above the box (starting Ollama).</summary>
+        public void SetStatusText(string text) => SetBusyText(text);
 
         /// <summary>The tools' policies from the settings (after a change in Settings).</summary>
         public void ApplyPolicies()
@@ -131,6 +140,13 @@ namespace HoboLibris.Assistant
 
             try
             {
+                if (Prepare != null && await Prepare(cancel) is { } problem)
+                {
+                    // The request wasn't sent: take it out of what the model sees, so asking again works.
+                    _turns.RemoveAt(_turns.Count - 1);
+                    Items.Add(new NoticeMessage(problem, true));
+                    return;
+                }
                 for (int step = 0; step < maxSteps; step++)
                 {
                     var tools = Tools();

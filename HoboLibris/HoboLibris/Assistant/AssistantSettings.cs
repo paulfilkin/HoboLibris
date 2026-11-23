@@ -42,6 +42,10 @@ namespace HoboLibris.Assistant
         [JsonPropertyName("skip_approvals")]
         public bool SkipApprovals { get; set; }
 
+        /// <summary>Start Ollama's server when a request needs it (an Ollama address only).  Off by default.</summary>
+        [JsonPropertyName("auto_start_ollama")]
+        public bool AutoStartOllama { get; set; }
+
         /// <summary>Policies for the tools that differ from their defaults.</summary>
         [JsonPropertyName("tool_policies")]
         public Dictionary<string, ToolPolicy> ToolPolicies { get; set; } = new();
