@@ -1092,4 +1092,367 @@
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>Темний</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>Помічник</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>Відкрити або закрити Помічника</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>Копіювати розмову</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>Нова розмова</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>Нова розмова (Помічник забуде цю)</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>Закрити Помічника</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>Закрити Помічника (значок Помічника відкриє його знову)</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>Перш ніж питати, виберіть модель ШІ та додайте її ключ API в налаштуваннях.</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>Запитайте про свої книги</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>Помічник може показувати список ваших книг і створювати їхні резервні копії, розкладати їх по колекціях і надсилати на рідер. Усе, що записує на рідер або видаляє файли, чекає на ваш дозвіл.</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>Повідомлення Помічнику</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>Enter надсилає; Shift+Enter починає новий рядок. /clear починає нову розмову.</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>Надіслати (Enter)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>Зупинити запит</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>Скопійовано</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>Копіювати цю відповідь</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>Почати нову розмову? Помічник забуде цю, і її не можна буде повернути.</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>Почато нову розмову з Помічником.</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>Ви</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>Показати або сховати, що було надіслано і що повернулося</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>Надіслано</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>Повернулося</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>Дозволити?</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>Запитано</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>Показати подробиці</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>Сховати подробиці</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>Дозволити</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>Дозволяти завжди</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>Відтепер дозволяти цей інструмент без запиту (можна змінити в налаштуваннях)</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>Відхилити</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>Дозволено</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>Дозволено (завжди для цього інструмента)</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>Відхилено</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>Використати: {0}.</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>Думає…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>Обмірковує результати…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>Чекає на вашу відповідь…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>Виконується…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>Готово</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>Не вдалося</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>Зупинено.</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>Ви відхилили це.</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>Додайте ключ API для {0} в налаштуваннях, у розділі «Модель ШІ», і запитайте знову.</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>Зупинено після {0} кроків (налаштування, розділ «Помічник»). За потреби попросіть його продовжити.</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>Відповідь обрізано налаштуванням найдовшої відповіді ({0} токенів; моделі міркування враховують у ньому свої міркування). Збільште його в налаштуваннях, у розділі «Модель ШІ», а потім напишіть «продовжуй».</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>Можливо, розмова тепер задовга для моделі. Почніть нову розмову або введіть /clear.</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>Не вдалося зв'язатися з {0}: {1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>{0} не відповів протягом п'яти хвилин.</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>{0} відповів {1}: {2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>{0} відповів {1}: {2} Перевірте ключ API в налаштуваннях, у розділі «Модель ШІ».</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>{0} надіслав відповідь, яка не є JSON.</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>{0} не надіслав відповіді.</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>Служба ШІ</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>Служба ШІ на цьому комп'ютері</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>Список книг Kobo</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>Оновити список</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>Резервні копії книг Kobo</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>Видалити резервні копії</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>Список колекцій</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>Список книг у колекціях</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>Створити колекцію</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>Перейменувати колекцію</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>Видалити колекцію</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>Додати книги до колекції</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>Прибрати книги з колекції</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>Скасувати зміни колекцій</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>Зберегти колекції на рідер</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>Список книг для надсилання</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>Надіслати книги на рідер</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>Витягти рідер</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>Список книг Kindle</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>Резервні копії книг Kindle</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>Показати екран</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>Створити резервні копії цих книг ({0}) у папці Kobo: {1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>Перемістити резервні копії цих книг ({0}) до Кошика: {1}. З рідера нічого не видаляється.</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>Зберегти зміни колекцій ({0}) на рідер Kobo. Спершу створюється резервна копія його списку книг.</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>Скопіювати ці файли ({0}) на рідер Kobo: {1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>Витягти рідер Kobo, щоб його можна було від'єднати.</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>Створити резервні копії цих книг Kindle ({0}) у папці Kindle: {1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0} і ще {1}</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>Знайдено книг: {0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>Колекцій: {0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>Незбережених змін: {0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>Готово до надсилання: {0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>Збережено: {0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>Збережено: {0}. Не вдалося: {1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>Надіслано: {0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>Надіслано: {0}. Не вдалося: {1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>Витягнуто</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>Модель ШІ</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>Помічник надсилає ваші запити разом із назвами, авторами, іменами файлів і назвами колекцій, які він переглядає, до вибраної тут служби ШІ. Ваш вхід у Kobo, токени, адреса електронної пошти та шляхи до папок ніколи не надсилаються. Служба на цьому комп'ютері, як-от Ollama чи LM Studio, залишає все тут.</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>Служба</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>Сумісна з OpenAI (Gemini, Mistral, Ollama, LM Studio…)</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>Базова адреса служби, наприклад http://localhost:11434/v1 для Ollama.</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>Виберіть одну або введіть будь-яку назву моделі, яку пропонує служба.</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>Ключ API</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>Введіть або вставте ключ. Його зашифровано для вашого облікового запису Windows, і він більше ніколи не показується.</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>Видалити ключ</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>Для цієї служби збережено ключ.</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>Ключ ще не збережено.</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>Службі на цьому комп'ютері ключ не потрібен.</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>Найдовша відповідь (токени)</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>Від 256 до 64 000. Моделі міркування враховують у ньому свої міркування.</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>Перевірити</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>Надіслати моделі коротке повідомлення з цими налаштуваннями</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>Перевірка…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>{0} відповідає: {1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>Ваші вказівки</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>Додаються до кожної розмови, наприклад як називати колекції.</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>Кроків на запит</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>Скільки разів щонайбільше Помічник звертається до моделі за один запит, від 1 до 100.</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>Не питати перед запуском інструментів. Запис на рідер і видалення файлів однаково питають.</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>Вбудовані інструменти</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>Що Помічник може робити сам. Інструменти, які записують на рідер або видаляють файли, завжди питають.</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>Дозволити</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>Спершу питати</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>Завжди питати</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>Вимкнено</value>
+  </data>
 </root>

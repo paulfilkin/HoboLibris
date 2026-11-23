@@ -1118,4 +1118,367 @@
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>深色</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>助手</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>打开或关闭助手</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>复制对话</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>新对话</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>新对话（助手会忘记此对话）</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>关闭助手</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>关闭助手（点击助手图标可再次打开）</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>提问前，请在设置中选择 AI 模型并添加其 API 密钥。</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>询问有关图书的问题</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>助手可以列出和备份你的图书，将它们整理到收藏集中，并发送到你的电子书阅读器。任何写入电子书阅读器或删除文件的操作都会等待你的批准。</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>发给助手的消息</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>按 Enter 发送；按 Shift+Enter 换行。输入 /clear 开始新对话。</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>发送 (Enter)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>停止请求</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>复制此回答</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>要开始新对话吗？助手会忘记此对话，且无法恢复。</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>已与助手开始新对话。</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>你</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>显示或隐藏发送的内容和返回的内容</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>已发送</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>返回内容</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>允许吗？</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>已询问</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>显示详细信息</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>隐藏详细信息</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>允许</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>始终允许</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>从现在起无需询问即可使用此工具（可在设置中更改）</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>拒绝</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>已允许</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>已允许（此工具始终允许）</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>已拒绝</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>使用{0}。</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>正在思考…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>正在分析结果…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>正在等待你的回答…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>正在运行…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>已停止。</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>你已拒绝。</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>请在设置的“AI 模型”中为 {0} 添加 API 密钥，然后再次提问。</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>已在 {0} 步后停止（设置中的“助手”）。如有需要，请让它继续。</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>回答因“最长回答”设置而被截断（{0} 个令牌；推理模型的推理也计入其中）。请在设置的“AI 模型”中调高该值，然后输入“继续”。</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>对话现在可能对模型来说太长了。请开始新对话或输入 /clear。</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>无法连接到 {0}：{1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>{0} 在五分钟内没有回应。</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>{0} 返回 {1}：{2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>{0} 返回 {1}：{2} 请在设置的“AI 模型”中检查 API 密钥。</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>{0} 发送的回应不是 JSON。</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>{0} 没有发送任何回应。</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>AI 服务</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>本机上的 AI 服务</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>列出 Kobo 图书</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>刷新列表</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>备份 Kobo 图书</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>删除备份副本</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>列出收藏集</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>列出收藏集中的图书</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>创建收藏集</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>重命名收藏集</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>删除收藏集</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>将图书添加到收藏集</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>从收藏集中移除图书</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>撤消收藏集更改</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>将收藏集保存到电子书阅读器</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>列出待发送的图书</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>将图书发送到电子书阅读器</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>弹出电子书阅读器</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>列出 Kindle 图书</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>备份 Kindle 图书</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>显示界面</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>将以下图书（{0}）备份到 Kobo 文件夹：{1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>将以下图书（{0}）的备份副本移至回收站：{1}。不会从电子书阅读器中删除任何内容。</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>将收藏集更改（{0}）保存到 Kobo 电子书阅读器。会先备份其图书列表。</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>将以下文件（{0}）复制到 Kobo 电子书阅读器：{1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>弹出 Kobo 电子书阅读器，以便可以拔下。</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>将以下 Kindle 图书（{0}）备份到 Kindle 文件夹：{1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0} 等另外 {1} 本</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>找到的图书：{0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>收藏集：{0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>待保存的更改：{0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>可发送：{0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>已备份：{0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>已备份：{0}。失败：{1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>已发送：{0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>已发送：{0}。失败：{1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>已弹出</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>AI 模型</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>助手会将你的请求以及它查看的书名、作者、文件名和收藏集名称发送到此处选择的 AI 服务。你的 Kobo 登录信息、令牌、电子邮件地址和文件夹路径绝不会被发送。如果使用本机上的服务（如 Ollama 或 LM Studio），所有内容都会保留在本机。</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>兼容 OpenAI（Gemini、Mistral、Ollama、LM Studio…）</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>服务的基础地址，例如 Ollama 为 http://localhost:11434/v1。</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>模型</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>从列表中选择，或输入该服务提供的任意模型名称。</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>API 密钥</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>输入或粘贴密钥。它会为你的 Windows 帐户加密，且不会再次显示。</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>删除密钥</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>已为此服务保存密钥。</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>尚未保存密钥。</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>本机上的服务不需要密钥。</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>最长回答（令牌）</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>从 256 到 64,000。推理模型的推理也计入其中。</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>使用这些设置向模型发送一条简短消息</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>正在测试…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>{0} 回答：{1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>你的说明</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>会添加到每次对话中，例如收藏集的命名方式。</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>每个请求的步数</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>在一个请求中助手最多回到模型的次数，从 1 到 100。</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>运行工具前不询问。写入电子书阅读器和删除文件仍会询问。</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>内置工具</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>助手可以自行执行的操作。写入电子书阅读器或删除文件的工具始终会询问。</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>允许</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>先询问</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>始终询问</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>关闭</value>
+  </data>
 </root>

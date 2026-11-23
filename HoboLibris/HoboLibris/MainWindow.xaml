@@ -43,6 +43,14 @@
                                  IsChecked="{Binding Tab, Converter={StaticResource EnumEquals}, ConverterParameter=Kindle}"/>
                 </StackPanel>
                 <Menu DockPanel.Dock="Right" Background="Transparent" VerticalAlignment="Center" Margin="12,0,0,0">
+                    <!-- The Assistant: opens or closes its pane on the right -->
+                    <MenuItem Style="{StaticResource RoundedMenuItem}" Command="{Binding Assistant.TogglePaneCommand}"
+                              ToolTip="{x:Static res:Strings.Asst_ToggleTip}"
+                              AutomationProperties.Name="{x:Static res:Strings.Asst_Title}">
+                        <MenuItem.Header>
+                            <TextBlock Text="&#xE8BD;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="16"/>
+                        </MenuItem.Header>
+                    </MenuItem>
                     <!-- Language: a globe icon with the languages in a list beneath it, filled in MainWindow.xaml.cs -->
                     <MenuItem x:Name="LanguageMenu" Style="{StaticResource LanguageMenuItem}"
                               ToolTip="{x:Static res:Strings.Menu_Language}"
@@ -95,30 +103,42 @@
             </DockPanel>
         </Border>
 
-        <!-- Content -->
-        <Grid Margin="16,12,16,12">
-            <!-- Kobo tab -->
-            <Grid Visibility="{Binding IsKoboTab, Converter={StaticResource BoolToVisibilityConverter}}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_BackUpTab}"
-                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Backup}"/>
-                    <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_CollectionsTab}"
-                                 ToolTip="{x:Static res:Strings.Kobo_CollectionsTabTip}"
-                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Collections}"/>
-                    <RadioButton Style="{StaticResource NavButton}" Content="{Binding SendTabLabel}"
-                                 ToolTip="{x:Static res:Strings.Kobo_SendTabTip}"
-                                 IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Send}"/>
-                </StackPanel>
-                <views:KoboBackupView Grid.Row="1" Visibility="{Binding IsBackupMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                <views:CollectionsView Grid.Row="1" Visibility="{Binding IsCollectionsMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                <views:SendView Grid.Row="1" Visibility="{Binding IsSendMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <!-- Content, with the Assistant pane on the right when it is open -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="520"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition x:Name="PaneColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="16,12,16,12">
+                <!-- Kobo tab -->
+                <Grid Visibility="{Binding IsKoboTab, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                        <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_BackUpTab}"
+                                     IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Backup}"/>
+                        <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_CollectionsTab}"
+                                     ToolTip="{x:Static res:Strings.Kobo_CollectionsTabTip}"
+                                     IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Collections}"/>
+                        <RadioButton Style="{StaticResource NavButton}" Content="{Binding SendTabLabel}"
+                                     ToolTip="{x:Static res:Strings.Kobo_SendTabTip}"
+                                     IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Send}"/>
+                    </StackPanel>
+                    <views:KoboBackupView Grid.Row="1" Visibility="{Binding IsBackupMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    <views:CollectionsView Grid.Row="1" Visibility="{Binding IsCollectionsMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    <views:SendView Grid.Row="1" Visibility="{Binding IsSendMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </Grid>
+                <!-- Kindle tab -->
+                <views:KindleView Visibility="{Binding IsKindleTab, Converter={StaticResource BoolToVisibilityConverter}}"/>
             </Grid>
-            <!-- Kindle tab -->
-            <views:KindleView Visibility="{Binding IsKindleTab, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            <GridSplitter x:Name="PaneSplitter" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent"
+                          ResizeBehavior="PreviousAndNext" Focusable="False" DragCompleted="PaneSplitter_DragCompleted"
+                          Visibility="{Binding Assistant.PaneVisible, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            <views:AssistantPane x:Name="Pane" Grid.Column="2" DataContext="{Binding Assistant}"
+                                 Visibility="{Binding PaneVisible, Converter={StaticResource BoolToVisibilityConverter}}"/>
         </Grid>
     </DockPanel>
 </Window>

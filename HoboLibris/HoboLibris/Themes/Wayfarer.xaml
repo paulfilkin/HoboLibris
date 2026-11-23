@@ -271,10 +271,15 @@
                                 </ControlTemplate>
                             </ToggleButton.Template>
                         </ToggleButton>
-                        <ContentPresenter IsHitTestVisible="False" Margin="10,4,28,4" VerticalAlignment="Center"
+                        <ContentPresenter x:Name="Shown" IsHitTestVisible="False" Margin="10,4,28,4" VerticalAlignment="Center"
                                           Content="{TemplateBinding SelectionBoxItem}"
                                           ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                           ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                        <!-- An editable drop-down (a name that can be typed or picked) -->
+                        <TextBox x:Name="PART_EditableTextBox" Visibility="Collapsed" Margin="7,3,26,3" VerticalAlignment="Center"
+                                 Background="Transparent" BorderThickness="0" Foreground="{TemplateBinding Foreground}"
+                                 CaretBrush="{DynamicResource TextPrimaryBrush}" FontSize="{TemplateBinding FontSize}"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"/>
                         <Popup x:Name="PART_Popup" Placement="Bottom" AllowsTransparency="True" Focusable="False"
                                PopupAnimation="Fade"
                                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}">
@@ -289,6 +294,10 @@
                         </Popup>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsEditable" Value="True">
+                            <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="Shown" Property="Visibility" Value="Hidden"/>
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.45"/>
                         </Trigger>

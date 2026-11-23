@@ -1118,4 +1118,367 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>ダーク</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>アシスタント</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>アシスタントを開くまたは閉じる</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>会話をコピー</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>新しい会話</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>新しい会話 (アシスタントはこの会話を忘れます)</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>アシスタントを閉じる</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>アシスタントを閉じる (アシスタントのアイコンで再び開きます)</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>質問する前に、設定で AI モデルを選び、その API キーを追加してください。</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>書籍について質問してください</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>アシスタントは、書籍の一覧表示とバックアップ、コレクションへの整理、電子書籍リーダーへの送信ができます。電子書籍リーダーへの書き込みやファイルの削除は、あなたの承認を待ちます。</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>アシスタントへのメッセージ</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>Enter で送信、Shift+Enter で改行します。/clear で新しい会話を始めます。</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>送信 (Enter)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>要求を中止</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>コピーしました</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>この回答をコピー</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>新しい会話を始めますか? アシスタントはこの会話を忘れ、元に戻すことはできません。</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>アシスタントとの新しい会話を始めました。</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>あなた</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>送信した内容と返ってきた内容を表示または非表示</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>送信</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>結果</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>許可しますか?</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>確認済み</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>詳細を表示</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>詳細を非表示</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>許可</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>常に許可</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>今後このツールを確認なしで許可します (設定で変更できます)</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>拒否</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>許可しました</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>許可しました (このツールは常に許可)</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>拒否しました</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>{0} を使用します。</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>考えています…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>結果を検討しています…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>あなたの回答を待っています…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>実行中…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>失敗</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>中止しました。</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>拒否しました。</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>設定の [AI モデル] で {0} の API キーを追加してから、もう一度質問してください。</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>{0} ステップで停止しました (設定の [アシスタント])。必要なら続けるよう指示してください。</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>最長の回答の設定 ({0} トークン。推論モデルは推論もこれに含めます) により回答が途中で切れました。設定の [AI モデル] で値を上げてから「続けて」と入力してください。</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>会話がモデルにとって長すぎる可能性があります。新しい会話を始めるか、/clear と入力してください。</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>{0} に接続できませんでした: {1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>{0} から 5 分以内に応答がありませんでした。</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>{0} の応答 {1}: {2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>{0} の応答 {1}: {2} 設定の [AI モデル] で API キーを確認してください。</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>{0} から JSON ではない応答が返されました。</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>{0} から応答がありませんでした。</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>AI サービス</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>このコンピューター上の AI サービス</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>Kobo の書籍を一覧表示</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>一覧を更新</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>Kobo の書籍をバックアップ</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>バックアップ コピーを削除</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>コレクションを一覧表示</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>コレクションの書籍を一覧表示</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>コレクションを作成</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>コレクションの名前を変更</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>コレクションを削除</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>コレクションに書籍を追加</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>コレクションから書籍を外す</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>コレクションの変更を元に戻す</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>コレクションを電子書籍リーダーに保存</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>送信する書籍を一覧表示</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>書籍を電子書籍リーダーに送信</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>電子書籍リーダーを取り出す</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>Kindle の書籍を一覧表示</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>Kindle の書籍をバックアップ</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>画面を表示</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>次の書籍 ({0}) を Kobo フォルダーにバックアップします: {1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>次の書籍 ({0}) のバックアップ コピーをごみ箱に移動します: {1}。電子書籍リーダーからは何も削除されません。</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>コレクションの変更 ({0}) を Kobo 電子書籍リーダーに保存します。先にその書籍リストをバックアップします。</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>次のファイル ({0}) を Kobo 電子書籍リーダーにコピーします: {1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを取り外せるように取り出します。</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>次の Kindle の書籍 ({0}) を Kindle フォルダーにバックアップします: {1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0}、ほか {1} 件</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>見つかった書籍: {0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>コレクション: {0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>未保存の変更: {0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>送信できる書籍: {0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>バックアップ済み: {0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>バックアップ済み: {0}。失敗: {1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>送信済み: {0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>送信済み: {0}。失敗: {1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>取り出しました</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>AI モデル</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>アシスタントは、あなたの要求と、参照した書籍名、著者、ファイル名、コレクション名を、ここで選んだ AI サービスに送信します。Kobo のサインイン情報、トークン、メール アドレス、フォルダーのパスは送信されません。Ollama や LM Studio など、このコンピューター上のサービスなら、すべてがこのコンピューター内にとどまります。</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>サービス</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>OpenAI 互換 (Gemini、Mistral、Ollama、LM Studio…)</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>アドレス</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>サービスのベース アドレス。Ollama なら http://localhost:11434/v1 など。</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>モデル</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>一覧から選ぶか、サービスが提供するモデル名を入力してください。</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>API キー</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>キーを入力するか貼り付けてください。Windows アカウント用に暗号化され、二度と表示されません。</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>キーを削除</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>このサービスのキーは保存済みです。</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>キーはまだ保存されていません。</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>このコンピューター上のサービスにキーは不要です。</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>最長の回答 (トークン)</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>256 から 64,000 まで。推論モデルは推論もこれに含めます。</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>テスト</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>この設定でモデルに短いメッセージを 1 つ送信します</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>テストしています…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>{0} の回答: {1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>あなたの指示</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>すべての会話に追加されます。たとえばコレクションの名前の付け方など。</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>1 回の要求あたりのステップ数</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>1 回の要求でアシスタントがモデルに問い合わせる最大回数 (1 から 100)。</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>ツールの実行前に確認しない。電子書籍リーダーへの書き込みとファイルの削除は引き続き確認します。</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>組み込みツール</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>アシスタントが自分で行ってよいこと。電子書籍リーダーに書き込むツールやファイルを削除するツールは常に確認します。</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>許可</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>先に確認</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>常に確認</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>オフ</value>
+  </data>
 </root>

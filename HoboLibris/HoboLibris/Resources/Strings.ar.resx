@@ -1092,4 +1092,367 @@
   <data name="Settings_ThemeDark" xml:space="preserve">
     <value>داكن</value>
   </data>
+  <data name="Asst_Title" xml:space="preserve">
+    <value>المساعد</value>
+  </data>
+  <data name="Asst_ToggleTip" xml:space="preserve">
+    <value>فتح المساعد أو إغلاقه</value>
+  </data>
+  <data name="Asst_CopyConversation" xml:space="preserve">
+    <value>نسخ المحادثة</value>
+  </data>
+  <data name="Asst_NewConversation" xml:space="preserve">
+    <value>محادثة جديدة</value>
+  </data>
+  <data name="Asst_NewConversationTip" xml:space="preserve">
+    <value>محادثة جديدة (ينسى المساعد هذه المحادثة)</value>
+  </data>
+  <data name="Asst_Close" xml:space="preserve">
+    <value>إغلاق المساعد</value>
+  </data>
+  <data name="Asst_CloseTip" xml:space="preserve">
+    <value>إغلاق المساعد (تعيد أيقونة المساعد فتحه)</value>
+  </data>
+  <data name="Asst_SetUpBanner" xml:space="preserve">
+    <value>اختر نموذج ذكاء اصطناعي وأضف مفتاح API الخاص به في الإعدادات قبل السؤال.</value>
+  </data>
+  <data name="Asst_EmptyHeading" xml:space="preserve">
+    <value>اسأل عن كتبك</value>
+  </data>
+  <data name="Asst_EmptyText" xml:space="preserve">
+    <value>يستطيع المساعد عرض كتبك ونسخها احتياطيًا وتنظيمها في مجموعات وإرسالها إلى قارئك الإلكتروني. كل ما يكتب على القارئ الإلكتروني أو يحذف ملفات ينتظر موافقتك.</value>
+  </data>
+  <data name="Asst_InputName" xml:space="preserve">
+    <value>رسالة إلى المساعد</value>
+  </data>
+  <data name="Asst_InputTip" xml:space="preserve">
+    <value>Enter للإرسال؛ Shift+Enter لبدء سطر جديد. ‎/clear تبدأ محادثة جديدة.</value>
+  </data>
+  <data name="Asst_SendTip" xml:space="preserve">
+    <value>إرسال (Enter)</value>
+  </data>
+  <data name="Asst_StopTip" xml:space="preserve">
+    <value>إيقاف الطلب</value>
+  </data>
+  <data name="Asst_Copy" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="Asst_Copied" xml:space="preserve">
+    <value>تم النسخ</value>
+  </data>
+  <data name="Asst_CopyTip" xml:space="preserve">
+    <value>نسخ هذه الإجابة</value>
+  </data>
+  <data name="Asst_ClearPrompt" xml:space="preserve">
+    <value>هل تريد بدء محادثة جديدة؟ سينسى المساعد هذه المحادثة، ولا يمكن استعادتها.</value>
+  </data>
+  <data name="Asst_Cleared" xml:space="preserve">
+    <value>بدأت محادثة جديدة مع المساعد.</value>
+  </data>
+  <data name="Asst_You" xml:space="preserve">
+    <value>أنت</value>
+  </data>
+  <data name="Asst_ToolDetailsTip" xml:space="preserve">
+    <value>إظهار أو إخفاء ما أُرسل وما عاد</value>
+  </data>
+  <data name="Asst_Arguments" xml:space="preserve">
+    <value>ما أُرسل</value>
+  </data>
+  <data name="Asst_Result" xml:space="preserve">
+    <value>ما عاد</value>
+  </data>
+  <data name="Asst_AllowThis" xml:space="preserve">
+    <value>هل تسمح بهذا؟</value>
+  </data>
+  <data name="Asst_Asked" xml:space="preserve">
+    <value>تم السؤال</value>
+  </data>
+  <data name="Asst_ShowDetails" xml:space="preserve">
+    <value>إظهار التفاصيل</value>
+  </data>
+  <data name="Asst_HideDetails" xml:space="preserve">
+    <value>إخفاء التفاصيل</value>
+  </data>
+  <data name="Asst_Allow" xml:space="preserve">
+    <value>سماح</value>
+  </data>
+  <data name="Asst_AlwaysAllow" xml:space="preserve">
+    <value>السماح دائمًا</value>
+  </data>
+  <data name="Asst_AlwaysAllowTip" xml:space="preserve">
+    <value>السماح بهذه الأداة من الآن دون سؤال (يمكن تغيير ذلك في الإعدادات)</value>
+  </data>
+  <data name="Asst_Decline" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="Asst_Allowed" xml:space="preserve">
+    <value>تم السماح</value>
+  </data>
+  <data name="Asst_AllowedAlways" xml:space="preserve">
+    <value>تم السماح (دائمًا لهذه الأداة)</value>
+  </data>
+  <data name="Asst_Declined" xml:space="preserve">
+    <value>تم الرفض</value>
+  </data>
+  <data name="Asst_UseTool" xml:space="preserve">
+    <value>استخدام {0}.</value>
+  </data>
+  <data name="Asst_Thinking" xml:space="preserve">
+    <value>جارٍ التفكير…</value>
+  </data>
+  <data name="Asst_ThinkingResults" xml:space="preserve">
+    <value>جارٍ التفكير في النتائج…</value>
+  </data>
+  <data name="Asst_WaitingForAnswer" xml:space="preserve">
+    <value>بانتظار إجابتك…</value>
+  </data>
+  <data name="Asst_Running" xml:space="preserve">
+    <value>قيد التشغيل…</value>
+  </data>
+  <data name="Asst_Done" xml:space="preserve">
+    <value>تم</value>
+  </data>
+  <data name="Asst_Failed" xml:space="preserve">
+    <value>فشل</value>
+  </data>
+  <data name="Asst_Stopped" xml:space="preserve">
+    <value>تم الإيقاف.</value>
+  </data>
+  <data name="Asst_YouDeclined" xml:space="preserve">
+    <value>لقد رفضت هذا.</value>
+  </data>
+  <data name="Asst_AddKeyFirst" xml:space="preserve">
+    <value>أضف مفتاح API لـ {0} في الإعدادات، ضمن نموذج الذكاء الاصطناعي، ثم اسأل مرة أخرى.</value>
+  </data>
+  <data name="Asst_StoppedAfterSteps" xml:space="preserve">
+    <value>توقف بعد {0} خطوات (الإعدادات، ضمن المساعد). اطلب منه المتابعة إذا لزم الأمر.</value>
+  </data>
+  <data name="Asst_CutShort" xml:space="preserve">
+    <value>قُطعت الإجابة بسبب إعداد أطول إجابة ({0} رمز؛ تحتسب نماذج الاستدلال استدلالها ضمنه). ارفعه في الإعدادات، ضمن نموذج الذكاء الاصطناعي، ثم اكتب "تابع".</value>
+  </data>
+  <data name="Asst_TooLong" xml:space="preserve">
+    <value>قد تكون المحادثة الآن أطول مما يحتمله النموذج. ابدأ محادثة جديدة، أو اكتب ‎/clear.</value>
+  </data>
+  <data name="Asst_ProviderUnreachable" xml:space="preserve">
+    <value>تعذّر الوصول إلى {0}: {1}</value>
+  </data>
+  <data name="Asst_ProviderTimeout" xml:space="preserve">
+    <value>لم يُجب {0} خلال خمس دقائق.</value>
+  </data>
+  <data name="Asst_ProviderError" xml:space="preserve">
+    <value>أجاب {0} بالرمز {1}: {2}</value>
+  </data>
+  <data name="Asst_ProviderErrorKey" xml:space="preserve">
+    <value>أجاب {0} بالرمز {1}: {2} تحقق من مفتاح API في الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
+  </data>
+  <data name="Asst_ProviderNotJson" xml:space="preserve">
+    <value>أرسل {0} إجابة ليست بصيغة JSON.</value>
+  </data>
+  <data name="Asst_ProviderNoAnswer" xml:space="preserve">
+    <value>لم يرسل {0} أي إجابة.</value>
+  </data>
+  <data name="Asst_AiService" xml:space="preserve">
+    <value>خدمة ذكاء اصطناعي</value>
+  </data>
+  <data name="Asst_LocalAiService" xml:space="preserve">
+    <value>خدمة ذكاء اصطناعي على هذا الكمبيوتر</value>
+  </data>
+  <data name="Asst_Tool_ListBooks" xml:space="preserve">
+    <value>عرض كتب Kobo</value>
+  </data>
+  <data name="Asst_Tool_Refresh" xml:space="preserve">
+    <value>تحديث القائمة</value>
+  </data>
+  <data name="Asst_Tool_BackUp" xml:space="preserve">
+    <value>نسخ كتب Kobo احتياطيًا</value>
+  </data>
+  <data name="Asst_Tool_DeleteBackups" xml:space="preserve">
+    <value>حذف النسخ الاحتياطية</value>
+  </data>
+  <data name="Asst_Tool_ListCollections" xml:space="preserve">
+    <value>عرض المجموعات</value>
+  </data>
+  <data name="Asst_Tool_ListCollectionBooks" xml:space="preserve">
+    <value>عرض الكتب في المجموعات</value>
+  </data>
+  <data name="Asst_Tool_CreateCollection" xml:space="preserve">
+    <value>إنشاء مجموعة</value>
+  </data>
+  <data name="Asst_Tool_RenameCollection" xml:space="preserve">
+    <value>إعادة تسمية مجموعة</value>
+  </data>
+  <data name="Asst_Tool_DeleteCollection" xml:space="preserve">
+    <value>حذف مجموعة</value>
+  </data>
+  <data name="Asst_Tool_AddToCollection" xml:space="preserve">
+    <value>إضافة كتب إلى مجموعة</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromCollection" xml:space="preserve">
+    <value>إزالة كتب من مجموعة</value>
+  </data>
+  <data name="Asst_Tool_UndoCollections" xml:space="preserve">
+    <value>التراجع عن تغييرات المجموعات</value>
+  </data>
+  <data name="Asst_Tool_SaveCollections" xml:space="preserve">
+    <value>حفظ المجموعات على القارئ الإلكتروني</value>
+  </data>
+  <data name="Asst_Tool_ListSend" xml:space="preserve">
+    <value>عرض الكتب الجاهزة للإرسال</value>
+  </data>
+  <data name="Asst_Tool_Send" xml:space="preserve">
+    <value>إرسال كتب إلى القارئ الإلكتروني</value>
+  </data>
+  <data name="Asst_Tool_Eject" xml:space="preserve">
+    <value>إخراج القارئ الإلكتروني</value>
+  </data>
+  <data name="Asst_Tool_ListKindle" xml:space="preserve">
+    <value>عرض كتب Kindle</value>
+  </data>
+  <data name="Asst_Tool_BackUpKindle" xml:space="preserve">
+    <value>نسخ كتب Kindle احتياطيًا</value>
+  </data>
+  <data name="Asst_Tool_ShowScreen" xml:space="preserve">
+    <value>عرض شاشة</value>
+  </data>
+  <data name="Asst_Desc_BackUp" xml:space="preserve">
+    <value>نسخ هذه الكتب ({0}) احتياطيًا إلى مجلد Kobo: {1}</value>
+  </data>
+  <data name="Asst_Desc_DeleteBackups" xml:space="preserve">
+    <value>نقل النسخ الاحتياطية لهذه الكتب ({0}) إلى سلة المحذوفات: {1}. لا يُزال شيء من القارئ الإلكتروني.</value>
+  </data>
+  <data name="Asst_Desc_SaveCollections" xml:space="preserve">
+    <value>حفظ تغييرات المجموعات ({0}) على قارئ Kobo الإلكتروني. تُنسخ قائمة كتبه احتياطيًا أولًا.</value>
+  </data>
+  <data name="Asst_Desc_Send" xml:space="preserve">
+    <value>نسخ هذه الملفات ({0}) إلى قارئ Kobo الإلكتروني: {1}</value>
+  </data>
+  <data name="Asst_Desc_Eject" xml:space="preserve">
+    <value>إخراج قارئ Kobo الإلكتروني ليمكن فصله.</value>
+  </data>
+  <data name="Asst_Desc_BackUpKindle" xml:space="preserve">
+    <value>نسخ كتب Kindle هذه ({0}) احتياطيًا إلى مجلد Kindle: {1}</value>
+  </data>
+  <data name="Asst_AndMore" xml:space="preserve">
+    <value>{0} و{1} أخرى</value>
+  </data>
+  <data name="Asst_BooksFound" xml:space="preserve">
+    <value>الكتب التي عُثر عليها: {0}</value>
+  </data>
+  <data name="Asst_CollectionsFound" xml:space="preserve">
+    <value>المجموعات: {0}</value>
+  </data>
+  <data name="Asst_ChangesWaiting" xml:space="preserve">
+    <value>تغييرات بانتظار الحفظ: {0}</value>
+  </data>
+  <data name="Asst_FilesReady" xml:space="preserve">
+    <value>جاهزة للإرسال: {0}</value>
+  </data>
+  <data name="Asst_BackedUp" xml:space="preserve">
+    <value>تم نسخها احتياطيًا: {0}</value>
+  </data>
+  <data name="Asst_BackedUpWithFailures" xml:space="preserve">
+    <value>تم نسخها احتياطيًا: {0}. فشل: {1}</value>
+  </data>
+  <data name="Asst_Sent" xml:space="preserve">
+    <value>تم الإرسال: {0}</value>
+  </data>
+  <data name="Asst_SentWithFailures" xml:space="preserve">
+    <value>تم الإرسال: {0}. فشل: {1}</value>
+  </data>
+  <data name="Asst_Ejected" xml:space="preserve">
+    <value>تم الإخراج</value>
+  </data>
+  <data name="Asst_ModelHeader" xml:space="preserve">
+    <value>نموذج الذكاء الاصطناعي</value>
+  </data>
+  <data name="Asst_WhatIsSent" xml:space="preserve">
+    <value>يرسل المساعد طلباتك، مع العناوين والمؤلفين وأسماء الملفات وأسماء المجموعات التي يطّلع عليها، إلى خدمة الذكاء الاصطناعي المختارة هنا. لا تُرسل أبدًا بيانات تسجيل دخولك إلى Kobo ولا الرموز المميزة ولا عنوان بريدك الإلكتروني ولا مسارات المجلدات. الخدمة التي تعمل على هذا الكمبيوتر، مثل Ollama أو LM Studio، تُبقي كل شيء هنا.</value>
+  </data>
+  <data name="Asst_Provider" xml:space="preserve">
+    <value>الخدمة</value>
+  </data>
+  <data name="Asst_ProviderCompatible" xml:space="preserve">
+    <value>متوافقة مع OpenAI (Gemini وMistral وOllama وLM Studio…)</value>
+  </data>
+  <data name="Asst_Endpoint" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Asst_EndpointHint" xml:space="preserve">
+    <value>العنوان الأساسي للخدمة، مثل http://localhost:11434/v1 لـ Ollama.</value>
+  </data>
+  <data name="Asst_Model" xml:space="preserve">
+    <value>النموذج</value>
+  </data>
+  <data name="Asst_ModelHint" xml:space="preserve">
+    <value>اختر نموذجًا أو اكتب أي اسم نموذج تقدمه الخدمة.</value>
+  </data>
+  <data name="Asst_ApiKey" xml:space="preserve">
+    <value>مفتاح API</value>
+  </data>
+  <data name="Asst_ApiKeyHint" xml:space="preserve">
+    <value>اكتب المفتاح أو الصقه. يُشفَّر لحساب Windows الخاص بك ولا يُعرض مرة أخرى.</value>
+  </data>
+  <data name="Asst_RemoveKey" xml:space="preserve">
+    <value>إزالة المفتاح</value>
+  </data>
+  <data name="Asst_KeySaved" xml:space="preserve">
+    <value>يوجد مفتاح محفوظ لهذه الخدمة.</value>
+  </data>
+  <data name="Asst_KeyNone" xml:space="preserve">
+    <value>لم يُحفظ أي مفتاح بعد.</value>
+  </data>
+  <data name="Asst_KeyNotNeeded" xml:space="preserve">
+    <value>الخدمة التي تعمل على هذا الكمبيوتر لا تحتاج إلى مفتاح.</value>
+  </data>
+  <data name="Asst_MaxTokens" xml:space="preserve">
+    <value>أطول إجابة (رموز)</value>
+  </data>
+  <data name="Asst_MaxTokensHint" xml:space="preserve">
+    <value>من 256 إلى 64,000. تحتسب نماذج الاستدلال استدلالها ضمنه.</value>
+  </data>
+  <data name="Asst_Test" xml:space="preserve">
+    <value>اختبار</value>
+  </data>
+  <data name="Asst_TestTip" xml:space="preserve">
+    <value>إرسال رسالة قصيرة إلى النموذج بهذه الإعدادات</value>
+  </data>
+  <data name="Asst_Testing" xml:space="preserve">
+    <value>جارٍ الاختبار…</value>
+  </data>
+  <data name="Asst_TestOk" xml:space="preserve">
+    <value>أجاب {0}: {1}</value>
+  </data>
+  <data name="Asst_Instructions" xml:space="preserve">
+    <value>تعليماتك</value>
+  </data>
+  <data name="Asst_InstructionsHint" xml:space="preserve">
+    <value>تُضاف إلى كل محادثة، مثل طريقة تسمية المجموعات.</value>
+  </data>
+  <data name="Asst_MaxSteps" xml:space="preserve">
+    <value>الخطوات لكل طلب</value>
+  </data>
+  <data name="Asst_MaxStepsHint" xml:space="preserve">
+    <value>أكبر عدد مرات يعود فيها المساعد إلى النموذج في طلب واحد، من 1 إلى 100.</value>
+  </data>
+  <data name="Asst_SkipApprovals" xml:space="preserve">
+    <value>عدم السؤال قبل تشغيل الأدوات. تظل الكتابة على القارئ الإلكتروني وحذف الملفات تطلب الموافقة.</value>
+  </data>
+  <data name="Asst_ToolsHeader" xml:space="preserve">
+    <value>الأدوات المضمّنة</value>
+  </data>
+  <data name="Asst_ToolsHint" xml:space="preserve">
+    <value>ما يمكن للمساعد فعله بنفسه. الأدوات التي تكتب على القارئ الإلكتروني أو تحذف ملفات تسأل دائمًا.</value>
+  </data>
+  <data name="Asst_PolicyAllow" xml:space="preserve">
+    <value>سماح</value>
+  </data>
+  <data name="Asst_PolicyAsk" xml:space="preserve">
+    <value>السؤال أولًا</value>
+  </data>
+  <data name="Asst_PolicyAlwaysAsk" xml:space="preserve">
+    <value>السؤال دائمًا</value>
+  </data>
+  <data name="Asst_PolicyOff" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
 </root>

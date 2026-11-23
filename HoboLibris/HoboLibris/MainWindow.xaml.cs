@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using HoboLibris.Assistant;
 using HoboLibris.Helpers;
 using HoboLibris.Resources;
 using HoboLibris.Services;
@@ -38,15 +39,66 @@ namespace HoboLibris
                 ShowError = message => MessageBox.Show(ActiveOwner(), message, Strings.Common_Error,
                     MessageBoxButton.OK, MessageBoxImage.Error),
             };
+            // A picture for checking the look keeps no conversation and leaves the saved one alone.
+            var screenshot = Environment.GetCommandLineArgs().Contains("--screenshot");
+            ViewModel.Assistant = new AssistantViewModel(ViewModel, screenshot ? null : ConversationStore.DefaultPath)
+            {
+                ConfirmClear = () => MessageBox.Show(this, Strings.Asst_ClearPrompt, Strings.Asst_Title,
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes,
+                CopyText = text =>
+                {
+                    try
+                    {
+                        Clipboard.SetText(text);
+                    }
+                    catch (System.Runtime.InteropServices.COMException)
+                    {
+                        // The clipboard is busy; the person can try again.
+                    }
+                },
+            };
+            ViewModel.Assistant.PropertyChanged += (_, e) =>
+            {
+                if (e.PropertyName == nameof(AssistantViewModel.PaneVisible))
+                {
+                    LayOutPane();
+                }
+            };
+            Pane.SettingsRequested += OpenSettings;
             DataContext = ViewModel;
             ThemeManager.Start(ViewModel.Theme);
             BuildLanguageMenu();
+            LayOutPane();
             Loaded += async (_, _) => await ViewModel.StartAsync();
+            Closing += (_, _) => ViewModel.Assistant.Shutdown();
+        }
+
+        /// <summary>The pane's column: its saved width when the pane is open, nothing when it is closed.</summary>
+        private void LayOutPane()
+        {
+            var assistant = ViewModel.Assistant!;
+            PaneColumn.MinWidth = assistant.PaneVisible ? 300 : 0;
+            PaneColumn.Width = assistant.PaneVisible ? new GridLength(assistant.PaneWidth) : new GridLength(0);
+            if (assistant.PaneVisible)
+            {
+                Pane.FocusInput();
+            }
+        }
+
+        private void PaneSplitter_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            ViewModel.Assistant!.PaneWidth = PaneColumn.ActualWidth;
         }
 
         /// <summary>Save a picture of this window to a PNG after a few seconds, then close.</summary>
-        public void PrepareScreenshot(string path, bool kindle, bool send, bool collections)
+        public void PrepareScreenshot(string path, bool kindle, bool send, bool collections, bool assistant = false)
         {
+            if (assistant)
+            {
+                // The pane with a sample exchange; the setting isn't saved, since nothing is kept in this mode.
+                ViewModel.Assistant!.ShowPaneWithoutSaving();
+                ViewModel.Assistant.Session.AddDemo();
+            }
             if (kindle)
             {
                 ViewModel.Tab = MainTab.Kindle;
@@ -105,7 +157,9 @@ namespace HoboLibris
         private Window ActiveOwner() =>
             Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive) ?? this;
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void Settings_Click(object sender, RoutedEventArgs e) => OpenSettings();
+
+        private void OpenSettings()
         {
             new SettingsWindow { Owner = this, DataContext = ViewModel }.ShowDialog();
         }
