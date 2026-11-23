@@ -1,0 +1,102 @@
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using HoboLibris.Services;
+using HoboLibris.ViewModels;
+using HoboLibris.Windows;
+
+namespace HoboLibris
+{
+    public partial class MainWindow : Window
+    {
+        public MainViewModel ViewModel { get; }
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            ViewModel = new MainViewModel(Dispatcher)
+            {
+                ShowSignIn = url =>
+                {
+                    var window = new SignInWindow(url) { Owner = this };
+                    return window.ShowDialog() == true ? window.ReturnUrl : null;
+                },
+                ConfirmDelete = request =>
+                {
+                    var window = new DeleteBooksWindow(request) { Owner = this };
+                    return window.ShowDialog() == true ? (true, window.RemoveFromReader) : (false, false);
+                },
+                PickFolder = (title, initial) => Dialogs.PickFolder(this, title, initial),
+            };
+            DataContext = ViewModel;
+            Loaded += async (_, _) => await ViewModel.StartAsync();
+        }
+
+        /// <summary>Save a picture of this window to a PNG after a few seconds, then close.</summary>
+        public void PrepareScreenshot(string path, bool kindle, bool send, bool collections)
+        {
+            if (kindle)
+            {
+                ViewModel.Tab = MainTab.Kindle;
+            }
+            if (send)
+            {
+                ViewModel.KoboMode = KoboMode.Send;
+            }
+            if (collections)
+            {
+                ViewModel.KoboMode = KoboMode.Collections;
+            }
+            var timer = new System.Windows.Threading.DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
+            timer.Tick += (_, _) =>
+            {
+                timer.Stop();
+                try
+                {
+                    var dpi = VisualTreeHelper.GetDpi(this);
+                    var root = (FrameworkElement)Content;
+                    var bitmap = new RenderTargetBitmap(
+                        (int)Math.Ceiling(root.ActualWidth * dpi.DpiScaleX),
+                        (int)Math.Ceiling(root.ActualHeight * dpi.DpiScaleY),
+                        dpi.PixelsPerInchX, dpi.PixelsPerInchY, PixelFormats.Pbgra32);
+                    // The window's own background isn't part of the content tree: paint it first.
+                    // A right-to-left window mirrors its content itself, so the picture is mirrored
+                    // the same way to show what the person sees.
+                    var area = new Rect(0, 0, root.ActualWidth, root.ActualHeight);
+                    var picture = new DrawingVisual();
+                    using (var dc = picture.RenderOpen())
+                    {
+                        dc.DrawRectangle(Background, null, area);
+                        if (FlowDirection == FlowDirection.RightToLeft)
+                        {
+                            dc.PushTransform(new MatrixTransform(-1, 0, 0, 1, root.ActualWidth, 0));
+                        }
+                        dc.DrawRectangle(new VisualBrush(root) { Stretch = Stretch.None, AlignmentX = AlignmentX.Left, AlignmentY = AlignmentY.Top }, null, area);
+                    }
+                    bitmap.Render(picture);
+                    var encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(bitmap));
+                    using var file = System.IO.File.Create(path);
+                    encoder.Save(file);
+                    LogManager.Info($"Screenshot saved to {path}");
+                }
+                catch (Exception ex)
+                {
+                    LogManager.Error(ex, "Screenshot failed");
+                }
+                Close();
+            };
+            timer.Start();
+        }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            new AboutWindow { Owner = this }.ShowDialog();
+        }
+
+        private void Language_Click(object sender, RoutedEventArgs e)
+        {
+            new LanguageWindow { Owner = this }.ShowDialog();
+        }
+    }
+}

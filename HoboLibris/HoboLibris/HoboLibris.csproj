@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>1.0.0</Version>
+		<Company>multifarious</Company>
+		<Authors>multifarious</Authors>
+		<Product>HoboLibris</Product>
+		<Description>Keep, organise and sync your Kobo and Kindle books</Description>
+		<Copyright>Copyright © 2026 multifarious</Copyright>
+		<AssemblyName>HoboLibris</AssemblyName>
+		<RootNamespace>HoboLibris</RootNamespace>
+		<NoWarn>CA1416</NoWarn>
+		<SatelliteResourceLanguages>en;ar;de;es;fr;he;it;ja;ko;pt;uk;zh-CN</SatelliteResourceLanguages>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<SelfContained>false</SelfContained>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Logging -->
+		<PackageReference Include="NLog" Version="6.0.6" />
+		<!-- MVVM helpers: ObservableObject, RelayCommand -->
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<!-- The Kobo sign-in page -->
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3485.44" />
+		<!-- The eReader's book list (KoboReader.sqlite) -->
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.9" />
+		<!-- Disk drive queries for the Kindle connection check -->
+		<PackageReference Include="System.Management" Version="9.0.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="icon.ico" />
+		<Resource Include="multifarious.png" />
+		<Resource Include="HoboLibris.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\Strings.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Strings.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<CustomToolNamespace>HoboLibris.Resources</CustomToolNamespace>
+			<LastGenOutput>Strings.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="NLog.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

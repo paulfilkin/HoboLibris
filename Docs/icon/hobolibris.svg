@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Deep Archival Teal container -->
+  <rect x="16" y="16" width="480" height="480" rx="104" fill="#0E6E6E"/>
+  <!-- Warm Vellum open book, scaled to sit inside the container -->
+  <g transform="translate(256 262) scale(0.74) translate(-256 -256)">
+    <path d="M240 68 C176 44, 92 44, 32 68 C18 73, 12 84, 12 98 V416 C12 432, 28 444, 46 437 C102 416, 178 416, 240 440 Z" fill="#F7F5F0"/>
+    <path d="M272 68 C336 44, 420 44, 480 68 C494 73, 500 84, 500 98 V416 C500 432, 484 444, 466 437 C410 416, 334 416, 272 440 Z" fill="#F7F5F0"/>
+    <!-- Wandering Trail: lower left page, up to the spine, across to the compass -->
+    <path d="M60 372 C130 330, 186 338, 240 300 M272 282 C310 258, 348 236, 372 206" fill="none" stroke="#D97736" stroke-width="17" stroke-linecap="round" stroke-dasharray="20 24" stroke-opacity="0.85"/>
+    <!-- North-Star Compass Point on the upper right leaf -->
+    <g transform="translate(396 160)">
+      <circle r="56" fill="none" stroke="#D97736" stroke-width="9" stroke-opacity="0.4"/>
+      <path d="M0 -66 L16 -16 L66 0 L16 16 L0 66 L-16 16 L-66 0 L-16 -16 Z" fill="#D97736"/>
+      <path d="M0 -66 L16 -16 L0 0 Z M0 66 L-16 16 L0 0 Z" fill="#B85E24"/>
+      <circle r="9" fill="#F7F5F0"/>
+    </g>
+  </g>
+</svg>
