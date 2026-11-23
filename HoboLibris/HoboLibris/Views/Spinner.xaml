@@ -13,8 +13,8 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid>
-        <Ellipse Stroke="{StaticResource BackgroundDeepBrush}" StrokeThickness="2.5"/>
-        <Path Stroke="{StaticResource AccentBrush}" StrokeThickness="2.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+        <Ellipse Stroke="{DynamicResource BackgroundDeepBrush}" StrokeThickness="2.5"/>
+        <Path Stroke="{DynamicResource AccentBrush}" StrokeThickness="2.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
               Data="M9,1.25 A7.75,7.75 0 0 1 16.75,9" RenderTransformOrigin="0.5,0.5">
             <Path.RenderTransform>
                 <RotateTransform x:Name="Spin"/>

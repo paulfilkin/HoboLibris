@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HoboLibris.Helpers;
 using HoboLibris.Models;
 using HoboLibris.Resources;
 using HoboLibris.Services;
@@ -125,6 +126,24 @@ namespace HoboLibris.ViewModels
         public string KindleFolder => Settings.KindleDir;
         public IReadOnlyList<string> KindleExtraFolders => Settings.KindleExtraDirs.ToList();
         public bool HasKindleExtraFolders => Settings.KindleExtraDirs.Count > 0;
+        /// <summary>Light, dark or following Windows; a change shows at once.</summary>
+        public AppTheme Theme
+        {
+            get => ThemeManager.Parse(Settings.Theme);
+            set
+            {
+                var name = ThemeManager.ToSetting(value);
+                if (Settings.Theme == name)
+                {
+                    return;
+                }
+                Settings.Theme = name;
+                SettingsService.Save(Settings);
+                OnPropertyChanged();
+                ThemeManager.Choose(value);
+            }
+        }
+
         /// <summary>Where the eReader's book list is copied before collections are saved.</summary>
         public string BackupFolder => string.IsNullOrEmpty(Settings.BookListBackupDir)
             ? AppPaths.BookListBackupDir

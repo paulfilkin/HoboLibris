@@ -1106,4 +1106,16 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Scegli dove conservare i backup dell'elenco dei libri dell'eReader</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Aspetto</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Usa l'impostazione di Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Chiaro</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Scuro</value>
+  </data>
 </root>

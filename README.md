@@ -71,6 +71,7 @@ HoboLibris keeps its settings, your Kobo sign-in and its logs in `%APPDATA%\Hobo
 |---|---|
 | `--screenshot <file.png>` | Saves a picture of the main window after four seconds, then closes |
 | `--kindle`, `--send`, `--collections` | With `--screenshot`, shows that screen first |
+| `--theme light`, `--theme dark` | Shows HoboLibris light or dark for this run, whatever is chosen in Settings |
 
 ## Building from source
 

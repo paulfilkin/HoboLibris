@@ -1106,4 +1106,16 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>전자책 리더 책 목록 백업을 보관할 위치를 선택하세요</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>모양</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Windows 설정 사용</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>밝게</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>어둡게</value>
+  </data>
 </root>

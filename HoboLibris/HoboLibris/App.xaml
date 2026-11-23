@@ -7,6 +7,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!-- The palette: ThemeManager swaps this first dictionary for Dark.xaml and back. -->
+                <ResourceDictionary Source="Themes/Light.xaml"/>
                 <ResourceDictionary Source="Themes/Wayfarer.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

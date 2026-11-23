@@ -9,7 +9,8 @@
         MinHeight="500"
         MinWidth="420"
         WindowStartupLocation="CenterOwner"
-        Background="{StaticResource BackgroundBrush}"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource TextPrimaryBrush}"
         TextOptions.TextFormattingMode="Display"
         TextOptions.TextRenderingMode="ClearType"
         UseLayoutRounding="True">
@@ -18,7 +19,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrush}"
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrush}"
                 BorderThickness="0,0,0,1" Padding="14,8">
             <TextBlock x:Name="NoteText" Text="{x:Static res:Strings.SignIn_Note}" Style="{StaticResource HelperText}"/>
         </Border>
@@ -29,7 +30,7 @@
                 <TextBlock Text="{x:Static res:Strings.SignIn_WebViewMissing}" TextWrapping="Wrap" Margin="0,0,0,10"/>
                 <TextBlock>
                     <Hyperlink NavigateUri="https://developer.microsoft.com/microsoft-edge/webview2/"
-                               RequestNavigate="Hyperlink_RequestNavigate" Foreground="{StaticResource PrimaryBrush}">
+                               RequestNavigate="Hyperlink_RequestNavigate" Foreground="{DynamicResource PrimaryBrush}">
                         <Run Text="{x:Static res:Strings.SignIn_WebViewLink}"/>
                     </Hyperlink>
                 </TextBlock>

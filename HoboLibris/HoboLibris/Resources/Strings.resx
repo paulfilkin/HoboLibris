@@ -1106,4 +1106,16 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Choose where to keep the eReader book-list backups</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Use the Windows setting</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
 </root>

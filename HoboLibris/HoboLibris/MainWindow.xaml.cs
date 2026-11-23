@@ -39,6 +39,7 @@ namespace HoboLibris
                     MessageBoxButton.OK, MessageBoxImage.Error),
             };
             DataContext = ViewModel;
+            ThemeManager.Start(ViewModel.Theme);
             BuildLanguageMenu();
             Loaded += async (_, _) => await ViewModel.StartAsync();
         }

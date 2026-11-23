@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- The Wayfarer's Bookplate palette, light: Deep Archival Teal, Warm Vellum and Copper. -->
+    <!-- Both palettes define the same brushes; ThemeManager swaps one for the other, and the
+         styles use them as DynamicResource so open windows change at once. -->
+    <!-- Deep Archival Teal: buttons, the selected tab, links and ticks -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="#0E6E6E"/>
+    <SolidColorBrush x:Key="PrimaryHoverBrush" Color="#0B5858"/>
+    <SolidColorBrush x:Key="PrimaryPressedBrush" Color="#084444"/>
+    <SolidColorBrush x:Key="PrimaryTintBrush" Color="#E1EFEE"/>
+    <SolidColorBrush x:Key="PrimaryTintBorderBrush" Color="#B9D8D6"/>
+    <!-- Text and ticks drawn on teal -->
+    <SolidColorBrush x:Key="OnPrimaryBrush" Color="#FFFFFF"/>
+    <!-- Copper for the progress bar and spinner -->
+    <SolidColorBrush x:Key="AccentBrush" Color="#D97736"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="#D97736"/>
+    <!-- Copper for the main action button; darker than Accent so its text passes WCAG AA -->
+    <SolidColorBrush x:Key="AccentFillBrush" Color="#A85522"/>
+    <SolidColorBrush x:Key="AccentFillHoverBrush" Color="#934A1D"/>
+    <SolidColorBrush x:Key="AccentFillPressedBrush" Color="#7D3F18"/>
+    <SolidColorBrush x:Key="AccentTintBrush" Color="#FBEBDD"/>
+    <!-- Text on the copper button -->
+    <SolidColorBrush x:Key="OnAccentBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="#2A7449"/>
+    <SolidColorBrush x:Key="SuccessTintBrush" Color="#E6F2E9"/>
+    <SolidColorBrush x:Key="SuccessTintBorderBrush" Color="#BBDCC5"/>
+    <SolidColorBrush x:Key="DangerBrush" Color="#B3402E"/>
+    <SolidColorBrush x:Key="DangerHoverBrush" Color="#99362A"/>
+    <SolidColorBrush x:Key="DangerPressedBrush" Color="#7E2C22"/>
+    <SolidColorBrush x:Key="DangerTintBrush" Color="#F8E4E0"/>
+    <!-- Text on the red button -->
+    <SolidColorBrush x:Key="OnDangerBrush" Color="#FFFFFF"/>
+    <!-- Warm Vellum: the window -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#F7F5F0"/>
+    <SolidColorBrush x:Key="BackgroundDeepBrush" Color="#EFEBE2"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFDF9"/>
+    <!-- Every other row in the lists -->
+    <SolidColorBrush x:Key="AlternateRowBrush" Color="#FAF8F3"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#DCD6C9"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#1F2A2A"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#5E6763"/>
+</ResourceDictionary>

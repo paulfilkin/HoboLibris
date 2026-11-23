@@ -1080,4 +1080,16 @@
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Виберіть, де зберігати резервні копії списку книг рідера</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Вигляд</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Використовувати налаштування Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Світлий</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Темний</value>
+  </data>
 </root>

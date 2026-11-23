@@ -1106,4 +1106,16 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Dialog_ChooseBackupFolder" xml:space="preserve">
     <value>Elija dónde guardar las copias de seguridad de la lista de libros del eReader</value>
   </data>
+  <data name="Settings_AppearanceHeader" xml:space="preserve">
+    <value>Apariencia</value>
+  </data>
+  <data name="Settings_ThemeSystem" xml:space="preserve">
+    <value>Usar la configuración de Windows</value>
+  </data>
+  <data name="Settings_ThemeLight" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Settings_ThemeDark" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
 </root>

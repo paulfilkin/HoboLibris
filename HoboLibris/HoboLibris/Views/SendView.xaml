@@ -33,7 +33,7 @@
                             IsEnabled="{Binding Send.Sending, Converter={StaticResource InverseBool}}" ToolTip="{x:Static res:Strings.Send_EjectHint}"
                             AutomationProperties.Name="{x:Static res:Strings.Kobo_EjectReader}">
                         <StackPanel Orientation="Horizontal">
-                            <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{StaticResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
+                            <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{DynamicResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
                             <TextBlock Text="{x:Static res:Strings.Kobo_EjectReader}"/>
                         </StackPanel>
                     </Button>
@@ -80,7 +80,7 @@
                     <TextBlock Text="{x:Static res:Strings.Send_LookAgain}"/>
                 </StackPanel>
             </Button>
-            <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
+            <Border Width="1" Background="{DynamicResource BorderBrush}" Margin="4,4,10,10"/>
             <CheckBox Style="{StaticResource ModernCheckBox}" Content="{x:Static res:Strings.Send_Auto}" ToolTip="{x:Static res:Strings.Send_AutoHint}"
                       IsChecked="{Binding AutoSend}" Margin="0,0,0,6"/>
         </WrapPanel>
@@ -146,20 +146,20 @@
                                                Visibility="{Binding ShowVerdict, Converter={StaticResource BoolToVisibilityConverter}}">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
-                                                <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding Kind}" Value="{x:Static models:VerdictKind.Ready}">
-                                                        <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
                                                         <Setter Property="FontWeight" Value="SemiBold"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Kind}" Value="{x:Static models:VerdictKind.OnReader}">
-                                                        <Setter Property="Foreground" Value="{StaticResource SuccessBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Kind}" Value="{x:Static models:VerdictKind.Protected}">
-                                                        <Setter Property="Foreground" Value="{StaticResource DangerBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Kind}" Value="{x:Static models:VerdictKind.NotKobo}">
-                                                        <Setter Property="Foreground" Value="{StaticResource DangerBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>

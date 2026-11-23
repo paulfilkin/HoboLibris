@@ -30,6 +30,14 @@ namespace HoboLibris
                     new RoutedEventHandler((s, _) => ((Window)s).FlowDirection = FlowDirection.RightToLeft));
             }
 
+            // --theme light|dark: show HoboLibris in that mode for this run, without saving it.
+            var themeArg = Array.IndexOf(e.Args, "--theme");
+            if (themeArg >= 0 && themeArg + 1 < e.Args.Length)
+            {
+                var theme = ThemeManager.Parse(e.Args[themeArg + 1]);
+                ThemeManager.OverrideForRun = theme == AppTheme.System ? null : theme;
+            }
+
             ShutdownMode = ShutdownMode.OnMainWindowClose;
             var mainWindow = new MainWindow();
             MainWindow = mainWindow;

@@ -33,7 +33,7 @@
                         Command="{Binding DataContext.KindleEjectCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                         IsEnabled="{Binding CanEject}" ToolTip="{Binding EjectHint}" AutomationProperties.Name="{Binding EjectText}">
                     <StackPanel Orientation="Horizontal">
-                        <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{StaticResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
+                        <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{DynamicResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
                         <TextBlock Text="{Binding EjectText}"/>
                     </StackPanel>
                 </Button>
@@ -54,7 +54,7 @@
                     <TextBlock Text="{x:Static res:Strings.Kindle_LookAgain}"/>
                 </StackPanel>
             </Button>
-            <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
+            <Border Width="1" Background="{DynamicResource BorderBrush}" Margin="4,4,10,10"/>
             <Button Style="{StaticResource AccentButton}" IsEnabled="{Binding CanBackUpAll}" Margin="0,0,6,6" AutomationProperties.Name="{Binding BackUpAllText}"
                     Command="{Binding DataContext.KindleBackUpAllCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
                 <StackPanel Orientation="Horizontal">
@@ -64,7 +64,7 @@
             </Button>
             <Button Content="{Binding BackUpSelectedText}" Style="{StaticResource SecondaryButton}" IsEnabled="{Binding CanBackUpSelected}" Margin="0,0,6,6"
                     Command="{Binding DataContext.KindleBackUpSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
-            <Border Width="1" Background="{StaticResource BorderBrush}" Margin="4,4,10,10"/>
+            <Border Width="1" Background="{DynamicResource BorderBrush}" Margin="4,4,10,10"/>
             <Button Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource SecondaryButton}" Margin="0,0,6,6"
                     Command="{Binding DataContext.OpenKindleFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
         </WrapPanel>
