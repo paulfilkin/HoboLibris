@@ -4,9 +4,14 @@
 ; then compile this script:
 ;   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" HoboLibris.iss
 ; The installer is written to ..\Releases\.
+; For a release, pass the tag's number to both steps, so the program and the installer agree:
+;   dotnet publish ... -p:Version=1.2.3   and   ISCC.exe /DAppVersion=1.2.3 HoboLibris.iss
 
 #define AppName "HoboLibris"
-#define AppVersion "1.0.0"
+; Keep in step with Version in HoboLibris.csproj.
+#ifndef AppVersion
+  #define AppVersion "0.1.0"
+#endif
 #define AppExe "HoboLibris.exe"
 #define AppPublisher "multifarious"
 #define AppURL "https://multifarious.filkin.com/"
