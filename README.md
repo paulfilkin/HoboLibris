@@ -126,6 +126,6 @@ HoboLibris is at version 0.1.  It is a WPF rebuild of an earlier prototype that 
 - [Working with Git](Docs/Working%20with%20Git.md): the commands for each step of a change, for someone new to Git.
 - [Contributing](CONTRIBUTING.md): how changes get in.
 
-## Copyright
+## Licence
 
-Copyright © 2026 multifarious.
+[MIT](LICENSE).  Copyright © 2026 multifarious.
