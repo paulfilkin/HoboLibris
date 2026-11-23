@@ -245,6 +245,8 @@
     <!-- A search box with its placeholder (the Tag) drawn inside -->
     <Style x:Key="SearchBox" TargetType="TextBox" BasedOn="{StaticResource ModernTextBox}">
         <Setter Property="Width" Value="300"/>
+        <!-- Screen readers name the box by its placeholder text. -->
+        <Setter Property="AutomationProperties.Name" Value="{Binding Tag, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">

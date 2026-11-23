@@ -29,6 +29,9 @@ namespace HoboLibris.ViewModels
 
         public bool IsBold => Filter == CollectionFilter.NotInAny;
 
+        /// <summary>What a screen reader reads for the entry.</summary>
+        public override string ToString() => Label;
+
         public ShowEntry(CollectionFilter filter, string? collection)
         {
             Filter = filter;
@@ -44,6 +47,9 @@ namespace HoboLibris.ViewModels
         public string Title => Book.Title;
         public string Authors => Book.Authors;
         public string FromText => Book.Store ? Strings.Coll_From_Store : Strings.Coll_From_Added;
+
+        /// <summary>What a screen reader reads for the row.</summary>
+        public override string ToString() => Title;
 
         [ObservableProperty]
         private bool _isSelected;

@@ -30,7 +30,8 @@
             <Border Style="{StaticResource GoodNoteCard}" Visibility="{Binding ReaderConnected, Converter={StaticResource BoolToVisibilityConverter}}">
                 <DockPanel>
                     <Button DockPanel.Dock="Right" Style="{StaticResource SecondaryButton}" Command="{Binding EjectReaderCommand}"
-                            IsEnabled="{Binding Send.Sending, Converter={StaticResource InverseBool}}" ToolTip="{x:Static res:Strings.Send_EjectHint}">
+                            IsEnabled="{Binding Send.Sending, Converter={StaticResource InverseBool}}" ToolTip="{x:Static res:Strings.Send_EjectHint}"
+                            AutomationProperties.Name="{x:Static res:Strings.Kobo_EjectReader}">
                         <StackPanel Orientation="Horizontal">
                             <Path Data="M2,10 L8,3 L14,10 Z M2,12 L14,12 L14,14 L2,14 Z" Fill="{StaticResource TextPrimaryBrush}" Width="16" Height="16" Margin="0,0,6,0" Stretch="Uniform"/>
                             <TextBlock Text="{x:Static res:Strings.Kobo_EjectReader}"/>
@@ -47,7 +48,8 @@
         </Grid>
 
         <WrapPanel Grid.Row="2" Margin="0,2,0,6">
-            <Button Style="{StaticResource AccentButton}" Command="{Binding SendAllReadyCommand}" Margin="0,0,6,6">
+            <Button Style="{StaticResource AccentButton}" Command="{Binding SendAllReadyCommand}" Margin="0,0,6,6"
+                    AutomationProperties.Name="{Binding ReadyToSend, StringFormat={x:Static res:Strings.Send_AllReady}}">
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource AllTrue}">
                         <Binding Path="ReaderConnected"/>
@@ -61,7 +63,8 @@
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource SecondaryButton}" Command="{Binding SendSelectedCommand}" Margin="0,0,6,6"
-                    Content="{Binding Send.SelectedCount}" ContentStringFormat="{x:Static res:Strings.Send_Selected}">
+                    Content="{Binding Send.SelectedCount}" ContentStringFormat="{x:Static res:Strings.Send_Selected}"
+                    AutomationProperties.Name="{Binding Send.SelectedCount, StringFormat={x:Static res:Strings.Send_Selected}}">
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource AllTrue}">
                         <Binding Path="ReaderConnected"/>
@@ -70,7 +73,8 @@
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>
-            <Button Style="{StaticResource SecondaryButton}" Command="{Binding LookAgainSendCommand}" ToolTip="{x:Static res:Strings.Send_LookAgainHint}" Margin="0,0,6,6">
+            <Button Style="{StaticResource SecondaryButton}" Command="{Binding LookAgainSendCommand}" ToolTip="{x:Static res:Strings.Send_LookAgainHint}" Margin="0,0,6,6"
+                    AutomationProperties.Name="{x:Static res:Strings.Send_LookAgain}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="⟳" FontSize="15" Margin="0,0,6,0"/>
                     <TextBlock Text="{x:Static res:Strings.Send_LookAgain}"/>
@@ -101,13 +105,13 @@
                     <DataGridTemplateColumn Width="36" CanUserResize="False">
                         <DataGridTemplateColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource ModernCheckBox}" Click="SelectAll_Click" ToolTip="{x:Static res:Strings.Send_TickAll}"
+                                <CheckBox Style="{StaticResource ModernCheckBox}" Click="SelectAll_Click" ToolTip="{x:Static res:Strings.Send_TickAll}" AutomationProperties.Name="{x:Static res:Strings.Send_TickAll}"
                                           IsChecked="{Binding DataContext.Send.AllSelected, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=OneWay}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.HeaderTemplate>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"/>
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="{Binding FileName}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
