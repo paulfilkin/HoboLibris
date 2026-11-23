@@ -29,8 +29,8 @@ AppVerName={#AppName} {#AppVersion}
 VersionInfoVersion={#AppVersion}.0
 AppPublisher={#AppPublisher}
 AppPublisherURL={#AppURL}
-AppSupportURL={#AppURL}support
-AppUpdatesURL={#AppURL}
+; No support link: HoboLibris comes without individual support.
+AppUpdatesURL=https://github.com/paulfilkin/HoboLibris/releases
 ; Installed for the current user by default, so no administrator password is needed;
 ; the first page lets the person install for everyone instead.
 PrivilegesRequired=lowest

@@ -81,19 +81,19 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("About_DataText", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Support.</summary>
-        public static string About_SupportHeader {
-            get { return ResourceManager.GetString("About_SupportHeader", resourceCulture); }
+        /// <summary>Looks up a localized string similar to Project.</summary>
+        public static string About_ProjectHeader {
+            get { return ResourceManager.GetString("About_ProjectHeader", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Need help? Visit the support website:.</summary>
-        public static string About_SupportText {
-            get { return ResourceManager.GetString("About_SupportText", resourceCulture); }
+        /// <summary>Looks up a localized string similar to HoboLibris is developed on GitHub..</summary>
+        public static string About_ProjectText {
+            get { return ResourceManager.GetString("About_ProjectText", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to multifarious.filkin.com/support.</summary>
-        public static string About_SupportUrl {
-            get { return ResourceManager.GetString("About_SupportUrl", resourceCulture); }
+        /// <summary>Looks up a localized string similar to github.com/paulfilkin/HoboLibris.</summary>
+        public static string About_RepoLink {
+            get { return ResourceManager.GetString("About_RepoLink", resourceCulture); }
         }
 
         /// <summary>Looks up a localized string similar to © {0} multifarious. All rights reserved..</summary>

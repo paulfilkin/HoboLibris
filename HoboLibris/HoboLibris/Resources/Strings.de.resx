@@ -85,14 +85,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>Einstellungen, Ihre Kobo-Anmeldung, die Bibliotheksliste, Protokolldateien und die Sicherungen der eReader-Bücherliste werden in diesem Ordner aufbewahrt. Ihre gesicherten Bücher liegen in den von Ihnen gewählten Ordnern.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>Support</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>Projekt</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>Brauchen Sie Hilfe? Besuchen Sie die Support-Website:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris wird auf GitHub entwickelt.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. Alle Rechte vorbehalten.</value>

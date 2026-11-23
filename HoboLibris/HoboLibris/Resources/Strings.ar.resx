@@ -85,14 +85,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>تُحفظ الإعدادات وبيانات تسجيل الدخول إلى Kobo وقائمة المكتبة وملفات السجل والنسخ الاحتياطية لقائمة كتب القارئ الإلكتروني في هذا المجلد. أما كتبك المنسوخة احتياطيًا فتوجد في المجلدات التي تختارها.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>الدعم</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>المشروع</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>هل تحتاج إلى مساعدة؟ تفضل بزيارة موقع الدعم:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>يُطوَّر HoboLibris على GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. جميع الحقوق محفوظة.</value>

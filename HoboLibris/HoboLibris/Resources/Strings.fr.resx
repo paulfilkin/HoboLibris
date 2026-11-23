@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>Les paramètres, votre connexion Kobo, la liste de la bibliothèque, les fichiers journaux et les sauvegardes de la liste de livres de la liseuse sont conservés dans ce dossier. Vos livres sauvegardés se trouvent dans les dossiers que vous avez choisis.</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>Assistance</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>Projet</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>Besoin d'aide ? Consultez le site d'assistance :</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris est développé sur GitHub.</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. Tous droits réservés.</value>

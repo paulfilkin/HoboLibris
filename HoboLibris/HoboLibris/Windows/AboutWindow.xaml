@@ -65,13 +65,13 @@
                     </Hyperlink>
                 </TextBlock>
 
-                <TextBlock Text="{x:Static res:Strings.About_SupportHeader}" Style="{StaticResource AboutSectionHeader}"/>
-                <TextBlock Text="{x:Static res:Strings.About_SupportText}" Style="{StaticResource AboutText}" Margin="0,0,0,6"/>
+                <TextBlock Text="{x:Static res:Strings.About_ProjectHeader}" Style="{StaticResource AboutSectionHeader}"/>
+                <TextBlock Text="{x:Static res:Strings.About_ProjectText}" Style="{StaticResource AboutText}" Margin="0,0,0,6"/>
                 <TextBlock Margin="0,0,0,6">
-                    <Hyperlink NavigateUri="https://multifarious.filkin.com/support"
+                    <Hyperlink NavigateUri="https://github.com/paulfilkin/HoboLibris"
                                RequestNavigate="Hyperlink_RequestNavigate"
                                Foreground="{StaticResource PrimaryBrush}">
-                        <Run Text="{x:Static res:Strings.About_SupportUrl}"/>
+                        <Run Text="{x:Static res:Strings.About_RepoLink}"/>
                     </Hyperlink>
                 </TextBlock>
 

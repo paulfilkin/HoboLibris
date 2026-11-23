@@ -88,14 +88,14 @@
   <data name="About_DataText" xml:space="preserve">
     <value>設定、Kobo のサインイン情報、ライブラリの一覧、ログ ファイル、電子書籍リーダーの書籍一覧のバックアップは、このフォルダーに保存されます。バックアップした書籍は、選択したフォルダーに保存されます。</value>
   </data>
-  <data name="About_SupportHeader" xml:space="preserve">
-    <value>サポート</value>
+  <data name="About_ProjectHeader" xml:space="preserve">
+    <value>プロジェクト</value>
   </data>
-  <data name="About_SupportText" xml:space="preserve">
-    <value>お困りですか? サポート Web サイトをご覧ください:</value>
+  <data name="About_ProjectText" xml:space="preserve">
+    <value>HoboLibris は GitHub で開発されています。</value>
   </data>
-  <data name="About_SupportUrl" xml:space="preserve">
-    <value>multifarious.filkin.com/support</value>
+  <data name="About_RepoLink" xml:space="preserve">
+    <value>github.com/paulfilkin/HoboLibris</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
     <value>© {0} multifarious. All rights reserved.</value>
