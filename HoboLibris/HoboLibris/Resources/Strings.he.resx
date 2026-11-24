@@ -1626,4 +1626,10 @@
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>לא נבחר מודל. יש לבחור אחד בהגדרות, תחת מודל AI.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>כללי</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>בודק אם Ollama פועל…</value>
+  </data>
 </root>

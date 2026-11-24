@@ -1626,4 +1626,10 @@
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>لم يُختر أي نموذج. اختر نموذجًا في الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>جارٍ التحقق مما إذا كان Ollama قيد التشغيل…</value>
+  </data>
 </root>

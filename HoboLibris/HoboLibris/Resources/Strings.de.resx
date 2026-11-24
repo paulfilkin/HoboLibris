@@ -1626,4 +1626,10 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>Es ist kein Modell gewählt. Wählen Sie eines in den Einstellungen unter KI-Modell.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Es wird geprüft, ob Ollama läuft…</value>
+  </data>
 </root>

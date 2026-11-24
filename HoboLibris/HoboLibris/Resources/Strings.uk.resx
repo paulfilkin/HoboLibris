@@ -1626,4 +1626,10 @@
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>Модель не вибрано. Виберіть її в налаштуваннях, у розділі «Модель ШІ».</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>Загальні</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Перевірка, чи працює Ollama…</value>
+  </data>
 </root>

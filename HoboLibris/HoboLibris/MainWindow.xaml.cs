@@ -67,7 +67,8 @@ namespace HoboLibris
             _paneFold = new FoldColumn(PaneColumn, PaneSplitter, Pane, PaneStrip, PaneMinWidth, 900,
                 ViewModel.Assistant.PaneWidth, ViewModel.Assistant.PaneFolded);
             _paneFold.WidthChanged += width => ViewModel.Assistant.PaneWidth = width;
-            Pane.SettingsRequested += OpenSettings;
+            // The pane's setup banner opens Settings on the AI model page.
+            Pane.SettingsRequested += () => OpenSettings(SettingsPages.Model);
             DataContext = ViewModel;
             ThemeManager.Start(ViewModel.Theme);
             BuildLanguageMenu();
@@ -185,9 +186,10 @@ namespace HoboLibris
 
         private void Settings_Click(object sender, RoutedEventArgs e) => OpenSettings();
 
-        private void OpenSettings()
+        /// <summary>Settings on the given page, or the page used last.</summary>
+        private void OpenSettings(string? page = null)
         {
-            new SettingsWindow { Owner = this, DataContext = ViewModel }.ShowDialog();
+            new SettingsWindow(page) { Owner = this, DataContext = ViewModel }.ShowDialog();
         }
 
         private void About_Click(object sender, RoutedEventArgs e)

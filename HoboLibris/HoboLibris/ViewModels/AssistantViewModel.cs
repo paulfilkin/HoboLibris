@@ -682,6 +682,11 @@ namespace HoboLibris.ViewModels
             {
                 return;
             }
+            // A port nobody listens on takes Windows about three seconds to refuse.
+            if (OllamaStatus.Length == 0)
+            {
+                OllamaStatus = Strings.Asst_OllamaChecking;
+            }
             OllamaRunning = await OllamaServer.IsRunningAsync(Settings.Endpoint);
             OllamaStatus = !OllamaInstalled && !OllamaRunning
                 ? Strings.Asst_OllamaMissing

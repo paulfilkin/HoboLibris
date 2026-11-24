@@ -1652,4 +1652,10 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>Nessun modello scelto. Scegline uno in Impostazioni, sotto Modello di IA.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>Generale</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Verifica che Ollama sia in esecuzione…</value>
+  </data>
 </root>

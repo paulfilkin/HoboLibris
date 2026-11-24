@@ -1652,4 +1652,10 @@
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>尚未选择模型。请在设置的“AI 模型”中选择一个。</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>正在检查 Ollama 是否正在运行…</value>
+  </data>
 </root>

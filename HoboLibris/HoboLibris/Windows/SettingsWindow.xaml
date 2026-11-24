@@ -4,10 +4,12 @@
         xmlns:res="clr-namespace:HoboLibris.Resources"
         xmlns:h="clr-namespace:HoboLibris.Helpers"
         Title="{x:Static res:Strings.Settings_Title}"
-        Width="720"
-        SizeToContent="Height"
+        Width="960"
+        Height="640"
+        MinWidth="820"
+        MinHeight="520"
         WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         Background="{DynamicResource BackgroundBrush}"
         Foreground="{DynamicResource TextPrimaryBrush}"
         TextOptions.TextFormattingMode="Display"
@@ -79,6 +81,65 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="FlowDirection" Value="LeftToRight"/>
         </Style>
+        <!-- The pages: the menu on the left, the chosen page beside it -->
+        <Style x:Key="SettingsPages" TargetType="TabControl">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="220"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1" CornerRadius="8" Padding="6" Margin="0,0,16,0">
+                                <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"
+                                            KeyboardNavigation.TabIndex="1"/>
+                            </Border>
+                            <ContentPresenter Grid.Column="1" ContentSource="SelectedContent" KeyboardNavigation.TabIndex="2"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SettingsPage" TargetType="TabItem">
+            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border x:Name="Row" Background="Transparent" CornerRadius="6" Padding="10,8" Margin="0,1">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="Glyph" Text="{TemplateBinding Tag}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                           FontSize="15" Width="22" VerticalAlignment="Center" Margin="0,0,8,0"
+                                           Foreground="{DynamicResource TextSecondaryBrush}"/>
+                                <ContentPresenter x:Name="Label" ContentSource="Header" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Row" Property="Background" Value="{DynamicResource BackgroundDeepBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Row" Property="Background" Value="{DynamicResource PrimaryTintBrush}"/>
+                                <Setter TargetName="Glyph" Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                                <!-- On the label only: set on the TabItem they would reach the whole page. -->
+                                <Setter TargetName="Label" Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter TargetName="Label" Property="TextElement.FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="Row" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                                <Setter TargetName="Row" Property="BorderThickness" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid Margin="24">
@@ -87,369 +148,411 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <!-- Appearance -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+        <!-- One page at a time, chosen from the menu on the left (on the right in Arabic and Hebrew) -->
+        <TabControl x:Name="Pages" Grid.Row="0" Style="{StaticResource SettingsPages}" ItemContainerStyle="{StaticResource SettingsPage}"
+                    SelectionChanged="Pages_SelectionChanged" AutomationProperties.Name="{x:Static res:Strings.Settings_Title}">
+            <TabItem x:Name="GeneralPage" Header="{x:Static res:Strings.Settings_PageGeneral}" Tag="&#xE790;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
                     <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Settings_AppearanceHeader}" Style="{StaticResource SectionHeader}"/>
-                        <WrapPanel>
-                            <RadioButton Style="{StaticResource PillButton}" GroupName="Theme" Margin="0,0,6,0"
-                                         Content="{x:Static res:Strings.Settings_ThemeSystem}"
-                                         IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=System}"/>
-                            <RadioButton Style="{StaticResource PillButton}" GroupName="Theme" Margin="0,0,6,0"
-                                         Content="{x:Static res:Strings.Settings_ThemeLight}"
-                                         IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=Light}"/>
-                            <RadioButton Style="{StaticResource PillButton}" GroupName="Theme"
-                                         Content="{x:Static res:Strings.Settings_ThemeDark}"
-                                         IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=Dark}"/>
-                        </WrapPanel>
-                    </StackPanel>
-                </Border>
-
-                <!-- Kobo -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Main_Kobo}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock x:Name="KoboFolderLabel" Text="{x:Static res:Strings.Settings_BooksFolder}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Settings_KoboFolderHint}" Style="{StaticResource FieldHint}"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding KoboFolder, Mode=OneWay}"
-                                     AutomationProperties.LabeledBy="{Binding ElementName=KoboFolderLabel}"/>
-                            <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
-                                    Command="{Binding ChooseKoboFolderCommand}" ToolTip="{x:Static res:Strings.Kobo_SaveToHint}"/>
-                            <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
-                                    Command="{Binding OpenKoboFolderCommand}" Margin="0"/>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-
-                <!-- Kindle -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Main_Kindle}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock x:Name="KindleFolderLabel" Text="{x:Static res:Strings.Settings_BooksFolder}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Settings_KindleFolderHint}" Style="{StaticResource FieldHint}"/>
-                        <Grid Margin="0,0,0,16">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding KindleFolder, Mode=OneWay}"
-                                     AutomationProperties.LabeledBy="{Binding ElementName=KindleFolderLabel}"/>
-                            <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
-                                    Command="{Binding ChooseKindleFolderCommand}" ToolTip="{x:Static res:Strings.Kindle_SaveToHint}"/>
-                            <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
-                                    Command="{Binding OpenKindleFolderCommand}" Margin="0"/>
-                        </Grid>
-
-                        <TextBlock Text="{x:Static res:Strings.Settings_ExtraFolders}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Kindle_AddFolderHint}" Style="{StaticResource FieldHint}"/>
-                        <TextBlock Text="{x:Static res:Strings.Settings_NoExtraFolders}" Style="{StaticResource MutedText}" Margin="0,0,0,6"
-                                   Visibility="{Binding HasKindleExtraFolders, Converter={StaticResource InverseBoolToVisibility}}"/>
-                        <ItemsControl ItemsSource="{Binding KindleExtraFolders}" Focusable="False">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="0,0,0,6">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding Mode=OneWay}"/>
-                                        <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Remove}" Style="{StaticResource SmallButton}"
-                                                VerticalAlignment="Center"
-                                                Command="{Binding DataContext.RemoveKindleFolderCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                                CommandParameter="{Binding}" AutomationProperties.HelpText="{Binding}"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                        <Button Content="{x:Static res:Strings.Settings_Add}" Style="{StaticResource SecondaryButton}" HorizontalAlignment="Left"
-                                Command="{Binding KindleAddFolderCommand}" ToolTip="{x:Static res:Strings.Kindle_AddFolderHint}" Margin="0,2,0,0"/>
-                    </StackPanel>
-                </Border>
-
-                <!-- eReader book-list backups -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock x:Name="BackupFolderLabel" Text="{x:Static res:Strings.Settings_BackupsHeader}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock Text="{x:Static res:Strings.Settings_BackupsHint}" Style="{StaticResource FieldHint}"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding BackupFolder, Mode=OneWay}"
-                                     AutomationProperties.LabeledBy="{Binding ElementName=BackupFolderLabel}"/>
-                            <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
-                                    Command="{Binding ChooseBackupFolderCommand}" ToolTip="{x:Static res:Strings.Dialog_ChooseBackupFolder}"/>
-                            <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
-                                    Command="{Binding OpenBackupFolderCommand}" Margin="0"/>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-
-                <!-- AI model -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Asst_ModelHeader}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_WhatIsSent}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
-
-                        <TextBlock x:Name="ProviderLabel" Text="{x:Static res:Strings.Asst_Provider}" Style="{StaticResource FieldLabel}"/>
-                        <ComboBox Style="{StaticResource ModernComboBox}" Width="460" HorizontalAlignment="Left" Margin="0,0,0,12"
-                                  ItemsSource="{Binding Assistant.Providers}" SelectedValuePath="Value" DisplayMemberPath="Label"
-                                  SelectedValue="{Binding Assistant.Provider}"
-                                  AutomationProperties.LabeledBy="{Binding ElementName=ProviderLabel}"/>
-
-                        <StackPanel Visibility="{Binding Assistant.IsCompatible, Converter={StaticResource BoolToVisibilityConverter}}">
-                            <TextBlock x:Name="EndpointLabel" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}"/>
-                            <TextBlock Text="{x:Static res:Strings.Asst_EndpointHint}" Style="{StaticResource FieldHint}"/>
-                            <ComboBox Style="{StaticResource ModernComboBox}" IsEditable="True" Margin="0,0,0,12" FlowDirection="LeftToRight"
-                                      ItemsSource="{Binding Assistant.Endpoints}"
-                                      Text="{Binding Assistant.Endpoint, UpdateSourceTrigger=LostFocus}"
-                                      AutomationProperties.LabeledBy="{Binding ElementName=EndpointLabel}"/>
-                        </StackPanel>
-
-                        <!-- Ollama on this computer: HoboLibris can start it with no window, and stops what it started -->
-                        <Border Style="{StaticResource NoteCard}" Margin="0,0,0,12"
-                                Visibility="{Binding Assistant.IsOllama, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <!-- Appearance -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
                             <StackPanel>
-                                <DockPanel>
-                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
-                                        <Button Content="{x:Static res:Strings.Asst_OllamaStart}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
-                                                Command="{Binding Assistant.StartOllamaCommand}" IsEnabled="{Binding Assistant.CanStartOllama}"/>
-                                        <Button Content="{x:Static res:Strings.Asst_OllamaStop}" Style="{StaticResource SmallButton}" Margin="6,0,0,0"
-                                                Command="{Binding Assistant.StopOllamaCommand}" IsEnabled="{Binding Assistant.CanStopOllama}"/>
-                                    </StackPanel>
-                                    <TextBlock Text="{Binding Assistant.OllamaStatus}" TextWrapping="Wrap" VerticalAlignment="Center"
-                                               AutomationProperties.LiveSetting="Polite"/>
-                                </DockPanel>
-                                <CheckBox Style="{StaticResource ModernCheckBox}" Margin="0,10,0,0" IsChecked="{Binding Assistant.AutoStartOllama}"
-                                          AutomationProperties.HelpText="{x:Static res:Strings.Asst_OllamaStopsHint}">
-                                    <TextBlock Text="{x:Static res:Strings.Asst_OllamaAutoStart}" TextWrapping="Wrap"/>
-                                </CheckBox>
-                                <TextBlock Text="{x:Static res:Strings.Asst_OllamaStopsHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,0"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_AppearanceHeader}" Style="{StaticResource SectionHeader}"/>
+                                <WrapPanel>
+                                    <RadioButton Style="{StaticResource PillButton}" GroupName="Theme" Margin="0,0,6,0"
+                                                 Content="{x:Static res:Strings.Settings_ThemeSystem}"
+                                                 IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=System}"/>
+                                    <RadioButton Style="{StaticResource PillButton}" GroupName="Theme" Margin="0,0,6,0"
+                                                 Content="{x:Static res:Strings.Settings_ThemeLight}"
+                                                 IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=Light}"/>
+                                    <RadioButton Style="{StaticResource PillButton}" GroupName="Theme"
+                                                 Content="{x:Static res:Strings.Settings_ThemeDark}"
+                                                 IsChecked="{Binding Theme, Converter={StaticResource EnumEquals}, ConverterParameter=Dark}"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem x:Name="KoboPage" Header="{x:Static res:Strings.Main_Kobo}" Tag="&#xE736;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
+                    <StackPanel>
+                        <!-- Kobo -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Main_Kobo}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock x:Name="KoboFolderLabel" Text="{x:Static res:Strings.Settings_BooksFolder}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_KoboFolderHint}" Style="{StaticResource FieldHint}"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding KoboFolder, Mode=OneWay}"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=KoboFolderLabel}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
+                                            Command="{Binding ChooseKoboFolderCommand}" ToolTip="{x:Static res:Strings.Kobo_SaveToHint}"/>
+                                    <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
+                                            Command="{Binding OpenKoboFolderCommand}" Margin="0"/>
+                                </Grid>
                             </StackPanel>
                         </Border>
 
-                        <TextBlock x:Name="ModelLabel" Text="{x:Static res:Strings.Asst_Model}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_ModelHint}" Style="{StaticResource FieldHint}"/>
-                        <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left"
-                                  Margin="0,0,0,12" FlowDirection="LeftToRight" IsEnabled="{Binding Assistant.ModelsLoaded}"
-                                  ItemsSource="{Binding Assistant.Models}"
-                                  SelectedItem="{Binding Assistant.Model}"
-                                  AutomationProperties.LabeledBy="{Binding ElementName=ModelLabel}"/>
-                        <TextBlock Text="{Binding Assistant.ModelStatus}" Style="{StaticResource HelperText}" Margin="0,-6,0,12"
-                                   AutomationProperties.LiveSetting="Polite"
-                                   Visibility="{Binding Assistant.HasModelStatus, Converter={StaticResource BoolToVisibilityConverter}}"/>
-
-                        <TextBlock x:Name="KeyLabel" Text="{x:Static res:Strings.Asst_ApiKey}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_ApiKeyHint}" Style="{StaticResource FieldHint}"/>
-                        <Grid Margin="0,0,0,2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <PasswordBox x:Name="KeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
-                                         LostKeyboardFocus="KeyBox_LostKeyboardFocus"
-                                         AutomationProperties.LabeledBy="{Binding ElementName=KeyLabel}"/>
-                            <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
-                                    Command="{Binding Assistant.RemoveApiKeyCommand}"/>
-                        </Grid>
-                        <TextBlock Text="{Binding Assistant.KeyStatus}" Style="{StaticResource HelperText}" Margin="0,0,0,12"
-                                   AutomationProperties.LiveSetting="Polite"/>
-
-                        <TextBlock x:Name="TokensLabel" Text="{x:Static res:Strings.Asst_MaxTokens}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_MaxTokensHint}" Style="{StaticResource FieldHint}"/>
-                        <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
-                                 Text="{Binding Assistant.MaxTokens, UpdateSourceTrigger=LostFocus}"
-                                 AutomationProperties.LabeledBy="{Binding ElementName=TokensLabel}"/>
-
-                        <Button Content="{x:Static res:Strings.Asst_Test}" Style="{StaticResource SecondaryButton}" HorizontalAlignment="Left"
-                                Command="{Binding Assistant.TestCommand}" ToolTip="{x:Static res:Strings.Asst_TestTip}"/>
-                        <TextBlock Text="{Binding Assistant.TestResult}" Margin="0,8,0,0" AutomationProperties.LiveSetting="Polite"
-                                   Visibility="{Binding Assistant.HasTestResult, Converter={StaticResource BoolToVisibilityConverter}}">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock" BasedOn="{StaticResource GoodText}">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Assistant.TestFailed}" Value="True">
-                                            <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Assistant.Testing}" Value="True">
-                                            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </StackPanel>
-                </Border>
-
-                <!-- Assistant -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Asst_Title}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock x:Name="InstructionsLabel" Text="{x:Static res:Strings.Asst_Instructions}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_InstructionsHint}" Style="{StaticResource FieldHint}"/>
-                        <TextBox Style="{StaticResource ModernTextBox}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="70" MaxHeight="160"
-                                 VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto" Margin="0,0,0,12"
-                                 Text="{Binding Assistant.Instructions, UpdateSourceTrigger=LostFocus}"
-                                 AutomationProperties.LabeledBy="{Binding ElementName=InstructionsLabel}"/>
-                        <TextBlock x:Name="StepsLabel" Text="{x:Static res:Strings.Asst_MaxSteps}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_MaxStepsHint}" Style="{StaticResource FieldHint}"/>
-                        <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
-                                 Text="{Binding Assistant.MaxSteps, UpdateSourceTrigger=LostFocus}"
-                                 AutomationProperties.LabeledBy="{Binding ElementName=StepsLabel}"/>
-                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.SkipApprovals}">
-                            <TextBlock Text="{x:Static res:Strings.Asst_SkipApprovals}" TextWrapping="Wrap"/>
-                        </CheckBox>
-                    </StackPanel>
-                </Border>
-
-                <!-- E-book sources -->
-                <Border Style="{StaticResource Card}" Margin="0,0,0,12">
-                    <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Src_Header}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock Text="{x:Static res:Strings.Src_Hint}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
-
-                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGutenberg}"
-                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_GutenbergHint}">
-                            <TextBlock Text="Project Gutenberg" FontWeight="SemiBold"/>
-                        </CheckBox>
-                        <TextBlock Text="{x:Static res:Strings.Src_GutenbergHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
-
-                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseOpenLibrary}"
-                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_OpenLibraryHint}">
-                            <TextBlock Text="{x:Static res:Strings.Src_OpenLibrary}" FontWeight="SemiBold"/>
-                        </CheckBox>
-                        <TextBlock Text="{x:Static res:Strings.Src_OpenLibraryHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
-
-                        <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGoogleBooks}"
-                                  AutomationProperties.HelpText="{x:Static res:Strings.Src_GoogleHint}">
-                            <TextBlock Text="Google Books" FontWeight="SemiBold"/>
-                        </CheckBox>
-                        <TextBlock Text="{x:Static res:Strings.Src_GoogleHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,6"/>
-                        <Grid Margin="24,0,0,2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <PasswordBox x:Name="GoogleKeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
-                                         LostKeyboardFocus="GoogleKeyBox_LostKeyboardFocus"
-                                         AutomationProperties.Name="{x:Static res:Strings.Src_GoogleKey}"/>
-                            <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
-                                    Command="{Binding Assistant.RemoveGoogleBooksKeyCommand}"/>
-                        </Grid>
-                        <TextBlock Text="{Binding Assistant.GoogleKeyStatus}" Style="{StaticResource HelperText}" Margin="24,0,0,12"
-                                   AutomationProperties.LiveSetting="Polite"/>
-
-                        <TextBlock Text="{x:Static res:Strings.Src_LinksOnly}" Style="{StaticResource FieldHint}" Margin="0,0,0,16"/>
-
-                        <TextBlock Text="{x:Static res:Strings.Src_Catalogues}" Style="{StaticResource FieldLabel}"/>
-                        <TextBlock Text="{x:Static res:Strings.Src_CataloguesHint}" Style="{StaticResource FieldHint}"/>
-                        <TextBlock Text="{x:Static res:Strings.Src_NoCatalogues}" Style="{StaticResource MutedText}" Margin="0,0,0,6"
-                                   Visibility="{Binding Assistant.HasCatalogues, Converter={StaticResource InverseBoolToVisibility}}"/>
-                        <ItemsControl ItemsSource="{Binding Assistant.Catalogues}" Focusable="False">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="0,0,0,6">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <CheckBox Grid.Column="0" Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Enabled}"
-                                                  AutomationProperties.Name="{Binding Name}">
-                                            <TextBlock TextWrapping="Wrap">
-                                                <Run Text="{Binding Name, Mode=OneWay}" FontWeight="SemiBold"/>
-                                                <Run Text="  "/>
-                                                <Run Text="{Binding Server, Mode=OneWay}" Foreground="{DynamicResource TextSecondaryBrush}"/>
-                                            </TextBlock>
-                                        </CheckBox>
-                                        <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Remove}" Style="{StaticResource SmallButton}"
-                                                VerticalAlignment="Center"
-                                                Command="{Binding DataContext.Assistant.RemoveCatalogueCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                                CommandParameter="{Binding}" AutomationProperties.HelpText="{Binding Name}"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <!-- A new catalogue -->
-                        <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,6,0,0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock x:Name="CatNameLabel" Grid.Row="0" Text="{x:Static res:Strings.Src_CatalogueName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6"
-                                         Text="{Binding Assistant.NewCatalogueName, UpdateSourceTrigger=PropertyChanged}"
-                                         AutomationProperties.LabeledBy="{Binding ElementName=CatNameLabel}"/>
-                                <TextBlock x:Name="CatAddressLabel" Grid.Row="1" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,2" FlowDirection="LeftToRight"
-                                         Text="{Binding Assistant.NewCatalogueAddress, UpdateSourceTrigger=PropertyChanged}"
-                                         AutomationProperties.LabeledBy="{Binding ElementName=CatAddressLabel}"
-                                         AutomationProperties.HelpText="{x:Static res:Strings.Src_AddressHint}"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static res:Strings.Src_AddressHint}" Style="{StaticResource FieldHint}"/>
-                                <TextBlock x:Name="CatUserLabel" Grid.Row="3" Text="{x:Static res:Strings.Src_UserName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6" FlowDirection="LeftToRight"
-                                         Text="{Binding Assistant.NewCatalogueUser, UpdateSourceTrigger=PropertyChanged}"
-                                         AutomationProperties.LabeledBy="{Binding ElementName=CatUserLabel}"/>
-                                <TextBlock x:Name="CatPasswordLabel" Grid.Row="4" Text="{x:Static res:Strings.Src_Password}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
-                                <PasswordBox x:Name="CataloguePasswordBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource KeyBox}" Margin="0,0,0,6"
-                                             AutomationProperties.LabeledBy="{Binding ElementName=CatPasswordLabel}"/>
-                                <DockPanel Grid.Row="5" Grid.Column="1">
-                                    <Button DockPanel.Dock="Left" Content="{x:Static res:Strings.Src_AddCatalogue}" Style="{StaticResource SecondaryButton}"
-                                            Click="AddCatalogue_Click"/>
-                                    <TextBlock Text="{Binding Assistant.CatalogueError}" Style="{StaticResource BadText}" Margin="12,0,0,0"
-                                               AutomationProperties.LiveSetting="Assertive"
-                                               Visibility="{Binding Assistant.HasCatalogueError, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                </DockPanel>
-                            </Grid>
+                        <!-- eReader book-list backups -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock x:Name="BackupFolderLabel" Text="{x:Static res:Strings.Settings_BackupsHeader}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_BackupsHint}" Style="{StaticResource FieldHint}"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding BackupFolder, Mode=OneWay}"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=BackupFolderLabel}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
+                                            Command="{Binding ChooseBackupFolderCommand}" ToolTip="{x:Static res:Strings.Dialog_ChooseBackupFolder}"/>
+                                    <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
+                                            Command="{Binding OpenBackupFolderCommand}" Margin="0"/>
+                                </Grid>
+                            </StackPanel>
                         </Border>
                     </StackPanel>
-                </Border>
+                </ScrollViewer>
+            </TabItem>
 
-                <!-- Built-in tools -->
-                <Border Style="{StaticResource Card}">
+            <TabItem x:Name="KindlePage" Header="{x:Static res:Strings.Main_Kindle}" Tag="&#xE8F1;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
                     <StackPanel>
-                        <TextBlock Text="{x:Static res:Strings.Asst_ToolsHeader}" Style="{StaticResource SectionHeader}"/>
-                        <TextBlock Text="{x:Static res:Strings.Asst_ToolsHint}" Style="{StaticResource FieldHint}" Margin="0,0,0,10"/>
-                        <ItemsControl ItemsSource="{Binding Assistant.ToolRows}" Focusable="False">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="0,0,0,6">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="170"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,12,0"/>
-                                        <ComboBox Grid.Column="1" Style="{StaticResource ModernComboBox}"
-                                                  ItemsSource="{Binding Choices}" SelectedValuePath="Value" DisplayMemberPath="Label"
-                                                  SelectedValue="{Binding Policy}" AutomationProperties.Name="{Binding Title}"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        <!-- Kindle -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Main_Kindle}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock x:Name="KindleFolderLabel" Text="{x:Static res:Strings.Settings_BooksFolder}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_KindleFolderHint}" Style="{StaticResource FieldHint}"/>
+                                <Grid Margin="0,0,0,16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding KindleFolder, Mode=OneWay}"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=KindleFolderLabel}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
+                                            Command="{Binding ChooseKindleFolderCommand}" ToolTip="{x:Static res:Strings.Kindle_SaveToHint}"/>
+                                    <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
+                                            Command="{Binding OpenKindleFolderCommand}" Margin="0"/>
+                                </Grid>
+
+                                <TextBlock Text="{x:Static res:Strings.Settings_ExtraFolders}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Kindle_AddFolderHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_NoExtraFolders}" Style="{StaticResource MutedText}" Margin="0,0,0,6"
+                                           Visibility="{Binding HasKindleExtraFolders, Converter={StaticResource InverseBoolToVisibility}}"/>
+                                <ItemsControl ItemsSource="{Binding KindleExtraFolders}" Focusable="False">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,0,0,6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding Mode=OneWay}"/>
+                                                <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Remove}" Style="{StaticResource SmallButton}"
+                                                        VerticalAlignment="Center"
+                                                        Command="{Binding DataContext.RemoveKindleFolderCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                        CommandParameter="{Binding}" AutomationProperties.HelpText="{Binding}"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <Button Content="{x:Static res:Strings.Settings_Add}" Style="{StaticResource SecondaryButton}" HorizontalAlignment="Left"
+                                        Command="{Binding KindleAddFolderCommand}" ToolTip="{x:Static res:Strings.Kindle_AddFolderHint}" Margin="0,2,0,0"/>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
-                </Border>
-            </StackPanel>
-        </ScrollViewer>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem x:Name="ModelPage" Header="{x:Static res:Strings.Asst_ModelHeader}" Tag="&#xE99A;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
+                    <StackPanel>
+                        <!-- AI model -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Asst_ModelHeader}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_WhatIsSent}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
+
+                                <TextBlock x:Name="ProviderLabel" Text="{x:Static res:Strings.Asst_Provider}" Style="{StaticResource FieldLabel}"/>
+                                <ComboBox Style="{StaticResource ModernComboBox}" Width="460" HorizontalAlignment="Left" Margin="0,0,0,12"
+                                          ItemsSource="{Binding Assistant.Providers}" SelectedValuePath="Value" DisplayMemberPath="Label"
+                                          SelectedValue="{Binding Assistant.Provider}"
+                                          AutomationProperties.LabeledBy="{Binding ElementName=ProviderLabel}"/>
+
+                                <StackPanel Visibility="{Binding Assistant.IsCompatible, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <TextBlock x:Name="EndpointLabel" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}"/>
+                                    <TextBlock Text="{x:Static res:Strings.Asst_EndpointHint}" Style="{StaticResource FieldHint}"/>
+                                    <ComboBox Style="{StaticResource ModernComboBox}" IsEditable="True" Margin="0,0,0,12" FlowDirection="LeftToRight"
+                                              ItemsSource="{Binding Assistant.Endpoints}"
+                                              Text="{Binding Assistant.Endpoint, UpdateSourceTrigger=LostFocus}"
+                                              AutomationProperties.LabeledBy="{Binding ElementName=EndpointLabel}"/>
+                                </StackPanel>
+
+                                <!-- Ollama on this computer: HoboLibris can start it with no window, and stops what it started -->
+                                <Border Style="{StaticResource NoteCard}" Margin="0,0,0,12"
+                                        Visibility="{Binding Assistant.IsOllama, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <StackPanel>
+                                        <DockPanel>
+                                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                                <Button Content="{x:Static res:Strings.Asst_OllamaStart}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                                                        Command="{Binding Assistant.StartOllamaCommand}" IsEnabled="{Binding Assistant.CanStartOllama}"/>
+                                                <Button Content="{x:Static res:Strings.Asst_OllamaStop}" Style="{StaticResource SmallButton}" Margin="6,0,0,0"
+                                                        Command="{Binding Assistant.StopOllamaCommand}" IsEnabled="{Binding Assistant.CanStopOllama}"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Assistant.OllamaStatus}" TextWrapping="Wrap" VerticalAlignment="Center"
+                                                       AutomationProperties.LiveSetting="Polite"/>
+                                        </DockPanel>
+                                        <CheckBox Style="{StaticResource ModernCheckBox}" Margin="0,10,0,0" IsChecked="{Binding Assistant.AutoStartOllama}"
+                                                  AutomationProperties.HelpText="{x:Static res:Strings.Asst_OllamaStopsHint}">
+                                            <TextBlock Text="{x:Static res:Strings.Asst_OllamaAutoStart}" TextWrapping="Wrap"/>
+                                        </CheckBox>
+                                        <TextBlock Text="{x:Static res:Strings.Asst_OllamaStopsHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,0"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <TextBlock x:Name="ModelLabel" Text="{x:Static res:Strings.Asst_Model}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_ModelHint}" Style="{StaticResource FieldHint}"/>
+                                <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left"
+                                          Margin="0,0,0,12" FlowDirection="LeftToRight" IsEnabled="{Binding Assistant.ModelsLoaded}"
+                                          ItemsSource="{Binding Assistant.Models}"
+                                          SelectedItem="{Binding Assistant.Model}"
+                                          AutomationProperties.LabeledBy="{Binding ElementName=ModelLabel}"/>
+                                <TextBlock Text="{Binding Assistant.ModelStatus}" Style="{StaticResource HelperText}" Margin="0,-6,0,12"
+                                           AutomationProperties.LiveSetting="Polite"
+                                           Visibility="{Binding Assistant.HasModelStatus, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                                <TextBlock x:Name="KeyLabel" Text="{x:Static res:Strings.Asst_ApiKey}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_ApiKeyHint}" Style="{StaticResource FieldHint}"/>
+                                <Grid Margin="0,0,0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <PasswordBox x:Name="KeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
+                                                 LostKeyboardFocus="KeyBox_LostKeyboardFocus"
+                                                 AutomationProperties.LabeledBy="{Binding ElementName=KeyLabel}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
+                                            Command="{Binding Assistant.RemoveApiKeyCommand}"/>
+                                </Grid>
+                                <TextBlock Text="{Binding Assistant.KeyStatus}" Style="{StaticResource HelperText}" Margin="0,0,0,12"
+                                           AutomationProperties.LiveSetting="Polite"/>
+
+                                <TextBlock x:Name="TokensLabel" Text="{x:Static res:Strings.Asst_MaxTokens}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_MaxTokensHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
+                                         Text="{Binding Assistant.MaxTokens, UpdateSourceTrigger=LostFocus}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=TokensLabel}"/>
+
+                                <Button Content="{x:Static res:Strings.Asst_Test}" Style="{StaticResource SecondaryButton}" HorizontalAlignment="Left"
+                                        Command="{Binding Assistant.TestCommand}" ToolTip="{x:Static res:Strings.Asst_TestTip}"/>
+                                <TextBlock Text="{Binding Assistant.TestResult}" Margin="0,8,0,0" AutomationProperties.LiveSetting="Polite"
+                                           Visibility="{Binding Assistant.HasTestResult, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource GoodText}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Assistant.TestFailed}" Value="True">
+                                                    <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Assistant.Testing}" Value="True">
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem x:Name="AssistantPage" Header="{x:Static res:Strings.Asst_Title}" Tag="&#xE8BD;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
+                    <StackPanel>
+                        <!-- Assistant -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Asst_Title}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock x:Name="InstructionsLabel" Text="{x:Static res:Strings.Asst_Instructions}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_InstructionsHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBox Style="{StaticResource ModernTextBox}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="70" MaxHeight="160"
+                                         VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto" Margin="0,0,0,12"
+                                         Text="{Binding Assistant.Instructions, UpdateSourceTrigger=LostFocus}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=InstructionsLabel}"/>
+                                <TextBlock x:Name="StepsLabel" Text="{x:Static res:Strings.Asst_MaxSteps}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_MaxStepsHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBox Style="{StaticResource NumberBox}" Margin="0,0,0,12"
+                                         Text="{Binding Assistant.MaxSteps, UpdateSourceTrigger=LostFocus}"
+                                         AutomationProperties.LabeledBy="{Binding ElementName=StepsLabel}"/>
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.SkipApprovals}">
+                                    <TextBlock Text="{x:Static res:Strings.Asst_SkipApprovals}" TextWrapping="Wrap"/>
+                                </CheckBox>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem x:Name="SourcesPage" Header="{x:Static res:Strings.Src_Header}" Tag="&#xE896;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
+                    <StackPanel>
+                        <!-- E-book sources -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Src_Header}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock Text="{x:Static res:Strings.Src_Hint}" Style="{StaticResource FieldHint}" Margin="0,0,0,12"/>
+
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGutenberg}"
+                                          AutomationProperties.HelpText="{x:Static res:Strings.Src_GutenbergHint}">
+                                    <TextBlock Text="Project Gutenberg" FontWeight="SemiBold"/>
+                                </CheckBox>
+                                <TextBlock Text="{x:Static res:Strings.Src_GutenbergHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
+
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseOpenLibrary}"
+                                          AutomationProperties.HelpText="{x:Static res:Strings.Src_OpenLibraryHint}">
+                                    <TextBlock Text="{x:Static res:Strings.Src_OpenLibrary}" FontWeight="SemiBold"/>
+                                </CheckBox>
+                                <TextBlock Text="{x:Static res:Strings.Src_OpenLibraryHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,10"/>
+
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Assistant.UseGoogleBooks}"
+                                          AutomationProperties.HelpText="{x:Static res:Strings.Src_GoogleHint}">
+                                    <TextBlock Text="Google Books" FontWeight="SemiBold"/>
+                                </CheckBox>
+                                <TextBlock Text="{x:Static res:Strings.Src_GoogleHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,6"/>
+                                <Grid Margin="24,0,0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <PasswordBox x:Name="GoogleKeyBox" Grid.Column="0" Style="{StaticResource KeyBox}" Margin="0,0,8,0"
+                                                 LostKeyboardFocus="GoogleKeyBox_LostKeyboardFocus"
+                                                 AutomationProperties.Name="{x:Static res:Strings.Src_GoogleKey}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Asst_RemoveKey}" Style="{StaticResource RowButton}" Margin="0"
+                                            Command="{Binding Assistant.RemoveGoogleBooksKeyCommand}"/>
+                                </Grid>
+                                <TextBlock Text="{Binding Assistant.GoogleKeyStatus}" Style="{StaticResource HelperText}" Margin="24,0,0,12"
+                                           AutomationProperties.LiveSetting="Polite"/>
+
+                                <TextBlock Text="{x:Static res:Strings.Src_LinksOnly}" Style="{StaticResource FieldHint}" Margin="0,0,0,16"/>
+
+                                <TextBlock Text="{x:Static res:Strings.Src_Catalogues}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Src_CataloguesHint}" Style="{StaticResource FieldHint}"/>
+                                <TextBlock Text="{x:Static res:Strings.Src_NoCatalogues}" Style="{StaticResource MutedText}" Margin="0,0,0,6"
+                                           Visibility="{Binding Assistant.HasCatalogues, Converter={StaticResource InverseBoolToVisibility}}"/>
+                                <ItemsControl ItemsSource="{Binding Assistant.Catalogues}" Focusable="False">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,0,0,6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <CheckBox Grid.Column="0" Style="{StaticResource ModernCheckBox}" IsChecked="{Binding Enabled}"
+                                                          AutomationProperties.Name="{Binding Name}">
+                                                    <TextBlock TextWrapping="Wrap">
+                                                        <Run Text="{Binding Name, Mode=OneWay}" FontWeight="SemiBold"/>
+                                                        <Run Text="  "/>
+                                                        <Run Text="{Binding Server, Mode=OneWay}" Foreground="{DynamicResource TextSecondaryBrush}"/>
+                                                    </TextBlock>
+                                                </CheckBox>
+                                                <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Remove}" Style="{StaticResource SmallButton}"
+                                                        VerticalAlignment="Center"
+                                                        Command="{Binding DataContext.Assistant.RemoveCatalogueCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                        CommandParameter="{Binding}" AutomationProperties.HelpText="{Binding Name}"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                                <!-- A new catalogue -->
+                                <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,6,0,0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock x:Name="CatNameLabel" Grid.Row="0" Text="{x:Static res:Strings.Src_CatalogueName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6"
+                                                 Text="{Binding Assistant.NewCatalogueName, UpdateSourceTrigger=PropertyChanged}"
+                                                 AutomationProperties.LabeledBy="{Binding ElementName=CatNameLabel}"/>
+                                        <TextBlock x:Name="CatAddressLabel" Grid.Row="1" Text="{x:Static res:Strings.Asst_Endpoint}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,2" FlowDirection="LeftToRight"
+                                                 Text="{Binding Assistant.NewCatalogueAddress, UpdateSourceTrigger=PropertyChanged}"
+                                                 AutomationProperties.LabeledBy="{Binding ElementName=CatAddressLabel}"
+                                                 AutomationProperties.HelpText="{x:Static res:Strings.Src_AddressHint}"/>
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static res:Strings.Src_AddressHint}" Style="{StaticResource FieldHint}"/>
+                                        <TextBlock x:Name="CatUserLabel" Grid.Row="3" Text="{x:Static res:Strings.Src_UserName}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ModernTextBox}" Margin="0,0,0,6" FlowDirection="LeftToRight"
+                                                 Text="{Binding Assistant.NewCatalogueUser, UpdateSourceTrigger=PropertyChanged}"
+                                                 AutomationProperties.LabeledBy="{Binding ElementName=CatUserLabel}"/>
+                                        <TextBlock x:Name="CatPasswordLabel" Grid.Row="4" Text="{x:Static res:Strings.Src_Password}" Style="{StaticResource FieldLabel}" VerticalAlignment="Center" Margin="0,0,12,6"/>
+                                        <PasswordBox x:Name="CataloguePasswordBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource KeyBox}" Margin="0,0,0,6"
+                                                     AutomationProperties.LabeledBy="{Binding ElementName=CatPasswordLabel}"/>
+                                        <DockPanel Grid.Row="5" Grid.Column="1">
+                                            <Button DockPanel.Dock="Left" Content="{x:Static res:Strings.Src_AddCatalogue}" Style="{StaticResource SecondaryButton}"
+                                                    Click="AddCatalogue_Click"/>
+                                            <TextBlock Text="{Binding Assistant.CatalogueError}" Style="{StaticResource BadText}" Margin="12,0,0,0"
+                                                       AutomationProperties.LiveSetting="Assertive"
+                                                       Visibility="{Binding Assistant.HasCatalogueError, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                        </DockPanel>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem x:Name="ToolsPage" Header="{x:Static res:Strings.Asst_ToolsHeader}" Tag="&#xE90F;">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" Padding="0,0,8,0">
+                    <StackPanel>
+                        <!-- Built-in tools -->
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <TextBlock Text="{x:Static res:Strings.Asst_ToolsHeader}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock Text="{x:Static res:Strings.Asst_ToolsHint}" Style="{StaticResource FieldHint}" Margin="0,0,0,10"/>
+                                <ItemsControl ItemsSource="{Binding Assistant.ToolRows}" Focusable="False">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="0,0,0,6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="170"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding Title}" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,12,0"/>
+                                                <ComboBox Grid.Column="1" Style="{StaticResource ModernComboBox}"
+                                                          ItemsSource="{Binding Choices}" SelectedValuePath="Value" DisplayMemberPath="Label"
+                                                          SelectedValue="{Binding Policy}" AutomationProperties.Name="{Binding Title}"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
 
         <Button Grid.Row="1" Content="{x:Static res:Strings.Common_Close}" Style="{StaticResource ModernButton}"
                 Width="100" HorizontalAlignment="Right" Margin="0,16,0,0" Click="CloseButton_Click" IsCancel="True"/>
