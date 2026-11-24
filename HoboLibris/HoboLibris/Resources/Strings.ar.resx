@@ -1635,4 +1635,19 @@
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>نسخ هذه الرسالة</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>حجم السياق (رموز)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>مقدار المحادثة الذي يراه النموذج في وقت واحد، من 2,048 إلى 131,072. يحتاج الحجم الأكبر إلى ذاكرة فيديو أكثر.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>السماح للنموذج بالتفكير قبل أن يجيب</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>للنماذج القادرة على التفكير، مثل qwen3. أبطأ، ويستهلك جزءًا أكبر من السياق.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>المحادثة أطول من حجم السياق المحدد لـ Ollama ({0} رمز). ابدأ محادثة جديدة، أو زِد حجم السياق من الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
+  </data>
 </root>

@@ -1661,4 +1661,19 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>Copier ce message</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>Taille du contexte (jetons)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>La part de la conversation que le modèle voit à la fois, de 2 048 à 131 072. Une taille plus grande demande plus de mémoire vidéo.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>Laisser le modèle réfléchir avant de répondre</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>Pour les modèles qui savent réfléchir, comme qwen3. Plus lent, et cela occupe davantage le contexte.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>La conversation est trop longue pour la taille de contexte définie pour Ollama ({0} jetons). Commencez une nouvelle conversation ou augmentez la taille du contexte dans les Paramètres, sous Modèle d'IA.</value>
+  </data>
 </root>

@@ -1635,4 +1635,19 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>Diese Nachricht kopieren</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>Kontextgröße (Token)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>Wie viel von der Unterhaltung das Modell auf einmal sieht, von 2.048 bis 131.072. Eine größere Kontextgröße braucht mehr Grafikspeicher.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>Das Modell vor der Antwort nachdenken lassen</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>Für Modelle, die nachdenken können, etwa qwen3. Langsamer, und es belegt mehr vom Kontext.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>Die Unterhaltung ist zu lang für die Kontextgröße, die für Ollama eingestellt ist ({0} Token). Beginnen Sie eine neue Unterhaltung, oder erhöhen Sie die Kontextgröße in den Einstellungen unter KI-Modell.</value>
+  </data>
 </root>

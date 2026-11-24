@@ -1661,4 +1661,19 @@
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>复制此消息</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>上下文大小（令牌）</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>模型一次能看到的对话量，从 2,048 到 131,072。越大需要的显存越多。</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>让模型在回答前思考</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>适用于能思考的模型，例如 qwen3。速度更慢，并占用更多上下文。</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>对话超出了为 Ollama 设置的上下文大小（{0} 个令牌）。请开始新对话，或在设置的“AI 模型”中增大上下文大小。</value>
+  </data>
 </root>

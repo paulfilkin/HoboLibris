@@ -1635,4 +1635,19 @@
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>Копіювати це повідомлення</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>Розмір контексту (токени)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>Скільки розмови модель бачить одночасно, від 2 048 до 131 072. Більший розмір потребує більше відеопам’яті.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>Дозволити моделі подумати, перш ніж відповісти</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>Для моделей, які вміють думати, як-от qwen3. Повільніше й займає більше контексту.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>Розмова задовга для розміру контексту, заданого для Ollama ({0} токенів). Почніть нову розмову або збільште розмір контексту в налаштуваннях, у розділі «Модель ШІ».</value>
+  </data>
 </root>

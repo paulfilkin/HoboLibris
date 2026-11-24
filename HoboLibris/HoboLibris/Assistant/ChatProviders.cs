@@ -33,7 +33,24 @@ namespace HoboLibris.Assistant
 
     public sealed record ToolResultsTurn(IReadOnlyList<ToolResult> Results) : ChatTurn;
 
-    public sealed record ChatReply(string Text, IReadOnlyList<ToolCall> ToolCalls, string StopReason, int InputTokens, int OutputTokens);
+    public sealed record ChatReply(string Text, IReadOnlyList<ToolCall> ToolCalls, string StopReason, int InputTokens, int OutputTokens)
+    {
+        /// <summary>Token counts and times, where the service gives them (Ollama).</summary>
+        public ReplyStats? Stats { get; init; }
+    }
+
+    /// <summary>
+    /// What one request cost: the tokens read and written, Ollama's own times for loading the model,
+    /// reading the prompt and writing the reply, and the time to the first text or tool call and in all,
+    /// measured by HoboLibris.
+    /// </summary>
+    public sealed record ReplyStats(int PromptTokens, int ReplyTokens, TimeSpan Loading, TimeSpan Reading, TimeSpan Writing,
+        TimeSpan FirstOutput, TimeSpan Total)
+    {
+        public override string ToString() => string.Create(System.Globalization.CultureInfo.InvariantCulture,
+            $"prompt {PromptTokens} tokens in {Reading.TotalSeconds:0.00} s, reply {ReplyTokens} tokens in {Writing.TotalSeconds:0.00} s, "
+            + $"model loaded in {Loading.TotalSeconds:0.00} s, first output after {FirstOutput.TotalSeconds:0.00} s, {Total.TotalSeconds:0.00} s in all");
+    }
 
     public sealed class ChatException : Exception
     {
@@ -44,10 +61,17 @@ namespace HoboLibris.Assistant
 
     public interface IChatProvider
     {
-        Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel);
+        /// <summary>
+        /// Sends the conversation and returns the reply.  A service that streams calls onText with each
+        /// piece of text as it comes; the reply still holds the whole text.
+        /// </summary>
+        Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
+            Action<string>? onText = null);
     }
 
-    public sealed record ChatProviderOptions(ModelProvider Provider, string Model, string ApiKey, string Endpoint, int MaxTokens);
+    /// <summary>What a request needs.  ContextSize and Think are for Ollama only.</summary>
+    public sealed record ChatProviderOptions(ModelProvider Provider, string Model, string ApiKey, string Endpoint, int MaxTokens,
+        int ContextSize = AssistantSettings.DefaultOllamaContext, bool Think = false);
 
     /// <summary>The AI services the Assistant talks to.  Ported from Mycelia's Ai/Assistant/ChatProviders.cs.</summary>
     public static class ChatProviders
@@ -87,6 +111,8 @@ namespace HoboLibris.Assistant
         public static IChatProvider Create(ChatProviderOptions options) => options.Provider switch
         {
             ModelProvider.Anthropic => new AnthropicChatProvider(options),
+            // Ollama on this computer: its own API, which sets the context size and thinking and streams.
+            _ when OllamaServer.IsOllamaEndpoint(options.Provider, options.Endpoint) => new OllamaChatProvider(options),
             _ => new OpenAiChatProvider(options),
         };
 
@@ -214,14 +240,29 @@ namespace HoboLibris.Assistant
                 }
                 if (!response.IsSuccessStatusCode)
                 {
-                    string message = (json?["error"]?["message"] as JsonValue)?.ToString()
-                        ?? json?["error"]?.ToString()
-                        ?? (body.Length > 300 ? body[..300] + "…" : body);
-                    var format = (int)response.StatusCode == 401 ? Strings.Asst_ProviderErrorKey : Strings.Asst_ProviderError;
-                    throw new ChatException(string.Format(format, providerName, (int)response.StatusCode, message));
+                    throw Error(providerName, (int)response.StatusCode, body);
                 }
                 return json ?? throw new ChatException(string.Format(Strings.Asst_ProviderNotJson, providerName));
             }
+        }
+
+        /// <summary>A service's refusal, with the message from its answer ({"error":{"message":...}} or {"error":"..."}).</summary>
+        public static ChatException Error(string providerName, int status, string body)
+        {
+            JsonObject? json = null;
+            try
+            {
+                json = JsonNode.Parse(body) as JsonObject;
+            }
+            catch (JsonException)
+            {
+            }
+            string message = ((json?["error"] as JsonObject)?["message"] as JsonValue)?.ToString()
+                ?? (json?["error"] as JsonValue)?.ToString()
+                ?? json?["error"]?.ToString()
+                ?? (body.Length > 300 ? body[..300] + "…" : body);
+            var format = status == 401 ? Strings.Asst_ProviderErrorKey : Strings.Asst_ProviderError;
+            return new ChatException(string.Format(format, providerName, status, message));
         }
     }
 
@@ -232,7 +273,8 @@ namespace HoboLibris.Assistant
 
         public AnthropicChatProvider(ChatProviderOptions options) => _options = options;
 
-        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel)
+        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
+            Action<string>? onText = null)
         {
             var messages = new JsonArray();
             void Add(string role, JsonArray content)
@@ -349,7 +391,8 @@ namespace HoboLibris.Assistant
 
         private string ProviderName => _options.Provider == ModelProvider.OpenAI ? "OpenAI" : Strings.Asst_AiService;
 
-        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel)
+        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
+            Action<string>? onText = null)
         {
             var messages = new JsonArray { new JsonObject { ["role"] = "system", ["content"] = system } };
             foreach (var turn in turns)

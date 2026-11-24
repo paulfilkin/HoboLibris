@@ -319,6 +319,18 @@
                                             <TextBlock Text="{x:Static res:Strings.Asst_OllamaAutoStart}" TextWrapping="Wrap"/>
                                         </CheckBox>
                                         <TextBlock Text="{x:Static res:Strings.Asst_OllamaStopsHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,0"/>
+
+                                        <!-- Sent with each request to Ollama's own API -->
+                                        <TextBlock x:Name="ContextLabel" Text="{x:Static res:Strings.Asst_OllamaContext}" Style="{StaticResource FieldLabel}" Margin="0,14,0,0"/>
+                                        <TextBlock Text="{x:Static res:Strings.Asst_OllamaContextHint}" Style="{StaticResource FieldHint}"/>
+                                        <TextBox Style="{StaticResource NumberBox}"
+                                                 Text="{Binding Assistant.OllamaContext, UpdateSourceTrigger=LostFocus}"
+                                                 AutomationProperties.LabeledBy="{Binding ElementName=ContextLabel}"/>
+                                        <CheckBox Style="{StaticResource ModernCheckBox}" Margin="0,12,0,0" IsChecked="{Binding Assistant.OllamaThink}"
+                                                  AutomationProperties.HelpText="{x:Static res:Strings.Asst_OllamaThinkHint}">
+                                            <TextBlock Text="{x:Static res:Strings.Asst_OllamaThink}" TextWrapping="Wrap"/>
+                                        </CheckBox>
+                                        <TextBlock Text="{x:Static res:Strings.Asst_OllamaThinkHint}" Style="{StaticResource FieldHint}" Margin="24,2,0,0"/>
                                     </StackPanel>
                                 </Border>
 

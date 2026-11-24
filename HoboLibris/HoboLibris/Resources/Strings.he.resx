@@ -1635,4 +1635,19 @@
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>העתקת ההודעה הזו</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>גודל ההקשר (אסימונים)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>כמה מהשיחה המודל רואה בבת אחת, מ-2,048 עד 131,072. גודל גדול יותר דורש יותר זיכרון וידאו.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>לתת למודל לחשוב לפני שהוא עונה</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>למודלים שיודעים לחשוב, כמו qwen3. איטי יותר, ותופס יותר מההקשר.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>השיחה ארוכה מדי עבור גודל ההקשר שהוגדר ל-Ollama ({0} אסימונים). אפשר להתחיל שיחה חדשה, או להגדיל את גודל ההקשר בהגדרות, תחת מודל AI.</value>
+  </data>
 </root>

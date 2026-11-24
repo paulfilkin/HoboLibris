@@ -1661,4 +1661,19 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>このメッセージをコピー</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>コンテキスト サイズ (トークン)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>モデルが一度に参照できる会話の量。2,048 から 131,072 まで。大きくするほどビデオ メモリが多く必要です。</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>回答の前にモデルに考えさせる</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>qwen3 など、思考できるモデル用です。遅くなり、コンテキストも多く使います。</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>会話が Ollama に設定したコンテキスト サイズ ({0} トークン) に対して長すぎます。新しい会話を始めるか、設定の [AI モデル] でコンテキスト サイズを大きくしてください。</value>
+  </data>
 </root>

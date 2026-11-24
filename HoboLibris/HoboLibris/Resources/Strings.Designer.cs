@@ -2635,5 +2635,30 @@ namespace HoboLibris.Resources {
         public static string Asst_CopyPromptTip {
             get { return ResourceManager.GetString("Asst_CopyPromptTip", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Context size (tokens).</summary>
+        public static string Asst_OllamaContext {
+            get { return ResourceManager.GetString("Asst_OllamaContext", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to How much of the conversation the model sees at once, from 2,048 to 131,072. A larger size needs more video memory..</summary>
+        public static string Asst_OllamaContextHint {
+            get { return ResourceManager.GetString("Asst_OllamaContextHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Let the model think before it answers.</summary>
+        public static string Asst_OllamaThink {
+            get { return ResourceManager.GetString("Asst_OllamaThink", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to For models that can think, such as qwen3. Slower, and it uses more of the context..</summary>
+        public static string Asst_OllamaThinkHint {
+            get { return ResourceManager.GetString("Asst_OllamaThinkHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The conversation is too long for the context size set for Ollama ({0} tokens). Start a new conversation, or raise the....</summary>
+        public static string Asst_TooLongOllama {
+            get { return ResourceManager.GetString("Asst_TooLongOllama", resourceCulture); }
+        }
     }
 }
