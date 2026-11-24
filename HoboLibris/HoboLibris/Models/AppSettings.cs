@@ -72,6 +72,10 @@ namespace HoboLibris.Models
         [JsonPropertyName("collections_list_folded")]
         public bool CollectionsListFolded { get; set; }
 
+        /// <summary>The Settings page used last, opened again next time ("general", "kobo", "ai"...).</summary>
+        [JsonPropertyName("settings_page")]
+        public string SettingsPage { get; set; } = "";
+
         /// <summary>The Assistant: AI model, key, instructions, tool policies and the pane.</summary>
         [JsonPropertyName("assistant")]
         public AssistantSettings Assistant { get; set; } = new();
@@ -100,6 +104,7 @@ namespace HoboLibris.Models
             Theme = Theme,
             Assistant = Assistant,
             CollectionsListWidth = CollectionsListWidth,
+            SettingsPage = SettingsPage,
             CollectionsListFolded = CollectionsListFolded,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,

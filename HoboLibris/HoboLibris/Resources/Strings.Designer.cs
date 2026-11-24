@@ -2620,5 +2620,15 @@ namespace HoboLibris.Resources {
         public static string Asst_ChooseModel {
             get { return ResourceManager.GetString("Asst_ChooseModel", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to General.</summary>
+        public static string Settings_PageGeneral {
+            get { return ResourceManager.GetString("Settings_PageGeneral", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Checking whether Ollama is running….</summary>
+        public static string Asst_OllamaChecking {
+            get { return ResourceManager.GetString("Asst_OllamaChecking", resourceCulture); }
+        }
     }
 }

@@ -1652,4 +1652,10 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>No hay ningún modelo elegido. Elija uno en Configuración, en Modelo de IA.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Comprobando si Ollama está en marcha…</value>
+  </data>
 </root>

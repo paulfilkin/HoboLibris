@@ -1652,4 +1652,10 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>No model is chosen. Choose one in Settings, under AI model.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Checking whether Ollama is running…</value>
+  </data>
 </root>

@@ -1652,4 +1652,10 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>Aucun modèle n'est choisi. Choisissez-en un dans les Paramètres, sous Modèle d'IA.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Vérification qu'Ollama est en cours d'exécution…</value>
+  </data>
 </root>

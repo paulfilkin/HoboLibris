@@ -1652,4 +1652,10 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>モデルが選ばれていません。設定の [AI モデル] で選んでください。</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>全般</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>Ollama が実行中か確認しています…</value>
+  </data>
 </root>

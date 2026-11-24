@@ -1626,4 +1626,10 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_ChooseModel" xml:space="preserve">
     <value>Não há nenhum modelo escolhido. Escolha um nas Definições, em Modelo de IA.</value>
   </data>
+  <data name="Settings_PageGeneral" xml:space="preserve">
+    <value>Geral</value>
+  </data>
+  <data name="Asst_OllamaChecking" xml:space="preserve">
+    <value>A verificar se o Ollama está em execução…</value>
+  </data>
 </root>
