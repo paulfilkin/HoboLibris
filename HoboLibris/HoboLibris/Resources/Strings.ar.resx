@@ -1134,9 +1134,6 @@
   <data name="Asst_StopTip" xml:space="preserve">
     <value>إيقاف الطلب</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>نسخ</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>تم النسخ</value>
   </data>
@@ -1631,5 +1628,11 @@
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>جارٍ التحقق مما إذا كان Ollama قيد التشغيل…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>غير ممكن</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>نسخ هذه الرسالة</value>
   </data>
 </root>

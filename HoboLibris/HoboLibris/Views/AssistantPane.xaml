@@ -39,6 +39,14 @@
             </Setter>
         </Style>
 
+        <!-- The copy icon under each message: smaller than the header's icons. -->
+        <Style x:Key="MessageCopyButton" TargetType="Button" BasedOn="{StaticResource PaneIconButton}">
+            <Setter Property="Content" Value="&#xE8C8;"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+        </Style>
+
         <Style x:Key="Glyph" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets"/>
             <Setter Property="FontSize" Value="13"/>
@@ -71,7 +79,11 @@
                     <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Foreground="{DynamicResource TextPrimaryBrush}"
                                FlowDirection="{Binding Text, Converter={StaticResource TextFlow}}"/>
                 </Border>
-                <TextBlock Text="{Binding Context}" Style="{StaticResource Caption}" FontSize="11" HorizontalAlignment="Right" Margin="0,3,2,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,1,0,0">
+                    <Button Style="{StaticResource MessageCopyButton}" Click="CopyMessage_Click" Margin="0,0,4,0"
+                            ToolTip="{x:Static res:Strings.Asst_CopyPromptTip}" AutomationProperties.Name="{x:Static res:Strings.Asst_CopyPromptTip}"/>
+                    <TextBlock Text="{Binding Context}" Style="{StaticResource Caption}" FontSize="11" VerticalAlignment="Center" Margin="0,0,2,0"/>
+                </StackPanel>
             </StackPanel>
         </DataTemplate>
 
@@ -80,8 +92,8 @@
                 <views:ChatText Markdown="{Binding Text}" Foreground="{DynamicResource TextPrimaryBrush}"
                                 FlowDirection="{Binding Text, Converter={StaticResource TextFlow}}"
                                 AutomationProperties.Name="{Binding Text}"/>
-                <Button Content="{x:Static res:Strings.Asst_Copy}" Style="{StaticResource SmallButton}" HorizontalAlignment="Left"
-                        Margin="0,4,0,0" Click="CopyMessage_Click" ToolTip="{x:Static res:Strings.Asst_CopyTip}"/>
+                <Button Style="{StaticResource MessageCopyButton}" HorizontalAlignment="Left" Margin="-4,2,0,0" Click="CopyMessage_Click"
+                        ToolTip="{x:Static res:Strings.Asst_CopyTip}" AutomationProperties.Name="{x:Static res:Strings.Asst_CopyTip}"/>
             </StackPanel>
         </DataTemplate>
 

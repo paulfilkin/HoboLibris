@@ -1160,9 +1160,6 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_StopTip" xml:space="preserve">
     <value>要求を中止</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>コピー</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>コピーしました</value>
   </data>
@@ -1657,5 +1654,11 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Ollama が実行中か確認しています…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>実行できません</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>このメッセージをコピー</value>
   </data>
 </root>

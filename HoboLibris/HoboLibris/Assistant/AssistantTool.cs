@@ -49,6 +49,13 @@ namespace HoboLibris.Assistant
 
         public required Func<JsonObject, CancellationToken, Task<ToolOutcome>> Run { get; init; }
 
+        /// <summary>
+        /// Looks at a call before the person is asked about it.  An answer means the call can do nothing
+        /// (no eReader, ids from the wrong list, nothing to back up): the model gets the answer and no
+        /// card is shown.  Null means go ahead.  Run checks again, as things can change while a card waits.
+        /// </summary>
+        public Func<JsonObject, ToolOutcome?>? Check { get; init; }
+
         /// <summary>A plain sentence saying what a call will do, for the approval card.</summary>
         public Func<JsonObject, string>? Describe { get; init; }
 

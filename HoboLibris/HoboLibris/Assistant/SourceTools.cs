@@ -22,6 +22,13 @@ namespace HoboLibris.Assistant
         /// <summary>Books found in this session, by id, so a download knows where the file is.</summary>
         private readonly Dictionary<string, EbookResult> _found = new(StringComparer.OrdinalIgnoreCase);
 
+        /// <summary>The id prefixes search_ebooks gives: Project Gutenberg, Open Library, Google Books, OPDS catalogues.</summary>
+        private static readonly string[] SearchIdPrefixes = { "pg-", "ol-", "gb-", "op-" };
+
+        /// <summary>The id came from search_ebooks, not from one of the book lists.</summary>
+        public static bool IsSearchId(string id) =>
+            SearchIdPrefixes.Any(p => id.StartsWith(p, StringComparison.OrdinalIgnoreCase));
+
         public SourceTools(MainViewModel main)
         {
             _main = main;
@@ -97,9 +104,10 @@ namespace HoboLibris.Assistant
             {
                 Name = "download_ebook",
                 Title = Strings.Asst_Tool_DownloadEbook,
-                Description = "Download a book found with search_ebooks into the Kobo folder, as \"Title - Author.epub\". It then appears on Send to eReader; send it with send_to_ereader (ids from list_send) when the person wants it on the eReader. An existing file isn't downloaded again.",
+                Description = "Download a book found with search_ebooks into the Kobo folder, as \"Title - Author.epub\". Only when the person asked to download, read or send a book; not when they asked to find or list books. It then appears on Send to eReader; send it with send_to_ereader (ids from list_send) when the person wants it on the eReader. An existing file isn't downloaded again.",
                 Schema = Schema.Object(("id", Schema.String("The book's id from search_ebooks."), true)),
                 Changes = true,
+                Check = DownloadCheck,
                 Describe = args => _found.TryGetValue(args.Str("id") ?? "", out var r)
                     ? string.Format(Strings.Asst_Desc_Download, r.Title, r.Authors.Length > 0 ? r.Authors : "?", SourceName(r.Source))
                     : string.Format(Strings.Asst_Desc_DownloadId, args.Str("id")),
@@ -238,6 +246,26 @@ namespace HoboLibris.Assistant
             ?? (name == null && Sources.Catalogues.Count(c => c.Enabled) == 1 ? Sources.Catalogues.First(c => c.Enabled) : null);
 
         // ---- Download ---------------------------------------------------------------------------
+
+        /// <summary>
+        /// Why a download can't run, before the person is asked.  Project Gutenberg and Open Library ids
+        /// can be looked up without a search; the others must come from a search in this conversation.
+        /// </summary>
+        private ToolOutcome? DownloadCheck(JsonObject args)
+        {
+            var id = args.Str("id") ?? "";
+            if (GutenbergCatalogue.TryParseId(id, out _))
+            {
+                return Sources.Gutenberg ? null : Off("Project Gutenberg");
+            }
+            if (id.StartsWith("ol-", StringComparison.OrdinalIgnoreCase))
+            {
+                return Sources.OpenLibrary ? null : Off("Open Library");
+            }
+            return _found.ContainsKey(id)
+                ? null
+                : new ToolOutcome("That id isn't from a search in this conversation; search again. Ids from list_books or list_send are not for download_ebook.", true);
+        }
 
         private async Task<ToolOutcome> DownloadAsync(JsonObject args, CancellationToken cancel)
         {

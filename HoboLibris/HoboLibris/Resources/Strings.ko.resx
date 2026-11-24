@@ -1160,9 +1160,6 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_StopTip" xml:space="preserve">
     <value>요청 중지</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>복사</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>복사됨</value>
   </data>
@@ -1657,5 +1654,11 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Ollama가 실행 중인지 확인하는 중…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>할 수 없음</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>이 메시지 복사</value>
   </data>
 </root>

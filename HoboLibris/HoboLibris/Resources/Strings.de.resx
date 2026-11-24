@@ -1134,9 +1134,6 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Anfrage abbrechen</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Kopieren</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Kopiert</value>
   </data>
@@ -1631,5 +1628,11 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Es wird geprüft, ob Ollama läuft…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>Nicht möglich</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Diese Nachricht kopieren</value>
   </data>
 </root>

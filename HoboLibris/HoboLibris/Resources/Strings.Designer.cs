@@ -1801,11 +1801,6 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_StopTip", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Copy.</summary>
-        public static string Asst_Copy {
-            get { return ResourceManager.GetString("Asst_Copy", resourceCulture); }
-        }
-
         /// <summary>Looks up a localized string similar to Copied.</summary>
         public static string Asst_Copied {
             get { return ResourceManager.GetString("Asst_Copied", resourceCulture); }
@@ -2629,6 +2624,16 @@ namespace HoboLibris.Resources {
         /// <summary>Looks up a localized string similar to Checking whether Ollama is running….</summary>
         public static string Asst_OllamaChecking {
             get { return ResourceManager.GetString("Asst_OllamaChecking", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Not possible.</summary>
+        public static string Asst_NotPossible {
+            get { return ResourceManager.GetString("Asst_NotPossible", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy this message.</summary>
+        public static string Asst_CopyPromptTip {
+            get { return ResourceManager.GetString("Asst_CopyPromptTip", resourceCulture); }
         }
     }
 }

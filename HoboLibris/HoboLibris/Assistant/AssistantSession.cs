@@ -36,6 +36,11 @@ namespace HoboLibris.Assistant
     {
         private const int MaxResultLength = 40_000;
 
+        // From a test with qwen3:8b on 24 November 2026: told only that the person declined, it said books
+        // that were never downloaded "remain in your Kobo folder", and dropped the table it was asked for.
+        public const string DeclinedResult = "The person declined this action, so nothing was done. Don't try this or a similar action again unless they ask. "
+            + "Carry on with the rest of their request, and report only what tool results show.";
+
         private readonly IAssistantHost _host;
         private readonly List<ChatTurn> _turns = new();
         private readonly string? _conversationPath;
@@ -216,6 +221,18 @@ namespace HoboLibris.Assistant
                 return new ToolResult(call.Id, call.Name, $"There is no tool {call.Name} (it may be switched off).", true);
             }
 
+            // A call that can do nothing isn't put to the person: the model is told why instead.
+            if (tool.Check?.Invoke(call.Arguments) is { } refused)
+            {
+                Items.Add(new ToolActivity(tool, call.Arguments)
+                {
+                    Result = refused.Content,
+                    Summary = refused.Summary ?? Strings.Asst_NotPossible,
+                    State = refused.IsError ? ToolActivityState.Failed : ToolActivityState.Done,
+                });
+                return new ToolResult(call.Id, call.Name, refused.Content, refused.IsError);
+            }
+
             if (tool.NeedsApproval(Settings.SkipApprovals))
             {
                 var approval = new ApprovalRequest(tool, call.Arguments);
@@ -227,7 +244,7 @@ namespace HoboLibris.Assistant
                     if (!allowed)
                     {
                         Items.Add(new ToolActivity(tool, call.Arguments) { State = ToolActivityState.Declined, Summary = Strings.Asst_YouDeclined });
-                        return new ToolResult(call.Id, call.Name, "The person declined this action. Don't try it again unless they ask.", true);
+                        return new ToolResult(call.Id, call.Name, DeclinedResult, true);
                     }
                     if (always && !tool.AlwaysAsks)
                     {
@@ -506,6 +523,9 @@ namespace HoboLibris.Assistant
             b.AppendLine("- search_ebooks searches the sources listed as on in the state below. Project Gutenberg books are public domain in the USA; say the person should check the law where they live when it matters. Open Library books are scans, so their EPUBs vary in quality.");
             b.AppendLine("- Use only these sources and the person's own catalogues. Never suggest or link to sites that share copyrighted books without permission, and never explain how to remove copy protection.");
             b.AppendLine("- Standard Ebooks doesn't allow AI assistants to download its books: open its search with open_store_search and let the person download the book into the Kobo folder.");
+            // From a test with qwen3:8b on 24 November 2026: asked to list Gutenberg books in a table, it searched,
+            // then tried to send the results to the eReader.
+            b.AppendLine("- When the person asks to find or list books, show what the search found (as a table if they ask) and stop. Download or send only when they ask for that.");
             b.AppendLine("- When the person asks for a book, search, pick the edition that best matches (say which), and download it with download_ebook; the program asks the person first. Then, if they want it on the eReader, call list_send and send it with send_to_ereader.");
             b.AppendLine("- Never invent a book, an edition or an id. If the searches find nothing, say so.");
             b.AppendLine();
