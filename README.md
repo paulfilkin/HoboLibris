@@ -65,7 +65,7 @@ You need Windows 10 or 11, 64-bit.
 3. Press **Back up all not yet saved**.  The books go to `Documents\HoboLibris\Kobo`; to use another folder, change it first in **Settings** (the gear icon at the top right).
 4. Plug in your Kobo eReader and tap **Connect** on its screen.  The books you added to it join the list, and the **Collections** and **Send to eReader** screens can work with it.
 5. On the **Kindle** tab, plug in your Kindle.  If it doesn't appear, the tab says what Windows can see and what to do next.
-6. To use the Assistant, choose an AI model in **Settings**, under **AI model**: Anthropic or OpenAI with your API key, or a model on your computer, which needs no key.  For [Ollama](https://ollama.com), choose **OpenAI-compatible** and `http://localhost:11434/v1`.  HoboLibris can start Ollama for you, with no window, and stops it again when you close HoboLibris.  Then press the chat icon at the top right.
+6. To use the Assistant, choose an AI service in **Settings**, under **AI model**: Anthropic or OpenAI with your API key, or a model on your computer, which needs no key.  For [Ollama](https://ollama.com), choose **OpenAI-compatible** and `http://localhost:11434/v1`.  HoboLibris can start Ollama for you, with no window, and stops it again when you close HoboLibris.  Once HoboLibris has reached the service, the **Model** list shows the models it offers; choose one.  Then press the chat icon at the top right.
 
 The release also has a zip with just the program.  It needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
 
@@ -126,17 +126,19 @@ The app uses NLog, CommunityToolkit.Mvvm, Microsoft.Web.WebView2 for the Kobo si
 
 ## Status
 
-HoboLibris is at version 0.1.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
+HoboLibris is at version 0.1.7.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
 
 Version 0.1.2 has been tried with a Kobo account and a Kobo eReader.  The store list refreshes from a saved sign-in, store books download, books copy from the eReader, and the Collections and Send to eReader screens read it.  Not yet tried on the rebuild: signing in from scratch, saving collections, sending books to the eReader, and the Kindle tab.
 
 The Assistant has been tried with a model on the same computer (Ollama with `qwen3:8b`): questions about the library, a Project Gutenberg search and download, and starting and stopping Ollama from Settings.  Not yet tried: Anthropic and OpenAI models, Google Books and OPDS catalogues.
 
+Ejecting the Kobo eReader from HoboLibris failed in 0.1.6 because HoboLibris itself kept the eReader's book list open.  It is fixed in 0.1.7, with a test, but not yet tried with a real eReader.
+
 It runs on Windows only.  Bugs and ideas are welcome as [issues](https://github.com/paulfilkin/HoboLibris/issues/new/choose).
 
 ## Documentation
 
-- [How it works](Docs/HoboLibris-Mechanics.md): how the Kobo desktop program signs in, lists and downloads books, and the rules for eReaders and Kindles.
+- [How it works](Docs/HoboLibris-Mechanics.md): how the Kobo desktop program signs in, lists and downloads books, the rules for eReaders and Kindles, and how the Assistant works: its AI services, tools and e-book sources, and the terms each source is used under.
 - [Working with Git](Docs/Working%20with%20Git.md): the commands for each step of a change, for someone new to Git.
 - [Contributing](CONTRIBUTING.md): how changes get in.
 

@@ -75,6 +75,7 @@ Estimated from how Kobo eReaders store books; checked against the person's eRead
 * Store downloads are named `Title - First author.ext` like the eReader copies; copies saved earlier as `Author - Title.ext` still count as saved.
 * Copies go straight into the chosen folder, named after the book: `Title - First author.ext` (`.kepub.epub` kept); a second book with the same name gets its format, then a number, added.  Kindle copies also go straight into the chosen folder under their own file names, with their `.sdr` folders beside them.
 * Observed: 146 added books (all with title and author from the database) and 1 store copy; the 1 saved store book matched none of the 146.
+* The book list must not stay open, or Windows refuses to eject the eReader ("currently in use") because HoboLibris holds the file.  Microsoft.Data.Sqlite pools connections and keeps the file open after a pooled connection is closed, so every connection to the eReader's book list is opened with `Pooling=False`, and the pool is emptied before an eject (fixed in 0.1.7, #41).
 
 ## Send to eReader (not from the desktop program)
 
@@ -106,6 +107,43 @@ Estimated from Kobo's book-list layout as calibre's Kobo driver uses it; not yet
 * Move: the ticked books go into the chosen collection and out of every other one.  "Also add" keeps their other collections.
 * Times are UTC `YYYY-MM-DDTHH:MM:SSZ`.  The eReader shows the changes after it is ejected.
 
+## The Assistant (not from the desktop program)
+
+Added in 0.1.6.  The code is in `HoboLibris\Assistant\`; it was ported from Mycelia's Assistant without its MCP parts.
+
+### AI services
+
+* Anthropic (Messages API, `x-api-key`), OpenAI (chat completions, Bearer key) and any OpenAI-compatible service (Ollama, LM Studio, Gemini, Mistral), called through `HttpClient` with no SDK (`ChatProviders.cs`).
+* The Model list is read from the service once it can be reached, never from a fixed list (0.1.7): `GET {base}/models` for OpenAI-compatible services, `https://api.anthropic.com/v1/models` with the key for Anthropic, and OpenAI's list filtered to chat models (`gpt-`, `o1`, `o3`, `o4`, `chatgpt`, without audio, image, search or embedding models).  Before a request to a service on this computer, a model it doesn't have is reported with the ones it has.
+* Ollama (`localhost:11434`): HoboLibris can run `ollama serve` itself with no window (`OllamaServer.cs`), from Settings or on the first request.  A Windows job object with kill-on-close ties the server to HoboLibris, so it stops when HoboLibris closes or crashes; a server started any other way is never stopped.  On the test machine, Ollama 0.40.17's own app never started its server.
+* Keys are encrypted with DPAPI (`SecretStore.cs`, prefix `dpapi:`) and added to requests by the app; the model never sees them.
+
+### Tools and approvals
+
+* 23 tools: 19 for the app's own screens (`HoboTools.cs`), which call the same view-model code as the screens, and 4 for e-book sources (`SourceTools.cs`).  Descriptions for the model are in English; titles and approval sentences are translated.
+* Each tool is Allow, Ask first or Off (Settings, Built-in tools).  Tools that change something ask by default.  Saving collections, sending to the eReader and deleting backups always ask, whatever the settings, and their cards have no Always allow.
+* Collection tools only change the Collections screen's pending changes; nothing reaches the eReader until `save_collections`.
+* Books reach the model as short ids (`s-`, `r-`, `f-`, `k-`, `c-`, `e-` plus 8 hex digits of a SHA-256 of the real id), so file paths, which hold the Windows user name, are never sent.  The Kobo sign-in, tokens and email address are never sent.
+* The conversation is kept between sessions in `%APPDATA%\HoboLibris\Assistant\conversation.json`, encrypted with DPAPI.
+
+### E-book sources and their terms
+
+Checked on 23 November 2026.
+
+| Source | How it is used |
+|---|---|
+| Project Gutenberg | Its website is for people only and blocks the address of anything automated (`/policy/robot_access.html`), so nothing goes to `www.gutenberg.org`.  The catalogue `pg_catalog.csv.gz` (about 6 MB) comes from a PGLAF mirror (`gutenberg.pglaf.org`, then `aleph.pglaf.org`) at most once a week, fetched in the background 30 seconds after start-up, and is searched on the computer.  EPUBs come from the mirror: `/cache/epub/{n}/pg{n}-images-3.epub`. |
+| Open Library and Internet Archive | Open Library is searched with `ebook_access:public` in the query itself (as a separate parameter it is ignored).  Before a download each Internet Archive item is checked: anything `access-restricted-item`, private, in a lending collection (`inlibrary`, `printdisabled`, `lendinglibrary`), or published within the US copyright term (95 years) without a `licenseurl` is skipped.  At most one request a second per site. |
+| Google Books | The person's own key; `filter=free-ebooks`; a download is kept only if Google sends a real EPUB. |
+| OPDS catalogues | The person's own (Calibre, Calibre-Web, Kavita).  Search is found through the feed's OpenSearch description; KEPUB is preferred; buy and borrow links are ignored.  The sign-in goes only to the catalogue's own server (scheme, host and port); the address is encrypted too, since Kavita puts its key in it. |
+| Standard Ebooks | Link only: its `robots.txt` disallows `/ebooks/*/downloads/*` for AI assistants by name (`claude-user`, `chatgpt-user` and others). |
+| Kobo store | Link only: the store's search page opens in the browser.  No purchasing. |
+
+Left out: Wikisource (`robots.txt` blocks every automated client), Feedbooks (no longer answers), DOAB and OAPEN (search APIs refused, mostly PDF), unglue.it (links lead to publishers' sites).
+
+* Requests send the User-Agent `HoboLibris/<version> (+https://github.com/paulfilkin/HoboLibris)`, never the person's email address.
+* Downloads go into the Kobo folder as `Title - First author.epub` (`.kepub.epub` for KEPUB), at most 300 MB, kept only if the file is a ZIP whose first entry says `application/epub+zip`.  An existing file is never overwritten.
+
 ## Display
 
-* Kobo.exe's manifest has no DPI-awareness entry, so Windows bitmap-stretches it on hi-res screens.  The rebuild is DPI-aware through egui.
+* Kobo.exe's manifest has no DPI-awareness entry, so Windows bitmap-stretches it on hi-res screens.  HoboLibris is a WPF program and is DPI-aware.
