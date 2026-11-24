@@ -1134,9 +1134,6 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Parar o pedido</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Copiar</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Copiado</value>
   </data>
@@ -1631,5 +1628,11 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>A verificar se o Ollama está em execução…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>Não é possível</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Copiar esta mensagem</value>
   </data>
 </root>

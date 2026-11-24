@@ -1160,9 +1160,6 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Arrêter la demande</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Copier</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Copié</value>
   </data>
@@ -1657,5 +1654,11 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Vérification qu'Ollama est en cours d'exécution…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>Impossible</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Copier ce message</value>
   </data>
 </root>

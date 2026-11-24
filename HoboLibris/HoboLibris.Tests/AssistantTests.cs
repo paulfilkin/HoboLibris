@@ -39,7 +39,7 @@ namespace HoboLibris.Tests
         public string ContextLine() => "Kobo";
 
         /// <summary>A tool that counts its runs and answers "ran".</summary>
-        public AssistantTool AddTool(string name, bool changes = false, bool alwaysAsks = false)
+        public AssistantTool AddTool(string name, bool changes = false, bool alwaysAsks = false, Func<JsonObject, ToolOutcome?>? check = null)
         {
             var tool = new AssistantTool
             {
@@ -49,6 +49,7 @@ namespace HoboLibris.Tests
                 Schema = Schema.Object(),
                 Changes = changes,
                 AlwaysAsks = alwaysAsks,
+                Check = check,
                 Run = (_, _) =>
                 {
                     Runs.Add(name);
@@ -116,6 +117,96 @@ namespace HoboLibris.Tests
             Assert.Empty(host.Runs);
             Assert.Equal(ToolActivityState.Declined, session.Items.OfType<ToolActivity>().Single().State);
             Assert.True(Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single().IsError);
+        }
+
+        [Fact]
+        public async Task ADeclineTellsTheModelNothingWasDoneAndToCarryOn()
+        {
+            var host = new TestHost();
+            host.AddTool("send_to_ereader", alwaysAsks: true);
+            var model = new ScriptedModel(ScriptedModel.Call("send_to_ereader"), ScriptedModel.Text("Here is the table."));
+            var session = Session(host, model);
+
+            var request = session.SendAsync("List them in a table");
+            await AnswerWhenAsked(session, allow: false, always: false);
+            await request;
+
+            var result = Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single();
+            Assert.Equal(AssistantSession.DeclinedResult, result.Content);
+            Assert.Contains("nothing was done", result.Content);
+            Assert.Contains("Carry on with the rest of their request", result.Content);
+        }
+
+        // From a test with qwen3:8b on 24 November 2026: a send with ids from search_ebooks asked
+        // "Copy these files (0) to the Kobo eReader".
+        [Fact]
+        public async Task ACallThatCanDoNothingIsNotPutToThePerson()
+        {
+            var host = new TestHost();
+            host.AddTool("send_to_ereader", alwaysAsks: true,
+                check: _ => new ToolOutcome("Nothing to send. These ids matched no book: pg-1234.", true));
+            var model = new ScriptedModel(ScriptedModel.Call("send_to_ereader"), ScriptedModel.Text("Those were search results."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Send them");
+
+            Assert.Empty(session.Items.OfType<ApprovalRequest>());
+            Assert.Empty(host.Runs);
+            var activity = session.Items.OfType<ToolActivity>().Single();
+            Assert.Equal(ToolActivityState.Failed, activity.State);
+            Assert.Equal(HoboLibris.Resources.Strings.Asst_NotPossible, activity.Summary);
+            Assert.Contains("pg-1234", activity.Result);
+            var result = Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single();
+            Assert.True(result.IsError);
+            Assert.StartsWith("Nothing to send.", result.Content);
+            Assert.Equal(2, model.Calls);
+        }
+
+        [Fact]
+        public async Task NothingToDoIsReportedWithoutAsking()
+        {
+            var host = new TestHost();
+            host.AddTool("back_up_books", changes: true, check: _ => new ToolOutcome("No books to back up."));
+            var model = new ScriptedModel(ScriptedModel.Call("back_up_books"), ScriptedModel.Text("Everything is backed up."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Back up everything");
+
+            Assert.Empty(session.Items.OfType<ApprovalRequest>());
+            Assert.Empty(host.Runs);
+            Assert.Equal(ToolActivityState.Done, session.Items.OfType<ToolActivity>().Single().State);
+            Assert.False(Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single().IsError);
+        }
+
+        [Fact]
+        public async Task ACallThatPassesItsCheckStillAsks()
+        {
+            var host = new TestHost();
+            var checks = 0;
+            host.AddTool("send_to_ereader", alwaysAsks: true, check: _ => { checks++; return null; });
+            var model = new ScriptedModel(ScriptedModel.Call("send_to_ereader"), ScriptedModel.Text("Sent."));
+            var session = Session(host, model);
+
+            var request = session.SendAsync("Send it");
+            await AnswerWhenAsked(session, allow: true, always: false);
+            await request;
+
+            Assert.Equal(1, checks);
+            Assert.Single(session.Items.OfType<ApprovalRequest>());
+            Assert.Equal(new[] { "send_to_ereader" }, host.Runs);
+        }
+
+        [Theory]
+        [InlineData("pg-1234", true)]
+        [InlineData("OL-OL123W", true)]
+        [InlineData("gb-abc", true)]
+        [InlineData("op-1a2b3c4d", true)]
+        [InlineData("e-1a2b3c4d", false)]
+        [InlineData("r-1a2b3c4d", false)]
+        [InlineData("", false)]
+        public void SearchIdsAreToldApartFromListIds(string id, bool fromSearch)
+        {
+            Assert.Equal(fromSearch, SourceTools.IsSearchId(id));
         }
 
         [Fact]

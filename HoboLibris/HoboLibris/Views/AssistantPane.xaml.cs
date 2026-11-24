@@ -64,27 +64,42 @@ namespace HoboLibris.Views
             }
         }
 
+        /// <summary>The copy icon under a prompt or an answer: the answer is copied as plain text.</summary>
         private void CopyMessage_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is not Button { DataContext: AssistantMessage message } button)
+            if (sender is not Button button)
+            {
+                return;
+            }
+            var text = button.DataContext switch
+            {
+                AssistantMessage answer => ChatText.ToPlainText(answer.Text),
+                UserMessage prompt => prompt.Text,
+                _ => null,
+            };
+            if (string.IsNullOrEmpty(text))
             {
                 return;
             }
             try
             {
-                Clipboard.SetText(ChatText.ToPlainText(message.Text));
+                Clipboard.SetText(text);
             }
             catch (System.Runtime.InteropServices.COMException)
             {
                 // The clipboard is busy; the person can try again.
                 return;
             }
-            button.Content = Strings.Asst_Copied;
+            // A tick for two seconds, then the copy icon again.
+            var tip = button.ToolTip;
+            button.Content = "\uE73E";
+            button.ToolTip = Strings.Asst_Copied;
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
             timer.Tick += (_, _) =>
             {
                 timer.Stop();
-                button.Content = Strings.Asst_Copy;
+                button.ClearValue(ContentControl.ContentProperty);
+                button.ToolTip = tip;
             };
             timer.Start();
         }

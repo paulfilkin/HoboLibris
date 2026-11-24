@@ -1160,9 +1160,6 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Interrompi la richiesta</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Copia</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Copiato</value>
   </data>
@@ -1657,5 +1654,11 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Verifica che Ollama sia in esecuzione…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>Non possibile</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Copia questo messaggio</value>
   </data>
 </root>

@@ -1160,9 +1160,6 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Stop the request</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Copy</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Copied</value>
   </data>
@@ -1657,5 +1654,11 @@ To back up more books, plug it in again: its books will appear here by themselve
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Checking whether Ollama is running…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>Not possible</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Copy this message</value>
   </data>
 </root>

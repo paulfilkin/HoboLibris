@@ -78,6 +78,7 @@ namespace HoboLibris.Assistant
                     ("ids", Ids, false),
                     ("all_not_backed_up", Schema.Boolean("Back up every book that has no copy yet."), false)),
                 Changes = true,
+                Check = BackUpCheck,
                 Describe = args =>
                 {
                     var rows = BackUpRows(args).Found;
@@ -92,6 +93,7 @@ namespace HoboLibris.Assistant
                 Description = "Move backup copies in the Kobo folder to the Recycle Bin: the saved copies of store or eReader books, or files only on this computer, by ids from list_books. Nothing is removed from the eReader or the Kobo account. The person can restore the files from the Recycle Bin.",
                 Schema = Schema.Object(("ids", Ids, true)),
                 AlwaysAsks = true,
+                Check = DeleteBackupsCheck,
                 Describe = args =>
                 {
                     var rows = BookRows(args.Strings("ids")).Found;
@@ -208,16 +210,13 @@ namespace HoboLibris.Assistant
                 Description = "Write the pending collection changes to the connected Kobo eReader, as Save to Kobo eReader does. The eReader's book list is backed up first. The person approves this every time.",
                 Schema = Schema.Object(),
                 AlwaysAsks = true,
+                Check = _ => SaveCollectionsCheck(),
                 Describe = _ => string.Format(Strings.Asst_Desc_SaveCollections, Collections.Pending),
                 Run = async (_, _) =>
                 {
-                    if (Collections.Coll == null)
+                    if (SaveCollectionsCheck() is { } refused)
                     {
-                        return new ToolOutcome("The collections aren't loaded: call list_collections first.", true);
-                    }
-                    if (Collections.Pending == 0)
-                    {
-                        return new ToolOutcome("There are no changes to save.");
+                        return refused;
                     }
                     var count = Collections.Pending;
                     await Collections.SaveAsync();
@@ -244,11 +243,12 @@ namespace HoboLibris.Assistant
             {
                 Name = "send_to_ereader",
                 Title = Strings.Asst_Tool_Send,
-                Description = "Copy book files from the Kobo folder to the connected Kobo eReader, by ids from list_send, or every file that is ready with all_ready. Only files that are ready (or copy-protected, which may not open) can be sent. The person approves this every time.",
+                Description = "Copy book files from the Kobo folder to the connected Kobo eReader, by ids from list_send, or every file that is ready with all_ready. Only files that are ready (or copy-protected, which may not open) can be sent. Ids from search_ebooks don't work here: download the book with download_ebook first, then find it with list_send. The person approves this every time.",
                 Schema = Schema.Object(
                     ("ids", Ids, false),
                     ("all_ready", Schema.Boolean("Send every file that is ready."), false)),
                 AlwaysAsks = true,
+                Check = SendCheck,
                 Describe = args =>
                 {
                     var rows = SendRows(args).Found;
@@ -314,6 +314,7 @@ namespace HoboLibris.Assistant
                     ("ids", Ids, false),
                     ("all_not_backed_up", Schema.Boolean("Back up every Kindle book that has no copy yet."), false)),
                 Changes = true,
+                Check = BackUpKindleCheck,
                 Describe = args =>
                 {
                     var rows = KindleRows(args).Found;
@@ -490,31 +491,50 @@ namespace HoboLibris.Assistant
             return (found.Where(r => r.Source is RowSource.Store or RowSource.Reader).ToList(), unknown);
         }
 
-        private async Task<ToolOutcome> BackUpAsync(JsonObject args)
+        /// <summary>Why a backup can't run, before the person is asked; null when it can.</summary>
+        private ToolOutcome? BackUpCheck(JsonObject args)
         {
             if (_main.KoboBusy)
             {
                 return new ToolOutcome("Books are being backed up already. Wait until they are done.", true);
             }
             var (rows, unknown) = BackUpRows(args);
-            if (rows.Count == 0)
+            return rows.Count == 0 ? new ToolOutcome("No books to back up." + Unknown(unknown), unknown.Count > 0) : null;
+        }
+
+        private async Task<ToolOutcome> BackUpAsync(JsonObject args)
+        {
+            if (BackUpCheck(args) is { } refused)
             {
-                return new ToolOutcome("No books to back up." + Unknown(unknown), unknown.Count > 0);
+                return refused;
             }
+            var (rows, unknown) = BackUpRows(args);
             await _main.BackUpForAssistantAsync(
                 rows.Where(r => r.Source == RowSource.Store).Select(r => r.Id).ToList(),
                 rows.Where(r => r.Source == RowSource.Reader).Select(r => r.Id).ToList());
             return Report(rows, r => r.IsSaved, unknown);
         }
 
-        private async Task<ToolOutcome> DeleteBackupsAsync(JsonObject args)
+        /// <summary>The books asked for that have a copy on this computer to delete.</summary>
+        private (List<BookRow> Found, List<string> Unknown) BackupCopies(JsonObject args)
         {
             var (rows, unknown) = BookRows(args.Strings("ids"));
-            rows = rows.Where(r => r.IsSaved || r.Source == RowSource.Folder).ToList();
-            if (rows.Count == 0)
+            return (rows.Where(r => r.IsSaved || r.Source == RowSource.Folder).ToList(), unknown);
+        }
+
+        private ToolOutcome? DeleteBackupsCheck(JsonObject args)
+        {
+            var (rows, unknown) = BackupCopies(args);
+            return rows.Count == 0 ? new ToolOutcome("None of these books has a backup copy." + Unknown(unknown), true) : null;
+        }
+
+        private async Task<ToolOutcome> DeleteBackupsAsync(JsonObject args)
+        {
+            if (DeleteBackupsCheck(args) is { } refused)
             {
-                return new ToolOutcome("None of these books has a backup copy." + Unknown(unknown), true);
+                return refused;
             }
+            var (rows, unknown) = BackupCopies(args);
             await _main.DeleteBackupsForAssistantAsync(
                 rows.Where(r => r.Source == RowSource.Store).Select(r => r.Id).ToList(),
                 rows.Where(r => r.Source == RowSource.Reader).Select(r => r.Id).ToList(),
@@ -613,6 +633,15 @@ namespace HoboLibris.Assistant
             BookIds.Resolve(ids, Collections.Coll!.Books, b => BookIds.For(BookIds.Collection, b.Id));
 
         /// <summary>The collection's own name, matched without regard to case; an error naming the ones there are.</summary>
+        private ToolOutcome? SaveCollectionsCheck()
+        {
+            if (Collections.Coll == null)
+            {
+                return new ToolOutcome("The collections aren't loaded: call list_collections first.", true);
+            }
+            return Collections.Pending == 0 ? new ToolOutcome("There are no changes to save.") : null;
+        }
+
         private static string CollectionName(Services.Collections coll, string? name)
         {
             var match = coll.Current.Keys.FirstOrDefault(k => string.Equals(k, name?.Trim(), StringComparison.CurrentCultureIgnoreCase));
@@ -699,7 +728,7 @@ namespace HoboLibris.Assistant
             }.ToJsonString(), Summary: string.Format(Strings.Asst_FilesReady, _main.ReadyToSend));
         }
 
-        private async Task<ToolOutcome> SendAsync(JsonObject args)
+        private ToolOutcome? SendCheck(JsonObject args)
         {
             if (!_main.ReaderConnected)
             {
@@ -711,12 +740,23 @@ namespace HoboLibris.Assistant
             }
             var (rows, unknown) = SendRows(args);
             var refused = rows.Where(r => !r.Verdict.CanSend).ToList();
-            rows = rows.Where(r => r.Verdict.CanSend).ToList();
-            if (rows.Count == 0)
+            if (rows.Count > refused.Count)
             {
-                return new ToolOutcome("Nothing to send." + Unknown(unknown)
-                    + (refused.Count > 0 ? " Not sendable: " + string.Join("; ", refused.Select(r => $"{r.FileName} ({r.Verdict.Why})")) : ""), true);
+                return null;
             }
+            return new ToolOutcome("Nothing to send." + Unknown(unknown)
+                + (refused.Count > 0 ? " Not sendable: " + string.Join("; ", refused.Select(r => $"{r.FileName} ({r.Verdict.Why})")) : ""), true);
+        }
+
+        private async Task<ToolOutcome> SendAsync(JsonObject args)
+        {
+            if (SendCheck(args) is { } refusal)
+            {
+                return refusal;
+            }
+            var (rows, unknown) = SendRows(args);
+            var refused = rows.Where(r => !r.Verdict.CanSend).ToList();
+            rows = rows.Where(r => r.Verdict.CanSend).ToList();
             await _main.StartSendAsync(rows.Select(r => r.Id).ToList());
             var sent = rows.Where(r => r.Sent && !r.IsFailed).ToList();
             var failed = rows.Where(r => r.IsFailed).ToList();
@@ -765,17 +805,23 @@ namespace HoboLibris.Assistant
             return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_BooksFound, rows.Count));
         }
 
-        private async Task<ToolOutcome> BackUpKindleAsync(JsonObject args)
+        private ToolOutcome? BackUpKindleCheck(JsonObject args)
         {
             if (_main.Kindle.Copying)
             {
                 return new ToolOutcome("Kindle books are being backed up already. Wait until they are done.", true);
             }
             var (rows, unknown) = KindleRows(args);
-            if (rows.Count == 0)
+            return rows.Count == 0 ? new ToolOutcome("No Kindle books to back up." + Unknown(unknown), unknown.Count > 0) : null;
+        }
+
+        private async Task<ToolOutcome> BackUpKindleAsync(JsonObject args)
+        {
+            if (BackUpKindleCheck(args) is { } refused)
             {
-                return new ToolOutcome("No Kindle books to back up." + Unknown(unknown), unknown.Count > 0);
+                return refused;
             }
+            var (rows, unknown) = KindleRows(args);
             await _main.Kindle.BackUpAsync(rows.Select(r => r.Id).ToList(), _main.KindleFolder);
             return Report(rows, r => r.IsSaved, unknown);
         }
@@ -786,7 +832,10 @@ namespace HoboLibris.Assistant
             items.Skip(Math.Max(0, args.Int("offset", 0))).Take(Math.Clamp(args.Int("limit", DefaultLimit), 1, 1000)).ToList();
 
         private static string Unknown(List<string> ids) =>
-            ids.Count == 0 ? "" : $" These ids matched no book (list the books again): {string.Join(", ", ids)}.";
+            ids.Count == 0 ? "" : $" These ids matched no book (list the books again): {string.Join(", ", ids)}."
+                + (ids.Any(SourceTools.IsSearchId)
+                    ? " Ids from search_ebooks are only for download_ebook and open_book_page; a downloaded book gets its own id in list_send."
+                    : "");
 
         /// <summary>Up to ten titles for an approval card, then "and 4 more".</summary>
         private static string TitleList(IEnumerable<string> titles)

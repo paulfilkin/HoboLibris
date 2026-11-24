@@ -1160,9 +1160,6 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_StopTip" xml:space="preserve">
     <value>Detener la solicitud</value>
   </data>
-  <data name="Asst_Copy" xml:space="preserve">
-    <value>Copiar</value>
-  </data>
   <data name="Asst_Copied" xml:space="preserve">
     <value>Copiado</value>
   </data>
@@ -1657,5 +1654,11 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   </data>
   <data name="Asst_OllamaChecking" xml:space="preserve">
     <value>Comprobando si Ollama está en marcha…</value>
+  </data>
+  <data name="Asst_NotPossible" xml:space="preserve">
+    <value>No es posible</value>
+  </data>
+  <data name="Asst_CopyPromptTip" xml:space="preserve">
+    <value>Copiar este mensaje</value>
   </data>
 </root>
