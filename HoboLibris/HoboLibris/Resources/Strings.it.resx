@@ -1661,4 +1661,19 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>Copia questo messaggio</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>Dimensione del contesto (token)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>Quanta parte della conversazione il modello vede alla volta, da 2.048 a 131.072. Una dimensione maggiore richiede più memoria video.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>Lascia che il modello pensi prima di rispondere</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>Per i modelli che sanno pensare, come qwen3. È più lento e occupa più contesto.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>La conversazione è troppo lunga per la dimensione del contesto impostata per Ollama ({0} token). Avvia una nuova conversazione o aumenta la dimensione del contesto in Impostazioni, sotto Modello di IA.</value>
+  </data>
 </root>

@@ -46,6 +46,22 @@ namespace HoboLibris.Assistant
         [JsonPropertyName("auto_start_ollama")]
         public bool AutoStartOllama { get; set; }
 
+        /// <summary>
+        /// The context Ollama gives the model, in tokens, sent with each request.  Without it Ollama picks
+        /// one from the video memory: 4,096 for qwen3:8b on an 8 GB card, less than the prompt and tools
+        /// with one search result.  8,192 fits that card.
+        /// </summary>
+        public const int DefaultOllamaContext = 8192;
+        public const int MinOllamaContext = 2048;
+        public const int MaxOllamaContext = 131072;
+
+        [JsonPropertyName("ollama_context")]
+        public int OllamaContext { get; set; } = DefaultOllamaContext;
+
+        /// <summary>Let an Ollama model that can think (qwen3) think before it answers.  Off by default: slower, and it fills the context.</summary>
+        [JsonPropertyName("ollama_think")]
+        public bool OllamaThink { get; set; }
+
         /// <summary>Policies for the tools that differ from their defaults.</summary>
         [JsonPropertyName("tool_policies")]
         public Dictionary<string, ToolPolicy> ToolPolicies { get; set; } = new();
@@ -79,6 +95,10 @@ namespace HoboLibris.Assistant
                 ApiKeys[provider.ToString()] = SecretStore.Protect(key.Trim());
             }
         }
+
+        /// <summary>What a request to the chosen service needs, with this longest answer.</summary>
+        public ChatProviderOptions ProviderOptions(int maxTokens) => new(Provider, Model, GetApiKey(Provider), Endpoint, maxTokens,
+            Math.Clamp(OllamaContext, MinOllamaContext, MaxOllamaContext), OllamaThink);
 
         [JsonIgnore]
         public bool HasKey => !ChatProviders.NeedsKey(Provider, Endpoint) || GetApiKey(Provider).Length > 0;

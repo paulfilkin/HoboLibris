@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -35,6 +36,9 @@ namespace HoboLibris.Assistant
     public sealed class AssistantSession
     {
         private const int MaxResultLength = 40_000;
+
+        /// <summary>How often a streamed reply is drawn again, in milliseconds.</summary>
+        private const int StreamRedraw = 150;
 
         // From a test with qwen3:8b on 24 November 2026: told only that the person declined, it said books
         // that were never downloaded "remain in your Kobo folder", and dropped the table it was asked for.
@@ -140,8 +144,8 @@ namespace HoboLibris.Assistant
             var options = Settings;
             int maxTokens = Math.Clamp(options.MaxTokens, 256, 64000);
             int maxSteps = Math.Clamp(options.MaxSteps, 1, 100);
-            var provider = ProviderFactory(new ChatProviderOptions(options.Provider, options.Model,
-                options.GetApiKey(options.Provider), options.Endpoint, maxTokens));
+            var providerOptions = options.ProviderOptions(maxTokens);
+            var provider = ProviderFactory(providerOptions);
 
             try
             {
@@ -156,7 +160,36 @@ namespace HoboLibris.Assistant
                 {
                     var tools = Tools();
                     SetBusyText(step == 0 ? Strings.Asst_Thinking : Strings.Asst_ThinkingResults);
-                    var reply = await provider.CompleteAsync(SystemPrompt(), _turns, tools.Select(t => t.ToSpec()).ToList(), cancel);
+                    // A streamed reply is shown as it comes, drawn again at most every StreamRedraw milliseconds:
+                    // the pane draws the whole Markdown each time.
+                    AssistantMessage? live = null;
+                    var streamed = new StringBuilder();
+                    var drawn = Stopwatch.StartNew();
+                    void OnText(string piece)
+                    {
+                        streamed.Append(piece);
+                        string shown = streamed.ToString().Trim();
+                        if (shown.Length == 0)
+                        {
+                            return;
+                        }
+                        if (live == null)
+                        {
+                            live = new AssistantMessage(shown);
+                            Items.Add(live);
+                            drawn.Restart();
+                        }
+                        else if (drawn.ElapsedMilliseconds >= StreamRedraw)
+                        {
+                            live.Text = shown;
+                            drawn.Restart();
+                        }
+                    }
+                    var reply = await provider.CompleteAsync(SystemPrompt(), _turns, tools.Select(t => t.ToSpec()).ToList(), cancel, OnText);
+                    if (reply.Stats is { } stats)
+                    {
+                        LogManager.Info($"Assistant, {options.Model} with a context of {providerOptions.ContextSize}: {stats}");
+                    }
                     // An empty reply (cut short before any text or tool call) isn't kept: the model APIs refuse one in the
                     // conversation, which is kept between sessions, so it would block every later request.
                     if (reply.Text.Length > 0 || reply.ToolCalls.Count > 0)
@@ -165,7 +198,18 @@ namespace HoboLibris.Assistant
                     }
                     if (reply.Text.Trim().Length > 0)
                     {
-                        Items.Add(new AssistantMessage(reply.Text.Trim()));
+                        if (live != null)
+                        {
+                            live.Text = reply.Text.Trim();
+                        }
+                        else
+                        {
+                            Items.Add(new AssistantMessage(reply.Text.Trim()));
+                        }
+                    }
+                    else if (live != null)
+                    {
+                        Items.Remove(live);
                     }
                     if (reply.ToolCalls.Count == 0)
                     {
@@ -200,7 +244,10 @@ namespace HoboLibris.Assistant
                 // The whole conversation goes with every request, and it is kept between sessions, so it can outgrow the model.
                 if (LooksTooLong(ex.Message))
                 {
-                    Items.Add(new NoticeMessage(Strings.Asst_TooLong, false));
+                    // Ollama refuses a request larger than the context size set in Settings, which can be raised.
+                    Items.Add(new NoticeMessage(OllamaServer.IsOllamaEndpoint(providerOptions.Provider, providerOptions.Endpoint)
+                        ? string.Format(Strings.Asst_TooLongOllama, providerOptions.ContextSize.ToString("N0"))
+                        : Strings.Asst_TooLong, false));
                 }
             }
             finally
@@ -328,7 +375,7 @@ namespace HoboLibris.Assistant
 
         /// <summary>Whether a service's error says the request was too long for the model.</summary>
         private static bool LooksTooLong(string message) =>
-            new[] { "context length", "context_length", "context window", "too long", "too many tokens", "maximum context" }
+            new[] { "context length", "context_length", "context window", "context size", "too long", "too many tokens", "maximum context" }
                 .Any(p => message.Contains(p, StringComparison.OrdinalIgnoreCase));
 
         /// <summary>

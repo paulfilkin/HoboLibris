@@ -1661,4 +1661,19 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_CopyPromptTip" xml:space="preserve">
     <value>이 메시지 복사</value>
   </data>
+  <data name="Asst_OllamaContext" xml:space="preserve">
+    <value>컨텍스트 크기 (토큰)</value>
+  </data>
+  <data name="Asst_OllamaContextHint" xml:space="preserve">
+    <value>모델이 한 번에 보는 대화의 양으로, 2,048에서 131,072까지입니다. 크기가 클수록 비디오 메모리가 더 필요합니다.</value>
+  </data>
+  <data name="Asst_OllamaThink" xml:space="preserve">
+    <value>답하기 전에 모델이 생각하게 하기</value>
+  </data>
+  <data name="Asst_OllamaThinkHint" xml:space="preserve">
+    <value>qwen3처럼 생각할 수 있는 모델용입니다. 더 느리고 컨텍스트를 더 많이 씁니다.</value>
+  </data>
+  <data name="Asst_TooLongOllama" xml:space="preserve">
+    <value>대화가 Ollama에 설정한 컨텍스트 크기({0} 토큰)보다 깁니다. 새 대화를 시작하거나, 설정의 AI 모델에서 컨텍스트 크기를 늘리세요.</value>
+  </data>
 </root>

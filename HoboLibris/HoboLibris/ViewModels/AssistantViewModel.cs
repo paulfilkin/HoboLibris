@@ -460,8 +460,7 @@ namespace HoboLibris.ViewModels
                     throw new ChatException(string.Format(Strings.Asst_AddKeyFirst, Settings.ModelLine));
                 }
                 using var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(60));
-                var provider = Session.ProviderFactory(new ChatProviderOptions(Settings.Provider, Settings.Model,
-                    Settings.GetApiKey(Settings.Provider), Settings.Endpoint, 256));
+                var provider = Session.ProviderFactory(Settings.ProviderOptions(256));
                 var reply = await provider.CompleteAsync("Reply with the single word OK.", new ChatTurn[] { new UserTurn("Test") },
                     Array.Empty<ToolSpec>(), cancel.Token);
                 TestResult = string.Format(Strings.Asst_TestOk, Settings.ModelLine, reply.Text.Trim());
@@ -669,6 +668,28 @@ namespace HoboLibris.ViewModels
             set
             {
                 Settings.AutoStartOllama = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        public int OllamaContext
+        {
+            get => Settings.OllamaContext;
+            set
+            {
+                Settings.OllamaContext = Math.Clamp(value, AssistantSettings.MinOllamaContext, AssistantSettings.MaxOllamaContext);
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
+        public bool OllamaThink
+        {
+            get => Settings.OllamaThink;
+            set
+            {
+                Settings.OllamaThink = value;
                 SaveSettings();
                 OnPropertyChanged();
             }

@@ -15,11 +15,23 @@ namespace HoboLibris.Tests
         public List<int> ToolCounts { get; } = new();
         public int Calls { get; private set; }
 
-        public Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel)
+        /// <summary>Hand the text over a word at a time before the reply, as a streaming service does.</summary>
+        public bool Streams { get; init; }
+
+        public Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
+            Action<string>? onText = null)
         {
             Calls++;
             ToolCounts.Add(tools.Count);
-            return Task.FromResult(_replies.Count > 0 ? _replies.Dequeue() : Text("(nothing more)"));
+            var reply = _replies.Count > 0 ? _replies.Dequeue() : Text("(nothing more)");
+            if (Streams)
+            {
+                foreach (var piece in System.Text.RegularExpressions.Regex.Split(reply.Text, @"(?<= )"))
+                {
+                    onText?.Invoke(piece);
+                }
+            }
+            return Task.FromResult(reply);
         }
 
         public static ChatReply Text(string text) => new(text, Array.Empty<ToolCall>(), "end_turn", 0, 0);

@@ -39,9 +39,16 @@ namespace HoboLibris.Assistant
 
     public sealed class AssistantMessage : ChatItem
     {
-        public AssistantMessage(string text) => Text = text;
+        private string _text;
 
-        public string Text { get; }
+        public AssistantMessage(string text) => _text = text;
+
+        /// <summary>Grows while a streamed reply comes in.</summary>
+        public string Text
+        {
+            get => _text;
+            set => SetProperty(ref _text, value);
+        }
 
         public override string ToString() => Text;
     }
