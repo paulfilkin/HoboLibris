@@ -244,6 +244,8 @@ namespace HoboLibris.Services
                     // Articles are left out of the books and of the collections' books, so the counts
                     // and "Not in any collection" are about books; their rows on the eReader stay as they are.
                     var articles = ReadArticleIds(conn);
+                    // Store previews are left out too, unless one was put in a collection (#58).
+                    var previews = KoboDeviceService.PreviewIds(conn);
                     var shelved = new HashSet<string>(StringComparer.Ordinal);
                     using (var cmd = conn.CreateCommand())
                     {
@@ -292,7 +294,7 @@ namespace HoboLibris.Services
                                 var downloadedText = rows.GetValue(3)?.ToString() ?? "true";
                                 var store = !id.StartsWith("file://", StringComparison.Ordinal);
                                 var downloaded = downloadedText is "true" or "1";
-                                if (store && !downloaded && !shelved.Contains(id))
+                                if (store && (!downloaded || previews.Contains(id)) && !shelved.Contains(id))
                                 {
                                     continue;
                                 }

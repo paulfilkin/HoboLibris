@@ -177,6 +177,51 @@ namespace HoboLibris.Tests
             Assert.Equal("0", Scalar(db, "SELECT COUNT(*) FROM ShelfContent WHERE ContentId = '2058983870'"));
         }
 
+        /// <summary>
+        /// Store previews (Accessibility 6) aren't the person's books (#58): they are left out of the
+        /// Collections screen unless one is already in a collection, and out of the Back up screen's
+        /// count of store books on the eReader.
+        /// </summary>
+        [Fact]
+        public void PreviewsAreLeftOutUnlessInACollection()
+        {
+            var root = Path.Combine(TestFolder.Fresh("collections-previews"), "reader") + Path.DirectorySeparatorChar;
+            var kepub = Path.Combine(root, ".kobo", "kepub");
+            Directory.CreateDirectory(kepub);
+            var db = KoboDeviceService.DatabasePath(root);
+            using (var c = new SqliteConnection($"Data Source={db}"))
+            {
+                c.Open();
+                using var cmd = c.CreateCommand();
+                cmd.CommandText = @"CREATE TABLE content (ContentID TEXT, ContentType TEXT, Title TEXT, Attribution TEXT, IsDownloaded BOOL, Accessibility INTEGER);
+                    CREATE TABLE Shelf (CreationDate TEXT, Id TEXT, InternalName TEXT, LastModified TEXT, Name TEXT,
+                        Type TEXT, _IsDeleted BOOL, _IsVisible BOOL, _IsSynced BOOL, _SyncTime TEXT, LastAccessed TEXT,
+                        PRIMARY KEY (Id));
+                    CREATE TABLE ShelfContent (ShelfName TEXT, ContentId TEXT, DateModified TEXT, _IsDeleted BOOL,
+                        _IsSynced BOOL, PRIMARY KEY (ShelfName, ContentId));
+                    INSERT INTO content VALUES ('owned-1', 6, 'In the Shadow of the Sword', 'Tom Holland', 'true', 1);
+                    INSERT INTO content VALUES ('preview-1', 6, 'Crusaders', 'Dan Jones', 'true', 6);
+                    INSERT INTO content VALUES ('preview-2', 6, 'Dynasty', 'Tom Holland', 'true', 6);
+                    INSERT INTO content VALUES ('file:///mnt/onboard/a.epub', 6, 'Book A', 'Author A', 'true', -1);
+                    INSERT INTO Shelf VALUES ('2025-01-01T00:00:00Z', 'id-1', 'History', '2025-01-01T00:00:00Z', 'History',
+                        'UserTag', 'false', 'true', 'true', NULL, NULL);
+                    INSERT INTO ShelfContent VALUES ('History', 'preview-2', '2025-01-01T00:00:00Z', 'false', 'true');";
+                cmd.ExecuteNonQuery();
+            }
+            SqliteConnection.ClearAllPools();
+            foreach (var id in new[] { "owned-1", "preview-1", "preview-2" })
+            {
+                File.WriteAllText(Path.Combine(kepub, id), "x");
+            }
+
+            var coll = Collections.LoadDb(db);
+            Assert.Equal(new[] { "Book A", "Dynasty", "In the Shadow of the Sword" }, coll.Books.Select(b => b.Title));
+            Assert.Equal(new[] { "preview-2" }, coll.Current["History"]);
+
+            var (_, storeOnDevice) = KoboDeviceService.ReadLibrary(root);
+            Assert.Equal(1, storeOnDevice);
+        }
+
         [Fact]
         public void TimestampsAreKoboStyle()
         {

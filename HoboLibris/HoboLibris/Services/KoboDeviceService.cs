@@ -51,6 +51,32 @@ namespace HoboLibris.Services
         public static string DatabasePath(string root) => Path.Combine(root, ".kobo", "KoboReader.sqlite");
 
         /// <summary>
+        /// Store previews (free samples) in the book list: content rows marked Accessibility 6, with no
+        /// user id or entitlement, and a file in ".kobo\kepub" the size of their PreviewFileSize.  The
+        /// eReader doesn't list them in My Books (#58; four arrived with a sync on 25 November 2026).
+        /// None when the book list has no Accessibility column.
+        /// </summary>
+        public static HashSet<string> PreviewIds(SqliteConnection conn)
+        {
+            var ids = new HashSet<string>(StringComparer.Ordinal);
+            try
+            {
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT ContentID FROM content WHERE ContentType = 6 AND Accessibility = 6";
+                using var rows = cmd.ExecuteReader();
+                while (rows.Read())
+                {
+                    ids.Add(rows.GetString(0));
+                }
+            }
+            catch (SqliteException ex)
+            {
+                LogManager.Debug($"No Accessibility column, so no previews to leave out: {ex.Message}");
+            }
+            return ids;
+        }
+
+        /// <summary>
         /// The eReader's serial number: the first field of ".kobo\version" ("N418...,4.38...,...").
         /// Null when the file is missing or empty.
         /// </summary>
@@ -104,6 +130,7 @@ namespace HoboLibris.Services
             try
             {
                 using var conn = OpenReadOnly(db);
+                var previews = PreviewIds(conn);
                 using var cmd = conn.CreateCommand();
                 cmd.CommandText = "SELECT ContentID, IFNULL(Title, ''), IFNULL(Attribution, '') FROM content WHERE ContentType = 6";
                 using var rows = cmd.ExecuteReader();
@@ -118,7 +145,8 @@ namespace HoboLibris.Services
                     {
                         added[id[prefix.Length..].ToLowerInvariant()] = (title, authors);
                     }
-                    else if (File.Exists(Path.Combine(kepub, id)))
+                    // A preview's file isn't a store book of the person's (#58).
+                    else if (!previews.Contains(id) && File.Exists(Path.Combine(kepub, id)))
                     {
                         storeOnDevice++;
                     }

@@ -2706,7 +2706,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_Tool_UseTools", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Working offline: the Kobo eReader isn't connected. These are its collections as they were on {0}. Your changes are ke....</summary>
+        /// <summary>Looks up a localized string similar to Working offline: the Kobo eReader isn't connected. To connect it, plug it in and tap Connect on its screen. These are....</summary>
         public static string Coll_OfflineBanner {
             get { return ResourceManager.GetString("Coll_OfflineBanner", resourceCulture); }
         }
