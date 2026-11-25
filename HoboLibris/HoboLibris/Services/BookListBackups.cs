@@ -1,14 +1,57 @@
 using System.IO;
+using HoboLibris.Resources;
 
 namespace HoboLibris.Services
 {
     /// <summary>
     /// The copies of the eReader's book list (KoboReader-*.sqlite, with any journal files) that are
-    /// kept before collections are saved.
+    /// kept before collections are saved or articles removed.
     /// </summary>
     public static class BookListBackups
     {
         private const string Pattern = "KoboReader-*.sqlite*";
+
+        /// <summary>
+        /// Copy the eReader's book list (and its journal files, if any) into dir before it is written
+        /// to, as KoboReader-&lt;time&gt;.sqlite.  Returns the copy's path.
+        /// </summary>
+        public static string Take(string db, string dir)
+        {
+            try
+            {
+                Directory.CreateDirectory(dir);
+            }
+            catch (Exception ex)
+            {
+                throw new HoboLibrisException(string.Format(Strings.Coll_CouldNotCreateBackupFolder, ex.Message), ex);
+            }
+            var stamp = Collections.KoboTimestamp(DateTime.UtcNow).Replace(":", "").Replace("-", "");
+            var backup = Path.Combine(dir, $"KoboReader-{stamp}.sqlite");
+            try
+            {
+                File.Copy(db, backup, overwrite: true);
+            }
+            catch (Exception ex)
+            {
+                throw new HoboLibrisException(string.Format(Strings.Coll_CouldNotBackUp, ex.Message), ex);
+            }
+            foreach (var suffix in new[] { "-wal", "-shm", "-journal" })
+            {
+                var side = db + suffix;
+                if (File.Exists(side))
+                {
+                    try
+                    {
+                        File.Copy(side, backup + suffix, overwrite: true);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogManager.Warn($"Could not back up {side}: {ex.Message}");
+                    }
+                }
+            }
+            return backup;
+        }
 
         /// <summary>Every backup file in the folder, journal files included.</summary>
         public static List<string> Files(string dir) =>

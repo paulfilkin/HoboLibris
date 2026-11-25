@@ -220,6 +220,27 @@
                                 </Grid>
                             </StackPanel>
                         </Border>
+
+                        <!-- Kept articles (#53) -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock x:Name="ArticlesFolderLabel" Text="{x:Static res:Strings.Settings_ArticlesHeader}" Style="{StaticResource SectionHeader}"/>
+                                <TextBlock Text="{x:Static res:Strings.Settings_ArticlesHint}" Style="{StaticResource FieldHint}"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" Style="{StaticResource PathBox}" Text="{Binding ArticlesFolder, Mode=OneWay}"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=ArticlesFolderLabel}"/>
+                                    <Button Grid.Column="1" Content="{x:Static res:Strings.Settings_Change}" Style="{StaticResource RowButton}"
+                                            Command="{Binding ChooseArticlesFolderCommand}" ToolTip="{x:Static res:Strings.Dialog_ChooseArticlesFolder}"/>
+                                    <Button Grid.Column="2" Content="{x:Static res:Strings.Kobo_OpenFolder}" Style="{StaticResource RowButton}"
+                                            Command="{Binding OpenArticlesFolderCommand}" Margin="0"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

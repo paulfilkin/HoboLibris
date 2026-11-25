@@ -151,10 +151,14 @@
                         <RadioButton Style="{StaticResource NavButton}" Content="{Binding SendTabLabel}"
                                      ToolTip="{x:Static res:Strings.Kobo_SendTabTip}"
                                      IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Send}"/>
+                        <RadioButton Style="{StaticResource NavButton}" Content="{x:Static res:Strings.Kobo_ArticlesTab}"
+                                     ToolTip="{x:Static res:Strings.Kobo_ArticlesTabTip}"
+                                     IsChecked="{Binding KoboMode, Converter={StaticResource EnumEquals}, ConverterParameter=Articles}"/>
                     </StackPanel>
                     <views:KoboBackupView Grid.Row="1" Visibility="{Binding IsBackupMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     <views:CollectionsView Grid.Row="1" Visibility="{Binding IsCollectionsMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     <views:SendView Grid.Row="1" Visibility="{Binding IsSendMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    <views:ArticlesView Grid.Row="1" Visibility="{Binding IsArticlesMode, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 </Grid>
                 <!-- Kindle tab -->
                 <views:KindleView Visibility="{Binding IsKindleTab, Converter={StaticResource BoolToVisibilityConverter}}"/>

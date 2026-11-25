@@ -12,6 +12,7 @@ namespace HoboLibris.Assistant
         public const string Collections = "collections";
         public const string Send = "send";
         public const string Kindle = "kindle";
+        public const string Articles = "articles";
         public const string Sources = "sources";
 
         /// <summary>The groups use_tools can add, with what each is for (for the model).</summary>
@@ -21,6 +22,7 @@ namespace HoboLibris.Assistant
             (Collections, "read and change the Kobo eReader's collections"),
             (Send, "list the book files ready to send to the Kobo eReader, send them, and eject it"),
             (Kindle, "list and back up Kindle books"),
+            (Articles, "list the articles saved to the Kobo eReader with Instapaper, keep copies of them on this computer, and remove them from the eReader"),
         };
 
         private static readonly Dictionary<string, string> ByTool = new()
@@ -43,6 +45,9 @@ namespace HoboLibris.Assistant
             ["eject_ereader"] = Send,
             ["list_kindle_books"] = Kindle,
             ["back_up_kindle_books"] = Kindle,
+            ["list_articles"] = Articles,
+            ["keep_articles"] = Articles,
+            ["remove_articles"] = Articles,
             ["search_ebooks"] = Sources,
             ["download_ebook"] = Sources,
             ["open_book_page"] = Sources,
@@ -58,6 +63,7 @@ namespace HoboLibris.Assistant
             "collections" => Collections,
             "send" => Send,
             "kindle" => Kindle,
+            "articles" => Articles,
             _ => KoboBooks,
         };
     }

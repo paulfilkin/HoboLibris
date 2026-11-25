@@ -179,6 +179,7 @@ namespace HoboLibris.Assistant
             ToolGroups.Collections => Strings.Kobo_CollectionsTab,
             ToolGroups.Send => Strings.Kobo_SendTab,
             ToolGroups.Kindle => Strings.Main_Kindle,
+            ToolGroups.Articles => Strings.Kobo_ArticlesTab,
             _ => Strings.Kobo_BackUpTab,
         };
 
@@ -662,7 +663,7 @@ namespace HoboLibris.Assistant
             var b = new StringBuilder();
             b.AppendLine("You are the assistant in HoboLibris, a Windows program that backs up a person's Kobo and Kindle e-books and organises their Kobo eReader. Use the tools to do what they ask.");
             b.AppendLine();
-            b.AppendLine("Screens: on the Kobo tab, Back up books (Kobo store books, books on the Kobo eReader, and book files only in the Kobo folder), Collections (the eReader's collections, edited here and saved to the eReader) and Send to eReader (book files in the Kobo folder to copy to the eReader); on the Kindle tab, Kindle books to back up.");
+            b.AppendLine("Screens: on the Kobo tab, Back up books (Kobo store books, books on the Kobo eReader, and book files only in the Kobo folder), Collections (the eReader's collections, edited here and saved to the eReader), Send to eReader (book files in the Kobo folder to copy to the eReader) and Articles (articles saved to the eReader with Instapaper, and copies kept on this computer); on the Kindle tab, Kindle books to back up.");
             b.AppendLine();
             b.AppendLine("Rules:");
             b.AppendLine("- When the request is clear, do it and report what you did. Ask only when it is unclear, would delete something, or you can't go on. The program shows its own approval cards, so don't ask the person to confirm.");
@@ -710,7 +711,7 @@ namespace HoboLibris.Assistant
             var b = new StringBuilder();
             b.AppendLine("You are the assistant inside HoboLibris, a Windows desktop program that backs up a person's Kobo and Kindle e-books and organises their Kobo eReader. Use the tools to look at their books and to do what they ask.");
             b.AppendLine();
-            b.AppendLine("HoboLibris has two tabs. The Kobo tab has three screens: Back up books (one list of the person's Kobo store books, the books on a connected Kobo eReader, and book files only in the Kobo folder on this computer), Collections (the eReader's collections, edited here and then saved to the eReader) and Send to eReader (book files in the Kobo folder that can be copied to the eReader). The Kindle tab lists books found on a connected Kindle, in Kindle for PC and in folders the person added, and backs them up to the Kindle folder.");
+            b.AppendLine("HoboLibris has two tabs. The Kobo tab has four screens: Back up books (one list of the person's Kobo store books, the books on a connected Kobo eReader, and book files only in the Kobo folder on this computer), Collections (the eReader's collections, edited here and then saved to the eReader), Send to eReader (book files in the Kobo folder that can be copied to the eReader) and Articles (the articles saved to the eReader with Instapaper, with copies of them kept on this computer). The Kindle tab lists books found on a connected Kindle, in Kindle for PC and in folders the person added, and backs them up to the Kindle folder.");
             b.AppendLine();
             // How to work: Mycelia's rules, written after conversations in which the model asked for confirmation at every
             // step and ended each reply with an offer.

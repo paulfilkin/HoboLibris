@@ -1758,4 +1758,136 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>Mantê-los na coleção</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>Artigos</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Guardar cópias dos artigos que guardou no seu eReader Kobo com o Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Os artigos que guardou no seu eReader Kobo com o Instapaper. Assinale os que vale a pena manter e prima Manter: cada um é guardado neste computador como uma página web com as suas imagens e fica depois de o artigo sair do eReader.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>Ligue o seu eReader Kobo e toque em Ligar no ecrã para ver os artigos. Até lá, esta lista mostra as cópias guardadas neste computador.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>Manter assinalados ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>Guardar uma cópia de cada artigo assinalado na pasta de artigos</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>Ler novamente os artigos do eReader e da pasta de artigos</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>Procurar título, autor ou site</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>Pasta de artigos:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>Adicionado</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>Lido</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>Cópia</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>Concluído</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>Mantido</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>Só neste computador</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>Abrir cópia</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>Abrir página</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>Não há artigos no eReader. Guarde artigos com o Instapaper e o eReader transfere-os ao sincronizar.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>Ainda não há artigos mantidos neste computador.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>Artigos mantidos na pasta de artigos: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>Mantidos: {0}. Não foi possível manter: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>O texto de "{0}" não foi encontrado no eReader.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>Não foi possível manter "{0}": {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} artigos no eReader Kobo.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>Artigos mantidos</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>As cópias dos artigos que mantém do seu eReader Kobo são guardadas aqui, uma página web cada.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>Escolha onde guardar os seus artigos</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>Listar artigos</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>Manter artigos</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>Artigos encontrados: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>Manter estes artigos ({0}) neste computador: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>Artigos mantidos: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>Remover do eReader ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>Remover os artigos assinalados deste eReader. O Instapaper mantém-nos: para os arquivar ou eliminar também lá, use Arquivar ou Eliminar no eReader.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>Remover artigos</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>Remover estes artigos ({0}) do eReader Kobo?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>Ficam na sua conta do Instapaper. Para os arquivar ou eliminar também lá, use antes Arquivar ou Eliminar no eReader. Primeiro, a lista de livros do eReader é copiada para este computador.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>{0} deles não têm uma cópia mantida neste computador.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>Artigos removidos do eReader: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>Não foi possível remover os artigos: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>Remover artigos</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>Remover estes artigos ({0}) do eReader Kobo; ficam no Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>Artigos removidos: {0}</value>
+  </data>
 </root>

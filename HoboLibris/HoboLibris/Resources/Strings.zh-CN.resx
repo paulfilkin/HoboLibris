@@ -1784,4 +1784,136 @@
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>保留在收藏集中</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>文章</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>保留您用 Instapaper 保存到 Kobo 电子书阅读器的文章副本</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>您用 Instapaper 保存到 Kobo 电子书阅读器的文章。勾选值得保留的文章并按“保留”：每篇文章会连同图片作为网页保存在这台电脑上，即使文章已从电子书阅读器中消失也会保留。</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>插入 Kobo 电子书阅读器并在其屏幕上点按“连接”即可查看其中的文章。在此之前，此列表显示保留在这台电脑上的副本。</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>保留已勾选的文章（{0}）</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>将每篇已勾选文章的副本保存到文章文件夹</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>重新读取电子书阅读器和文章文件夹中的文章</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>搜索标题、作者或网站</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>文章文件夹：</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>添加日期</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>已读</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>副本</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>已读完</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>已保留</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>仅在这台电脑上</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>打开副本</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>打开网页</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>电子书阅读器上没有文章。用 Instapaper 保存文章后，电子书阅读器会在同步时下载它们。</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>这台电脑上还没有保留任何文章。</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>已保留到文章文件夹的文章：{0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>已保留：{0}。无法保留：{1}。</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>在电子书阅读器上找不到“{0}”的正文。</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>无法保留“{0}”：{1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>Kobo 电子书阅读器上有 {0} 篇文章。</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>保留的文章</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>您从 Kobo 电子书阅读器保留的文章副本保存在这里，每篇一个网页。</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>选择保存文章的位置</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>列出文章</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>保留文章</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>找到的文章：{0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>将这些文章（{0}）保留在这台电脑上：{1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>已保留的文章：{0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>从电子书阅读器中移除（{0}）</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>从这台电子书阅读器中移除已勾选的文章。Instapaper 会保留它们：若要在那里也归档或删除，请在电子书阅读器上使用“归档”或“删除”。</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>移除文章</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>要从 Kobo 电子书阅读器中移除这些文章（{0}）吗？</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>它们会保留在您的 Instapaper 帐户中。若要在那里也归档或删除，请改为在电子书阅读器上使用“归档”或“删除”。会先将电子书阅读器的图书列表复制到这台电脑。</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>其中 {0} 篇在这台电脑上没有保留副本。</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>已从电子书阅读器中移除的文章：{0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>无法移除这些文章：{0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>移除文章</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>从 Kobo 电子书阅读器中移除这些文章（{0}）；它们会保留在 Instapaper 中：{1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>已移除的文章：{0}</value>
+  </data>
 </root>

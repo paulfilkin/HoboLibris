@@ -1784,4 +1784,136 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>Tienili nella collezione</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>Articoli</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Conserva copie degli articoli salvati sul tuo eReader Kobo con Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Gli articoli che hai salvato sul tuo eReader Kobo con Instapaper. Spunta quelli da conservare e premi Conserva: ognuno viene salvato su questo computer come pagina web con le sue immagini e resta anche dopo che l'articolo è sparito dall'eReader.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>Collega il tuo eReader Kobo e tocca Connetti sul suo schermo per vederne gli articoli. Fino ad allora questo elenco mostra le copie conservate su questo computer.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>Conserva spuntati ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>Salva una copia di ogni articolo spuntato nella cartella degli articoli</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>Rileggi gli articoli sull'eReader e nella cartella degli articoli</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>Cerca titolo, autore o sito</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>Cartella degli articoli:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>Sito</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>Aggiunto</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>Letto</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>Finito</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>Conservato</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>Solo su questo computer</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>Apri copia</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>Apri pagina</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>Nessun articolo sull'eReader. Salva articoli con Instapaper e l'eReader li scarica durante la sincronizzazione.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>Nessun articolo ancora conservato su questo computer.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>Articoli conservati nella cartella degli articoli: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>Conservati: {0}. Non è stato possibile conservarne: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>Il testo di "{0}" non è stato trovato sull'eReader.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>Impossibile conservare "{0}": {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} articoli sull'eReader Kobo.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>Articoli conservati</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Qui vengono salvate le copie degli articoli che conservi dal tuo eReader Kobo, una pagina web ciascuno.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>Scegli dove conservare i tuoi articoli</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>Elenca articoli</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>Conserva articoli</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>Articoli trovati: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>Conserva questi articoli ({0}) su questo computer: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>Articoli conservati: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>Rimuovi dall'eReader ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>Rimuovi gli articoli spuntati da questo eReader. Instapaper li conserva: per archiviarli o eliminarli anche lì, usa Archivia o Elimina sull'eReader.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>Rimuovi articoli</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>Rimuovere questi articoli ({0}) dall'eReader Kobo?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>Restano nel tuo account Instapaper. Per archiviarli o eliminarli anche lì, usa invece Archivia o Elimina sull'eReader. Prima l'elenco dei libri dell'eReader viene copiato su questo computer.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>{0} di questi non hanno una copia conservata su questo computer.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>Articoli rimossi dall'eReader: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>Impossibile rimuovere gli articoli: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>Rimuovi articoli</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>Rimuovi questi articoli ({0}) dall'eReader Kobo; restano in Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>Articoli rimossi: {0}</value>
+  </data>
 </root>

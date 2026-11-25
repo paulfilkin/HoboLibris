@@ -1758,4 +1758,136 @@
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>השארה באוסף</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>מאמרים</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>שמירת עותקים של המאמרים ששמרת בקורא Kobo באמצעות Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>המאמרים ששמרת בקורא Kobo באמצעות Instapaper. יש לסמן את אלה ששווה לשמור וללחוץ על "שמירה": כל מאמר נשמר במחשב הזה כדף אינטרנט עם התמונות שלו, ונשאר גם אחרי שהמאמר כבר לא נמצא בקורא.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>כדי לראות את המאמרים, יש לחבר את קורא Kobo וללחוץ על "התחברות" במסך שלו. עד אז הרשימה מציגה את העותקים שנשמרו במחשב הזה.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>שמירת המסומנים ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>שמירת עותק של כל מאמר מסומן בתיקיית המאמרים</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>קריאה חוזרת של המאמרים בקורא ובתיקיית המאמרים</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>חיפוש כותרת, מחבר או אתר</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>תיקיית המאמרים:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>אתר</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>נוסף</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>נקרא</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>עותק</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>הסתיים</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>נשמר</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>רק במחשב הזה</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>פתיחת העותק</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>פתיחת הדף</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>אין מאמרים בקורא. אפשר לשמור מאמרים באמצעות Instapaper, והקורא מוריד אותם בסנכרון.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>עדיין לא נשמרו מאמרים במחשב הזה.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>מאמרים שנשמרו בתיקיית המאמרים: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>נשמרו: {0}. לא ניתן היה לשמור: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>הטקסט של "{0}" לא נמצא בקורא.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>לא ניתן היה לשמור את "{0}": {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} מאמרים בקורא Kobo.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>מאמרים שנשמרו</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>עותקים של המאמרים שנשמרים מקורא Kobo נשמרים כאן, דף אינטרנט אחד לכל מאמר.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>יש לבחור היכן לשמור את המאמרים</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>הצגת המאמרים</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>שמירת מאמרים</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>מאמרים שנמצאו: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>שמירת המאמרים האלה ({0}) במחשב הזה: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>מאמרים שנשמרו: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>הסרה מהקורא ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>הסרת המאמרים המסומנים מהקורא הזה. Instapaper שומר אותם: כדי להעביר אותם לארכיון או למחוק אותם גם שם, יש להשתמש ב"ארכיון" או ב"מחיקה" בקורא.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>הסרת מאמרים</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>להסיר את המאמרים האלה ({0}) מקורא Kobo?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>הם נשארים בחשבון Instapaper. כדי להעביר אותם לארכיון או למחוק אותם גם שם, יש להשתמש במקום זאת ב"ארכיון" או ב"מחיקה" בקורא. רשימת הספרים של הקורא מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>ל-{0} מהם אין עותק שנשמר במחשב הזה.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>מאמרים שהוסרו מהקורא: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>לא ניתן היה להסיר את המאמרים: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>הסרת מאמרים</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>הסרת המאמרים האלה ({0}) מקורא Kobo; הם נשארים ב-Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>מאמרים שהוסרו: {0}</value>
+  </data>
 </root>

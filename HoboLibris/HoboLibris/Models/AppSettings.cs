@@ -50,6 +50,10 @@ namespace HoboLibris.Models
         [JsonPropertyName("refresh_token")]
         public string RefreshToken { get; set; } = "";
 
+        /// <summary>Where copies of the articles the person keeps are saved (#53).</summary>
+        [JsonPropertyName("articles_dir")]
+        public string ArticlesDir { get; set; } = "";
+
         /// <summary>The Kobo folder: store downloads and eReader copies both go here.</summary>
         [JsonPropertyName("download_dir")]
         public string DownloadDir { get; set; } = "";
@@ -100,6 +104,7 @@ namespace HoboLibris.Models
             DeviceId = DeviceId,
             DownloadDir = DownloadDir,
             KindleDir = KindleDir,
+            ArticlesDir = ArticlesDir,
             BookListBackupDir = BookListBackupDir,
             Theme = Theme,
             Assistant = Assistant,

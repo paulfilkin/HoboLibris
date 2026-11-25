@@ -1784,4 +1784,136 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>컬렉션에 남기기</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>기사</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Instapaper로 Kobo 전자책 리더에 저장한 기사의 사본을 보관합니다</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Instapaper로 Kobo 전자책 리더에 저장한 기사입니다. 보관할 기사를 체크하고 보관을 누르면, 각 기사가 사진과 함께 웹 페이지로 이 컴퓨터에 저장되어 리더에서 사라진 뒤에도 남습니다.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>기사를 보려면 Kobo 전자책 리더를 연결하고 화면에서 연결을 누르세요. 그전까지 이 목록에는 이 컴퓨터에 보관한 사본이 표시됩니다.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>체크한 기사 보관 ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>체크한 각 기사의 사본을 기사 폴더에 저장합니다</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>전자책 리더와 기사 폴더의 기사를 다시 읽습니다</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>제목, 저자 또는 사이트 검색</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>기사 폴더:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>사이트</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>추가한 날짜</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>읽음</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>사본</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>다 읽음</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>보관됨</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>이 컴퓨터에만 있음</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>사본 열기</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>페이지 열기</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>전자책 리더에 기사가 없습니다. Instapaper로 기사를 저장하면 리더가 동기화할 때 내려받습니다.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>이 컴퓨터에 보관한 기사가 아직 없습니다.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>기사 폴더에 보관한 기사: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>보관함: {0}. 보관하지 못함: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>전자책 리더에서 "{0}"의 본문을 찾지 못했습니다.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>"{0}"을(를) 보관하지 못했습니다: {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>Kobo 전자책 리더의 기사 {0}개.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>보관한 기사</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Kobo 전자책 리더에서 보관하는 기사의 사본이 기사마다 웹 페이지 하나로 여기에 저장됩니다.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>기사를 보관할 위치를 선택하세요</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>기사 목록 보기</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>기사 보관</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>찾은 기사: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>이 기사({0}개)를 이 컴퓨터에 보관합니다: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>보관한 기사: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>전자책 리더에서 제거 ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>체크한 기사를 이 전자책 리더에서 제거합니다. Instapaper에는 남습니다. 그곳에서도 보관하거나 삭제하려면 전자책 리더의 보관 또는 삭제를 사용하세요.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>기사 제거</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>이 기사({0}개)를 Kobo 전자책 리더에서 제거할까요?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>기사는 Instapaper 계정에 남습니다. 그곳에서도 보관하거나 삭제하려면 대신 전자책 리더의 보관 또는 삭제를 사용하세요. 먼저 전자책 리더의 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>그중 {0}개는 이 컴퓨터에 보관한 사본이 없습니다.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>전자책 리더에서 제거한 기사: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>기사를 제거하지 못했습니다: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>기사 제거</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>이 기사({0}개)를 Kobo 전자책 리더에서 제거합니다. Instapaper에는 남습니다: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>제거한 기사: {0}</value>
+  </data>
 </root>

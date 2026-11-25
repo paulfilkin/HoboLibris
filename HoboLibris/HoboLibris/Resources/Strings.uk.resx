@@ -1758,4 +1758,136 @@
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>Залишити їх у колекції</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>Статті</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Зберігати копії статей, які ви зберегли на рідер Kobo через Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Статті, які ви зберегли на рідер Kobo через Instapaper. Позначте ті, які варто зберегти, і натисніть «Зберегти»: кожна зберігається на цьому комп’ютері як вебсторінка з малюнками й залишається, коли статті вже немає на рідері.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>Підключіть рідер Kobo й торкніться «Підключити» на його екрані, щоб побачити статті. Доти цей список показує копії, збережені на цьому комп’ютері.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>Зберегти позначені ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>Зберегти копію кожної позначеної статті в папці статей</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>Знову прочитати статті на рідері та в папці статей</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>Шукати назву, автора чи сайт</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>Папка статей:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>Сайт</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>Додано</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>Прочитано</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>Копія</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>Дочитано</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>Збережено</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>Лише на цьому комп’ютері</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>Відкрити копію</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>Відкрити сторінку</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>На рідері немає статей. Зберігайте статті через Instapaper, і рідер завантажить їх під час синхронізації.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>На цьому комп’ютері ще немає збережених статей.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>Статей збережено в папці статей: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>Збережено: {0}. Не вдалося зберегти: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>Текст «{0}» не знайдено на рідері.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>Не вдалося зберегти «{0}»: {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>Статей на рідері Kobo: {0}.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>Збережені статті</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Тут зберігаються копії статей, які ви зберігаєте з рідера Kobo, по одній вебсторінці на статтю.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>Виберіть, де зберігати статті</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>Показати статті</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>Зберегти статті</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>Знайдено статей: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>Зберегти ці статті ({0}) на цьому комп’ютері: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>Збережено статей: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>Вилучити з рідера ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>Вилучити позначені статті з цього рідера. Instapaper їх зберігає: щоб архівувати чи видалити їх і там, скористайтеся «Архівувати» або «Видалити» на рідері.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>Вилучення статей</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>Вилучити ці статті ({0}) з рідера Kobo?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>Вони залишаються у вашому обліковому записі Instapaper. Щоб архівувати чи видалити їх і там, натомість скористайтеся «Архівувати» або «Видалити» на рідері. Спочатку список книг рідера копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>Для {0} з них на цьому комп’ютері немає збереженої копії.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>Статей вилучено з рідера: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>Не вдалося вилучити статті: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>Вилучити статті</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>Вилучити ці статті ({0}) з рідера Kobo; вони залишаються в Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>Статей вилучено: {0}</value>
+  </data>
 </root>

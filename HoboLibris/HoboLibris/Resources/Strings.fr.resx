@@ -1784,4 +1784,136 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>Les garder dans la collection</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Garder des copies des articles enregistrés sur votre liseuse Kobo avec Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Les articles que vous avez enregistrés sur votre liseuse Kobo avec Instapaper. Cochez ceux qui valent la peine d'être gardés et appuyez sur Garder : chacun est enregistré sur cet ordinateur sous forme de page web avec ses images, et reste après que l'article a quitté la liseuse.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>Branchez votre liseuse Kobo et appuyez sur Connecter sur son écran pour voir ses articles. En attendant, cette liste montre les copies gardées sur cet ordinateur.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>Garder les éléments cochés ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>Enregistrer une copie de chaque article coché dans le dossier des articles</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>Relire les articles de la liseuse et du dossier des articles</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>Rechercher un titre, un auteur ou un site</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>Dossier des articles :</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>Ajouté</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>Lu</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>Copie</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>Gardé</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>Seulement sur cet ordinateur</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>Ouvrir la copie</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>Ouvrir la page</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>Aucun article sur la liseuse. Enregistrez des articles avec Instapaper ; la liseuse les télécharge lors de la synchronisation.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>Aucun article gardé sur cet ordinateur pour l'instant.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>Articles gardés dans le dossier des articles : {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>Gardés : {0}. Impossible à garder : {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>Le texte de « {0} » est introuvable sur la liseuse.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>Impossible de garder « {0} » : {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} articles sur la liseuse Kobo.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>Articles gardés</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Les copies des articles que vous gardez de votre liseuse Kobo sont enregistrées ici, une page web chacune.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>Choisissez où garder vos articles</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>Lister les articles</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>Garder des articles</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>Articles trouvés : {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>Garder ces articles ({0}) sur cet ordinateur : {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>Articles gardés : {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>Retirer de la liseuse ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>Retirer les articles cochés de cette liseuse. Instapaper les garde : pour les archiver ou les supprimer là aussi, utilisez Archiver ou Supprimer sur la liseuse.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>Retirer des articles</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>Retirer ces articles ({0}) de la liseuse Kobo ?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>Ils restent dans votre compte Instapaper. Pour les archiver ou les supprimer là aussi, utilisez plutôt Archiver ou Supprimer sur la liseuse. La liste des livres de la liseuse est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>{0} d'entre eux n'ont pas de copie gardée sur cet ordinateur.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>Articles retirés de la liseuse : {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>Impossible de retirer les articles : {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>Retirer des articles</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>Retirer ces articles ({0}) de la liseuse Kobo ; ils restent dans Instapaper : {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>Articles retirés : {0}</value>
+  </data>
 </root>

@@ -1784,4 +1784,136 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>コレクションに残す</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>記事</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Instapaper で Kobo 電子書籍リーダーに保存した記事のコピーを残します</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Instapaper で Kobo 電子書籍リーダーに保存した記事です。残したい記事にチェックを付けて [残す] を押すと、画像付きの Web ページとしてこのコンピューターに保存され、記事が電子書籍リーダーからなくなった後も残ります。</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>記事を表示するには、Kobo 電子書籍リーダーを接続し、画面の [接続] をタップしてください。それまでは、このコンピューターに残したコピーを表示します。</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>チェックした記事を残す ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>チェックした各記事のコピーを記事フォルダーに保存します</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>電子書籍リーダーと記事フォルダーの記事をもう一度読み取ります</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>タイトル、著者、サイトを検索</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>記事フォルダー:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>サイト</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>追加日</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>既読</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>読了</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>保存済み</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>このコンピューターのみ</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>コピーを開く</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>ページを開く</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>電子書籍リーダーに記事はありません。Instapaper で記事を保存すると、電子書籍リーダーが同期時にダウンロードします。</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>このコンピューターに残した記事はまだありません。</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>記事フォルダーに残した記事: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>残した記事: {0}。残せなかった記事: {1}。</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>「{0}」の本文が電子書籍リーダーに見つかりません。</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>「{0}」を残せませんでした: {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーの記事: {0} 件。</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>残した記事</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーから残す記事のコピーは、1 記事 1 つの Web ページとしてここに保存されます。</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>記事の保存先を選んでください</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>記事を一覧表示</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>記事を残す</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>見つかった記事: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>これらの記事 ({0}) をこのコンピューターに残します: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>残した記事: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>電子書籍リーダーから削除 ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>チェックした記事をこの電子書籍リーダーから削除します。Instapaper には残ります。そちらでもアーカイブまたは削除するには、電子書籍リーダーの [アーカイブ] または [削除] を使ってください。</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>記事の削除</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>これらの記事 ({0}) を Kobo 電子書籍リーダーから削除しますか?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>記事は Instapaper アカウントに残ります。そちらでもアーカイブまたは削除するには、代わりに電子書籍リーダーの [アーカイブ] または [削除] を使ってください。先に電子書籍リーダーの書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>そのうち {0} 件は、このコンピューターにコピーを残していません。</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>電子書籍リーダーから削除した記事: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>記事を削除できませんでした: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>記事を削除</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>これらの記事 ({0}) を Kobo 電子書籍リーダーから削除します (Instapaper には残ります): {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>削除した記事: {0}</value>
+  </data>
 </root>

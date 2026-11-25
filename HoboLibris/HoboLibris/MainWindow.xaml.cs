@@ -39,6 +39,8 @@ namespace HoboLibris
                 ShowError = message => MessageBox.Show(ActiveOwner(), message, Strings.Common_Error,
                     MessageBoxButton.OK, MessageBoxImage.Error),
             };
+            ViewModel.Articles.ConfirmRemove = rows => MessageBox.Show(ActiveOwner(), ArticlesViewModel.RemovePrompt(rows),
+                Strings.Art_RemoveTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes;
             // A picture for checking the look keeps no conversation and leaves the saved one alone.
             var screenshot = Environment.GetCommandLineArgs().Contains("--screenshot");
             ViewModel.Assistant = new AssistantViewModel(ViewModel, screenshot ? null : ConversationStore.DefaultPath)

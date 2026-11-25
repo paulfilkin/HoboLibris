@@ -472,39 +472,7 @@ namespace HoboLibris.Services
             }
 
             // Keep a copy of the book list (and its journal files, if any) on this computer first.
-            try
-            {
-                Directory.CreateDirectory(backupDir);
-            }
-            catch (Exception ex)
-            {
-                throw new HoboLibrisException(string.Format(Strings.Coll_CouldNotCreateBackupFolder, ex.Message), ex);
-            }
-            var stamp = KoboTimestamp(DateTime.UtcNow).Replace(":", "").Replace("-", "");
-            var backup = Path.Combine(backupDir, $"KoboReader-{stamp}.sqlite");
-            try
-            {
-                File.Copy(DatabasePath, backup, overwrite: true);
-            }
-            catch (Exception ex)
-            {
-                throw new HoboLibrisException(string.Format(Strings.Coll_CouldNotBackUp, ex.Message), ex);
-            }
-            foreach (var suffix in new[] { "-wal", "-shm", "-journal" })
-            {
-                var side = DatabasePath + suffix;
-                if (File.Exists(side))
-                {
-                    try
-                    {
-                        File.Copy(side, backup + suffix, overwrite: true);
-                    }
-                    catch (Exception ex)
-                    {
-                        LogManager.Warn($"Could not back up {side}: {ex.Message}");
-                    }
-                }
-            }
+            var backup = BookListBackups.Take(DatabasePath, backupDir);
 
             try
             {

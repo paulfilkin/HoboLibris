@@ -16,6 +16,7 @@ namespace HoboLibris.Assistant
         public const string Kindle = "k";
         public const string Collection = "c";
         public const string Send = "e";
+        public const string Article = "a";
 
         public static string For(string kind, string id) =>
             kind + "-" + Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(id)))[..8].ToLowerInvariant();

@@ -1758,4 +1758,136 @@
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>إبقاؤها في المجموعة</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>المقالات</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>الاحتفاظ بنسخ من المقالات التي حفظتها على قارئ Kobo الإلكتروني باستخدام Instapaper</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>المقالات التي حفظتها على قارئ Kobo الإلكتروني باستخدام Instapaper. حدّد ما يستحق الاحتفاظ به واضغط على احتفاظ: تُحفظ كل مقالة على هذا الكمبيوتر كصفحة ويب مع صورها، وتبقى بعد زوال المقالة من القارئ الإلكتروني.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>وصّل قارئ Kobo الإلكتروني واضغط على اتصال على شاشته لرؤية مقالاته. حتى ذلك الحين تعرض هذه القائمة النسخ المحفوظة على هذا الكمبيوتر.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>الاحتفاظ بالمحدد ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>حفظ نسخة من كل مقالة محددة في مجلد المقالات</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>قراءة المقالات على القارئ الإلكتروني وفي مجلد المقالات مرة أخرى</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>البحث في العنوان أو المؤلف أو الموقع</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>مجلد المقالات:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>الموقع</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>تاريخ الإضافة</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>المقروء</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>النسخة</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>اكتملت القراءة</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>محفوظة</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>على هذا الكمبيوتر فقط</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>فتح النسخة</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>فتح الصفحة</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>لا توجد مقالات على القارئ الإلكتروني. احفظ المقالات باستخدام Instapaper، وسينزّلها القارئ الإلكتروني عند المزامنة.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>لم يُحتفظ بأي مقالة على هذا الكمبيوتر بعد.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>المقالات المحفوظة في مجلد المقالات: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>تم الاحتفاظ بـ: {0}. تعذّر الاحتفاظ بـ: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>لم يُعثر على نص "{0}" على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>تعذّر الاحتفاظ بـ "{0}": {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} من المقالات على قارئ Kobo الإلكتروني.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>المقالات المحفوظة</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>تُحفظ هنا نسخ المقالات التي تحتفظ بها من قارئ Kobo الإلكتروني، صفحة ويب لكل منها.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>اختر مكان الاحتفاظ بمقالاتك</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>عرض المقالات</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>الاحتفاظ بالمقالات</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>المقالات التي عُثر عليها: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>الاحتفاظ بهذه المقالات ({0}) على هذا الكمبيوتر: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>المقالات المحفوظة: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>إزالة من القارئ الإلكتروني ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>إزالة المقالات المحددة من هذا القارئ الإلكتروني. يحتفظ بها Instapaper: لأرشفتها أو حذفها هناك أيضًا، استخدم أرشفة أو حذف على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>إزالة المقالات</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>هل تريد إزالة هذه المقالات ({0}) من قارئ Kobo الإلكتروني؟</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>تبقى في حسابك على Instapaper. لأرشفتها أو حذفها هناك أيضًا، استخدم بدلًا من ذلك أرشفة أو حذف على القارئ الإلكتروني. تُنسخ قائمة كتب القارئ الإلكتروني إلى هذا الكمبيوتر أولًا.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>ليست لـ {0} منها نسخة محفوظة على هذا الكمبيوتر.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>المقالات المُزالة من القارئ الإلكتروني: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>تعذّرت إزالة المقالات: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>إزالة المقالات</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>إزالة هذه المقالات ({0}) من قارئ Kobo الإلكتروني؛ تبقى في Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>المقالات المُزالة: {0}</value>
+  </data>
 </root>

@@ -1,0 +1,153 @@
+<UserControl x:Class="HoboLibris.Views.ArticlesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="clr-namespace:HoboLibris.Resources"
+             xmlns:h="clr-namespace:HoboLibris.Helpers"
+             xmlns:vm="clr-namespace:HoboLibris.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:MainViewModel}">
+    <UserControl.Resources>
+        <h:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibility"/>
+    </UserControl.Resources>
+
+    <!-- The articles saved to the eReader with Instapaper, and the copies kept on this computer (#53) -->
+    <Grid DataContext="{Binding Articles}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{x:Static res:Strings.Art_Intro}" Style="{StaticResource HelperText}" FontSize="14" Margin="0,0,0,10"/>
+
+        <Border Grid.Row="1" Style="{StaticResource NoteCard}" Visibility="{Binding ShowNoReader, Converter={StaticResource BoolToVisibilityConverter}}">
+            <TextBlock Text="{x:Static res:Strings.Art_NoReader}" TextWrapping="Wrap"/>
+        </Border>
+
+        <WrapPanel Grid.Row="2" Margin="0,2,0,6">
+            <Button Style="{StaticResource AccentButton}" Command="{Binding KeepTickedCommand}" IsEnabled="{Binding CanKeep}" Margin="0,0,6,6"
+                    ToolTip="{x:Static res:Strings.Art_KeepHint}" AutomationProperties.Name="{Binding KeepText}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE896;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    <TextBlock Text="{Binding KeepText}"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource SecondaryButton}" Command="{Binding RemoveTickedCommand}" IsEnabled="{Binding CanKeep}" Margin="0,0,6,6"
+                    Content="{Binding RemoveText}" ToolTip="{x:Static res:Strings.Art_RemoveHint}" AutomationProperties.Name="{Binding RemoveText}"/>
+            <Button Style="{StaticResource SecondaryButton}" Command="{Binding LookAgainCommand}" ToolTip="{x:Static res:Strings.Art_LookAgainHint}" Margin="0,0,6,6"
+                    AutomationProperties.Name="{x:Static res:Strings.Send_LookAgain}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="⟳" FontSize="15" Margin="0,0,6,0"/>
+                    <TextBlock Text="{x:Static res:Strings.Send_LookAgain}"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource SecondaryButton}" Command="{Binding OpenFolderCommand}" Content="{x:Static res:Strings.Kobo_OpenFolder}" Margin="0,0,12,6"/>
+            <TextBox Style="{StaticResource SearchBox}" Width="260" Tag="{x:Static res:Strings.Art_SearchHint}"
+                     Text="{Binding Search, UpdateSourceTrigger=PropertyChanged, Delay=150}" Margin="0,0,12,6"/>
+            <TextBlock Text="{Binding Error}" Style="{StaticResource BadText}" VerticalAlignment="Center" Margin="0,0,0,6"
+                       Visibility="{Binding HasError, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            <TextBlock Text="{Binding Done}" Style="{StaticResource GoodText}" VerticalAlignment="Center" Margin="0,0,0,6"
+                       Visibility="{Binding HasDone, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        </WrapPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="{x:Static res:Strings.Art_Folder}" Style="{StaticResource MutedText}" Margin="0,0,8,0"/>
+            <TextBlock Text="{Binding FolderPath}" Style="{StaticResource MonoText}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="4">
+            <DataGrid Style="{StaticResource ModernDataGrid}" ItemsSource="{Binding VisibleRows}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="36" CanUserResize="False">
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource ModernCheckBox}" Click="TickAll_Click" ToolTip="{x:Static res:Strings.Coll_TickAll}"
+                                          AutomationProperties.Name="{x:Static res:Strings.Coll_TickAll}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource ModernCheckBox}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
+                                          IsEnabled="{Binding IsOnReader}" AutomationProperties.Name="{Binding Title}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Title}" Width="*" MinWidth="260">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource CellText}" ToolTip="{Binding Title}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Author}" Width="140" MinWidth="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Author}" Style="{StaticResource MutedCellText}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <!-- The site opens the article's page in the browser -->
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Site}" Width="140" MinWidth="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource CellText}" ToolTip="{Binding Url}">
+                                    <Hyperlink Command="{Binding DataContext.Articles.OpenPageCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                               CommandParameter="{Binding}" AutomationProperties.Name="{x:Static res:Strings.Art_OpenPage}"
+                                               Foreground="{DynamicResource PrimaryBrush}">
+                                        <Run Text="{Binding Site, Mode=OneWay}"/>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Added}" Width="95" MinWidth="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding AddedText}" Style="{StaticResource MutedCellText}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Read}" Width="70" MinWidth="60">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ProgressText}" Style="{StaticResource MutedCellText}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Copy}" Width="250" MinWidth="200">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding KeptText}" Style="{StaticResource GoodText}" VerticalAlignment="Center" Margin="0,0,8,0"
+                                               Visibility="{Binding IsKept, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                    <TextBlock Text="{x:Static res:Strings.Row_Failed}" Style="{StaticResource BadText}" ToolTip="{Binding Error}" VerticalAlignment="Center" Margin="0,0,8,0"
+                                               Visibility="{Binding HasError, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                    <Button Content="{x:Static res:Strings.Art_OpenCopy}" Style="{StaticResource SmallButton}"
+                                            Command="{Binding DataContext.Articles.OpenCopyCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}" ToolTip="{Binding KeptPath}"
+                                            Visibility="{Binding IsKept, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Text="{Binding EmptyText}" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" IsHitTestVisible="False">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MutedText}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding VisibleRows.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
