@@ -17,6 +17,21 @@ namespace HoboLibris.ViewModels
         public string ArrivedText => Preview.Arrived?.ToLocalTime().ToString("d") ?? "";
         public string SizeText => Preview.Size > 0 ? string.Format(Strings.Prev_SizeMB, Preview.Size / 1048576.0) : "";
 
+        /// <summary>Where the preview came from, or that its removal waits for the sync (#61).</summary>
+        public string KindText => Preview.Removing ? Strings.Prev_RemovingSaved : Preview.Kind switch
+        {
+            PreviewKind.Saved => Strings.Prev_KindSaved,
+            PreviewKind.SearchResult => Strings.Prev_KindSearch,
+            _ => Strings.Prev_KindNotSaved,
+        };
+
+        public string KindTip => Preview.Kind switch
+        {
+            PreviewKind.Saved => Strings.Prev_KindSavedTip,
+            PreviewKind.SearchResult => Strings.Prev_KindSearchTip,
+            _ => Strings.Prev_KindNotSavedTip,
+        };
+
         /// <summary>What a screen reader reads for the row.</summary>
         public override string ToString() => Title;
 
@@ -86,6 +101,7 @@ namespace HoboLibris.ViewModels
     /// <summary>
     /// The Previews screen (#59): the store previews on the Kobo eReader, which can be opened in the
     /// store or added to the wishlist, and the wishlist in the Kobo account, whose books can be removed.  The wishlist is changed through the eReader, which sends the changes when it next syncs.
+    /// Saved previews and previews from a search can be removed (#61).
     /// </summary>
     public partial class PreviewsViewModel : ObservableObject
     {
@@ -100,6 +116,9 @@ namespace HoboLibris.ViewModels
 
         /// <summary>Asks the person before the ticked books are removed from the wishlist; set by the window.</summary>
         public Func<IReadOnlyList<WishRow>, bool>? ConfirmWishRemove { get; set; }
+
+        /// <summary>Asks the person before the ticked previews are removed; set by the window.</summary>
+        public Func<IReadOnlyList<PreviewRow>, bool>? ConfirmRemove { get; set; }
 
         /// <summary>Opens a web address; replaced in tests.</summary>
         public Action<string> OpenUrl { get; set; } = Start;
@@ -119,12 +138,17 @@ namespace HoboLibris.ViewModels
 
         /// <summary>The eReader was found and its previews read.</summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(ShowNoReader), nameof(CanAddWish), nameof(CanRemoveWish), nameof(EmptyText), nameof(ShowWishNeedsReader))]
+        [NotifyPropertyChangedFor(nameof(ShowNoReader), nameof(CanAddWish), nameof(CanRemoveWish), nameof(CanRemove), nameof(EmptyText), nameof(ShowWishNeedsReader))]
         private bool _readerFound;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(CanAddWish), nameof(CanRemoveWish))]
+        [NotifyPropertyChangedFor(nameof(CanAddWish), nameof(CanRemoveWish), nameof(CanRemove))]
         private bool _busy;
+
+        /// <summary>Ticked previews that can be removed (#61).</summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanRemove), nameof(RemoveText))]
+        private int _tickedForRemove;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasError))]
@@ -170,7 +194,9 @@ namespace HoboLibris.ViewModels
         public bool ShowWishNeedsReader => Tried && !ReaderFound && WishRows.Count > 0;
         public bool CanAddWish => ReaderFound && !Busy && TickedForWish > 0;
         public bool CanRemoveWish => ReaderFound && !Busy && WishTicked > 0;
+        public bool CanRemove => ReaderFound && !Busy && TickedForRemove > 0;
         public string AddWishText => string.Format(Strings.Prev_AddToWishlist, TickedForWish);
+        public string RemoveText => string.Format(Strings.Prev_Remove, TickedForRemove);
         public string RemoveWishText => string.Format(Strings.Wish_Remove, WishTicked);
         public string EmptyText => ReaderFound ? Strings.Prev_None : "";
         public string WishEmptyText => WishBusy ? Strings.Wish_Reading
@@ -302,6 +328,7 @@ namespace HoboLibris.ViewModels
         public void UpdateTicked()
         {
             TickedForWish = Rows.Count(r => r.IsSelected && r.CanWish);
+            TickedForRemove = Rows.Count(r => r.IsSelected && r.Preview.CanRemove);
         }
 
         public void UpdateWishTicked() => WishTicked = WishRows.Count(r => r.IsSelected && r.CanTick);
@@ -341,6 +368,69 @@ namespace HoboLibris.ViewModels
             }
             UpdateTicked();
             Done = string.Format(Strings.Prev_Added, targets.Count);
+            StatusChanged?.Invoke(Done);
+            return targets;
+        }
+
+        [RelayCommand]
+        private async Task RemoveTicked()
+        {
+            var rows = Rows.Where(r => r.IsSelected && r.Preview.CanRemove).ToList();
+            if (rows.Count == 0 || ConfirmRemove?.Invoke(rows) != true)
+            {
+                return;
+            }
+            await RemoveAsync(rows);
+        }
+
+        /// <summary>The confirmation for removing these previews: how many, their titles, and what happens to each kind.</summary>
+        public static string RemovePrompt(IReadOnlyList<PreviewRow> rows) =>
+            string.Format(Strings.Prev_RemoveConfirm, rows.Count) + "\n\n"
+            + string.Join("\n", rows.Take(10).Select(r => "• " + r.Title)) + (rows.Count > 10 ? "\n…" : "")
+            + "\n\n" + Strings.Prev_RemoveNote;
+
+        /// <summary>
+        /// Remove these previews from the eReader (#61): saved ones leave the account at the next sync, and
+        /// ones from a search are removed now.  Others are left alone.  Returns those removed; Error says
+        /// why when it failed.
+        /// </summary>
+        public async Task<List<PreviewRow>> RemoveAsync(IReadOnlyList<PreviewRow> rows)
+        {
+            var targets = rows.Where(r => r.Preview.CanRemove).ToList();
+            var root = FindReader();
+            if (root == null)
+            {
+                Error = Strings.Prev_NoReader;
+                return new List<PreviewRow>();
+            }
+            if (targets.Count == 0)
+            {
+                return targets;
+            }
+            Busy = true;
+            Done = null;
+            Error = null;
+            try
+            {
+                var backup = await Task.Run(() => Previews.Remove(root, targets.Select(r => r.Preview).ToList(), BackupFolder()));
+                LogManager.Info($"Removed {targets.Count} previews from the eReader; book list copied to {backup}");
+            }
+            catch (Exception ex)
+            {
+                LogManager.Error(ex, "Removing previews failed");
+                Error = ex is HoboLibrisException ? ex.Message : string.Format(Strings.Prev_CouldNotRemove, ex.Message);
+                return new List<PreviewRow>();
+            }
+            finally
+            {
+                Busy = false;
+            }
+            foreach (var row in targets)
+            {
+                row.IsSelected = false;
+            }
+            await LoadAsync(wishlist: false);
+            Done = string.Format(Strings.Prev_Removed, targets.Count);
             StatusChanged?.Invoke(Done);
             return targets;
         }

@@ -2019,4 +2019,58 @@
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>تغييرات قائمة الأمنيات التي تنتظر مزامنة القارئ الإلكتروني: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>في كتبي</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>حُفظت بزر حفظ العينة على القارئ الإلكتروني. إزالتها تُخرجها من حسابك على Kobo عند المزامنة التالية للقارئ الإلكتروني.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>من بحث</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>فُتحت من نتائج البحث في المتجر على القارئ الإلكتروني. إزالتها تحذفها من القارئ الإلكتروني.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>تعود بعد المزامنة</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>فُتحت على القارئ الإلكتروني لكنها لم تُحفظ. يرسلها Kobo من جديد عند مزامنة القارئ الإلكتروني، لذا لا يمكن إزالتها نهائياً.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>تُزال عند المزامنة التالية</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>إزالة من القارئ الإلكتروني ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>إزالة العينات المحددة التي في كتبي أو من بحث. تبقى العينات التي تعود بعد المزامنة. تُنسخ قائمة كتب القارئ الإلكتروني إلى هذا الكمبيوتر أولاً.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>إزالة العينات</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>إزالة هذه العينات ({0})؟</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>تخرج العينات التي في كتبي من حسابك على Kobo عند المزامنة التالية للقارئ الإلكتروني. تُحذف العينات التي من بحث من القارئ الإلكتروني الآن. تُنسخ قائمة كتب القارئ الإلكتروني إلى هذا الكمبيوتر أولاً.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>العينات المُزالة: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>تعذّرت إزالة العينات: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>إزالة العينات</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>إزالة هذه العينات ({0}) من قارئ Kobo الإلكتروني: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>العينات المُزالة: {0}</value>
+  </data>
 </root>

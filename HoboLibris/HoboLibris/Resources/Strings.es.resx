@@ -2045,4 +2045,58 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Cambios en la lista de deseos a la espera de la sincronización del eReader: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>En Mis libros</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Guardada con Guardar muestra en el eReader. Al quitarla, sale de su cuenta de Kobo en la próxima sincronización del eReader.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>De una búsqueda</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Abierta desde los resultados de búsqueda de la tienda en el eReader. Al quitarla, se borra del eReader.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Vuelve tras sincronizar</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Abierta en el eReader pero no guardada. Kobo la envía de nuevo cuando el eReader sincroniza, así que no se puede quitar para siempre.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Se quita en la próxima sincronización</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Quitar del eReader ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Quitar las muestras marcadas que están en Mis libros o vienen de una búsqueda. Las muestras que vuelven tras sincronizar se dejan. Antes se copia la lista de libros del eReader en este equipo.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Quitar muestras</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>¿Quitar estas muestras ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Las muestras de Mis libros salen de su cuenta de Kobo en la próxima sincronización del eReader. Las muestras de una búsqueda se borran del eReader ahora. Antes se copia la lista de libros del eReader en este equipo.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Muestras quitadas: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>No se pudieron quitar las muestras: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Quitar muestras</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Quitar estas muestras ({0}) del Kobo eReader: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Muestras quitadas: {0}</value>
+  </data>
 </root>

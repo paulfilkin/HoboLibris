@@ -30,6 +30,8 @@
             <TextBlock Text="{x:Static res:Strings.Prev_Heading}" Style="{StaticResource HeadingText}" FontSize="16" VerticalAlignment="Center" Margin="0,0,16,6"/>
             <Button Style="{StaticResource SecondaryButton}" Command="{Binding AddTickedToWishlistCommand}" IsEnabled="{Binding CanAddWish}" Margin="0,0,6,6"
                     Content="{Binding AddWishText}" ToolTip="{x:Static res:Strings.Prev_AddHint}" AutomationProperties.Name="{Binding AddWishText}"/>
+            <Button Style="{StaticResource SecondaryButton}" Command="{Binding RemoveTickedCommand}" IsEnabled="{Binding CanRemove}" Margin="0,0,6,6"
+                    Content="{Binding RemoveText}" ToolTip="{x:Static res:Strings.Prev_RemoveHint}" AutomationProperties.Name="{Binding RemoveText}"/>
             <Button Style="{StaticResource SecondaryButton}" Command="{Binding LookAgainCommand}" ToolTip="{x:Static res:Strings.Prev_LookAgainHint}" Margin="0,0,12,6"
                     AutomationProperties.Name="{x:Static res:Strings.Send_LookAgain}">
                 <StackPanel Orientation="Horizontal">
@@ -71,6 +73,13 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Author}" Style="{StaticResource MutedCellText}" ToolTip="{Binding Author}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="{x:Static res:Strings.Col_Kind}" Width="180" MinWidth="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding KindText}" Style="{StaticResource MutedCellText}" ToolTip="{Binding KindTip}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

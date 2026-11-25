@@ -2045,4 +2045,58 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>전자책 리더의 동기화를 기다리는 위시리스트 변경: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>종류</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>내 책에 있음</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>전자책 리더에서 미리보기 저장으로 저장했습니다. 제거하면 전자책 리더의 다음 동기화 때 Kobo 계정에서 빠집니다.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>검색에서</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>전자책 리더에서 스토어 검색 결과로 열었습니다. 제거하면 전자책 리더에서 삭제됩니다.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>동기화하면 돌아옴</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>전자책 리더에서 열었지만 저장하지 않았습니다. 전자책 리더가 동기화하면 Kobo가 다시 보내므로 완전히 제거할 수 없습니다.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>다음 동기화 때 제거됨</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>전자책 리더에서 제거 ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>체크한 미리보기 중 내 책에 있거나 검색에서 연 것을 제거합니다. 동기화하면 돌아오는 미리보기는 그대로 둡니다. 먼저 전자책 리더의 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>미리보기 제거</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>이 미리보기({0}개)를 제거할까요?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>내 책에 있는 미리보기는 전자책 리더의 다음 동기화 때 Kobo 계정에서 빠집니다. 검색에서 연 미리보기는 지금 전자책 리더에서 삭제됩니다. 먼저 전자책 리더의 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>제거한 미리보기: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>미리보기를 제거하지 못했습니다: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>미리보기 제거</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>이 미리보기({0}개)를 Kobo 전자책 리더에서 제거: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>제거한 미리보기: {0}</value>
+  </data>
 </root>

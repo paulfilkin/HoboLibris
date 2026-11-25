@@ -2019,4 +2019,58 @@
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>שינויים ברשימת המשאלות שממתינים לסנכרון הקורא: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>סוג</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>בספרים שלי</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>נשמרה בלחצן שמירת הדוגמית בקורא. הסרה מוציאה אותה מחשבון Kobo שלך בסנכרון הבא של הקורא.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>מחיפוש</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>נפתחה מתוצאות החיפוש בחנות בקורא. הסרה מוחקת אותה מהקורא.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>חוזרת אחרי סנכרון</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>נפתחה בקורא אבל לא נשמרה. Kobo שולחת אותה שוב כשהקורא מסתנכרן, ולכן אי אפשר להסיר אותה לצמיתות.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>תוסר בסנכרון הבא</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>הסרה מהקורא ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>הסרת הדוגמיות המסומנות שנמצאות בספרים שלי או שנפתחו מחיפוש. דוגמיות שחוזרות אחרי סנכרון נשארות. רשימת הספרים של הקורא מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>הסרת דוגמיות</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>להסיר את הדוגמיות האלה ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>דוגמיות שבספרים שלי יוצאות מחשבון Kobo שלך בסנכרון הבא של הקורא. דוגמיות מחיפוש נמחקות מהקורא עכשיו. רשימת הספרים של הקורא מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>דוגמיות שהוסרו: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>לא ניתן היה להסיר את הדוגמיות: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>הסרת דוגמיות</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>הסרת הדוגמיות האלה ({0}) מקורא Kobo: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>דוגמיות שהוסרו: {0}</value>
+  </data>
 </root>

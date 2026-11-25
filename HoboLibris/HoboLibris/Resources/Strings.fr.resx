@@ -2045,4 +2045,58 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Modifications de la liste d'envies en attente de la synchronisation de la liseuse : {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>Dans Mes livres</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Enregistré avec Enregistrer l'extrait sur la liseuse. Le retirer le sort de votre compte Kobo à la prochaine synchronisation de la liseuse.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>D'une recherche</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Ouvert depuis les résultats de recherche de la boutique sur la liseuse. Le retirer le supprime de la liseuse.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Revient après une synchronisation</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Ouvert sur la liseuse mais pas enregistré. Kobo l'envoie de nouveau quand la liseuse se synchronise, il ne peut donc pas être retiré définitivement.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Retiré à la prochaine synchronisation</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Retirer de la liseuse ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Retirer les extraits cochés qui sont dans Mes livres ou viennent d'une recherche. Les extraits qui reviennent après une synchronisation sont laissés. La liste des livres de la liseuse est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Retirer des extraits</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Retirer ces extraits ({0}) ?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Les extraits de Mes livres sortent de votre compte Kobo à la prochaine synchronisation de la liseuse. Les extraits d'une recherche sont supprimés de la liseuse maintenant. La liste des livres de la liseuse est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Extraits retirés : {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Impossible de retirer les extraits : {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Retirer des extraits</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Retirer ces extraits ({0}) de la liseuse Kobo : {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Extraits retirés : {0}</value>
+  </data>
 </root>

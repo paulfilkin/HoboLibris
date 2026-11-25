@@ -2019,4 +2019,58 @@
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Змін у списку бажань, що чекають на синхронізацію рідера: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>У «Моїх книгах»</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Збережено кнопкою «Зберегти уривок» на рідері. Якщо вилучити, він зникне з вашого облікового запису Kobo під час наступної синхронізації рідера.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>З пошуку</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Відкрито з результатів пошуку в магазині на рідері. Якщо вилучити, його буде видалено з рідера.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Повертається після синхронізації</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Відкрито на рідері, але не збережено. Kobo надсилає його знову, коли рідер синхронізується, тому його не можна вилучити назавжди.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Буде вилучено під час наступної синхронізації</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Вилучити з рідера ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Вилучити позначені уривки, які є в «Моїх книгах» або відкриті з пошуку. Уривки, що повертаються після синхронізації, залишаються. Спочатку список книг рідера копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Вилучення уривків</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Вилучити ці уривки ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Уривки з «Моїх книг» зникнуть з вашого облікового запису Kobo під час наступної синхронізації рідера. Уривки з пошуку видаляються з рідера зараз. Спочатку список книг рідера копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Уривків вилучено: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Не вдалося вилучити уривки: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Вилучення уривків</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Вилучити ці уривки ({0}) з рідера Kobo: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Уривків вилучено: {0}</value>
+  </data>
 </root>

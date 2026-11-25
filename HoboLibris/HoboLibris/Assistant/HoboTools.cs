@@ -400,7 +400,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "list_previews",
                 Title = Strings.Asst_Tool_ListPreviews,
-                Description = "List the Kobo store previews (free samples) on the Kobo eReader, as the Previews screen shows them, and the wishlist in the person's Kobo account. Each preview has an id, title, author, the date it arrived, its size and whether it is on the wishlist; each wishlist book has an id, title, author, date added, price, and whether its removal is waiting for the eReader's next sync. Previews are listed only while the eReader is plugged in; the wishlist only while the person is signed in.",
+                Description = "List the Kobo store previews (free samples) on the Kobo eReader, as the Previews screen shows them, and the wishlist in the person's Kobo account. Each preview has an id, title, author, the date it arrived, its size, whether it is on the wishlist, and its kind: in_my_books (saved with Save Preview), from_search (opened from the store's search results) or not_saved (comes back after a sync, so it can't be removed); each wishlist book has an id, title, author, date added, price, and whether its removal is waiting for the eReader's next sync. Previews are listed only while the eReader is plugged in; the wishlist only while the person is signed in.",
                 Schema = Schema.Object(("query", Schema.String("Only previews and wishlist books whose title or author contains this text."), false)),
                 Run = async (args, _) =>
                 {
@@ -462,6 +462,52 @@ namespace HoboLibris.Assistant
                         return new ToolOutcome(PreviewsScreen.WishError ?? "Nothing was removed.", true);
                     }
                     return WishlistOutcome(removed.Select(r => r.Title), unknown);
+                },
+            },
+            new AssistantTool
+            {
+                Name = "remove_previews",
+                Title = Strings.Asst_Tool_RemovePreviews,
+                Description = "Remove previews from the Kobo eReader, by preview ids from list_previews. A preview in_my_books is taken out of the person's Kobo account at the eReader's next sync, as Remove from My Books does; one from_search is deleted from the eReader now. Previews that are not_saved come back after a sync, so they are left alone. The eReader must be plugged in, and its book list is backed up first. The person approves this every time.",
+                Schema = Schema.Object(("ids", Ids, true)),
+                AlwaysAsks = true,
+                Check = RemovePreviewsCheck,
+                Describe = args =>
+                {
+                    var rows = PreviewRows(args.Strings("ids")).Found.Where(r => r.Preview.CanRemove).ToList();
+                    return string.Format(Strings.Asst_Desc_RemovePreviews, rows.Count, TitleList(rows.Select(r => r.Title)));
+                },
+                Run = async (args, _) =>
+                {
+                    if (RemovePreviewsCheck(args) is { } refused)
+                    {
+                        return refused;
+                    }
+                    var (found, unknown) = PreviewRows(args.Strings("ids"));
+                    var left = found.Where(r => !r.Preview.CanRemove).Select(r => r.Title).ToList();
+                    var removed = await PreviewsScreen.RemoveAsync(found);
+                    if (removed.Count == 0)
+                    {
+                        return new ToolOutcome(PreviewsScreen.Error ?? "Nothing was removed.", true);
+                    }
+                    var json = new JsonObject
+                    {
+                        ["removed"] = new JsonArray(removed.Select(r => (JsonNode)new JsonObject
+                        {
+                            ["title"] = r.Title,
+                            ["when"] = r.Preview.Kind == PreviewKind.Saved ? "at the eReader's next sync" : "now",
+                        }).ToArray()),
+                    };
+                    if (left.Count > 0)
+                    {
+                        json["left_alone"] = new JsonArray(left.Select(t => (JsonNode)t).ToArray());
+                        json["note"] = "Previews that are not_saved, or already being removed, were left alone.";
+                    }
+                    if (unknown.Count > 0)
+                    {
+                        json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
+                    }
+                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_PreviewsRemoved, removed.Count));
                 },
             },
 
@@ -937,6 +983,13 @@ namespace HoboLibris.Assistant
                     ["size"] = r.SizeText,
                     ["on_wishlist"] = r.OnWishlist,
                     ["wishlist_add_waiting_for_sync"] = r.Adding,
+                    ["kind"] = r.Preview.Kind switch
+                    {
+                        PreviewKind.Saved => "in_my_books",
+                        PreviewKind.SearchResult => "from_search",
+                        _ => "not_saved",
+                    },
+                    ["removal_waiting_for_sync"] = r.Preview.Removing,
                 }).ToArray()),
                 ["signed_in"] = !PreviewsScreen.WishSignedOut,
                 ["wishlist"] = new JsonArray(wished.Select(r => (JsonNode)new JsonObject
@@ -997,6 +1050,20 @@ namespace HoboLibris.Assistant
             if (!found.Any(r => r.CanTick))
             {
                 return new ToolOutcome("None of those is a wishlist book that can be removed: take wishlist ids from list_previews." + Unknown(unknown), true);
+            }
+            return null;
+        }
+
+        private ToolOutcome? RemovePreviewsCheck(JsonObject args)
+        {
+            if (!_main.ReaderConnected)
+            {
+                return new ToolOutcome("No Kobo eReader is connected: previews are removed from the eReader, so it must be plugged in.", true);
+            }
+            var (found, unknown) = PreviewRows(args.Strings("ids"));
+            if (!found.Any(r => r.Preview.CanRemove))
+            {
+                return new ToolOutcome("None of those is a preview that can be removed: take preview ids from list_previews whose kind is in_my_books or from_search, leaving out those already being removed." + Unknown(unknown), true);
             }
             return null;
         }

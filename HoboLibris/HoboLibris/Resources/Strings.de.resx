@@ -2019,4 +2019,58 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Wunschlisten-Änderungen, die auf das Synchronisieren des eReaders warten: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Art</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>In Meine Bücher</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Auf dem eReader als Leseprobe gespeichert. Beim Entfernen wird sie beim nächsten Synchronisieren des eReaders aus Ihrem Kobo-Konto genommen.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>Aus einer Suche</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Auf dem eReader aus den Suchergebnissen des Shops geöffnet. Beim Entfernen wird sie vom eReader gelöscht.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Kommt nach dem Synchronisieren zurück</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Auf dem eReader geöffnet, aber nicht gespeichert. Kobo sendet sie beim Synchronisieren des eReaders erneut, daher lässt sie sich nicht dauerhaft entfernen.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Entfernt beim nächsten Synchronisieren</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Vom eReader entfernen ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Die angehakten Leseproben entfernen, die in Meine Bücher sind oder aus einer Suche stammen. Leseproben, die nach dem Synchronisieren zurückkommen, bleiben. Die Bücherliste des eReaders wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Leseproben entfernen</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Diese Leseproben ({0}) entfernen?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Leseproben in Meine Bücher werden beim nächsten Synchronisieren des eReaders aus Ihrem Kobo-Konto genommen. Leseproben aus einer Suche werden jetzt vom eReader gelöscht. Die Bücherliste des eReaders wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Entfernte Leseproben: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Die Leseproben konnten nicht entfernt werden: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Leseproben entfernen</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Diese Leseproben ({0}) vom Kobo eReader entfernen: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Entfernte Leseproben: {0}</value>
+  </data>
 </root>
