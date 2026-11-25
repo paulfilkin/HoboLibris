@@ -175,6 +175,81 @@
             </DataTemplate.Triggers>
         </DataTemplate>
 
+        <!-- The books a search found, drawn by HoboLibris: the model needn't list them -->
+        <DataTemplate DataType="{x:Type a:SearchResults}">
+            <Border Background="{DynamicResource BackgroundDeepBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                    CornerRadius="8" Padding="9,7,9,7" Margin="0,0,0,3">
+                <StackPanel Grid.IsSharedSizeScope="True">
+                    <TextBlock Text="{Binding Heading}" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}"
+                               Margin="0,0,0,6" TextWrapping="Wrap"/>
+                    <Grid Margin="0,0,0,3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Lang"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{x:Static res:Strings.Col_Title}" Style="{StaticResource Caption}" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="1" Text="{x:Static res:Strings.Col_Author}" Style="{StaticResource Caption}" FontWeight="SemiBold" Margin="8,0,0,0"/>
+                        <TextBlock Grid.Column="2" Text="{x:Static res:Strings.Col_Language}" Style="{StaticResource Caption}" FontWeight="SemiBold" Margin="8,0,0,0"/>
+                    </Grid>
+                    <ItemsControl ItemsSource="{Binding Shown}" Focusable="False">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type a:SearchResultRow}">
+                                <Border BorderBrush="{DynamicResource BorderBrush}" BorderThickness="0,1,0,0" Padding="0,4,0,4">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Lang"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Title}" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Center"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Authors}" TextWrapping="Wrap" Style="{StaticResource Caption}"
+                                                   VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding Language}" Style="{StaticResource Caption}" VerticalAlignment="Center"
+                                                   Margin="8,0,0,0"/>
+                                        <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" Margin="4,0,0,0">
+                                            <Grid Width="24" Height="24">
+                                                <Button x:Name="Download" Style="{StaticResource MessageCopyButton}" Content="&#xE896;"
+                                                        Command="{Binding DownloadCommand}" ToolTip="{Binding Message}" ToolTipService.ShowOnDisabled="True"
+                                                        AutomationProperties.Name="{x:Static res:Strings.Asst_DownloadTip}"
+                                                        AutomationProperties.HelpText="{Binding Title}"
+                                                        Visibility="{Binding Downloadable, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                                <TextBlock x:Name="Done" Text="&#xE73E;" Style="{StaticResource Glyph}" FontSize="12" HorizontalAlignment="Center"
+                                                           Foreground="{DynamicResource PrimaryBrush}" ToolTip="{Binding Message}" Visibility="Collapsed"
+                                                           AutomationProperties.Name="{Binding Message}"/>
+                                            </Grid>
+                                            <Button Style="{StaticResource MessageCopyButton}" Content="&#xE8A7;" Command="{Binding OpenCommand}"
+                                                    ToolTip="{x:Static res:Strings.Asst_OpenPageTip}" AutomationProperties.Name="{x:Static res:Strings.Asst_OpenPageTip}"
+                                                    AutomationProperties.HelpText="{Binding Title}"
+                                                    IsEnabled="{Binding CanOpen}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding State}" Value="{x:Static a:SearchRowState.Done}">
+                                        <Setter TargetName="Download" Property="Visibility" Value="Collapsed"/>
+                                        <Setter TargetName="Done" Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding State}" Value="{x:Static a:SearchRowState.Downloading}">
+                                        <Setter TargetName="Download" Property="Content" Value="&#xE895;"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding State}" Value="{x:Static a:SearchRowState.Failed}">
+                                        <Setter TargetName="Download" Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Button Content="{Binding ShowAllText}" Style="{StaticResource SmallButton}" HorizontalAlignment="Left" Margin="0,6,0,0"
+                            Command="{Binding ShowEverythingCommand}"
+                            Visibility="{Binding HasMore, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type a:ApprovalRequest}">
             <Border x:Name="Card" Background="{DynamicResource BackgroundDeepBrush}" BorderBrush="{DynamicResource BorderBrush}"
                     BorderThickness="1" CornerRadius="8" Padding="11,8,11,9" Margin="0,4,0,4">

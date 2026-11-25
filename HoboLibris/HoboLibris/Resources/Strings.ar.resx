@@ -1650,4 +1650,31 @@
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>المحادثة أطول من حجم السياق المحدد لـ Ollama ({0} رمز). ابدأ محادثة جديدة، أو زِد حجم السياق من الإعدادات، ضمن نموذج الذكاء الاصطناعي.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>عُثر على {0} في {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>عُثر على {0} من {1} في {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>عرض الكل ({0})</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>تنزيل في مجلد Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>جارٍ التنزيل…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>فتح صفحته في المتصفح</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>تُرك جزء سابق من المحادثة خارج هذا الطلب ليتسع له حجم السياق المحدد لـ Ollama ({0} رمز).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>الحصول على أدوات أخرى</value>
+  </data>
 </root>

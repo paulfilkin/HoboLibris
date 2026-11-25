@@ -1650,4 +1650,31 @@
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>השיחה ארוכה מדי עבור גודל ההקשר שהוגדר ל-Ollama ({0} אסימונים). אפשר להתחיל שיחה חדשה, או להגדיל את גודל ההקשר בהגדרות, תחת מודל AI.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>נמצאו {0} ב-{1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>נמצאו {0} מתוך {1} ב-{2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>הצגת כל ה-{0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>הורדה לתיקיית Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>מוריד…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>פתיחת הדף שלו בדפדפן</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>חלקים קודמים של השיחה הושמטו מהבקשה הזו כדי להתאים לגודל ההקשר שהוגדר ל-Ollama ({0} אסימונים).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>קבלת כלים נוספים</value>
+  </data>
 </root>

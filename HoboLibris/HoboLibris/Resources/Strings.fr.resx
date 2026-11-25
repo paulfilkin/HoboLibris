@@ -1676,4 +1676,31 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>La conversation est trop longue pour la taille de contexte définie pour Ollama ({0} jetons). Commencez une nouvelle conversation ou augmentez la taille du contexte dans les Paramètres, sous Modèle d'IA.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{0} trouvés dans {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{0} sur {1} trouvés dans {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Afficher les {0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Télécharger dans le dossier Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>Téléchargement…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Ouvrir sa page dans le navigateur</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Des parties antérieures de la conversation ont été laissées de côté dans cette demande pour tenir dans la taille de contexte définie pour Ollama ({0} jetons).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Obtenir d'autres outils</value>
+  </data>
 </root>

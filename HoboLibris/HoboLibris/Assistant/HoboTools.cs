@@ -31,6 +31,9 @@ namespace HoboLibris.Assistant
         /// <summary>Background work the sources want at start-up (the Gutenberg catalogue).</summary>
         public Task WarmUpAsync() => _sources.WarmUpAsync();
 
+        /// <summary>The person pressed Download in a search's list.</summary>
+        public Task<ToolOutcome> DownloadFoundAsync(Sources.EbookResult book) => _sources.DownloadFoundAsync(book);
+
         private CollectionsViewModel Collections => _main.Collections;
 
         private static readonly JsonObject Ids = Schema.Array(Schema.String("A book id from the list tool."), "The books, by id.");

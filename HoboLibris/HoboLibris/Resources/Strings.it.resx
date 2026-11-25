@@ -1676,4 +1676,31 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>La conversazione è troppo lunga per la dimensione del contesto impostata per Ollama ({0} token). Avvia una nuova conversazione o aumenta la dimensione del contesto in Impostazioni, sotto Modello di IA.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{0} trovati in {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{0} di {1} trovati in {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Mostra tutti i {0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Scarica nella cartella Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>Download in corso…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Apri la sua pagina nel browser</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Parti precedenti della conversazione sono state lasciate fuori da questa richiesta per stare nella dimensione del contesto impostata per Ollama ({0} token).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Ottieni altri strumenti</value>
+  </data>
 </root>

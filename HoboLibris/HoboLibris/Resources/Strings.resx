@@ -1676,4 +1676,31 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>The conversation is too long for the context size set for Ollama ({0} tokens). Start a new conversation, or raise the context size in Settings, under AI model.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{0} found in {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{0} of {1} found in {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Show all {0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Download into the Kobo folder</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>Downloading…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Open its page in the browser</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Earlier parts of the conversation were left out of this request to fit the context size set for Ollama ({0} tokens).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Get more tools</value>
+  </data>
 </root>

@@ -8,7 +8,7 @@ namespace HoboLibris.Assistant
     /// <summary>One line of the pane as saved: a message, notice, tool activity or approval.</summary>
     public sealed class SavedChatItem
     {
-        /// <summary>user, assistant, notice, tool or approval.</summary>
+        /// <summary>user, assistant, notice, tool, results (a search's list of books, as JSON in Result) or approval.</summary>
         public string Kind { get; set; } = string.Empty;
         public DateTime Time { get; set; }
         public string? Text { get; set; }

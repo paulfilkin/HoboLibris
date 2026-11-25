@@ -1650,4 +1650,31 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>Die Unterhaltung ist zu lang für die Kontextgröße, die für Ollama eingestellt ist ({0} Token). Beginnen Sie eine neue Unterhaltung, oder erhöhen Sie die Kontextgröße in den Einstellungen unter KI-Modell.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{0} gefunden in {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{0} von {1} gefunden in {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Alle {0} anzeigen</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>In den Kobo-Ordner herunterladen</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>Wird heruntergeladen…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Seite im Browser öffnen</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Frühere Teile der Unterhaltung wurden bei dieser Anfrage weggelassen, damit sie in die für Ollama eingestellte Kontextgröße passt ({0} Token).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Weitere Werkzeuge holen</value>
+  </data>
 </root>

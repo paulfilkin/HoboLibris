@@ -136,6 +136,15 @@ namespace HoboLibris.ViewModels
         public IReadOnlyList<AssistantTool> Tools => _tools.All;
         public JsonObject Context() => _tools.Context();
         public string ContextLine() => _tools.ScreenName();
+        public Task<ToolOutcome> DownloadBookAsync(Assistant.Sources.EbookResult book) => _tools.DownloadFoundAsync(book);
+
+        public void OpenBookPage(Uri page)
+        {
+            if (page.Scheme is "https" or "http")
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(page.AbsoluteUri) { UseShellExecute = true });
+            }
+        }
 
         // ---- The pane ---------------------------------------------------------------------------
 

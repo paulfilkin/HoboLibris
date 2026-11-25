@@ -1676,4 +1676,31 @@
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>对话超出了为 Ollama 设置的上下文大小（{0} 个令牌）。请开始新对话，或在设置的“AI 模型”中增大上下文大小。</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>在 {1} 中找到 {0} 本</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>在 {2} 中找到 {1} 本，显示 {0} 本</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>显示全部 {0} 本</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>下载到 Kobo 文件夹</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>正在下载…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>在浏览器中打开其页面</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>为符合为 Ollama 设置的上下文大小（{0} 个令牌），此次请求省略了对话的前面部分。</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>获取更多工具</value>
+  </data>
 </root>
