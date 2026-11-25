@@ -21,6 +21,37 @@ namespace HoboLibris.Tests
             Assert.Equal(3, BookListBackups.Files(dir).Count);
         }
 
+        /// <summary>
+        /// Two backups in the same second are both kept, each with its own journal file (#64): the second
+        /// gets a number instead of overwriting the first.
+        /// </summary>
+        [Fact]
+        public void BackupsInTheSameSecondAreBothKept()
+        {
+            var root = TestFolder.Fresh("backups-same-second");
+            var db = Path.Combine(root, "KoboReader.sqlite");
+            var dir = Path.Combine(root, "backups");
+            var now = new DateTime(2026, 11, 25, 17, 20, 42, DateTimeKind.Utc);
+            File.WriteAllText(db, "before");
+            File.WriteAllText(db + "-wal", "wal before");
+            var first = BookListBackups.Take(db, dir, now);
+            File.WriteAllText(db, "after");
+            File.WriteAllText(db + "-wal", "wal after");
+            var second = BookListBackups.Take(db, dir, now);
+
+            Assert.NotEqual(first, second);
+            Assert.EndsWith("-2.sqlite", second);
+            Assert.Equal("before", File.ReadAllText(first));
+            Assert.Equal("wal before", File.ReadAllText(first + "-wal"));
+            Assert.Equal("after", File.ReadAllText(second));
+            Assert.Equal("wal after", File.ReadAllText(second + "-wal"));
+            Assert.Equal(2, BookListBackups.Count(dir));
+            Assert.Equal(4, BookListBackups.Files(dir).Count);
+
+            // A third in the same second gets the next number.
+            Assert.EndsWith("-3.sqlite", BookListBackups.Take(db, dir, now));
+        }
+
         [Fact]
         public void MissingFolderHasNoBackups()
         {

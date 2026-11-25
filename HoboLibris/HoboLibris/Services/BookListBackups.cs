@@ -15,7 +15,13 @@ namespace HoboLibris.Services
         /// Copy the eReader's book list (and its journal files, if any) into dir before it is written
         /// to, as KoboReader-&lt;time&gt;.sqlite.  Returns the copy's path.
         /// </summary>
-        public static string Take(string db, string dir)
+        public static string Take(string db, string dir) => Take(db, dir, DateTime.UtcNow);
+
+        /// <summary>
+        /// Take a backup named by the given time.  When a backup of the same second is already there, the
+        /// new one gets a number (KoboReader-&lt;time&gt;-2.sqlite, then -3), so neither is overwritten (#64).
+        /// </summary>
+        public static string Take(string db, string dir, DateTime now)
         {
             try
             {
@@ -25,11 +31,15 @@ namespace HoboLibris.Services
             {
                 throw new HoboLibrisException(string.Format(Strings.Coll_CouldNotCreateBackupFolder, ex.Message), ex);
             }
-            var stamp = Collections.KoboTimestamp(DateTime.UtcNow).Replace(":", "").Replace("-", "");
+            var stamp = Collections.KoboTimestamp(now).Replace(":", "").Replace("-", "");
             var backup = Path.Combine(dir, $"KoboReader-{stamp}.sqlite");
+            for (var n = 2; Taken(backup); n++)
+            {
+                backup = Path.Combine(dir, $"KoboReader-{stamp}-{n}.sqlite");
+            }
             try
             {
-                File.Copy(db, backup, overwrite: true);
+                File.Copy(db, backup, overwrite: false);
             }
             catch (Exception ex)
             {
@@ -42,7 +52,7 @@ namespace HoboLibris.Services
                 {
                     try
                     {
-                        File.Copy(side, backup + suffix, overwrite: true);
+                        File.Copy(side, backup + suffix, overwrite: false);
                     }
                     catch (Exception ex)
                     {
@@ -52,6 +62,10 @@ namespace HoboLibris.Services
             }
             return backup;
         }
+
+        /// <summary>A backup name already in use, by the copy or any of its journal files.</summary>
+        private static bool Taken(string backup) =>
+            new[] { "", "-wal", "-shm", "-journal" }.Any(suffix => File.Exists(backup + suffix));
 
         /// <summary>Every backup file in the folder, journal files included.</summary>
         public static List<string> Files(string dir) =>
