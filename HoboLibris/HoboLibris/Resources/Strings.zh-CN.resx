@@ -2045,4 +2045,58 @@
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>等待电子书阅读器同步的心愿单更改：{0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>在“我的书籍”中</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>在电子书阅读器上用“保存试读”保存。移除后，它会在电子书阅读器下次同步时从你的 Kobo 帐户中移出。</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>来自搜索</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>在电子书阅读器上从商店搜索结果中打开。移除后，它会从电子书阅读器中删除。</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>同步后会回来</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>在电子书阅读器上打开但未保存。电子书阅读器同步时 Kobo 会再次发送它，因此无法彻底移除。</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>下次同步时移除</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>从电子书阅读器移除（{0}）</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>移除勾选的试读中位于“我的书籍”或来自搜索的那些。同步后会回来的试读保持不动。会先将电子书阅读器的书籍列表复制到这台电脑。</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>移除试读</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>要移除这些试读（{0}）吗？</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>“我的书籍”中的试读会在电子书阅读器下次同步时从你的 Kobo 帐户中移出。来自搜索的试读现在就从电子书阅读器中删除。会先将电子书阅读器的书籍列表复制到这台电脑。</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>已移除的试读：{0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>无法移除试读：{0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>移除试读</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>将这些试读（{0}）从 Kobo 电子书阅读器中移除：{1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>已移除的试读：{0}</value>
+  </data>
 </root>

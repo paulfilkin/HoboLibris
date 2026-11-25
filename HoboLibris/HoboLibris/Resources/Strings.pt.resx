@@ -2019,4 +2019,58 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Alterações à lista de desejos à espera da sincronização do eReader: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>Nos meus livros</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Guardada com Guardar amostra no eReader. Ao removê-la, sai da sua conta Kobo na próxima sincronização do eReader.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>De uma pesquisa</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Aberta a partir dos resultados de pesquisa da loja no eReader. Ao removê-la, é apagada do eReader.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Volta após sincronizar</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Aberta no eReader mas não guardada. A Kobo envia-a de novo quando o eReader sincroniza, por isso não pode ser removida de vez.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Removida na próxima sincronização</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Remover do eReader ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Remover as amostras assinaladas que estão nos meus livros ou vêm de uma pesquisa. As amostras que voltam após sincronizar ficam. Primeiro a lista de livros do eReader é copiada para este computador.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Remover amostras</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Remover estas amostras ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>As amostras nos meus livros saem da sua conta Kobo na próxima sincronização do eReader. As amostras de uma pesquisa são apagadas do eReader agora. Primeiro a lista de livros do eReader é copiada para este computador.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Amostras removidas: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Não foi possível remover as amostras: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Remover amostras</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Remover estas amostras ({0}) do Kobo eReader: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Amostras removidas: {0}</value>
+  </data>
 </root>

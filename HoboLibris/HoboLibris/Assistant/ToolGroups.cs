@@ -24,7 +24,7 @@ namespace HoboLibris.Assistant
             (Send, "list the book files ready to send to the Kobo eReader, send them, and eject it"),
             (Kindle, "list and back up Kindle books"),
             (Articles, "list the articles saved to the Kobo eReader with Instapaper, keep copies of them on this computer, and remove them from the eReader"),
-            (Previews, "list the Kobo store previews on the eReader and the wishlist in the Kobo account, and add to or remove from the wishlist"),
+            (Previews, "list the Kobo store previews on the eReader and the wishlist in the Kobo account, add to or remove from the wishlist, and remove previews"),
         };
 
         private static readonly Dictionary<string, string> ByTool = new()
@@ -53,6 +53,7 @@ namespace HoboLibris.Assistant
             ["list_previews"] = Previews,
             ["add_to_wishlist"] = Previews,
             ["remove_from_wishlist"] = Previews,
+            ["remove_previews"] = Previews,
             ["search_ebooks"] = Sources,
             ["download_ebook"] = Sources,
             ["open_book_page"] = Sources,

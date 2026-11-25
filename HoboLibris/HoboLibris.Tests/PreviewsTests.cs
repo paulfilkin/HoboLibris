@@ -8,9 +8,9 @@ namespace HoboLibris.Tests
     public class PreviewsTests
     {
         /// <summary>
-        /// A fake eReader shaped as found with firmware 4.46: two previews with their chapters and files, a
-        /// preview the eReader no longer holds, an owned store book, and a Wishlist table with one synced
-        /// add and one removal waiting for the sync.
+        /// A fake eReader shaped as found with firmware 4.46: three previews with their chapters and files
+        /// (one not saved, one saved in My Books, one from a search), a preview the eReader no longer holds,
+        /// an owned store book, and a Wishlist table with one synced add and one removal waiting for the sync.
         /// </summary>
         private static string Reader(string name)
         {
@@ -42,11 +42,26 @@ namespace HoboLibris.Tests
                     ALTER TABLE content ADD COLUMN WishlistedDate TEXT DEFAULT '0000-00-00T00:00:00.000';
                     CREATE TABLE Wishlist (CrossRevisionId TEXT, DateModified TEXT NOT NULL, IsAdded BOOL, IsSynced BOOL, PRIMARY KEY (CrossRevisionId));
                     INSERT INTO Wishlist VALUES ('cr-9', '2026-11-24T20:37:51Z', 'true', 'true');
-                    INSERT INTO Wishlist VALUES ('cr-7', '2026-11-25T17:12:07Z', 'false', 'false');";
+                    INSERT INTO Wishlist VALUES ('cr-7', '2026-11-25T17:12:07Z', 'false', 'false');
+                    ALTER TABLE content ADD COLUMN ___UserID TEXT NOT NULL DEFAULT '';
+                    ALTER TABLE content ADD COLUMN EntitlementId TEXT;
+                    ALTER TABLE content ADD COLUMN ___ExpirationStatus INT;
+                    ALTER TABLE content ADD COLUMN AnnotationsSyncToken TEXT;
+                    UPDATE content SET ___ExpirationStatus = 0, AnnotationsSyncToken = 'W/""0""' WHERE ContentType = 6;
+                    UPDATE content SET ___UserID = 'user-1', EntitlementId = 'ent-2' WHERE ContentID = 'p-2';
+                    INSERT INTO content (ContentID, ContentType, BookID, Title, Attribution, ISBN, CrossRevisionId, ___SyncTime, PreviewFileSize, IsDownloaded, Accessibility, ___UserID, ___ExpirationStatus, AnnotationsSyncToken)
+                        VALUES ('p-4', 6, NULL, 'The Cult', 'Someone Else', '9780000000005', 'cr-5', '2026-11-18T17:18:15Z', 1500000, 'true', 6, 'user-1_searchresult', 0, 'W/""0""');
+                    INSERT INTO content (ContentID, ContentType, BookID, IsDownloaded, Accessibility) VALUES ('p-4!ch1', 9, 'p-4', 'true', 6);
+                    INSERT INTO content (ContentID, ContentType, BookID, IsDownloaded, Accessibility) VALUES ('p-4!ch2', 9, 'p-4', 'true', 6);
+                    INSERT INTO content (ContentID, ContentType, BookID, Title, IsDownloaded, Accessibility) VALUES ('p-4!!cover-1', 899, 'p-4', 'Cover', 'true', 6);
+                    INSERT INTO content (ContentID, ContentType, BookID, Title, IsDownloaded, Accessibility) VALUES ('p-2!!cover-1', 899, 'p-2', 'Cover', 'true', 6);
+                    INSERT INTO volume_shortcovers VALUES ('p-4', 'p-4!ch1', 0);
+                    INSERT INTO volume_shortcovers VALUES ('p-4', 'p-4!ch2', 1);
+                    INSERT INTO volume_tabs VALUES ('p-4', 'tab-a');";
                 cmd.ExecuteNonQuery();
             }
             SqliteConnection.ClearAllPools();
-            foreach (var id in new[] { "p-1", "p-2", "owned-1" })
+            foreach (var id in new[] { "p-1", "p-2", "p-4", "owned-1" })
             {
                 File.WriteAllText(Path.Combine(kepub, id), "x");
             }
@@ -68,7 +83,7 @@ namespace HoboLibris.Tests
             var found = Previews.Read(root);
 
             // The preview the eReader no longer holds and the owned book aren't listed.
-            Assert.Equal(new[] { "Crusaders", "Dynasty" }, found.Select(p => p.Title));
+            Assert.Equal(new[] { "Crusaders", "Dynasty", "The Cult" }, found.Select(p => p.Title));
             var first = found[0];
             Assert.Equal("Dan Jones", first.Author);
             Assert.Equal(5180881, first.Size);
@@ -255,6 +270,130 @@ namespace HoboLibris.Tests
             await screen.LoadAsync();
             Assert.Empty(screen.WishRows);
             Assert.Equal(string.Format(Resources.Strings.Wish_CouldNotRead, "no network"), screen.WishError);
+        }
+
+        private static string? Text(string root, string sql)
+        {
+            using var c = KoboDeviceService.OpenReadOnly(KoboDeviceService.DatabasePath(root));
+            using var cmd = c.CreateCommand();
+            cmd.CommandText = sql;
+            return cmd.ExecuteScalar() is { } v and not DBNull ? v.ToString() : null;
+        }
+
+        /// <summary>The three kinds of preview found on 25 November 2026, told apart by ___UserID and EntitlementId (#61).</summary>
+        [Fact]
+        public void TheKindOfEachPreviewIsRead()
+        {
+            var found = Previews.Read(Reader("previews-kinds")).ToDictionary(p => p.Title);
+            Assert.Equal(PreviewKind.NotSaved, found["Crusaders"].Kind);
+            Assert.Equal(PreviewKind.Saved, found["Dynasty"].Kind);
+            Assert.Equal(PreviewKind.SearchResult, found["The Cult"].Kind);
+            Assert.False(found["Crusaders"].CanRemove);
+            Assert.True(found["Dynasty"].CanRemove);
+            Assert.True(found["The Cult"].CanRemove);
+            Assert.All(found.Values, p => Assert.False(p.Removing));
+
+            // A sync that archived a saved preview leaves "removed" as its user id.
+            Assert.Equal(PreviewKind.Saved, Previews.KindOf("removed", ""));
+            Assert.Equal(PreviewKind.NotSaved, Previews.KindOf("user-1", ""));
+            Assert.Equal(PreviewKind.NotSaved, Previews.KindOf("", "ent-1"));
+        }
+
+        /// <summary>
+        /// A saved preview is marked as Remove from My Books marks it, for the account to archive at the next
+        /// sync; one from a search is removed as Remove Download removes it; one not saved is left alone (#61).
+        /// </summary>
+        [Fact]
+        public void EachKindOfPreviewIsRemovedAsTheEreaderDoes()
+        {
+            var root = Reader("previews-remove");
+            var kepub = Path.Combine(root, ".kobo", "kepub");
+            var backup = Previews.Remove(root, Previews.Read(root), Path.Combine(root, "..", "backups"));
+            Assert.True(File.Exists(backup));
+
+            // Saved: only ___ExpirationStatus changes; it stays listed, shown as waiting for the sync.
+            Assert.Equal("3", Text(root, "SELECT ___ExpirationStatus FROM content WHERE ContentID = 'p-2'"));
+            Assert.Equal("true", Text(root, "SELECT IsDownloaded FROM content WHERE ContentID = 'p-2'"));
+            Assert.Equal(2, Count(root, "SELECT COUNT(*) FROM content WHERE BookID = 'p-2'"));
+            Assert.True(File.Exists(Path.Combine(kepub, "p-2")));
+
+            // From a search: not downloaded, its chapters, table of contents rows, volume_shortcovers rows and
+            // file gone, its row kept.
+            Assert.Equal("false", Text(root, "SELECT IsDownloaded FROM content WHERE ContentID = 'p-4'"));
+            Assert.Null(Text(root, "SELECT AnnotationsSyncToken FROM content WHERE ContentID = 'p-4'"));
+            Assert.Equal("0", Text(root, "SELECT ___ExpirationStatus FROM content WHERE ContentID = 'p-4'"));
+            Assert.Equal(0, Count(root, "SELECT COUNT(*) FROM content WHERE BookID = 'p-4'"));
+            Assert.Equal(0, Count(root, "SELECT COUNT(*) FROM volume_shortcovers WHERE volumeId = 'p-4'"));
+            Assert.False(File.Exists(Path.Combine(kepub, "p-4")));
+
+            // Not saved: left alone, since it comes back.
+            Assert.Equal("true", Text(root, "SELECT IsDownloaded FROM content WHERE ContentID = 'p-1'"));
+            Assert.Equal("0", Text(root, "SELECT ___ExpirationStatus FROM content WHERE ContentID = 'p-1'"));
+            Assert.Equal(2, Count(root, "SELECT COUNT(*) FROM volume_shortcovers WHERE volumeId = 'p-1'"));
+            Assert.True(File.Exists(Path.Combine(kepub, "p-1")));
+
+            // Nothing else is touched.
+            Assert.Equal(4, Count(root, "SELECT COUNT(*) FROM volume_tabs"));
+            Assert.True(File.Exists(Path.Combine(kepub, "owned-1")));
+
+            var after = Previews.Read(root);
+            Assert.Equal(new[] { "Crusaders", "Dynasty" }, after.Select(p => p.Title));
+            Assert.True(after.Single(p => p.Title == "Dynasty").Removing);
+            Assert.False(after.Single(p => p.Title == "Dynasty").CanRemove);
+        }
+
+        [Fact]
+        public async Task TheScreenRemovesTickedPreviewsAfterAsking()
+        {
+            var root = Reader("previews-screen-remove");
+            var asked = new List<string>();
+            var screen = new PreviewsViewModel
+            {
+                FindReader = () => root,
+                BackupFolder = () => Path.Combine(root, "..", "backups"),
+                ConfirmRemove = rows => { asked.AddRange(rows.Select(r => r.Title)); return false; },
+            };
+            await screen.LoadAsync(wishlist: false);
+            Assert.Equal(Resources.Strings.Prev_KindNotSaved, screen.Rows.Single(r => r.Title == "Crusaders").KindText);
+            Assert.Equal(Resources.Strings.Prev_KindSaved, screen.Rows.Single(r => r.Title == "Dynasty").KindText);
+            Assert.Equal(Resources.Strings.Prev_KindSearch, screen.Rows.Single(r => r.Title == "The Cult").KindText);
+
+            // Ticking all three offers the two that can be removed.
+            screen.TickAll(true);
+            Assert.Equal(2, screen.TickedForRemove);
+            Assert.True(screen.CanRemove);
+            Assert.Equal(string.Format(Resources.Strings.Prev_Remove, 2), screen.RemoveText);
+
+            // A no changes nothing.
+            await screen.RemoveTickedCommand.ExecuteAsync(null);
+            Assert.Equal(new[] { "Dynasty", "The Cult" }, asked);
+            Assert.Equal(3, screen.Rows.Count);
+            Assert.Equal("0", Text(root, "SELECT ___ExpirationStatus FROM content WHERE ContentID = 'p-2'"));
+
+            screen.ConfirmRemove = _ => true;
+            await screen.RemoveTickedCommand.ExecuteAsync(null);
+            Assert.Null(screen.Error);
+            Assert.Equal(string.Format(Resources.Strings.Prev_Removed, 2), screen.Done);
+            Assert.Equal(new[] { "Crusaders", "Dynasty" }, screen.Rows.Select(r => r.Title));
+            var dynasty = screen.Rows.Single(r => r.Title == "Dynasty");
+            Assert.Equal(Resources.Strings.Prev_RemovingSaved, dynasty.KindText);
+            Assert.False(dynasty.IsSelected);
+            // Crusaders stays ticked for the wishlist, but can't be removed.
+            Assert.True(screen.Rows.Single(r => r.Title == "Crusaders").IsSelected);
+            Assert.Equal(0, screen.TickedForRemove);
+            Assert.False(screen.CanRemove);
+        }
+
+        [Fact]
+        public async Task WithNoEreaderPreviewsCannotBeRemoved()
+        {
+            var root = Reader("previews-remove-gone");
+            var screen = new PreviewsViewModel { FindReader = () => root, BackupFolder = () => Path.Combine(root, "..", "backups") };
+            await screen.LoadAsync(wishlist: false);
+            screen.FindReader = () => null;
+            Assert.Empty(await screen.RemoveAsync(screen.Rows.ToList()));
+            Assert.Equal(Resources.Strings.Prev_NoReader, screen.Error);
+            Assert.Equal("0", Text(root, "SELECT ___ExpirationStatus FROM content WHERE ContentID = 'p-2'"));
         }
     }
 }

@@ -3275,5 +3275,95 @@ namespace HoboLibris.Resources {
         public static string Asst_WishlistChanged {
             get { return ResourceManager.GetString("Asst_WishlistChanged", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Kind.</summary>
+        public static string Col_Kind {
+            get { return ResourceManager.GetString("Col_Kind", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to In My Books.</summary>
+        public static string Prev_KindSaved {
+            get { return ResourceManager.GetString("Prev_KindSaved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Saved with Save Preview on the eReader. Removing it takes it out of your Kobo account at the eReader's next sync..</summary>
+        public static string Prev_KindSavedTip {
+            get { return ResourceManager.GetString("Prev_KindSavedTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to From a search.</summary>
+        public static string Prev_KindSearch {
+            get { return ResourceManager.GetString("Prev_KindSearch", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Opened from the store's search results on the eReader. Removing it deletes it from the eReader..</summary>
+        public static string Prev_KindSearchTip {
+            get { return ResourceManager.GetString("Prev_KindSearchTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Comes back after a sync.</summary>
+        public static string Prev_KindNotSaved {
+            get { return ResourceManager.GetString("Prev_KindNotSaved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Opened on the eReader but not saved. Kobo sends it again when the eReader syncs, so it can't be removed for good..</summary>
+        public static string Prev_KindNotSavedTip {
+            get { return ResourceManager.GetString("Prev_KindNotSavedTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Removed at the eReader's next sync.</summary>
+        public static string Prev_RemovingSaved {
+            get { return ResourceManager.GetString("Prev_RemovingSaved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove from eReader ({0}).</summary>
+        public static string Prev_Remove {
+            get { return ResourceManager.GetString("Prev_Remove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove the ticked previews that are in My Books or from a search. Previews that come back after a sync are left alone....</summary>
+        public static string Prev_RemoveHint {
+            get { return ResourceManager.GetString("Prev_RemoveHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove previews.</summary>
+        public static string Prev_RemoveTitle {
+            get { return ResourceManager.GetString("Prev_RemoveTitle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these previews ({0})?.</summary>
+        public static string Prev_RemoveConfirm {
+            get { return ResourceManager.GetString("Prev_RemoveConfirm", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews in My Books leave your Kobo account at the eReader's next sync. Previews from a search are deleted from the ....</summary>
+        public static string Prev_RemoveNote {
+            get { return ResourceManager.GetString("Prev_RemoveNote", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews removed: {0}.</summary>
+        public static string Prev_Removed {
+            get { return ResourceManager.GetString("Prev_Removed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Could not remove the previews: {0}.</summary>
+        public static string Prev_CouldNotRemove {
+            get { return ResourceManager.GetString("Prev_CouldNotRemove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove previews.</summary>
+        public static string Asst_Tool_RemovePreviews {
+            get { return ResourceManager.GetString("Asst_Tool_RemovePreviews", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these previews ({0}) from the Kobo eReader: {1}.</summary>
+        public static string Asst_Desc_RemovePreviews {
+            get { return ResourceManager.GetString("Asst_Desc_RemovePreviews", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews removed: {0}.</summary>
+        public static string Asst_PreviewsRemoved {
+            get { return ResourceManager.GetString("Asst_PreviewsRemoved", resourceCulture); }
+        }
     }
 }

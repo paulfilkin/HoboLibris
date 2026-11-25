@@ -2045,4 +2045,58 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Wishlist changes waiting for the eReader's sync: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>In My Books</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Saved with Save Preview on the eReader. Removing it takes it out of your Kobo account at the eReader's next sync.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>From a search</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Opened from the store's search results on the eReader. Removing it deletes it from the eReader.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Comes back after a sync</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Opened on the eReader but not saved. Kobo sends it again when the eReader syncs, so it can't be removed for good.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Removed at the eReader's next sync</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Remove from eReader ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Remove the ticked previews that are in My Books or from a search. Previews that come back after a sync are left alone. The eReader's book list is copied to this computer first.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Remove previews</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Remove these previews ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Previews in My Books leave your Kobo account at the eReader's next sync. Previews from a search are deleted from the eReader now. The eReader's book list is copied to this computer first.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Previews removed: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Could not remove the previews: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Remove previews</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Remove these previews ({0}) from the Kobo eReader: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Previews removed: {0}</value>
+  </data>
 </root>

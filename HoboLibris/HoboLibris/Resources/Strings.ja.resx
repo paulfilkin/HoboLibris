@@ -2045,4 +2045,58 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>電子書籍リーダーの同期を待っているほしい物リストの変更: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>種類</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>マイブック内</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>電子書籍リーダーで試し読みを保存したものです。削除すると、電子書籍リーダーの次の同期で Kobo アカウントから外れます。</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>検索から</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>電子書籍リーダーでストアの検索結果から開いたものです。削除すると電子書籍リーダーから消えます。</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>同期すると戻る</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>電子書籍リーダーで開いたものの保存していません。電子書籍リーダーが同期すると Kobo が再び送るため、完全には削除できません。</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>次の同期で削除</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>電子書籍リーダーから削除 ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>チェックした試し読みのうち、マイブック内のものと検索から開いたものを削除します。同期すると戻る試し読みはそのままです。先に電子書籍リーダーの書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>試し読みの削除</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>これらの試し読み ({0}) を削除しますか?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>マイブック内の試し読みは、電子書籍リーダーの次の同期で Kobo アカウントから外れます。検索から開いた試し読みは今すぐ電子書籍リーダーから削除します。先に電子書籍リーダーの書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>削除した試し読み: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>試し読みを削除できませんでした: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>試し読みの削除</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>これらの試し読み ({0}) を Kobo 電子書籍リーダーから削除: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>削除した試し読み: {0}</value>
+  </data>
 </root>

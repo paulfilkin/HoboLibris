@@ -2045,4 +2045,58 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_WishlistChanged" xml:space="preserve">
     <value>Modifiche alla lista dei desideri in attesa della sincronizzazione dell'eReader: {0}</value>
   </data>
+  <data name="Col_Kind" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Prev_KindSaved" xml:space="preserve">
+    <value>Nei miei libri</value>
+  </data>
+  <data name="Prev_KindSavedTip" xml:space="preserve">
+    <value>Salvata con Salva anteprima sull'eReader. Rimuoverla la toglie dal tuo account Kobo alla prossima sincronizzazione dell'eReader.</value>
+  </data>
+  <data name="Prev_KindSearch" xml:space="preserve">
+    <value>Da una ricerca</value>
+  </data>
+  <data name="Prev_KindSearchTip" xml:space="preserve">
+    <value>Aperta dai risultati di ricerca dello store sull'eReader. Rimuoverla la cancella dall'eReader.</value>
+  </data>
+  <data name="Prev_KindNotSaved" xml:space="preserve">
+    <value>Torna dopo la sincronizzazione</value>
+  </data>
+  <data name="Prev_KindNotSavedTip" xml:space="preserve">
+    <value>Aperta sull'eReader ma non salvata. Kobo la invia di nuovo quando l'eReader si sincronizza, quindi non si può rimuovere per sempre.</value>
+  </data>
+  <data name="Prev_RemovingSaved" xml:space="preserve">
+    <value>Rimossa alla prossima sincronizzazione</value>
+  </data>
+  <data name="Prev_Remove" xml:space="preserve">
+    <value>Rimuovi dall'eReader ({0})</value>
+  </data>
+  <data name="Prev_RemoveHint" xml:space="preserve">
+    <value>Rimuovi le anteprime spuntate che sono nei miei libri o vengono da una ricerca. Le anteprime che tornano dopo la sincronizzazione restano. Prima l'elenco dei libri dell'eReader viene copiato su questo computer.</value>
+  </data>
+  <data name="Prev_RemoveTitle" xml:space="preserve">
+    <value>Rimuovi anteprime</value>
+  </data>
+  <data name="Prev_RemoveConfirm" xml:space="preserve">
+    <value>Rimuovere queste anteprime ({0})?</value>
+  </data>
+  <data name="Prev_RemoveNote" xml:space="preserve">
+    <value>Le anteprime nei miei libri escono dal tuo account Kobo alla prossima sincronizzazione dell'eReader. Le anteprime da una ricerca vengono cancellate dall'eReader adesso. Prima l'elenco dei libri dell'eReader viene copiato su questo computer.</value>
+  </data>
+  <data name="Prev_Removed" xml:space="preserve">
+    <value>Anteprime rimosse: {0}</value>
+  </data>
+  <data name="Prev_CouldNotRemove" xml:space="preserve">
+    <value>Impossibile rimuovere le anteprime: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemovePreviews" xml:space="preserve">
+    <value>Rimuovi anteprime</value>
+  </data>
+  <data name="Asst_Desc_RemovePreviews" xml:space="preserve">
+    <value>Rimuovere queste anteprime ({0}) dal Kobo eReader: {1}</value>
+  </data>
+  <data name="Asst_PreviewsRemoved" xml:space="preserve">
+    <value>Anteprime rimosse: {0}</value>
+  </data>
 </root>
