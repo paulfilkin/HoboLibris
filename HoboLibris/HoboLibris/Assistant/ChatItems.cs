@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using HoboLibris.Assistant.Sources;
 using HoboLibris.Resources;
 
 namespace HoboLibris.Assistant
@@ -111,6 +112,146 @@ namespace HoboLibris.Assistant
         public bool HasResult => Result.Length > 0;
 
         public override string ToString() => $"{Title}: {Summary}";
+    }
+
+    /// <summary>
+    /// The books a search found, drawn by HoboLibris under the search step: every match, not only the
+    /// few the model is given, with a Download and an Open page button on each.  The model needn't
+    /// list them, so the list is complete and quick with any model.
+    /// </summary>
+    public sealed partial class SearchResults : ChatItem
+    {
+        /// <summary>Rows shown before Show all is pressed.</summary>
+        public const int FirstShown = 10;
+
+        public SearchResults(string heading, IEnumerable<EbookResult> books)
+        {
+            Heading = heading;
+            Rows = books.Select(b => new SearchResultRow(this, b)).ToList();
+        }
+
+        /// <summary>"76 found in Project Gutenberg" or "40 of 2,113 found in Open Library".</summary>
+        public string Heading { get; }
+
+        public IReadOnlyList<SearchResultRow> Rows { get; }
+
+        /// <summary>Downloads a book into the Kobo folder: set by the session, so a restored list works too.</summary>
+        public Func<EbookResult, Task<ToolOutcome>>? Download { get; set; }
+
+        /// <summary>Opens a book's page in the browser: set by the session.</summary>
+        public Action<Uri>? OpenPage { get; set; }
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(Shown), nameof(HasMore))]
+        private bool _showAll;
+
+        public IEnumerable<SearchResultRow> Shown => ShowAll ? Rows : Rows.Take(FirstShown);
+
+        public bool HasMore => !ShowAll && Rows.Count > FirstShown;
+
+        public string ShowAllText => string.Format(Strings.Asst_ShowAllResults, Rows.Count);
+
+        [RelayCommand]
+        private void ShowEverything() => ShowAll = true;
+
+        /// <summary>
+        /// The rows as saved with the conversation: no download addresses, since an OPDS address may hold
+        /// a key.  A restored Google Books or OPDS row can only be opened, not downloaded.
+        /// </summary>
+        public string ToSaved() => new JsonArray(Rows.Select(r => (JsonNode)new JsonObject
+        {
+            ["id"] = r.Book.Id,
+            ["source"] = r.Book.Source,
+            ["title"] = r.Book.Title,
+            ["authors"] = r.Book.Authors,
+            ["language"] = r.Book.Language,
+            ["page"] = r.Book.PageUrl?.AbsoluteUri,
+        }).ToArray()).ToJsonString();
+
+        public static SearchResults FromSaved(string heading, string? rows, DateTime time)
+        {
+            var books = new List<EbookResult>();
+            try
+            {
+                foreach (var row in (JsonNode.Parse(rows ?? "[]") as JsonArray ?? new JsonArray()).OfType<JsonObject>())
+                {
+                    books.Add(new EbookResult
+                    {
+                        Id = (row["id"] as JsonValue)?.ToString() ?? "",
+                        Source = (row["source"] as JsonValue)?.ToString() ?? "",
+                        Title = (row["title"] as JsonValue)?.ToString() ?? "",
+                        Authors = (row["authors"] as JsonValue)?.ToString() ?? "",
+                        Language = (row["language"] as JsonValue)?.ToString(),
+                        PageUrl = Uri.TryCreate((row["page"] as JsonValue)?.ToString(), UriKind.Absolute, out var page) ? page : null,
+                    });
+                }
+            }
+            catch (JsonException)
+            {
+            }
+            return new SearchResults(heading, books) { Time = time };
+        }
+
+        public override string ToString() => Heading;
+    }
+
+    public enum SearchRowState
+    {
+        Ready,
+        Downloading,
+        Done,
+        Failed,
+    }
+
+    /// <summary>One book in a search's list.</summary>
+    public sealed partial class SearchResultRow : ObservableObject
+    {
+        private readonly SearchResults _owner;
+
+        public SearchResultRow(SearchResults owner, EbookResult book)
+        {
+            _owner = owner;
+            Book = book;
+        }
+
+        public EbookResult Book { get; }
+        public string Title => Book.Title;
+        public string Authors => Book.Authors;
+        public string Language => Book.Language ?? "";
+
+        /// <summary>Gutenberg and Open Library books by their ids; Google Books and OPDS books by the address the search found.</summary>
+        public bool Downloadable => Book.Source is "gutenberg" or "open_library" || Book.DownloadUrl != null;
+
+        public bool CanOpen => Book.PageUrl != null && Book.Source != "opds";
+
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(DownloadCommand))]
+        private SearchRowState _state;
+
+        /// <summary>What the download did, shown as the button's tooltip.</summary>
+        [ObservableProperty]
+        private string _message = Strings.Asst_DownloadTip;
+
+        private bool CanDownload() => Downloadable && State is SearchRowState.Ready or SearchRowState.Failed && _owner.Download != null;
+
+        [RelayCommand(CanExecute = nameof(CanDownload))]
+        private async Task DownloadAsync()
+        {
+            State = SearchRowState.Downloading;
+            Message = Strings.Asst_Downloading;
+            var outcome = await _owner.Download!(Book);
+            State = outcome.IsError ? SearchRowState.Failed : SearchRowState.Done;
+            Message = outcome.IsError ? outcome.Content : outcome.Summary ?? Strings.Asst_Downloaded;
+        }
+
+        [RelayCommand]
+        private void Open()
+        {
+            if (CanOpen)
+            {
+                _owner.OpenPage?.Invoke(Book.PageUrl!);
+            }
+        }
     }
 
     /// <summary>The Assistant wants to use a tool that asks first: the person allows it once, always, or declines.</summary>

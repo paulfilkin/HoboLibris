@@ -1650,4 +1650,31 @@
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>Розмова задовга для розміру контексту, заданого для Ollama ({0} токенів). Почніть нову розмову або збільште розмір контексту в налаштуваннях, у розділі «Модель ШІ».</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>Знайдено {0} у {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>Знайдено {0} з {1} у {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Показати всі {0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Завантажити в папку Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>Завантаження…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Відкрити сторінку в браузері</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Попередні частини розмови не ввійшли в цей запит, щоб вміститися в розмір контексту, заданий для Ollama ({0} токенів).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Отримати інші інструменти</value>
+  </data>
 </root>

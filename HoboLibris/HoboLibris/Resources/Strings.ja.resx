@@ -1676,4 +1676,31 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>会話が Ollama に設定したコンテキスト サイズ ({0} トークン) に対して長すぎます。新しい会話を始めるか、設定の [AI モデル] でコンテキスト サイズを大きくしてください。</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{1} で {0} 件見つかりました</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{2} で {1} 件中 {0} 件</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>{0} 件すべて表示</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Kobo フォルダーにダウンロード</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>ダウンロード中…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>ブラウザーでページを開く</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Ollama に設定したコンテキスト サイズ ({0} トークン) に収めるため、この要求では会話の前の部分を省きました。</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>ほかのツールを使う</value>
+  </data>
 </root>

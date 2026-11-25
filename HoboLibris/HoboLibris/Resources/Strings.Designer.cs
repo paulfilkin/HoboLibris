@@ -2660,5 +2660,50 @@ namespace HoboLibris.Resources {
         public static string Asst_TooLongOllama {
             get { return ResourceManager.GetString("Asst_TooLongOllama", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Language.</summary>
+        public static string Col_Language {
+            get { return ResourceManager.GetString("Col_Language", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} found in {1}.</summary>
+        public static string Asst_ResultsHeading {
+            get { return ResourceManager.GetString("Asst_ResultsHeading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} of {1} found in {2}.</summary>
+        public static string Asst_ResultsHeadingPart {
+            get { return ResourceManager.GetString("Asst_ResultsHeadingPart", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Show all {0}.</summary>
+        public static string Asst_ShowAllResults {
+            get { return ResourceManager.GetString("Asst_ShowAllResults", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Download into the Kobo folder.</summary>
+        public static string Asst_DownloadTip {
+            get { return ResourceManager.GetString("Asst_DownloadTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Downloading….</summary>
+        public static string Asst_Downloading {
+            get { return ResourceManager.GetString("Asst_Downloading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open its page in the browser.</summary>
+        public static string Asst_OpenPageTip {
+            get { return ResourceManager.GetString("Asst_OpenPageTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Earlier parts of the conversation were left out of this request to fit the context size set for Ollama ({0} tokens)..</summary>
+        public static string Asst_LeftOut {
+            get { return ResourceManager.GetString("Asst_LeftOut", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Get more tools.</summary>
+        public static string Asst_Tool_UseTools {
+            get { return ResourceManager.GetString("Asst_Tool_UseTools", resourceCulture); }
+        }
     }
 }

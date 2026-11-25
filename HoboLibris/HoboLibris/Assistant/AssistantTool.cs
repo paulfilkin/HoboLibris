@@ -13,7 +13,11 @@ namespace HoboLibris.Assistant
     }
 
     /// <summary>What a tool gives back to the model, and a one-line summary for the person.</summary>
-    public sealed record ToolOutcome(string Content, bool IsError = false, string? Summary = null);
+    public sealed record ToolOutcome(string Content, bool IsError = false, string? Summary = null)
+    {
+        /// <summary>Something to show the person under the step, such as a search's list of books.</summary>
+        public ChatItem? Show { get; init; }
+    }
 
     /// <summary>
     /// A tool the Assistant can use.  Name is what the model sees (letters, digits, '_' and '-', at most

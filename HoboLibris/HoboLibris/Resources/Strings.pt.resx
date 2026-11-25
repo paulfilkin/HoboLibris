@@ -1650,4 +1650,31 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_TooLongOllama" xml:space="preserve">
     <value>A conversa é demasiado longa para o tamanho de contexto definido para o Ollama ({0} tokens). Comece uma nova conversa ou aumente o tamanho do contexto nas Definições, em Modelo de IA.</value>
   </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Asst_ResultsHeading" xml:space="preserve">
+    <value>{0} encontrados em {1}</value>
+  </data>
+  <data name="Asst_ResultsHeadingPart" xml:space="preserve">
+    <value>{0} de {1} encontrados em {2}</value>
+  </data>
+  <data name="Asst_ShowAllResults" xml:space="preserve">
+    <value>Mostrar os {0}</value>
+  </data>
+  <data name="Asst_DownloadTip" xml:space="preserve">
+    <value>Transferir para a pasta Kobo</value>
+  </data>
+  <data name="Asst_Downloading" xml:space="preserve">
+    <value>A transferir…</value>
+  </data>
+  <data name="Asst_OpenPageTip" xml:space="preserve">
+    <value>Abrir a página no browser</value>
+  </data>
+  <data name="Asst_LeftOut" xml:space="preserve">
+    <value>Partes anteriores da conversa ficaram de fora deste pedido para caber no tamanho de contexto definido para o Ollama ({0} tokens).</value>
+  </data>
+  <data name="Asst_Tool_UseTools" xml:space="preserve">
+    <value>Obter mais ferramentas</value>
+  </data>
 </root>

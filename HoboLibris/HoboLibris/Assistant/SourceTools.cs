@@ -40,6 +40,12 @@ namespace HoboLibris.Assistant
 
         private SourceSettings Sources => _main.Settings.Assistant.Sources;
 
+        /// <summary>The most Project Gutenberg matches in a search's list (its catalogue is on this computer).</summary>
+        public const int MostListed = 200;
+
+        /// <summary>How many books an online source is asked for, for the list: one page.</summary>
+        public const int PageSize = 40;
+
         /// <summary>
         /// Fetches the Gutenberg catalogue in the background when it is needed soon: the Assistant is
         /// set up, Gutenberg is on, and the copy is missing or a week old.  Its mirrors can take
@@ -97,7 +103,7 @@ namespace HoboLibris.Assistant
                     ("author", Schema.String("The author's name, or part of it."), false),
                     ("language", Schema.String("A two-letter language code, such as en, fr or de."), false),
                     ("catalogue", Schema.String("For source opds: the catalogue's name."), false),
-                    ("limit", Schema.Integer("The most books to return (default 10, at most 40)."), false)),
+                    ("limit", Schema.Integer("The most books to give you, at most 40. The person sees every match in a list anyway."), false)),
                 Run = (args, cancel) => SearchAsync(args, cancel),
             },
             new AssistantTool
@@ -111,7 +117,7 @@ namespace HoboLibris.Assistant
                 Describe = args => _found.TryGetValue(args.Str("id") ?? "", out var r)
                     ? string.Format(Strings.Asst_Desc_Download, r.Title, r.Authors.Length > 0 ? r.Authors : "?", SourceName(r.Source))
                     : string.Format(Strings.Asst_Desc_DownloadId, args.Str("id")),
-                Run = (args, cancel) => DownloadAsync(args, cancel),
+                Run = (args, cancel) => DownloadAsync(args.Str("id") ?? "", cancel),
             },
             new AssistantTool
             {
@@ -175,7 +181,9 @@ namespace HoboLibris.Assistant
             var query = args.Str("query");
             var author = args.Str("author");
             var language = args.Str("language");
-            var limit = Math.Clamp(args.Int("limit", 10), 1, 40);
+            // A model on this computer gets fewer: the list shows them all to the person.
+            var settings = _main.Settings.Assistant;
+            var limit = Math.Clamp(args.Int("limit", ChatProviders.IsLocal(settings.Provider, settings.Endpoint) ? 5 : 10), 1, 40);
             if (query == null && author == null)
             {
                 return new ToolOutcome("Give a query or an author.", true);
@@ -192,14 +200,14 @@ namespace HoboLibris.Assistant
                     var books = await _gutenberg.BooksAsync(cancel);
                     var matches = GutenbergCatalogue.Search(books, query, author, language);
                     total = matches.Count;
-                    results = matches.Take(limit).Select(GutenbergCatalogue.ToResult).ToList();
+                    results = matches.Take(MostListed).Select(GutenbergCatalogue.ToResult).ToList();
                     break;
                 case "open_library":
                     if (!Sources.OpenLibrary)
                     {
                         return Off("Open Library");
                     }
-                    var json = await SourceHttp.GetJsonAsync(OpenLibrarySource.SearchUrl(query, author, language, limit), cancel);
+                    var json = await SourceHttp.GetJsonAsync(OpenLibrarySource.SearchUrl(query, author, language, Math.Max(limit, PageSize)), cancel);
                     total = json["numFound"]?.GetValue<int>();
                     results = OpenLibrarySource.ParseSearch(json);
                     break;
@@ -208,7 +216,7 @@ namespace HoboLibris.Assistant
                     {
                         return new ToolOutcome("Google Books needs the person's API key in Settings, under E-book sources.", true);
                     }
-                    var google = await SourceHttp.GetJsonAsync(GoogleBooksSource.SearchUrl(query, author, language, limit, Sources.GetGoogleBooksKey()), cancel);
+                    var google = await SourceHttp.GetJsonAsync(GoogleBooksSource.SearchUrl(query, author, language, Math.Max(limit, PageSize), Sources.GetGoogleBooksKey()), cancel);
                     total = google["totalItems"]?.GetValue<int>();
                     results = GoogleBooksSource.ParseSearch(google);
                     break;
@@ -221,7 +229,7 @@ namespace HoboLibris.Assistant
                             ? "The person has added no OPDS catalogues."
                             : "Name one of the catalogues: " + string.Join(", ", names) + ".", true);
                     }
-                    results = await new OpdsSource(catalogue).SearchAsync(string.Join(" ", new[] { query, author }.Where(s => s != null)), limit, cancel);
+                    results = await new OpdsSource(catalogue).SearchAsync(string.Join(" ", new[] { query, author }.Where(s => s != null)), Math.Max(limit, PageSize), cancel);
                     break;
                 default:
                     return new ToolOutcome("Unknown source; use gutenberg, open_library, google_books or opds.", true);
@@ -230,12 +238,33 @@ namespace HoboLibris.Assistant
             {
                 _found[r.Id] = r;
             }
-            var output = new JsonObject { ["books"] = new JsonArray(results.Select(r => (JsonNode)r.ToJson()).ToArray()) };
-            if (total != null)
+            return Found(results, total, limit, SourceName(args.Str("source") ?? ""));
+        }
+
+        /// <summary>
+        /// What a search gives: the model gets the first few books with their ids and the counts; the
+        /// person gets every book found in a list under the step, so the model needn't list them.
+        /// </summary>
+        public static ToolOutcome Found(IReadOnlyList<EbookResult> results, int? total, int limit, string sourceName)
+        {
+            int found = Math.Max(total ?? 0, results.Count);
+            var books = new JsonArray(results.Take(limit).Select(r => (JsonNode)r.ToJson()).ToArray());
+            if (results.Count == 0)
             {
-                output["total"] = total;
+                return new ToolOutcome(new JsonObject { ["total"] = 0, ["books"] = books }.ToJsonString(), Summary: string.Format(Strings.Asst_BooksFound, 0));
             }
-            return new ToolOutcome(output.ToJsonString(), Summary: string.Format(Strings.Asst_BooksFound, total ?? results.Count));
+            // The note and the counts come first, so they stay when a small model's context cuts the result short.
+            var output = new JsonObject { ["total"] = found, ["in_list"] = results.Count };
+            output["note"] = $"These {results.Count} books are already shown in a list in the pane, with buttons to download each one or open its page. "
+                + "Don't list them again or draw another table: tell the person in a sentence or two what you found, without offering to download them.";
+            output["books"] = books;
+            string heading = found > results.Count
+                ? string.Format(Strings.Asst_ResultsHeadingPart, results.Count.ToString("N0"), found.ToString("N0"), sourceName)
+                : string.Format(Strings.Asst_ResultsHeading, results.Count.ToString("N0"), sourceName);
+            return new ToolOutcome(output.ToJsonString(), Summary: string.Format(Strings.Asst_BooksFound, found))
+            {
+                Show = new SearchResults(heading, results),
+            };
         }
 
         private static ToolOutcome Off(string name) =>
@@ -267,9 +296,29 @@ namespace HoboLibris.Assistant
                 : new ToolOutcome("That id isn't from a search in this conversation; search again. Ids from list_books or list_send are not for download_ebook.", true);
         }
 
-        private async Task<ToolOutcome> DownloadAsync(JsonObject args, CancellationToken cancel)
+        /// <summary>
+        /// The person pressed Download in a search's list.  A book found in this session is downloaded as
+        /// found; one from a restored list by its id.
+        /// </summary>
+        public async Task<ToolOutcome> DownloadFoundAsync(EbookResult book)
         {
-            var id = args.Str("id") ?? "";
+            if (!_found.ContainsKey(book.Id))
+            {
+                _found[book.Id] = book;
+            }
+            try
+            {
+                return await DownloadAsync(book.Id, CancellationToken.None);
+            }
+            catch (Exception ex) when (ex is IOException or InvalidOperationException or HttpRequestException or UnauthorizedAccessException
+                                           or System.Text.Json.JsonException or OperationCanceledException)
+            {
+                return new ToolOutcome(ex.Message, true);
+            }
+        }
+
+        private async Task<ToolOutcome> DownloadAsync(string id, CancellationToken cancel)
+        {
             var found = _found.TryGetValue(id, out var result) ? result : null;
             var folder = _main.KoboFolder;
             (string Path, bool AlreadyThere) saved;

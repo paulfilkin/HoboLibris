@@ -13,6 +13,13 @@ namespace HoboLibris.Tests
         public ScriptedModel(params ChatReply[] replies) => _replies = new Queue<ChatReply>(replies);
 
         public List<int> ToolCounts { get; } = new();
+
+        /// <summary>The names of the tools sent with each request.</summary>
+        public List<List<string>> ToolNames { get; } = new();
+
+        /// <summary>The system prompt and the turns sent with each request.</summary>
+        public List<string> Systems { get; } = new();
+        public List<IReadOnlyList<ChatTurn>> Sent { get; } = new();
         public int Calls { get; private set; }
 
         /// <summary>Hand the text over a word at a time before the reply, as a streaming service does.</summary>
@@ -23,6 +30,9 @@ namespace HoboLibris.Tests
         {
             Calls++;
             ToolCounts.Add(tools.Count);
+            ToolNames.Add(tools.Select(t => t.Name).ToList());
+            Systems.Add(system);
+            Sent.Add(turns.ToList());
             var reply = _replies.Count > 0 ? _replies.Dequeue() : Text("(nothing more)");
             if (Streams)
             {
@@ -288,7 +298,8 @@ namespace HoboLibris.Tests
 
             await session.SendAsync("Delete my backups");
 
-            Assert.Equal(1, model.ToolCounts[0]);
+            Assert.Contains("list_books", model.ToolNames[0]);
+            Assert.DoesNotContain("delete_backups", model.ToolNames[0]);
             Assert.Empty(host.Runs);
             Assert.True(Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single().IsError);
         }
