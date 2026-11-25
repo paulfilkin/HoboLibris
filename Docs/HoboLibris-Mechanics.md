@@ -84,6 +84,7 @@ Estimated from how Kobo eReaders store books; checked against the person's eRead
 * Copies go straight into the chosen folder, named after the book: `Title - First author.ext` (`.kepub.epub` kept); a second book with the same name gets its format, then a number, added.  Kindle copies also go straight into the chosen folder under their own file names, with their `.sdr` folders beside them.
 * Observed: 146 added books (all with title and author from the database) and 1 store copy; the 1 saved store book matched none of the 146.
 * The book list must not stay open, or Windows refuses to eject the eReader ("currently in use") because HoboLibris holds the file.  Microsoft.Data.Sqlite pools connections and keeps the file open after a pooled connection is closed, so every connection to the eReader's book list is opened with `Pooling=False`, and the pool is emptied before an eject (fixed in 0.1.7, #41).
+* An ejected eReader can't be reconnected from the computer (#63).  On eject it leaves the USB bus: its hub port reads "no device connected" and Windows marks it not present.  A port cycle (`IOCTL_USB_HUB_CYCLE_PORT`) then fails with error 433, and the hubs tested can't turn off one port's power.  The eReader offers Connect again only after the cable is unplugged and plugged in.  Observed on 2026-11-25 with a Kobo (USB 2237:4237) on a Genesys USB 2.0 hub.
 
 ## Send to eReader (not from the desktop program)
 
