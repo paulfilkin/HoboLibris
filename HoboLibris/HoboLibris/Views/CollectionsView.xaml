@@ -65,6 +65,12 @@
             </DockPanel>
         </Border>
 
+        <!-- No eReader: the collections kept on this computer (#32) -->
+        <Border Grid.Row="1" Style="{StaticResource NoteCard}"
+                Visibility="{Binding IsOffline, Converter={StaticResource BoolToVisibilityConverter}}">
+            <TextBlock Text="{Binding OfflineText}" TextWrapping="Wrap"/>
+        </Border>
+
         <!-- Not loaded -->
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" MaxWidth="700"
                     Visibility="{Binding IsNotLoaded, Converter={StaticResource BoolToVisibilityConverter}}">
@@ -85,9 +91,47 @@
             </Button>
         </StackPanel>
 
+        <!-- What the person decides before the changes are merged with the eReader (#32) -->
+        <Border Grid.Row="3" Style="{StaticResource Card}" Padding="16" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="820"
+                Visibility="{Binding HasConflicts, Converter={StaticResource BoolToVisibilityConverter}}">
+            <StackPanel>
+                <TextBlock Text="{x:Static res:Strings.Coll_ConflictsTitle}" FontWeight="SemiBold" FontSize="16"/>
+                <TextBlock Text="{Binding ConflictsIntro}" Style="{StaticResource HelperText}" TextWrapping="Wrap" Margin="0,4,0,12"/>
+                <ItemsControl ItemsSource="{Binding ConflictRows}" Focusable="False">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,12">
+                                <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Margin="0,0,0,4"/>
+                                <ItemsControl ItemsSource="{Binding Choices}" Focusable="False">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <RadioButton Content="{Binding Label}" GroupName="{Binding Group}" IsChecked="{Binding IsChosen}"
+                                                         Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,2,18,2"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                    <Button Content="{x:Static res:Strings.Coll_ApplyChoices}" Style="{StaticResource AccentButton}"
+                            Command="{Binding ApplyChoicesCommand}" IsEnabled="{Binding AllChosen}" Margin="0,0,6,0"/>
+                    <Button Content="{x:Static res:Strings.Coll_DiscardMine}" Style="{StaticResource SecondaryButton}"
+                            Command="{Binding DiscardMineCommand}"
+                            Visibility="{Binding CanDiscardMine, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
         <!-- Save bar -->
         <WrapPanel Grid.Row="2" Margin="0,2,0,10" Visibility="{Binding IsLoaded, Converter={StaticResource BoolToVisibilityConverter}}">
-            <Button Style="{StaticResource AccentButton}" IsEnabled="{Binding HasPending}" Margin="0,0,6,6" AutomationProperties.Name="{Binding PendingText}"
+            <Button Style="{StaticResource AccentButton}" IsEnabled="{Binding CanSave}" Margin="0,0,6,6" AutomationProperties.Name="{Binding PendingText}"
                     Command="{Binding DataContext.SaveCollectionsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="💾" FontSize="14" Margin="0,0,6,0"/>

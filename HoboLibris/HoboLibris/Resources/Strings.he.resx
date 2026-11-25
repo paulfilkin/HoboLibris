@@ -895,7 +895,7 @@
     <value>טעינה מחדש</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>קריאה חוזרת של האוספים מהקורא (שינויים שלא נשמרו יאבדו)</value>
+    <value>קריאה חוזרת של האוספים מהקורא (השינויים נשמרים ומשולבים)</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>שמירה בקורא ספרים אלקטרוני Kobo (שינוי אחד)</value>
@@ -910,13 +910,13 @@
     <value>נשמר בקורא הספרים האלקטרוני Kobo. יש ללחוץ על "הוצאת קורא ספרים אלקטרוני Kobo" (למעלה) כדי לראות את האוספים החדשים.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>קורא הספרים האלקטרוני Kobo הוצא: ניתן לנתק אותו ולראות בו את האוספים. כדי לבצע שינויים נוספים, יש לחבר אותו שוב וללחוץ על "טעינה מחדש".</value>
+    <value>קורא הספרים האלקטרוני Kobo הוצא: ניתן לנתק אותו ולראות בו את האוספים. אפשר להמשיך לשנות אותם כאן; השינויים ממתינים עד שהוא מחובר שוב.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>קורא הספרים האלקטרוני Kobo מחובר. לאחר שמירת השינויים, יש להוציא אותו כאן כדי שיציג את האוספים החדשים.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>תחילה יש לשמור או לבטל את השינויים, אחרת הם לא יגיעו לקורא</value>
+    <value>השינויים עדיין לא נשמרו בקורא: הם נשמרים במחשב הזה עד שהוא מחובר שוב</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>ניתוק בטוח של הקורא כדי שיציג את האוספים החדשים</value>
@@ -1676,5 +1676,86 @@
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>קבלת כלים נוספים</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>לא מחובר: קורא הספרים Kobo אינו מחובר. אלה האוספים שלו כפי שהיו ב-{0}. השינויים נשמרים במחשב הזה ומשולבים עם הקורא כשהוא מחובר שוב.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>שינויים שממתינים לקורא (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>שינויים שממתינים לקורא ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>השינויים שולבו עם השינויים שנעשו בקורא. יש לבדוק אותם ואז לשמור.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>האוספים בקורא השתנו מאז שנקראו. השינויים שולבו איתם: יש לבדוק אותם ולשמור שוב.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>השינויים כאן והשינויים בקורא סותרים</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>חלק מהשינויים שנעשו כאן מאז {0} סותרים שינויים שנעשו בקורא. יש לבחור מה לשמור בכל אחד ואז ללחוץ על "החלה". שום דבר לא נכתב לקורא עד השמירה.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>השינויים שממתינים מאז {0} נעשו עבור קורא Kobo אחר, לא עבור הקורא שמחובר עכשיו.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>החלה על הקורא הזה</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>שמירה עבור הקורא האחר</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>השלכה</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>החלה</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>השלכת השינויים שלי</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>שם האוסף "{0}" שונה ל-"{1}" כאן ול-"{2}" בקורא.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>"{0}" נמחק כאן אבל שונה בקורא.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>"{0}" שונה כאן אבל נמחק בקורא.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>יש אוסף בשם "{0}" כאן ואוסף נוסף בקורא.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>ספרים שנוספו כאן ל-"{0}" כבר לא נמצאים בקורא: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>השם "{0}"</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>מחיקה</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>השארה כמו בקורא</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>השארה עם השינויים שלי</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>איחוד לאוסף אחד</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>השארת שלי בלבד</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>השארת של הקורא בלבד</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>השמטה</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>השארה באוסף</value>
   </data>
 </root>

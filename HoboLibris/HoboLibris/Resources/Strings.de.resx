@@ -895,7 +895,7 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
     <value>Neu laden</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>Sammlungen erneut vom eReader lesen (ungespeicherte Änderungen gehen verloren)</value>
+    <value>Sammlungen erneut vom eReader lesen. Ihre Änderungen bleiben erhalten und werden zusammengeführt.</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>Auf Kobo eReader speichern (1 Änderung)</value>
@@ -910,13 +910,13 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
     <value>Auf dem Kobo eReader gespeichert. Klicken Sie auf „Kobo eReader auswerfen“ (oben), um die neuen Sammlungen zu sehen.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>Kobo eReader ausgeworfen: Sie können ihn abziehen und Ihre Sammlungen darauf ansehen. Schließen Sie ihn wieder an und klicken Sie auf „Neu laden“, um weitere Änderungen vorzunehmen.</value>
+    <value>Kobo eReader ausgeworfen: Sie können ihn abziehen und Ihre Sammlungen darauf ansehen. Sie können sie hier weiter ändern; die Änderungen warten, bis er wieder angeschlossen ist.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>Ihr Kobo eReader ist angeschlossen. Wenn Sie Ihre Änderungen gespeichert haben, werfen Sie ihn hier aus, damit er die neuen Sammlungen anzeigt.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>Speichern oder verwerfen Sie zuerst Ihre Änderungen, sonst erreichen sie den eReader nicht</value>
+    <value>Ihre Änderungen sind noch nicht auf dem eReader gespeichert, bleiben aber auf diesem Computer, bis er wieder angeschlossen ist</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>eReader sicher trennen, damit er die neuen Sammlungen anzeigt</value>
@@ -1676,5 +1676,86 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Weitere Werkzeuge holen</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>Offline: Der Kobo eReader ist nicht angeschlossen. Dies sind seine Sammlungen vom {0}. Ihre Änderungen bleiben auf diesem Computer und werden mit dem eReader zusammengeführt, sobald er wieder angeschlossen ist.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>Änderungen warten auf den eReader (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>Änderungen warten auf den eReader ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>Ihre Änderungen wurden mit den Änderungen auf dem eReader zusammengeführt. Prüfen Sie sie, dann speichern Sie.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>Die Sammlungen auf dem eReader haben sich seit dem Lesen geändert. Ihre Änderungen wurden mit ihnen zusammengeführt: Prüfen Sie sie und speichern Sie erneut.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>Ihre Änderungen und die des eReaders widersprechen sich</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>Einige Änderungen, die hier seit dem {0} vorgenommen wurden, widersprechen Änderungen auf dem eReader. Wählen Sie jeweils, was bleiben soll, und klicken Sie dann auf „Übernehmen“. Auf den eReader wird erst geschrieben, wenn Sie speichern.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>Die Änderungen, die seit dem {0} warten, wurden für einen anderen Kobo eReader vorgenommen, nicht für den jetzt angeschlossenen.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>Auf diesen eReader anwenden</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>Für den anderen eReader aufheben</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>Verwerfen</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>Übernehmen</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>Meine Änderungen verwerfen</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>„{0}“ wurde hier in „{1}“ und auf dem eReader in „{2}“ umbenannt.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>„{0}“ wurde hier gelöscht, aber auf dem eReader geändert.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>„{0}“ wurde hier geändert, aber auf dem eReader gelöscht.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>Es gibt hier eine Sammlung „{0}“ und eine weitere auf dem eReader.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>Bücher, die hier zu „{0}“ hinzugefügt wurden, sind nicht mehr auf dem eReader: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>„{0}“ nennen</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>Wie auf dem eReader behalten</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>Mit meinen Änderungen behalten</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>Zu einer Sammlung zusammenlegen</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>Nur meine behalten</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>Nur die des eReaders behalten</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>Weglassen</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>In der Sammlung behalten</value>
   </data>
 </root>

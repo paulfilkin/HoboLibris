@@ -895,7 +895,7 @@
     <value>إعادة التحميل</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>قراءة المجموعات من القارئ الإلكتروني مرة أخرى (تُفقد التغييرات غير المحفوظة)</value>
+    <value>قراءة المجموعات من القارئ الإلكتروني مرة أخرى (تُحفظ تغييراتك وتُدمج)</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>حفظ على قارئ Kobo الإلكتروني (تغيير واحد)</value>
@@ -910,13 +910,13 @@
     <value>تم الحفظ على قارئ Kobo الإلكتروني. اضغط على إخراج قارئ Kobo الإلكتروني (أعلاه) لعرض المجموعات الجديدة.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>تم إخراج قارئ Kobo الإلكتروني: يمكنك فصله وعرض مجموعاتك عليه. وصّله مرة أخرى واضغط على إعادة التحميل لإجراء مزيد من التغييرات.</value>
+    <value>تم إخراج قارئ Kobo الإلكتروني: يمكنك فصله وعرض مجموعاتك عليه. يمكنك متابعة تغييرها هنا؛ تنتظر التغييرات حتى توصيله مرة أخرى.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>قارئ Kobo الإلكتروني متصل. بعد حفظ تغييراتك، أخرجه من هنا ليعرض المجموعات الجديدة.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>احفظ تغييراتك أو تراجع عنها أولًا، وإلا فلن تصل إلى القارئ الإلكتروني</value>
+    <value>لم تُحفظ تغييراتك على القارئ الإلكتروني بعد: تبقى على هذا الكمبيوتر حتى توصيله مرة أخرى</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>فصل القارئ الإلكتروني بأمان ليعرض المجموعات الجديدة</value>
@@ -1676,5 +1676,86 @@
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>الحصول على أدوات أخرى</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>دون اتصال: قارئ Kobo الإلكتروني غير موصول. هذه مجموعاته كما كانت في {0}. تُحفظ تغييراتك على هذا الكمبيوتر وتُدمج مع القارئ الإلكتروني عند توصيله مرة أخرى.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>تغييرات تنتظر القارئ الإلكتروني (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>تغييرات تنتظر القارئ الإلكتروني ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>دُمجت تغييراتك مع التغييرات التي أُجريت على القارئ الإلكتروني. راجعها ثم احفظ.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>تغيّرت مجموعات القارئ الإلكتروني منذ قراءتها. دُمجت تغييراتك معها: راجعها واحفظ مرة أخرى.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>تتعارض تغييراتك مع تغييرات القارئ الإلكتروني</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>بعض التغييرات التي أُجريت هنا منذ {0} تتعارض مع تغييرات أُجريت على القارئ الإلكتروني. اختر ما تريد الاحتفاظ به لكل منها، ثم اضغط على تطبيق. لا يُكتب شيء على القارئ الإلكتروني حتى تحفظ.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>التغييرات المنتظرة منذ {0} أُجريت لقارئ Kobo إلكتروني آخر، وليس للقارئ الموصول الآن.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>تطبيقها على هذا القارئ</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>الاحتفاظ بها للقارئ الآخر</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>التخلص منها</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>تطبيق</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>التخلص من تغييراتي</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>أُعيدت تسمية "{0}" إلى "{1}" هنا وإلى "{2}" على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>حُذفت "{0}" هنا لكنها تغيّرت على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>تغيّرت "{0}" هنا لكنها حُذفت على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>توجد مجموعة باسم "{0}" هنا وأخرى على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>كتب أُضيفت إلى "{0}" هنا لم تعد على القارئ الإلكتروني: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>تسميتها "{0}"</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>حذفها</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>الاحتفاظ بها كما على القارئ الإلكتروني</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>الاحتفاظ بها مع تغييراتي</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>جعلهما مجموعة واحدة</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>الاحتفاظ بمجموعتي فقط</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>الاحتفاظ بمجموعة القارئ الإلكتروني فقط</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>استبعادها</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>إبقاؤها في المجموعة</value>
   </data>
 </root>

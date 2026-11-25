@@ -1401,7 +1401,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Coll_Reload", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Read the collections from the eReader again (unsaved changes are lost).</summary>
+        /// <summary>Looks up a localized string similar to Read the collections from the eReader again. Your changes are kept and merged with it..</summary>
         public static string Coll_ReloadHint {
             get { return ResourceManager.GetString("Coll_ReloadHint", resourceCulture); }
         }
@@ -1426,7 +1426,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Coll_Saved", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Kobo eReader ejected: you can unplug it and see your collections on it. Plug it in again and press Reload to make mor....</summary>
+        /// <summary>Looks up a localized string similar to Kobo eReader ejected: you can unplug it and see your collections on it. You can go on changing them here; the changes....</summary>
         public static string Coll_ReaderEjected {
             get { return ResourceManager.GetString("Coll_ReaderEjected", resourceCulture); }
         }
@@ -1436,7 +1436,7 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Coll_ConnectedBanner", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Save or undo your changes first, or they won't reach the eReader.</summary>
+        /// <summary>Looks up a localized string similar to Your changes aren't saved to the eReader yet: they are kept on this computer until it is plugged in again.</summary>
         public static string Coll_EjectSaveFirst {
             get { return ResourceManager.GetString("Coll_EjectSaveFirst", resourceCulture); }
         }
@@ -2704,6 +2704,141 @@ namespace HoboLibris.Resources {
         /// <summary>Looks up a localized string similar to Get more tools.</summary>
         public static string Asst_Tool_UseTools {
             get { return ResourceManager.GetString("Asst_Tool_UseTools", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Working offline: the Kobo eReader isn't connected. These are its collections as they were on {0}. Your changes are ke....</summary>
+        public static string Coll_OfflineBanner {
+            get { return ResourceManager.GetString("Coll_OfflineBanner", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Changes waiting for the eReader (1).</summary>
+        public static string Coll_WaitingButtonOne {
+            get { return ResourceManager.GetString("Coll_WaitingButtonOne", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Changes waiting for the eReader ({0}).</summary>
+        public static string Coll_WaitingButton {
+            get { return ResourceManager.GetString("Coll_WaitingButton", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Your changes were merged with the changes made on the eReader. Check them, then save..</summary>
+        public static string Coll_Merged {
+            get { return ResourceManager.GetString("Coll_Merged", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The eReader's collections changed since they were read. Your changes were merged with them: check them and save again..</summary>
+        public static string Coll_MergedChanged {
+            get { return ResourceManager.GetString("Coll_MergedChanged", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Your changes and the eReader's clash.</summary>
+        public static string Coll_ConflictsTitle {
+            get { return ResourceManager.GetString("Coll_ConflictsTitle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Some changes made here since {0} clash with changes made on the eReader. Choose what to keep for each, then press App....</summary>
+        public static string Coll_ConflictsIntro {
+            get { return ResourceManager.GetString("Coll_ConflictsIntro", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The changes waiting since {0} were made for another Kobo eReader, not the one plugged in now..</summary>
+        public static string Coll_ConflictOtherReader {
+            get { return ResourceManager.GetString("Coll_ConflictOtherReader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Apply them to this eReader.</summary>
+        public static string Coll_ApplyHere {
+            get { return ResourceManager.GetString("Coll_ApplyHere", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep them for the other eReader.</summary>
+        public static string Coll_KeepForOther {
+            get { return ResourceManager.GetString("Coll_KeepForOther", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Throw them away.</summary>
+        public static string Coll_DiscardThem {
+            get { return ResourceManager.GetString("Coll_DiscardThem", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Apply.</summary>
+        public static string Coll_ApplyChoices {
+            get { return ResourceManager.GetString("Coll_ApplyChoices", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Throw away my changes.</summary>
+        public static string Coll_DiscardMine {
+            get { return ResourceManager.GetString("Coll_DiscardMine", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to "{0}" was renamed "{1}" here and "{2}" on the eReader..</summary>
+        public static string Coll_ConflictRenamed {
+            get { return ResourceManager.GetString("Coll_ConflictRenamed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to "{0}" was deleted here but changed on the eReader..</summary>
+        public static string Coll_ConflictDeletedHere {
+            get { return ResourceManager.GetString("Coll_ConflictDeletedHere", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to "{0}" was changed here but deleted on the eReader..</summary>
+        public static string Coll_ConflictDeletedThere {
+            get { return ResourceManager.GetString("Coll_ConflictDeletedThere", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to There is a collection called "{0}" here and another on the eReader..</summary>
+        public static string Coll_ConflictSameName {
+            get { return ResourceManager.GetString("Coll_ConflictSameName", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books added to "{0}" here are no longer on the eReader: {1}.</summary>
+        public static string Coll_ConflictBooksGone {
+            get { return ResourceManager.GetString("Coll_ConflictBooksGone", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Call it "{0}".</summary>
+        public static string Coll_Use {
+            get { return ResourceManager.GetString("Coll_Use", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Delete it.</summary>
+        public static string Coll_DeleteIt {
+            get { return ResourceManager.GetString("Coll_DeleteIt", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep it as on the eReader.</summary>
+        public static string Coll_KeepEreaders {
+            get { return ResourceManager.GetString("Coll_KeepEreaders", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep it with my changes.</summary>
+        public static string Coll_KeepMine {
+            get { return ResourceManager.GetString("Coll_KeepMine", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Make them one collection.</summary>
+        public static string Coll_MergeBoth {
+            get { return ResourceManager.GetString("Coll_MergeBoth", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep only mine.</summary>
+        public static string Coll_KeepOnlyMine {
+            get { return ResourceManager.GetString("Coll_KeepOnlyMine", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep only the eReader's.</summary>
+        public static string Coll_KeepOnlyEreaders {
+            get { return ResourceManager.GetString("Coll_KeepOnlyEreaders", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Leave them out.</summary>
+        public static string Coll_LeaveOut {
+            get { return ResourceManager.GetString("Coll_LeaveOut", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep them in the collection.</summary>
+        public static string Coll_KeepInCollection {
+            get { return ResourceManager.GetString("Coll_KeepInCollection", resourceCulture); }
         }
     }
 }

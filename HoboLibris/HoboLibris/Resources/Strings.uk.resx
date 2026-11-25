@@ -895,7 +895,7 @@
     <value>Перезавантажити</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>Прочитати колекції з рідера знову (незбережені зміни буде втрачено)</value>
+    <value>Прочитати колекції з рідера знову (ваші зміни залишаються й об’єднуються)</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>Зберегти на рідер Kobo (1 зміна)</value>
@@ -910,13 +910,13 @@
     <value>Збережено на рідер Kobo. Натисніть «Витягти рідер Kobo» (угорі), щоб побачити нові колекції.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>Рідер Kobo витягнуто: можна відключити його й переглянути колекції на ньому. Підключіть його знову та натисніть «Перезавантажити», щоб внести інші зміни.</value>
+    <value>Рідер Kobo витягнуто: можна відключити його й переглянути колекції на ньому. Ви можете й далі змінювати їх тут; зміни чекатимуть, доки ви знову його не підключите.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>Рідер Kobo підключено. Коли збережете зміни, витягніть його тут, щоб він показав нові колекції.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>Спочатку збережіть або скасуйте зміни, інакше вони не потраплять на рідер</value>
+    <value>Ваші зміни ще не збережено на рідері: вони залишаються на цьому комп’ютері, доки ви знову його не підключите</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>Безпечно відключити рідер, щоб він показав нові колекції</value>
@@ -1676,5 +1676,86 @@
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Отримати інші інструменти</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>Офлайн: рідер Kobo не підключено. Це його колекції станом на {0}. Ваші зміни зберігаються на цьому комп’ютері й об’єднуються з рідером, коли ви знову його підключите.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>Зміни чекають на рідер (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>Зміни чекають на рідер ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>Ваші зміни об’єднано зі змінами, зробленими на рідері. Перевірте їх, а потім збережіть.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>Колекції на рідері змінилися відтоді, як їх прочитано. Ваші зміни об’єднано з ними: перевірте їх і збережіть ще раз.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>Ваші зміни суперечать змінам на рідері</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>Деякі зміни, зроблені тут від {0}, суперечать змінам, зробленим на рідері. Виберіть, що залишити для кожної, і натисніть «Застосувати». Нічого не записується на рідер, доки ви не збережете.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>Зміни, що чекають від {0}, зроблено для іншого рідера Kobo, а не для підключеного зараз.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>Застосувати до цього рідера</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>Залишити для іншого рідера</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>Відкинути їх</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>Застосувати</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>Відкинути мої зміни</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>«{0}» перейменовано на «{1}» тут і на «{2}» на рідері.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>«{0}» видалено тут, але змінено на рідері.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>«{0}» змінено тут, але видалено на рідері.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>Тут є колекція «{0}», і ще одна є на рідері.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>Книг, доданих тут до «{0}», більше немає на рідері: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>Назвати «{0}»</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>Залишити, як на рідері</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>Залишити з моїми змінами</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>Об’єднати в одну колекцію</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>Залишити лише мою</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>Залишити лише ту, що на рідері</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>Не додавати їх</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>Залишити їх у колекції</value>
   </data>
 </root>

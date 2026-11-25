@@ -920,7 +920,7 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
     <value>再読み込み</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>電子書籍リーダーからコレクションをもう一度読み取ります (未保存の変更は失われます)</value>
+    <value>電子書籍リーダーからコレクションをもう一度読み取ります (変更は保持され、統合されます)</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>Kobo 電子書籍リーダーに保存 (1 件の変更)</value>
@@ -935,13 +935,13 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
     <value>Kobo 電子書籍リーダーに保存しました。新しいコレクションを表示するには、(上の) [Kobo 電子書籍リーダーを取り出す] を押してください。</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>Kobo 電子書籍リーダーを取り出しました。取り外して、電子書籍リーダー上でコレクションを確認できます。さらに変更するには、もう一度接続して [再読み込み] を押してください。</value>
+    <value>Kobo 電子書籍リーダーを取り出しました。取り外して、電子書籍リーダー上でコレクションを確認できます。ここで引き続き変更でき、変更は次に接続するまで保持されます。</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>Kobo 電子書籍リーダーが接続されています。変更を保存したら、新しいコレクションが表示されるようにここで取り出してください。</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>先に変更を保存するか元に戻してください。そうしないと、変更は電子書籍リーダーに反映されません</value>
+    <value>変更はまだ電子書籍リーダーに保存されていません。もう一度接続するまでこのコンピューターに保持されます</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>電子書籍リーダーを安全に取り外して、新しいコレクションを表示できるようにします</value>
@@ -1702,5 +1702,86 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>ほかのツールを使う</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>オフライン: Kobo 電子書籍リーダーが接続されていません。{0} 時点のコレクションを表示しています。変更はこのコンピューターに保存され、電子書籍リーダーをもう一度接続したときに統合されます。</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>電子書籍リーダー待ちの変更 (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>電子書籍リーダー待ちの変更 ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>変更を電子書籍リーダーでの変更と統合しました。確認してから保存してください。</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>読み取り後に電子書籍リーダーのコレクションが変更されました。変更をそれと統合したので、確認してもう一度保存してください。</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>ここでの変更と電子書籍リーダーでの変更が食い違っています</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>{0} 以降にここで行った変更の一部が、電子書籍リーダーでの変更と食い違っています。それぞれ残す方を選んでから [適用] を押してください。保存するまで電子書籍リーダーには何も書き込まれません。</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>{0} から待機している変更は、今接続されているものとは別の Kobo 電子書籍リーダー用です。</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>この電子書籍リーダーに適用する</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>もう一方の電子書籍リーダー用に残す</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>破棄する</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>適用</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>ここでの変更を破棄</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>「{0}」は、ここでは「{1}」に、電子書籍リーダーでは「{2}」に名前が変更されました。</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>「{0}」はここで削除されましたが、電子書籍リーダーで変更されています。</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>「{0}」はここで変更されましたが、電子書籍リーダーで削除されています。</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>「{0}」というコレクションがここと電子書籍リーダーの両方にあります。</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>ここで「{0}」に追加した書籍が電子書籍リーダーにありません: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>「{0}」にする</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>削除する</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>電子書籍リーダーのとおりに残す</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>ここでの変更を残す</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>1 つのコレクションにまとめる</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>ここのものだけ残す</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>電子書籍リーダーのものだけ残す</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>外す</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>コレクションに残す</value>
   </data>
 </root>
