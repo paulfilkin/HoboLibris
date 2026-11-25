@@ -12,6 +12,8 @@
         <h:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibility"/>
         <h:BoolToFontWeightConverter x:Key="BoolToFontWeight"/>
         <Style x:Key="ShowItem" TargetType="ListBoxItem">
+            <!-- A ListBox keeps the system's black text unless told otherwise, unreadable in dark mode (#56). -->
+            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
             <Setter Property="Padding" Value="10,6"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
