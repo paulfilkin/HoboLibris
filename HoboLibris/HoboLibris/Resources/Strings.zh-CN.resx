@@ -1916,4 +1916,133 @@
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>已移除的文章：{0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>试读</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>电子书阅读器上的商店试读，以及你的 Kobo 心愿单</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>试读是 Kobo 商店的免费样章。可在商店中打开以购买该书，或将其加入你的心愿单。</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>插入 Kobo 电子书阅读器并在其屏幕上点按“连接”即可查看其中的试读。</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>电子书阅读器上的试读</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>重新读取电子书阅读器上的试读和心愿单</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>在 Kobo 商店中打开该书的页面</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>在商店中打开</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>电子书阅读器上没有试读。</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>Kobo 电子书阅读器上有 {0} 个试读。</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>到达日期</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>价格</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>心愿单</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>在你的 Kobo 帐户中</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>正在读取心愿单…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>登录你的 Kobo 帐户即可查看心愿单。</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>你的心愿单是空的。</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>无法读取心愿单：{0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>心愿单以意外的格式返回：{0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}，预购</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>列出试读</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>找到的试读：{0}。心愿单中：{1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>加入心愿单（{0}）</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>将勾选的试读加入你的 Kobo 心愿单。电子书阅读器会在下次同步时将更改发送到你的帐户。会先将其书籍列表复制到这台电脑。</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>已在心愿单中</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>下次同步时加入</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>电子书阅读器下次同步时加入心愿单的试读：{0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>从心愿单中移除（{0}）</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>将勾选的书从你的 Kobo 心愿单中移除。电子书阅读器会在下次同步时将更改发送到你的帐户。会先将其书籍列表复制到这台电脑。</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>从心愿单中移除</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>要从你的 Kobo 心愿单中移除这些书（{0}）吗？</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>电子书阅读器会在下次同步时将更改发送到你的 Kobo 帐户。在此之前，这些书仍在心愿单中。会先将电子书阅读器的书籍列表复制到这台电脑。</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>下次同步时移除</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>电子书阅读器下次同步时从心愿单中移除的书：{0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>要更改心愿单，请插入电子书阅读器并点按“连接”：它会在同步时发送更改。</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>无法更改心愿单：{0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>加入心愿单</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>从心愿单中移除</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>在电子书阅读器下次同步时将这些试读（{0}）加入 Kobo 心愿单：{1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>在电子书阅读器下次同步时将这些书（{0}）从 Kobo 心愿单中移除：{1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>等待电子书阅读器同步的心愿单更改：{0}</value>
+  </data>
 </root>

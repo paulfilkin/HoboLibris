@@ -3060,5 +3060,220 @@ namespace HoboLibris.Resources {
         public static string Asst_ArticlesRemoved {
             get { return ResourceManager.GetString("Asst_ArticlesRemoved", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Previews.</summary>
+        public static string Kobo_PreviewsTab {
+            get { return ResourceManager.GetString("Kobo_PreviewsTab", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Store previews on the eReader, and your Kobo wishlist.</summary>
+        public static string Kobo_PreviewsTabTip {
+            get { return ResourceManager.GetString("Kobo_PreviewsTabTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews are free samples from the Kobo store. Open one in the store to buy it, or add it to your wishlist..</summary>
+        public static string Prev_Intro {
+            get { return ResourceManager.GetString("Prev_Intro", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Plug in your Kobo eReader and tap Connect on its screen to see its previews..</summary>
+        public static string Prev_NoReader {
+            get { return ResourceManager.GetString("Prev_NoReader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews on the eReader.</summary>
+        public static string Prev_Heading {
+            get { return ResourceManager.GetString("Prev_Heading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Read the previews on the eReader and the wishlist again.</summary>
+        public static string Prev_LookAgainHint {
+            get { return ResourceManager.GetString("Prev_LookAgainHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open the book's page in the Kobo store.</summary>
+        public static string Prev_StoreHint {
+            get { return ResourceManager.GetString("Prev_StoreHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open in store.</summary>
+        public static string Prev_OpenStore {
+            get { return ResourceManager.GetString("Prev_OpenStore", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0:0.0} MB.</summary>
+        public static string Prev_SizeMB {
+            get { return ResourceManager.GetString("Prev_SizeMB", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No previews on the eReader..</summary>
+        public static string Prev_None {
+            get { return ResourceManager.GetString("Prev_None", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} previews on the Kobo eReader..</summary>
+        public static string Status_Previews {
+            get { return ResourceManager.GetString("Status_Previews", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Arrived.</summary>
+        public static string Col_Arrived {
+            get { return ResourceManager.GetString("Col_Arrived", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Size.</summary>
+        public static string Col_Size {
+            get { return ResourceManager.GetString("Col_Size", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Price.</summary>
+        public static string Col_Price {
+            get { return ResourceManager.GetString("Col_Price", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Wishlist.</summary>
+        public static string Wish_Heading {
+            get { return ResourceManager.GetString("Wish_Heading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to In your Kobo account.</summary>
+        public static string Wish_Intro {
+            get { return ResourceManager.GetString("Wish_Intro", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Reading the wishlist….</summary>
+        public static string Wish_Reading {
+            get { return ResourceManager.GetString("Wish_Reading", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Sign in to your Kobo account to see your wishlist..</summary>
+        public static string Wish_SignedOut {
+            get { return ResourceManager.GetString("Wish_SignedOut", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Your wishlist is empty..</summary>
+        public static string Wish_None {
+            get { return ResourceManager.GetString("Wish_None", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Could not read the wishlist: {0}.</summary>
+        public static string Wish_CouldNotRead {
+            get { return ResourceManager.GetString("Wish_CouldNotRead", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The wishlist came back in an unexpected form: {0}.</summary>
+        public static string Wish_UnexpectedReply {
+            get { return ResourceManager.GetString("Wish_UnexpectedReply", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0}, pre-order.</summary>
+        public static string Wish_PreOrderPrice {
+            get { return ResourceManager.GetString("Wish_PreOrderPrice", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List previews.</summary>
+        public static string Asst_Tool_ListPreviews {
+            get { return ResourceManager.GetString("Asst_Tool_ListPreviews", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews found: {0}. On the wishlist: {1}.</summary>
+        public static string Asst_PreviewsFound {
+            get { return ResourceManager.GetString("Asst_PreviewsFound", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add to wishlist ({0}).</summary>
+        public static string Prev_AddToWishlist {
+            get { return ResourceManager.GetString("Prev_AddToWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add the ticked previews to your Kobo wishlist. The eReader sends the change to your account when it next syncs. Its b....</summary>
+        public static string Prev_AddHint {
+            get { return ResourceManager.GetString("Prev_AddHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to On the wishlist.</summary>
+        public static string Prev_OnWishlist {
+            get { return ResourceManager.GetString("Prev_OnWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Added at the eReader's next sync.</summary>
+        public static string Prev_Adding {
+            get { return ResourceManager.GetString("Prev_Adding", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Previews added to the wishlist at the eReader's next sync: {0}.</summary>
+        public static string Prev_Added {
+            get { return ResourceManager.GetString("Prev_Added", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove from wishlist ({0}).</summary>
+        public static string Wish_Remove {
+            get { return ResourceManager.GetString("Wish_Remove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove the ticked books from your Kobo wishlist. The eReader sends the change to your account when it next syncs. Its....</summary>
+        public static string Wish_RemoveHint {
+            get { return ResourceManager.GetString("Wish_RemoveHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove from wishlist.</summary>
+        public static string Wish_RemoveTitle {
+            get { return ResourceManager.GetString("Wish_RemoveTitle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these books ({0}) from your Kobo wishlist?.</summary>
+        public static string Wish_RemoveConfirm {
+            get { return ResourceManager.GetString("Wish_RemoveConfirm", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The eReader sends the change to your Kobo account when it next syncs. Until then the books stay on the wishlist. The ....</summary>
+        public static string Wish_RemoveNote {
+            get { return ResourceManager.GetString("Wish_RemoveNote", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Removed at the eReader's next sync.</summary>
+        public static string Wish_Removing {
+            get { return ResourceManager.GetString("Wish_Removing", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books removed from the wishlist at the eReader's next sync: {0}.</summary>
+        public static string Wish_Removed {
+            get { return ResourceManager.GetString("Wish_Removed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to To change the wishlist, plug in the eReader and tap Connect: it sends the changes when it syncs..</summary>
+        public static string Wish_NeedsReader {
+            get { return ResourceManager.GetString("Wish_NeedsReader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Could not change the wishlist: {0}.</summary>
+        public static string Wish_CouldNotChange {
+            get { return ResourceManager.GetString("Wish_CouldNotChange", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add to wishlist.</summary>
+        public static string Asst_Tool_AddToWishlist {
+            get { return ResourceManager.GetString("Asst_Tool_AddToWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove from wishlist.</summary>
+        public static string Asst_Tool_RemoveFromWishlist {
+            get { return ResourceManager.GetString("Asst_Tool_RemoveFromWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Add these previews ({0}) to the Kobo wishlist at the eReader's next sync: {1}.</summary>
+        public static string Asst_Desc_AddToWishlist {
+            get { return ResourceManager.GetString("Asst_Desc_AddToWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these books ({0}) from the Kobo wishlist at the eReader's next sync: {1}.</summary>
+        public static string Asst_Desc_RemoveFromWishlist {
+            get { return ResourceManager.GetString("Asst_Desc_RemoveFromWishlist", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Wishlist changes waiting for the eReader's sync: {0}.</summary>
+        public static string Asst_WishlistChanged {
+            get { return ResourceManager.GetString("Asst_WishlistChanged", resourceCulture); }
+        }
     }
 }

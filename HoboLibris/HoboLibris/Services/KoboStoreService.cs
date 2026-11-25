@@ -502,6 +502,32 @@ namespace HoboLibris.Services
             return books;
         }
 
+        /// <summary>
+        /// The wishlist in the account (#59), page by page.  Only the first page has been seen (one item);
+        /// later pages are asked for with PageIndex, and the reading stops if a reply isn't the page asked for.
+        /// </summary>
+        public async Task<List<WishlistItem>> FetchWishlistAsync(AppSettings s, CancellationToken ct = default)
+        {
+            var items = new List<WishlistItem>();
+            for (var page = 0; page < 50; page++)
+            {
+                var url = StoreHost + Wishlist.Path + (page == 0 ? "" : $"?PageIndex={page}");
+                using var response = await GetAuthedAsync(s, url, null, ct);
+                var (found, index, pages) = Wishlist.Parse(await response.Content.ReadAsStringAsync(ct));
+                if (index != page)
+                {
+                    LogManager.Warn($"Asked for wishlist page {page} and was sent page {index}; stopping there");
+                    break;
+                }
+                items.AddRange(found);
+                if (page + 1 >= pages)
+                {
+                    break;
+                }
+            }
+            return items;
+        }
+
         /// <summary>Download a book's file into dir, exactly as the store delivers it.</summary>
         public async Task<string> DownloadAsync(AppSettings s, StoreBook book, string dir, IProgress<double>? progress, CancellationToken ct = default)
         {

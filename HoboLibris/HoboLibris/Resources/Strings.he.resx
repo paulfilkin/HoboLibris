@@ -1890,4 +1890,133 @@
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>מאמרים שהוסרו: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>דוגמיות</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>דוגמיות מהחנות בקורא, ורשימת המשאלות שלך ב-Kobo</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>דוגמיות הן קטעים חינמיים מחנות Kobo. אפשר לפתוח דוגמית בחנות כדי לקנות את הספר, או להוסיף אותה לרשימת המשאלות.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>כדי לראות את הדוגמיות, יש לחבר את קורא Kobo וללחוץ על "התחברות" במסך שלו.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>דוגמיות בקורא</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>קריאה מחדש של הדוגמיות בקורא ושל רשימת המשאלות</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>פתיחת הדף של הספר בחנות Kobo</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>פתיחה בחנות</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>אין דוגמיות בקורא.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} דוגמיות בקורא Kobo.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>הגיע</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>גודל</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>מחיר</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>רשימת משאלות</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>בחשבון Kobo שלך</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>קריאת רשימת המשאלות…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>יש להיכנס לחשבון Kobo כדי לראות את רשימת המשאלות.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>רשימת המשאלות שלך ריקה.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>לא ניתן היה לקרוא את רשימת המשאלות: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>רשימת המשאלות חזרה בצורה לא צפויה: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, הזמנה מוקדמת</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>רשימת דוגמיות</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>דוגמיות שנמצאו: {0}. ברשימת המשאלות: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>הוספה לרשימת המשאלות ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>הוספת הדוגמיות המסומנות לרשימת המשאלות שלך ב-Kobo. הקורא שולח את השינוי לחשבון שלך בסנכרון הבא. רשימת הספרים שלו מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>ברשימת המשאלות</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>יתווסף בסנכרון הבא</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>דוגמיות שיתווספו לרשימת המשאלות בסנכרון הבא של הקורא: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>הסרה מרשימת המשאלות ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>הסרת הספרים המסומנים מרשימת המשאלות שלך ב-Kobo. הקורא שולח את השינוי לחשבון שלך בסנכרון הבא. רשימת הספרים שלו מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>הסרה מרשימת המשאלות</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>להסיר את הספרים האלה ({0}) מרשימת המשאלות שלך ב-Kobo?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>הקורא שולח את השינוי לחשבון Kobo שלך בסנכרון הבא. עד אז הספרים נשארים ברשימת המשאלות. רשימת הספרים של הקורא מועתקת קודם למחשב הזה.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>יוסר בסנכרון הבא</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>ספרים שיוסרו מרשימת המשאלות בסנכרון הבא של הקורא: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>כדי לשנות את רשימת המשאלות, יש לחבר את הקורא וללחוץ על "התחברות": הוא שולח את השינויים בזמן הסנכרון.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>לא ניתן היה לשנות את רשימת המשאלות: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>הוספה לרשימת המשאלות</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>הסרה מרשימת המשאלות</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>הוספת הדוגמיות האלה ({0}) לרשימת המשאלות ב-Kobo בסנכרון הבא של הקורא: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>הסרת הספרים האלה ({0}) מרשימת המשאלות ב-Kobo בסנכרון הבא של הקורא: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>שינויים ברשימת המשאלות שממתינים לסנכרון הקורא: {0}</value>
+  </data>
 </root>

@@ -1916,4 +1916,133 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>제거한 기사: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>전자책 리더의 스토어 미리보기와 Kobo 위시리스트</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>미리보기는 Kobo 스토어의 무료 샘플입니다. 스토어에서 열어 책을 구입하거나 위시리스트에 추가하세요.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>미리보기를 보려면 Kobo 전자책 리더를 연결하고 화면에서 연결을 누르세요.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>전자책 리더의 미리보기</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>전자책 리더의 미리보기와 위시리스트를 다시 읽기</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Kobo 스토어에서 책 페이지 열기</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>스토어에서 열기</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>전자책 리더에 미리보기가 없습니다.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>Kobo 전자책 리더의 미리보기 {0}개.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>받은 날짜</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>크기</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>가격</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>위시리스트</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>Kobo 계정에 있음</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>위시리스트를 읽는 중…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>위시리스트를 보려면 Kobo 계정에 로그인하세요.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>위시리스트가 비어 있습니다.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>위시리스트를 읽지 못했습니다: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>위시리스트가 예상하지 못한 형식으로 돌아왔습니다: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, 예약 주문</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>미리보기 목록</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>찾은 미리보기: {0}. 위시리스트: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>위시리스트에 추가 ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>선택한 미리보기를 Kobo 위시리스트에 추가합니다. 전자책 리더가 다음에 동기화할 때 변경 내용을 계정에 보냅니다. 먼저 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>위시리스트에 있음</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>다음 동기화 때 추가됨</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>전자책 리더의 다음 동기화 때 위시리스트에 추가할 미리보기: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>위시리스트에서 제거 ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>선택한 책을 Kobo 위시리스트에서 제거합니다. 전자책 리더가 다음에 동기화할 때 변경 내용을 계정에 보냅니다. 먼저 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>위시리스트에서 제거</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>이 책({0}권)을 Kobo 위시리스트에서 제거할까요?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>전자책 리더가 다음에 동기화할 때 변경 내용을 Kobo 계정에 보냅니다. 그때까지 책은 위시리스트에 남아 있습니다. 먼저 전자책 리더의 책 목록을 이 컴퓨터에 복사합니다.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>다음 동기화 때 제거됨</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>전자책 리더의 다음 동기화 때 위시리스트에서 제거할 책: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>위시리스트를 바꾸려면 전자책 리더를 연결하고 연결을 누르세요. 동기화할 때 변경 내용을 보냅니다.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>위시리스트를 바꾸지 못했습니다: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>위시리스트에 추가</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>위시리스트에서 제거</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>전자책 리더의 다음 동기화 때 이 미리보기({0}개)를 Kobo 위시리스트에 추가: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>전자책 리더의 다음 동기화 때 이 책({0}권)을 Kobo 위시리스트에서 제거: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>전자책 리더의 동기화를 기다리는 위시리스트 변경: {0}</value>
+  </data>
 </root>

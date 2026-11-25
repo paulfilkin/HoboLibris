@@ -1916,4 +1916,133 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>Articles removed: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>Previews</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>Store previews on the eReader, and your Kobo wishlist</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>Previews are free samples from the Kobo store. Open one in the store to buy it, or add it to your wishlist.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>Plug in your Kobo eReader and tap Connect on its screen to see its previews.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>Previews on the eReader</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>Read the previews on the eReader and the wishlist again</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Open the book's page in the Kobo store</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>Open in store</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>No previews on the eReader.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} previews on the Kobo eReader.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>Arrived</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>Wishlist</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>In your Kobo account</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>Reading the wishlist…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>Sign in to your Kobo account to see your wishlist.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>Your wishlist is empty.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>Could not read the wishlist: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>The wishlist came back in an unexpected form: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, pre-order</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>List previews</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>Previews found: {0}. On the wishlist: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>Add to wishlist ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>Add the ticked previews to your Kobo wishlist. The eReader sends the change to your account when it next syncs. Its book list is copied to this computer first.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>On the wishlist</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>Added at the eReader's next sync</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>Previews added to the wishlist at the eReader's next sync: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>Remove from wishlist ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>Remove the ticked books from your Kobo wishlist. The eReader sends the change to your account when it next syncs. Its book list is copied to this computer first.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>Remove from wishlist</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>Remove these books ({0}) from your Kobo wishlist?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>The eReader sends the change to your Kobo account when it next syncs. Until then the books stay on the wishlist. The eReader's book list is copied to this computer first.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>Removed at the eReader's next sync</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>Books removed from the wishlist at the eReader's next sync: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>To change the wishlist, plug in the eReader and tap Connect: it sends the changes when it syncs.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>Could not change the wishlist: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>Add to wishlist</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>Remove from wishlist</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>Add these previews ({0}) to the Kobo wishlist at the eReader's next sync: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>Remove these books ({0}) from the Kobo wishlist at the eReader's next sync: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>Wishlist changes waiting for the eReader's sync: {0}</value>
+  </data>
 </root>

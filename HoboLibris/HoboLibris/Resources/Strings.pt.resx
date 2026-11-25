@@ -1890,4 +1890,133 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>Artigos removidos: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>Amostras</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>Amostras da loja no eReader e a sua lista de desejos Kobo</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>As amostras são excertos gratuitos da loja Kobo. Abra uma na loja para comprar o livro, ou adicione-a à sua lista de desejos.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>Ligue o seu eReader Kobo e toque em Ligar no ecrã para ver as amostras.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>Amostras no eReader</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>Ler de novo as amostras no eReader e a lista de desejos</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Abrir a página do livro na loja Kobo</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>Abrir na loja</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>Não há amostras no eReader.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} amostras no eReader Kobo.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>Chegada</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>Tamanho</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>Preço</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>Lista de desejos</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>Na sua conta Kobo</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>A ler a lista de desejos…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>Inicie sessão na sua conta Kobo para ver a sua lista de desejos.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>A sua lista de desejos está vazia.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>Não foi possível ler a lista de desejos: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>A lista de desejos chegou num formato inesperado: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, pré-encomenda</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>Listar amostras</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>Amostras encontradas: {0}. Na lista de desejos: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>Adicionar à lista de desejos ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>Adicionar as amostras assinaladas à sua lista de desejos Kobo. O eReader envia a alteração para a sua conta na próxima sincronização. Primeiro a lista de livros é copiada para este computador.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>Na lista de desejos</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>Adicionado na próxima sincronização</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>Amostras adicionadas à lista de desejos na próxima sincronização do eReader: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>Remover da lista de desejos ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>Remover os livros assinalados da sua lista de desejos Kobo. O eReader envia a alteração para a sua conta na próxima sincronização. Primeiro a lista de livros é copiada para este computador.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>Remover da lista de desejos</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>Remover estes livros ({0}) da sua lista de desejos Kobo?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>O eReader envia a alteração para a sua conta Kobo na próxima sincronização. Até lá, os livros continuam na lista de desejos. Primeiro a lista de livros do eReader é copiada para este computador.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>Removido na próxima sincronização</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>Livros removidos da lista de desejos na próxima sincronização do eReader: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>Para alterar a lista de desejos, ligue o eReader e toque em Ligar: ele envia as alterações quando sincroniza.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>Não foi possível alterar a lista de desejos: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>Adicionar à lista de desejos</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>Remover da lista de desejos</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>Adicionar estas amostras ({0}) à lista de desejos Kobo na próxima sincronização do eReader: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>Remover estes livros ({0}) da lista de desejos Kobo na próxima sincronização do eReader: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>Alterações à lista de desejos à espera da sincronização do eReader: {0}</value>
+  </data>
 </root>

@@ -1916,4 +1916,133 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>Articles retirés : {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>Extraits</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>Extraits de la boutique sur la liseuse, et votre liste d'envies Kobo</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>Les extraits sont des échantillons gratuits de la boutique Kobo. Ouvrez-en un dans la boutique pour acheter le livre, ou ajoutez-le à votre liste d'envies.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>Branchez votre liseuse Kobo et appuyez sur Connecter sur son écran pour voir ses extraits.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>Extraits sur la liseuse</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>Relire les extraits de la liseuse et la liste d'envies</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Ouvrir la page du livre dans la boutique Kobo</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>Ouvrir dans la boutique</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} Mo</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>Aucun extrait sur la liseuse.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} extraits sur la liseuse Kobo.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>Arrivé</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>Liste d'envies</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>Dans votre compte Kobo</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>Lecture de la liste d'envies…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>Connectez-vous à votre compte Kobo pour voir votre liste d'envies.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>Votre liste d'envies est vide.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>Impossible de lire la liste d'envies : {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>La liste d'envies est revenue sous une forme inattendue : {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, en précommande</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>Lister les extraits</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>Extraits trouvés : {0}. Dans la liste d'envies : {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>Ajouter à la liste d'envies ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>Ajouter les extraits cochés à votre liste d'envies Kobo. La liseuse envoie la modification à votre compte lors de sa prochaine synchronisation. Sa liste des livres est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>Dans la liste d'envies</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>Ajouté à la prochaine synchronisation</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>Extraits ajoutés à la liste d'envies à la prochaine synchronisation de la liseuse : {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>Retirer de la liste d'envies ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>Retirer les livres cochés de votre liste d'envies Kobo. La liseuse envoie la modification à votre compte lors de sa prochaine synchronisation. Sa liste des livres est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>Retirer de la liste d'envies</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>Retirer ces livres ({0}) de votre liste d'envies Kobo ?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>La liseuse envoie la modification à votre compte Kobo lors de sa prochaine synchronisation. D'ici là, les livres restent dans la liste d'envies. La liste des livres de la liseuse est d'abord copiée sur cet ordinateur.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>Retiré à la prochaine synchronisation</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>Livres retirés de la liste d'envies à la prochaine synchronisation de la liseuse : {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>Pour modifier la liste d'envies, branchez la liseuse et appuyez sur Connecter : elle envoie les modifications lors de la synchronisation.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>Impossible de modifier la liste d'envies : {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>Ajouter à la liste d'envies</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>Retirer de la liste d'envies</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>Ajouter ces extraits ({0}) à la liste d'envies Kobo à la prochaine synchronisation de la liseuse : {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>Retirer ces livres ({0}) de la liste d'envies Kobo à la prochaine synchronisation de la liseuse : {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>Modifications de la liste d'envies en attente de la synchronisation de la liseuse : {0}</value>
+  </data>
 </root>
