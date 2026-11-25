@@ -1890,4 +1890,133 @@
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>Статей вилучено: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>Уривки</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>Уривки з магазину на рідері та ваш список бажань Kobo</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>Уривки є безкоштовними фрагментами з магазину Kobo. Відкрийте уривок у магазині, щоб купити книгу, або додайте його до списку бажань.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>Підключіть рідер Kobo й торкніться «Підключити» на його екрані, щоб побачити уривки.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>Уривки на рідері</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>Знову прочитати уривки на рідері та список бажань</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Відкрити сторінку книги в магазині Kobo</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>Відкрити в магазині</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} МБ</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>На рідері немає уривків.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>Уривків на рідері Kobo: {0}.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>Надійшло</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>Розмір</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>Список бажань</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>У вашому обліковому записі Kobo</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>Читання списку бажань…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>Увійдіть в обліковий запис Kobo, щоб побачити список бажань.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>Ваш список бажань порожній.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>Не вдалося прочитати список бажань: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>Список бажань повернувся в неочікуваному вигляді: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, попереднє замовлення</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>Перелічити уривки</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>Знайдено уривків: {0}. У списку бажань: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>Додати до списку бажань ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>Додати позначені уривки до вашого списку бажань Kobo. Рідер надсилає зміну до вашого облікового запису під час наступної синхронізації. Спочатку його список книг копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>У списку бажань</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>Буде додано під час наступної синхронізації</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>Уривків, доданих до списку бажань під час наступної синхронізації рідера: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>Вилучити зі списку бажань ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>Вилучити позначені книги з вашого списку бажань Kobo. Рідер надсилає зміну до вашого облікового запису під час наступної синхронізації. Спочатку його список книг копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>Вилучення зі списку бажань</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>Вилучити ці книги ({0}) з вашого списку бажань Kobo?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>Рідер надсилає зміну до вашого облікового запису Kobo під час наступної синхронізації. Доти книги залишаються в списку бажань. Спочатку список книг рідера копіюється на цей комп’ютер.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>Буде вилучено під час наступної синхронізації</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>Книг, вилучених зі списку бажань під час наступної синхронізації рідера: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>Щоб змінити список бажань, підключіть рідер і торкніться «Підключити»: він надсилає зміни під час синхронізації.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>Не вдалося змінити список бажань: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>Додати до списку бажань</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>Вилучити зі списку бажань</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>Додати ці уривки ({0}) до списку бажань Kobo під час наступної синхронізації рідера: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>Вилучити ці книги ({0}) зі списку бажань Kobo під час наступної синхронізації рідера: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>Змін у списку бажань, що чекають на синхронізацію рідера: {0}</value>
+  </data>
 </root>

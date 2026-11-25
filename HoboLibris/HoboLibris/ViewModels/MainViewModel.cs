@@ -22,6 +22,7 @@ namespace HoboLibris.ViewModels
         Collections,
         Send,
         Articles,
+        Previews,
     }
 
     public enum SortBy
@@ -32,7 +33,7 @@ namespace HoboLibris.ViewModels
 
     /// <summary>
     /// The whole app: the Kobo tab (store books, eReader books and folder books in one list,
-    /// plus the Collections, Send and Articles screens) and the Kindle tab.
+    /// plus the Collections, Send, Articles and Previews screens) and the Kindle tab.
     /// </summary>
     public partial class MainViewModel : ObservableObject
     {
@@ -52,6 +53,7 @@ namespace HoboLibris.ViewModels
         public SendViewModel Send { get; }
         public CollectionsViewModel Collections { get; }
         public ArticlesViewModel Articles { get; }
+        public PreviewsViewModel Previews { get; }
         public BatchProgress StoreProgress { get; } = new(Strings.Progress_BackingUp);
 
         /// <summary>Asks the person to confirm deleting the ticked books; returns (yes, also remove from eReader).</summary>
@@ -69,7 +71,7 @@ namespace HoboLibris.ViewModels
         private MainTab _tab = MainTab.Kobo;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsBackupMode), nameof(IsCollectionsMode), nameof(IsSendMode), nameof(IsArticlesMode))]
+        [NotifyPropertyChangedFor(nameof(IsBackupMode), nameof(IsCollectionsMode), nameof(IsSendMode), nameof(IsArticlesMode), nameof(IsPreviewsMode))]
         private KoboMode _koboMode = KoboMode.Backup;
 
         [ObservableProperty]
@@ -116,6 +118,7 @@ namespace HoboLibris.ViewModels
         public bool IsCollectionsMode => KoboMode == KoboMode.Collections;
         public bool IsSendMode => KoboMode == KoboMode.Send;
         public bool IsArticlesMode => KoboMode == KoboMode.Articles;
+        public bool IsPreviewsMode => KoboMode == KoboMode.Previews;
         public bool HasError => !string.IsNullOrEmpty(Error);
         public bool SignedIn => SignedInFlag;
         public bool ReaderConnected => ReaderConnectedFlag;
@@ -283,6 +286,11 @@ namespace HoboLibris.ViewModels
             Send = new SendViewModel(dispatcher);
             Collections = new CollectionsViewModel { BackupFolder = () => BackupFolder };
             Articles = new ArticlesViewModel { Folder = () => ArticlesFolder, BackupFolder = () => BackupFolder };
+            Previews = new PreviewsViewModel
+            {
+                BackupFolder = () => BackupFolder,
+                FetchWishlist = ct => Settings.SignedIn ? _store.FetchWishlistAsync(Settings, ct) : null,
+            };
             SignedInFlag = Settings.SignedIn;
 
             foreach (var tab in new[] { Reader, Kindle })
@@ -321,6 +329,7 @@ namespace HoboLibris.ViewModels
             Send.SendFinished += () => _ = Reader.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.DownloadDir, quiet: true);
             Collections.StatusChanged += s => Status = s;
             Articles.StatusChanged += s => Status = s;
+            Previews.StatusChanged += s => Status = s;
             Collections.PropertyChanged += (_, e) =>
             {
                 if (e.PropertyName == nameof(CollectionsViewModel.Pending))
@@ -383,6 +392,10 @@ namespace HoboLibris.ViewModels
             if (value == KoboMode.Articles)
             {
                 _ = Articles.LoadAsync();
+            }
+            if (value == KoboMode.Previews)
+            {
+                _ = Previews.LoadAsync();
             }
         }
 
@@ -1007,6 +1020,11 @@ namespace HoboLibris.ViewModels
             if (wasConnected != ReaderConnectedFlag && Articles.Tried && !Articles.Busy)
             {
                 _ = Articles.LoadAsync();
+            }
+            // And the Previews screen (#59); the wishlist is in the account, so it isn't read again.
+            if (wasConnected != ReaderConnectedFlag && Previews.Tried && !Previews.Busy)
+            {
+                _ = Previews.LoadAsync(wishlist: false);
             }
             if (Send.Sending)
             {

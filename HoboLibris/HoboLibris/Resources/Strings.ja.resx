@@ -1916,4 +1916,133 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>削除した記事: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>試し読み</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>電子書籍リーダー上のストアの試し読みと、Kobo のほしい物リスト</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>試し読みは Kobo ストアの無料サンプルです。ストアで開いて本を購入するか、ほしい物リストに追加できます。</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>試し読みを表示するには、Kobo 電子書籍リーダーを接続し、画面の [接続] をタップしてください。</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>電子書籍リーダー上の試し読み</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>電子書籍リーダー上の試し読みとほしい物リストを読み直す</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Kobo ストアで本のページを開く</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>ストアで開く</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>電子書籍リーダーに試し読みはありません。</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーの試し読み: {0} 件。</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>受信日</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>価格</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>ほしい物リスト</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>Kobo アカウント内</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>ほしい物リストを読み込んでいます…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>ほしい物リストを表示するには、Kobo アカウントにサインインしてください。</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>ほしい物リストは空です。</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>ほしい物リストを読み込めませんでした: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>ほしい物リストが予期しない形式で返されました: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0} (予約注文)</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>試し読みの一覧</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>見つかった試し読み: {0}。ほしい物リスト: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>ほしい物リストに追加 ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>チェックした試し読みを Kobo のほしい物リストに追加します。変更は電子書籍リーダーが次に同期するときにアカウントへ送られます。先に書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>ほしい物リストにあり</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>次の同期で追加</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>電子書籍リーダーの次の同期でほしい物リストに追加する試し読み: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>ほしい物リストから削除 ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>チェックした本を Kobo のほしい物リストから削除します。変更は電子書籍リーダーが次に同期するときにアカウントへ送られます。先に書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>ほしい物リストから削除</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>これらの本 ({0}) を Kobo のほしい物リストから削除しますか?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>変更は電子書籍リーダーが次に同期するときに Kobo アカウントへ送られます。それまでは本はほしい物リストに残ります。先に電子書籍リーダーの書籍リストをこのコンピューターにコピーします。</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>次の同期で削除</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>電子書籍リーダーの次の同期でほしい物リストから削除する本: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>ほしい物リストを変更するには、電子書籍リーダーを接続して [接続] をタップしてください。変更は同期の際に送られます。</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>ほしい物リストを変更できませんでした: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>ほしい物リストに追加</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>ほしい物リストから削除</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>これらの試し読み ({0}) を電子書籍リーダーの次の同期で Kobo のほしい物リストに追加: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>これらの本 ({0}) を電子書籍リーダーの次の同期で Kobo のほしい物リストから削除: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>電子書籍リーダーの同期を待っているほしい物リストの変更: {0}</value>
+  </data>
 </root>

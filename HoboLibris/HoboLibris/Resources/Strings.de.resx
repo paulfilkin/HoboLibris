@@ -1890,4 +1890,133 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>Entfernte Artikel: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>Leseproben</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>Leseproben aus dem Store auf dem eReader und Ihre Kobo-Wunschliste</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>Leseproben sind kostenlose Auszüge aus dem Kobo Store. Öffnen Sie eine im Store, um das Buch zu kaufen, oder setzen Sie sie auf Ihre Wunschliste.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>Schließen Sie Ihren Kobo eReader an und tippen Sie auf seinem Bildschirm auf „Verbinden“, um seine Leseproben zu sehen.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>Leseproben auf dem eReader</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>Die Leseproben auf dem eReader und die Wunschliste erneut lesen</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>Die Seite des Buchs im Kobo Store öffnen</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>Im Store öffnen</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} MB</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>Keine Leseproben auf dem eReader.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} Leseproben auf dem Kobo eReader.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>Eingetroffen</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>Preis</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>Wunschliste</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>In Ihrem Kobo-Konto</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>Wunschliste wird gelesen …</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>Melden Sie sich bei Ihrem Kobo-Konto an, um Ihre Wunschliste zu sehen.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>Ihre Wunschliste ist leer.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>Die Wunschliste konnte nicht gelesen werden: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>Die Wunschliste kam in unerwarteter Form zurück: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}, Vorbestellung</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>Leseproben auflisten</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>Gefundene Leseproben: {0}. Auf der Wunschliste: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>Zur Wunschliste ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>Die angehakten Leseproben Ihrer Kobo-Wunschliste hinzufügen. Der eReader sendet die Änderung beim nächsten Synchronisieren an Ihr Konto. Seine Bücherliste wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>Auf der Wunschliste</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>Hinzugefügt beim nächsten Synchronisieren</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>Beim nächsten Synchronisieren des eReaders der Wunschliste hinzugefügte Leseproben: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>Von der Wunschliste entfernen ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>Die angehakten Bücher von Ihrer Kobo-Wunschliste entfernen. Der eReader sendet die Änderung beim nächsten Synchronisieren an Ihr Konto. Seine Bücherliste wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>Von der Wunschliste entfernen</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>Diese Bücher ({0}) von Ihrer Kobo-Wunschliste entfernen?</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>Der eReader sendet die Änderung beim nächsten Synchronisieren an Ihr Kobo-Konto. Bis dahin bleiben die Bücher auf der Wunschliste. Die Bücherliste des eReaders wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>Entfernt beim nächsten Synchronisieren</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>Beim nächsten Synchronisieren des eReaders von der Wunschliste entfernte Bücher: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>Um die Wunschliste zu ändern, schließen Sie den eReader an und tippen Sie auf „Verbinden“: Er sendet die Änderungen beim Synchronisieren.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>Die Wunschliste konnte nicht geändert werden: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>Zur Wunschliste hinzufügen</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>Von der Wunschliste entfernen</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>Diese Leseproben ({0}) beim nächsten Synchronisieren des eReaders der Kobo-Wunschliste hinzufügen: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>Diese Bücher ({0}) beim nächsten Synchronisieren des eReaders von der Kobo-Wunschliste entfernen: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>Wunschlisten-Änderungen, die auf das Synchronisieren des eReaders warten: {0}</value>
+  </data>
 </root>

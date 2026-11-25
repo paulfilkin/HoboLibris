@@ -36,6 +36,7 @@ namespace HoboLibris.Assistant
 
         private CollectionsViewModel Collections => _main.Collections;
         private ArticlesViewModel ArticlesScreen => _main.Articles;
+        private PreviewsViewModel PreviewsScreen => _main.Previews;
 
         private static readonly JsonObject Ids = Schema.Array(Schema.String("A book id from the list tool."), "The books, by id.");
         private static readonly JsonObject Query = Schema.String("Only books whose title or author contains this text.");
@@ -394,13 +395,83 @@ namespace HoboLibris.Assistant
                 },
             },
 
+            // ---- Kobo: Previews and the wishlist (#59) ----
+            new AssistantTool
+            {
+                Name = "list_previews",
+                Title = Strings.Asst_Tool_ListPreviews,
+                Description = "List the Kobo store previews (free samples) on the Kobo eReader, as the Previews screen shows them, and the wishlist in the person's Kobo account. Each preview has an id, title, author, the date it arrived, its size and whether it is on the wishlist; each wishlist book has an id, title, author, date added, price, and whether its removal is waiting for the eReader's next sync. Previews are listed only while the eReader is plugged in; the wishlist only while the person is signed in.",
+                Schema = Schema.Object(("query", Schema.String("Only previews and wishlist books whose title or author contains this text."), false)),
+                Run = async (args, _) =>
+                {
+                    await PreviewsScreen.LoadAsync();
+                    return ListPreviews(args);
+                },
+            },
+            new AssistantTool
+            {
+                Name = "add_to_wishlist",
+                Title = Strings.Asst_Tool_AddToWishlist,
+                Description = "Add previews to the wishlist in the person's Kobo account, by preview ids from list_previews. The change is left on the Kobo eReader, which sends it to the account when it next syncs, so the eReader must be plugged in. Its book list is backed up first.",
+                Schema = Schema.Object(("ids", Ids, true)),
+                Changes = true,
+                Check = AddToWishlistCheck,
+                Describe = args =>
+                {
+                    var rows = PreviewRows(args.Strings("ids")).Found.Where(r => r.CanWish).ToList();
+                    return string.Format(Strings.Asst_Desc_AddToWishlist, rows.Count, TitleList(rows.Select(r => r.Title)));
+                },
+                Run = async (args, _) =>
+                {
+                    if (AddToWishlistCheck(args) is { } refused)
+                    {
+                        return refused;
+                    }
+                    var (found, unknown) = PreviewRows(args.Strings("ids"));
+                    var added = await PreviewsScreen.AddToWishlistAsync(found);
+                    if (added.Count == 0)
+                    {
+                        return new ToolOutcome(PreviewsScreen.Error ?? "Nothing was added.", true);
+                    }
+                    return WishlistOutcome(added.Select(r => r.Title), unknown);
+                },
+            },
+            new AssistantTool
+            {
+                Name = "remove_from_wishlist",
+                Title = Strings.Asst_Tool_RemoveFromWishlist,
+                Description = "Remove books from the wishlist in the person's Kobo account, by wishlist ids from list_previews. The change is left on the Kobo eReader, which sends it to the account when it next syncs, so the eReader must be plugged in. Its book list is backed up first. The person approves this every time.",
+                Schema = Schema.Object(("ids", Ids, true)),
+                AlwaysAsks = true,
+                Check = RemoveFromWishlistCheck,
+                Describe = args =>
+                {
+                    var rows = WishRows(args.Strings("ids")).Found.Where(r => r.CanTick).ToList();
+                    return string.Format(Strings.Asst_Desc_RemoveFromWishlist, rows.Count, TitleList(rows.Select(r => r.Title)));
+                },
+                Run = async (args, _) =>
+                {
+                    if (RemoveFromWishlistCheck(args) is { } refused)
+                    {
+                        return refused;
+                    }
+                    var (found, unknown) = WishRows(args.Strings("ids"));
+                    var removed = await PreviewsScreen.RemoveFromWishlistAsync(found);
+                    if (removed.Count == 0)
+                    {
+                        return new ToolOutcome(PreviewsScreen.WishError ?? "Nothing was removed.", true);
+                    }
+                    return WishlistOutcome(removed.Select(r => r.Title), unknown);
+                },
+            },
+
             // ---- Moving about ----
             new AssistantTool
             {
                 Name = "show_screen",
                 Title = Strings.Asst_Tool_ShowScreen,
                 Description = "Show one of HoboLibris's screens, so the person sees what changed.",
-                Schema = Schema.Object(("screen", Schema.String("The screen.", "back_up", "collections", "send", "articles", "kindle"), true)),
+                Schema = Schema.Object(("screen", Schema.String("The screen.", "back_up", "collections", "send", "articles", "previews", "kindle"), true)),
                 Run = (args, _) =>
                 {
                     switch (args.Str("screen"))
@@ -420,12 +491,16 @@ namespace HoboLibris.Assistant
                             _main.Tab = MainTab.Kobo;
                             _main.KoboMode = KoboMode.Articles;
                             break;
+                        case "previews":
+                            _main.Tab = MainTab.Kobo;
+                            _main.KoboMode = KoboMode.Previews;
+                            break;
                         case "back_up":
                             _main.Tab = MainTab.Kobo;
                             _main.KoboMode = KoboMode.Backup;
                             break;
                         default:
-                            return Task.FromResult(new ToolOutcome("Unknown screen; use back_up, collections, send, articles or kindle.", true));
+                            return Task.FromResult(new ToolOutcome("Unknown screen; use back_up, collections, send, articles, previews or kindle.", true));
                     }
                     return Task.FromResult(new ToolOutcome("Shown.", Summary: ScreenName()));
                 },
@@ -441,6 +516,7 @@ namespace HoboLibris.Assistant
                 KoboMode.Collections => Strings.Kobo_CollectionsTab,
                 KoboMode.Send => Strings.Kobo_SendTab,
                 KoboMode.Articles => Strings.Kobo_ArticlesTab,
+                KoboMode.Previews => Strings.Kobo_PreviewsTab,
                 _ => Strings.Kobo_BackUpTab,
             };
 
@@ -452,6 +528,7 @@ namespace HoboLibris.Assistant
                 KoboMode.Collections => "collections",
                 KoboMode.Send => "send",
                 KoboMode.Articles => "articles",
+                KoboMode.Previews => "previews",
                 _ => "back_up",
             };
             return new JsonObject
@@ -833,6 +910,110 @@ namespace HoboLibris.Assistant
                 json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
             }
             return new ToolOutcome(json.ToJsonString(), kept.Count == 0, string.Format(Strings.Asst_ArticlesKept, kept.Count));
+        }
+
+        // ---- Previews and the wishlist (#59) -------------------------------------------------------
+
+        private (List<PreviewRow> Found, List<string> Unknown) PreviewRows(IEnumerable<string> ids) =>
+            BookIds.Resolve(ids, PreviewsScreen.Rows, r => BookIds.For(BookIds.Preview, r.Id));
+
+        private ToolOutcome ListPreviews(JsonObject args)
+        {
+            var query = args.Str("query") ?? "";
+            bool Matches(string title, string author) => query.Length == 0
+                || title.Contains(query, StringComparison.CurrentCultureIgnoreCase)
+                || author.Contains(query, StringComparison.CurrentCultureIgnoreCase);
+            var rows = PreviewsScreen.Rows.Where(r => Matches(r.Title, r.Author)).ToList();
+            var wished = PreviewsScreen.WishRows.Where(r => Matches(r.Title, r.Author)).ToList();
+            var json = new JsonObject
+            {
+                ["ereader_connected"] = PreviewsScreen.ReaderFound,
+                ["previews"] = new JsonArray(rows.Select(r => (JsonNode)new JsonObject
+                {
+                    ["id"] = BookIds.For(BookIds.Preview, r.Id),
+                    ["title"] = r.Title,
+                    ["author"] = r.Author,
+                    ["arrived"] = r.Preview.Arrived?.ToString("yyyy-MM-dd"),
+                    ["size"] = r.SizeText,
+                    ["on_wishlist"] = r.OnWishlist,
+                    ["wishlist_add_waiting_for_sync"] = r.Adding,
+                }).ToArray()),
+                ["signed_in"] = !PreviewsScreen.WishSignedOut,
+                ["wishlist"] = new JsonArray(wished.Select(r => (JsonNode)new JsonObject
+                {
+                    ["id"] = BookIds.For(BookIds.Wish, r.Item.CrossRevisionId),
+                    ["title"] = r.Title,
+                    ["author"] = r.Author,
+                    ["added"] = r.Item.Added?.ToString("yyyy-MM-dd"),
+                    ["price"] = r.Item.PriceText,
+                    ["pre_order"] = r.Item.PreOrder,
+                    ["removal_waiting_for_sync"] = r.Removing,
+                }).ToArray()),
+            };
+            var notes = new List<string>();
+            if (!PreviewsScreen.ReaderFound)
+            {
+                notes.Add(PreviewsScreen.Error ?? "No Kobo eReader is connected, so no previews are listed.");
+            }
+            if (PreviewsScreen.WishSignedOut)
+            {
+                notes.Add("The person isn't signed in to their Kobo account, so the wishlist can't be read.");
+            }
+            else if (PreviewsScreen.WishError is { } wishError)
+            {
+                notes.Add(wishError);
+            }
+            if (notes.Count > 0)
+            {
+                json["note"] = string.Join(" ", notes);
+            }
+            return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_PreviewsFound, rows.Count, wished.Count));
+        }
+
+        private (List<WishRow> Found, List<string> Unknown) WishRows(IEnumerable<string> ids) =>
+            BookIds.Resolve(ids, PreviewsScreen.WishRows, r => BookIds.For(BookIds.Wish, r.Item.CrossRevisionId));
+
+        private ToolOutcome? AddToWishlistCheck(JsonObject args)
+        {
+            if (!_main.ReaderConnected)
+            {
+                return new ToolOutcome("No Kobo eReader is connected: the wishlist is changed through the eReader, so it must be plugged in.", true);
+            }
+            var (found, unknown) = PreviewRows(args.Strings("ids"));
+            if (!found.Any(r => r.CanWish))
+            {
+                return new ToolOutcome("None of those is a preview that can be added: take preview ids from list_previews, leaving out those already on the wishlist." + Unknown(unknown), true);
+            }
+            return null;
+        }
+
+        private ToolOutcome? RemoveFromWishlistCheck(JsonObject args)
+        {
+            if (!_main.ReaderConnected)
+            {
+                return new ToolOutcome("No Kobo eReader is connected: the wishlist is changed through the eReader, so it must be plugged in.", true);
+            }
+            var (found, unknown) = WishRows(args.Strings("ids"));
+            if (!found.Any(r => r.CanTick))
+            {
+                return new ToolOutcome("None of those is a wishlist book that can be removed: take wishlist ids from list_previews." + Unknown(unknown), true);
+            }
+            return null;
+        }
+
+        private static ToolOutcome WishlistOutcome(IEnumerable<string> titles, List<string> unknown)
+        {
+            var list = titles.ToList();
+            var json = new JsonObject
+            {
+                ["changed"] = new JsonArray(list.Select(t => (JsonNode)t).ToArray()),
+                ["note"] = "The change is on the eReader and reaches the Kobo account when the eReader next syncs.",
+            };
+            if (unknown.Count > 0)
+            {
+                json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
+            }
+            return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_WishlistChanged, list.Count));
         }
 
         // ---- Send to eReader --------------------------------------------------------------------

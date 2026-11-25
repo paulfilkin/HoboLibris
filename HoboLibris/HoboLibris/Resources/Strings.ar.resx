@@ -1890,4 +1890,133 @@
   <data name="Asst_ArticlesRemoved" xml:space="preserve">
     <value>المقالات المُزالة: {0}</value>
   </data>
+  <data name="Kobo_PreviewsTab" xml:space="preserve">
+    <value>العينات</value>
+  </data>
+  <data name="Kobo_PreviewsTabTip" xml:space="preserve">
+    <value>عينات المتجر على القارئ الإلكتروني، وقائمة أمنياتك في Kobo</value>
+  </data>
+  <data name="Prev_Intro" xml:space="preserve">
+    <value>العينات مقتطفات مجانية من متجر Kobo. افتح عينة في المتجر لشراء الكتاب، أو أضفها إلى قائمة أمنياتك.</value>
+  </data>
+  <data name="Prev_NoReader" xml:space="preserve">
+    <value>وصّل قارئ Kobo الإلكتروني واضغط على اتصال على شاشته لرؤية عيناته.</value>
+  </data>
+  <data name="Prev_Heading" xml:space="preserve">
+    <value>العينات على القارئ الإلكتروني</value>
+  </data>
+  <data name="Prev_LookAgainHint" xml:space="preserve">
+    <value>قراءة العينات على القارئ الإلكتروني وقائمة الأمنيات مرة أخرى</value>
+  </data>
+  <data name="Prev_StoreHint" xml:space="preserve">
+    <value>فتح صفحة الكتاب في متجر Kobo</value>
+  </data>
+  <data name="Prev_OpenStore" xml:space="preserve">
+    <value>فتح في المتجر</value>
+  </data>
+  <data name="Prev_SizeMB" xml:space="preserve">
+    <value>{0:0.0} ميغابايت</value>
+  </data>
+  <data name="Prev_None" xml:space="preserve">
+    <value>لا توجد عينات على القارئ الإلكتروني.</value>
+  </data>
+  <data name="Status_Previews" xml:space="preserve">
+    <value>{0} من العينات على قارئ Kobo الإلكتروني.</value>
+  </data>
+  <data name="Col_Arrived" xml:space="preserve">
+    <value>تاريخ الوصول</value>
+  </data>
+  <data name="Col_Size" xml:space="preserve">
+    <value>الحجم</value>
+  </data>
+  <data name="Col_Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Wish_Heading" xml:space="preserve">
+    <value>قائمة الأمنيات</value>
+  </data>
+  <data name="Wish_Intro" xml:space="preserve">
+    <value>في حسابك على Kobo</value>
+  </data>
+  <data name="Wish_Reading" xml:space="preserve">
+    <value>جارٍ قراءة قائمة الأمنيات…</value>
+  </data>
+  <data name="Wish_SignedOut" xml:space="preserve">
+    <value>سجّل الدخول إلى حسابك على Kobo لرؤية قائمة أمنياتك.</value>
+  </data>
+  <data name="Wish_None" xml:space="preserve">
+    <value>قائمة أمنياتك فارغة.</value>
+  </data>
+  <data name="Wish_CouldNotRead" xml:space="preserve">
+    <value>تعذّرت قراءة قائمة الأمنيات: {0}</value>
+  </data>
+  <data name="Wish_UnexpectedReply" xml:space="preserve">
+    <value>عادت قائمة الأمنيات بصيغة غير متوقعة: {0}</value>
+  </data>
+  <data name="Wish_PreOrderPrice" xml:space="preserve">
+    <value>{0}، طلب مسبق</value>
+  </data>
+  <data name="Asst_Tool_ListPreviews" xml:space="preserve">
+    <value>عرض العينات</value>
+  </data>
+  <data name="Asst_PreviewsFound" xml:space="preserve">
+    <value>العينات التي عُثر عليها: {0}. في قائمة الأمنيات: {1}</value>
+  </data>
+  <data name="Prev_AddToWishlist" xml:space="preserve">
+    <value>إضافة إلى قائمة الأمنيات ({0})</value>
+  </data>
+  <data name="Prev_AddHint" xml:space="preserve">
+    <value>إضافة العينات المحددة إلى قائمة أمنياتك في Kobo. يرسل القارئ الإلكتروني التغيير إلى حسابك عند المزامنة التالية. تُنسخ قائمة كتبه إلى هذا الكمبيوتر أولاً.</value>
+  </data>
+  <data name="Prev_OnWishlist" xml:space="preserve">
+    <value>في قائمة الأمنيات</value>
+  </data>
+  <data name="Prev_Adding" xml:space="preserve">
+    <value>تُضاف عند المزامنة التالية</value>
+  </data>
+  <data name="Prev_Added" xml:space="preserve">
+    <value>العينات المضافة إلى قائمة الأمنيات عند المزامنة التالية للقارئ الإلكتروني: {0}</value>
+  </data>
+  <data name="Wish_Remove" xml:space="preserve">
+    <value>إزالة من قائمة الأمنيات ({0})</value>
+  </data>
+  <data name="Wish_RemoveHint" xml:space="preserve">
+    <value>إزالة الكتب المحددة من قائمة أمنياتك في Kobo. يرسل القارئ الإلكتروني التغيير إلى حسابك عند المزامنة التالية. تُنسخ قائمة كتبه إلى هذا الكمبيوتر أولاً.</value>
+  </data>
+  <data name="Wish_RemoveTitle" xml:space="preserve">
+    <value>إزالة من قائمة الأمنيات</value>
+  </data>
+  <data name="Wish_RemoveConfirm" xml:space="preserve">
+    <value>هل تريد إزالة هذه الكتب ({0}) من قائمة أمنياتك في Kobo؟</value>
+  </data>
+  <data name="Wish_RemoveNote" xml:space="preserve">
+    <value>يرسل القارئ الإلكتروني التغيير إلى حسابك على Kobo عند المزامنة التالية. حتى ذلك الحين تبقى الكتب في قائمة الأمنيات. تُنسخ قائمة كتب القارئ الإلكتروني إلى هذا الكمبيوتر أولاً.</value>
+  </data>
+  <data name="Wish_Removing" xml:space="preserve">
+    <value>تُزال عند المزامنة التالية</value>
+  </data>
+  <data name="Wish_Removed" xml:space="preserve">
+    <value>الكتب المزالة من قائمة الأمنيات عند المزامنة التالية للقارئ الإلكتروني: {0}</value>
+  </data>
+  <data name="Wish_NeedsReader" xml:space="preserve">
+    <value>لتغيير قائمة الأمنيات، وصّل القارئ الإلكتروني واضغط على اتصال: فهو يرسل التغييرات عند المزامنة.</value>
+  </data>
+  <data name="Wish_CouldNotChange" xml:space="preserve">
+    <value>تعذّر تغيير قائمة الأمنيات: {0}</value>
+  </data>
+  <data name="Asst_Tool_AddToWishlist" xml:space="preserve">
+    <value>إضافة إلى قائمة الأمنيات</value>
+  </data>
+  <data name="Asst_Tool_RemoveFromWishlist" xml:space="preserve">
+    <value>إزالة من قائمة الأمنيات</value>
+  </data>
+  <data name="Asst_Desc_AddToWishlist" xml:space="preserve">
+    <value>إضافة هذه العينات ({0}) إلى قائمة أمنيات Kobo عند المزامنة التالية للقارئ الإلكتروني: {1}</value>
+  </data>
+  <data name="Asst_Desc_RemoveFromWishlist" xml:space="preserve">
+    <value>إزالة هذه الكتب ({0}) من قائمة أمنيات Kobo عند المزامنة التالية للقارئ الإلكتروني: {1}</value>
+  </data>
+  <data name="Asst_WishlistChanged" xml:space="preserve">
+    <value>تغييرات قائمة الأمنيات التي تنتظر مزامنة القارئ الإلكتروني: {0}</value>
+  </data>
 </root>
