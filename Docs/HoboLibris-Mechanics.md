@@ -45,6 +45,12 @@ Read from Kobo Desktop Edition 4.38.23483 (Kobo.exe and nickel.dll) with the Dee
 * Formats seen: `EPUB3`, `EPUB3FL`, `EPUB3OMF`, `KEPUB`, `FLEPUB`, `EPUB`, sample variants and `MANIFEST` (0x1079e678 onwards; ContentUrl::epubType 0x1010d16e).
 * The rebuild prefers an unprotected link, then EPUB3, EPUB, KEPUB, and skips samples and manifests.  It saves the file as delivered; it never removes copy protection.
 
+## Wishlist (not from the desktop program)
+
+* `GET https://storeapi.kobo.com/v1/user/wishlist`, with the account's Bearer token, returns `Items`, each with `DateAdded`, `CrossRevisionId` and `ProductMetadata.Book` (`Title`, `Contributors`, `ContributorRoles`, `ISBN`, `Slug`, `Price` with `Currency` and `Price`, `IsPreOrder`, `HasPreview`, `Id`), and `CurrentPageIndex`, `TotalPageCount` and `ItemsPerPage` (100).  Later pages are asked for with `?PageIndex=n`; HoboLibris stops if a reply isn't the page it asked for.
+* The store offers no address for changing the wishlist, so changes go through the eReader (see Previews and the wishlist below).
+* A book's store page is `https://www.kobo.com/ebook/<Slug>`, which redirects to the person's country store.
+
 ## Kindle tab (not from the Kobo program)
 
 These rules are not read from the original; they are estimated from how Kindle stores books.
@@ -70,6 +76,8 @@ Estimated from how Kobo eReaders store books; checked against the person's eRead
 * Books the person added are ordinary files anywhere outside hidden and system folders: epub (including `.kepub.epub`), pdf, mobi, cbz, cbr, txt, rtf.
 * Titles and authors come from `.kobo\KoboReader.sqlite`, table `content`, rows with `ContentType = 6`: `Title` and `Attribution`.  Added books have `ContentID` = `file:///mnt/onboard/<path>`.  The database is opened read-only with `immutable=1`, so nothing on the eReader changes.
 * Store books have other ContentIDs and a protected copy in `.kobo\kepub\<ContentID>`.  They are counted but not listed, since the Kobo store tab downloads them.
+* Store previews (free samples) are content rows with `ContentType = 6` and `Accessibility = 6`.  They are not counted as store books, and the Collections screen leaves them out unless one is already in a collection (0.1.15, #58).
+* Instapaper articles are content rows with `ContentType = 6`, MimeType `application/x-kobo-html+instapaper` and numeric ContentIDs.  The Collections screen leaves them out (0.1.12, #28): rows HoboLibris had put in `ShelfContent` for them were ignored by the eReader.
 * The Kobo tab shows one list: store books (from the account), the books added to the eReader (when plugged in), and the books only in the Kobo folder ("This computer": not store copies and not on a connected eReader; title and author read from "Title - Author.ext", "_ " shown as ": "), with a "From" column.  Folder books can be deleted (Recycle Bin) like the others.  One folder holds both.  Store copies on the eReader are not listed, since they are the store books already in the list.
 * An eReader book whose title matches any book in the store list (letters and digits compared, subtitle after `:` or `(` ignored) is shown as "Same as store book" and left out of "Back up all".
 * Store downloads are named `Title - First author.ext` like the eReader copies; copies saved earlier as `Author - Title.ext` still count as saved.
@@ -96,7 +104,7 @@ Estimated from how Kobo eReaders store books; checked against the person's eRead
 
 ## Kobo eReader collections (not from the desktop program)
 
-Estimated from Kobo's book-list layout as calibre's Kobo driver uses it; not yet tried on the person's eReader.
+Estimated from Kobo's book-list layout as calibre's Kobo driver uses it; saving has been tried on the person's eReader.
 
 * Collections are rows of `Shelf` (`Name`, `Id`, `InternalName`, `CreationDate`, `LastModified`, `Type`, `_IsDeleted`, `_IsVisible`, `_IsSynced`...); membership is `ShelfContent` (`ShelfName`, `ContentId`, `DateModified`, `_IsDeleted`, `_IsSynced`).  Rows with `_IsDeleted = 'true'` don't count.
 * Books shown: everything the person added, downloaded store books, and any book already in a collection.
@@ -107,6 +115,45 @@ Estimated from Kobo's book-list layout as calibre's Kobo driver uses it; not yet
 * Move: the ticked books go into the chosen collection and out of every other one.  "Also add" keeps their other collections.
 * Times are UTC `YYYY-MM-DDTHH:MM:SSZ`.  The eReader shows the changes after it is ejected.
 
+### Backups of the book list
+
+* Every change HoboLibris makes to the eReader's book list (collections, articles, the wishlist) copies it and its journal files (`-wal`, `-shm`, `-journal`) first, as `KoboReader-<UTC time>.sqlite`, into the backup folder (`BookListBackups.cs`).
+* A second backup in the same second gets a number, `KoboReader-<time>-2.sqlite`, then `-3`, and no copy overwrites another (0.1.17, #64).
+
+### Offline and the merge (0.1.11, #32)
+
+* The collections are kept in `%APPDATA%\HoboLibris\Collections\<serial number>.json` (`CollectionsStore.cs`): as they were when last read from or saved to the eReader, and with the changes made since.  Changes survive ejecting, unplugging and closing HoboLibris.
+* With no eReader connected, the newest file opens offline, with a banner saying when it was read.  Ejecting no longer waits for unsaved changes.
+* When the eReader is plugged in again, a three-way merge (`CollectionsMerge.cs`) combines the collections as read, the changes made here, and the eReader as it is now.  A change made on one side is kept; the same change on both sides is kept once; a collection's books are the base, plus what each side added, minus what each side took out.
+* Collections are matched by the eReader's own `Shelf.Id`, then by name.  Not yet checked: whether the firmware keeps `Id` when a collection is renamed on the eReader.  If it doesn't, the rename is seen as a delete and a new collection.
+* Clashes (renamed differently on each side, deleted on one side and changed on the other, two collections with the same name, books added here that are no longer on the eReader) are shown as a card where the person chooses.  When the changes were made offline for another eReader (a different serial number), the person chooses to apply them to this one, discard them, or keep them for the other.
+
+## Articles (not from the desktop program)
+
+Found on the person's eReader with firmware 4.46.23852 on 25 November 2026 (0.1.13, #53).  The code is in `ArticlesService.cs`.
+
+* Each Instapaper article is a content row (`ContentType = 6`, MimeType `application/x-kobo-html+instapaper`, a numeric ContentID, the page it came from in `ContentURL`).  Its text is `.kobo\articles\<id>\index.html`, an HTML fragment.  Its pictures are files beside it, named by hash with no extension, referred to as `file:///mnt/onboard/.kobo/articles/<id>/<name>`.
+* Archive on the eReader removes the folder, the `ContentType` 9 row and the `volume_shortcovers` row, and keeps the content row with `PocketStatus` 2 and `IsDownloaded` 'false'.  Such an article is no longer listed.
+* Keep saves an article as one web page, `Title - Author.html`, in the Articles folder (`Documents\HoboLibris\Articles` unless chosen in Settings): its title, author, source and date at the top, the pictures embedded, no scripts.  A mark in the page with the article's id lets the screen find kept copies again.
+* Remove takes a backup of the book list, then deletes the article's content rows, its `volume_shortcovers` rows and its folder, as the eReader's own Delete left things.  An article removed so stayed gone after the eReader synced, but Instapaper is not told, so the article stays in the person's Instapaper account.
+
+## Previews and the wishlist (not from the desktop program)
+
+Found on the person's eReader with firmware 4.46 on 25 November 2026 (0.1.16, #59).  The code is in `PreviewsService.cs` and `WishlistService.cs`.
+
+* A preview is a content row with `ContentType = 6` and `Accessibility = 6`, with its ISBN and `CrossRevisionId`, and its file in `.kobo\kepub` of size `PreviewFileSize`.  The screen lists those still downloaded, newest first by `___SyncTime`.  Open in store searches kobo.com by ISBN, or by title and author.
+* There are three kinds:
+  * Saved with Save Preview on the eReader: `___UserID` is the person's user id and `EntitlementId` is set.  These are in My Books and in the account's library.
+  * Read from search results: `___UserID` is `<userid>_searchresult`, with no `EntitlementId`.
+  * Sent by a sync: no user id and no entitlement.  These came back at the next sync after both a Remove Download style removal and a full deletion of the row.
+* The eReader's own removals: Remove Download sets `IsDownloaded` 'false', clears `AnnotationsSyncToken`, and deletes the chapters, the `volume_shortcovers` rows and the file.  Remove from My Books sets `___ExpirationStatus` 3; after the sync `___UserID` becomes 'removed' and the account archives the book.  HoboLibris does not remove previews yet (#61).
+* The wishlist is read from the account (see Wishlist above).  The eReader's `Wishlist` table (`CrossRevisionId`, `DateModified`, `IsAdded`, `IsSynced`, as 'true' and 'false' text) only queues changes:
+  * The eReader's own add while online reaches the account at once, and its row is written already synced.
+  * A row written with `IsAdded` 'true' and `IsSynced` 'false' reached the account at the next sync, with the row's `DateModified` as `DateAdded`, and the eReader deleted the row.  An add also sets `content.WishlistedDate`.
+  * A row written with `IsAdded` 'false' and `IsSynced` 'false' took the book off the account's wishlist at the next sync, and the eReader deleted the row.
+* So adding and removing needs the eReader plugged in, takes a book-list backup first, and the screen shows the change as waiting until the next sync.
+* The eReader's last sync is `LastSync` (epoch seconds) in `.kobo\Kobo\Kobo eReader.conf`.
+
 ## The Assistant (not from the desktop program)
 
 Added in 0.1.6.  The code is in `HoboLibris\Assistant\`; it was ported from Mycelia's Assistant without its MCP parts.
@@ -114,16 +161,20 @@ Added in 0.1.6.  The code is in `HoboLibris\Assistant\`; it was ported from Myce
 ### AI services
 
 * Anthropic (Messages API, `x-api-key`), OpenAI (chat completions, Bearer key) and any OpenAI-compatible service (Ollama, LM Studio, Gemini, Mistral), called through `HttpClient` with no SDK (`ChatProviders.cs`).
+* Ollama on this computer is called on its own chat API, `/api/chat` on the host and port given in Settings (0.1.9, #47, `OllamaChatProvider.cs`), since only that one sets the context size and turns thinking off.  The context size (`num_ctx`) is 8,192 tokens unless changed in Settings (2,048 to 131,072); Ollama's own 4,096 dropped instructions without saying so.  Thinking is off unless turned on.  The reply is streamed, and each request's token counts and times go in the log.
+* Before a request to Ollama, the conversation is fitted to the context (0.1.10, #48, `ContextFit.cs`): old tool results are left out first, then whole old exchanges, oldest first.  The system prompt, the tools and the current request are always sent, though a result in the current request that is too large is cut.  The conversation itself is kept whole.
+* A model on this computer gets a shorter system prompt and only some tools (`ToolGroups.cs`): the group for the screen the person is on, the e-book sources and `show_screen`, and it asks for another group with `use_tools`.  With `qwen3:8b` this took the first request from 4,029 to 2,157 tokens.  Hosted models get every tool.
 * The Model list is read from the service once it can be reached, never from a fixed list (0.1.7): `GET {base}/models` for OpenAI-compatible services, `https://api.anthropic.com/v1/models` with the key for Anthropic, and OpenAI's list filtered to chat models (`gpt-`, `o1`, `o3`, `o4`, `chatgpt`, without audio, image, search or embedding models).  Before a request to a service on this computer, a model it doesn't have is reported with the ones it has.
 * Ollama (`localhost:11434`): HoboLibris can run `ollama serve` itself with no window (`OllamaServer.cs`), from Settings or on the first request.  A Windows job object with kill-on-close ties the server to HoboLibris, so it stops when HoboLibris closes or crashes; a server started any other way is never stopped.  On the test machine, Ollama 0.40.17's own app never started its server.
 * Keys are encrypted with DPAPI (`SecretStore.cs`, prefix `dpapi:`) and added to requests by the app; the model never sees them.
 
 ### Tools and approvals
 
-* 23 tools: 19 for the app's own screens (`HoboTools.cs`), which call the same view-model code as the screens, and 4 for e-book sources (`SourceTools.cs`).  Descriptions for the model are in English; titles and approval sentences are translated.
-* Each tool is Allow, Ask first or Off (Settings, Built-in tools).  Tools that change something ask by default.  Saving collections, sending to the eReader and deleting backups always ask, whatever the settings, and their cards have no Always allow.
+* 29 tools: 25 for the app's own screens (`HoboTools.cs`), which call the same view-model code as the screens, and 4 for e-book sources (`SourceTools.cs`), plus `use_tools` for a model on this computer.  Descriptions for the model are in English; titles and approval sentences are translated.
+* Each tool is Allow, Ask first or Off (Settings, Built-in tools).  Tools that change something ask by default.  Saving collections, sending to the eReader, deleting backups, removing articles and taking books off the wishlist always ask, whatever the settings, and their cards have no Always allow.
+* A tool's request is checked before its approval card is shown (0.1.9, #46), so the person isn't asked to approve something that would fail.  A declined card tells the model so.
 * Collection tools only change the Collections screen's pending changes; nothing reaches the eReader until `save_collections`.
-* Books reach the model as short ids (`s-`, `r-`, `f-`, `k-`, `c-`, `e-` plus 8 hex digits of a SHA-256 of the real id), so file paths, which hold the Windows user name, are never sent.  The Kobo sign-in, tokens and email address are never sent.
+* Books reach the model as short ids (`s-`, `r-`, `f-`, `k-`, `c-`, `e-`, `a-` for articles, `p-` for previews and `w-` for the wishlist, plus 8 hex digits of a SHA-256 of the real id), so file paths, which hold the Windows user name, are never sent.  The Kobo sign-in, tokens and email address are never sent.
 * The conversation is kept between sessions in `%APPDATA%\HoboLibris\Assistant\conversation.json`, encrypted with DPAPI.
 
 ### E-book sources and their terms
