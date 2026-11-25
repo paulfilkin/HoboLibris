@@ -135,6 +135,48 @@ namespace HoboLibris.Tests
             Assert.Throws<HoboLibrisException>(() => { c.Save(Backups(db)); });
         }
 
+        /// <summary>
+        /// Instapaper articles are content rows like books, but the eReader doesn't show them in
+        /// collections (#28): they are left out, and their rows on the eReader are left alone.
+        /// </summary>
+        [Fact]
+        public void ArticlesAreLeftOutAndTheirRowsKept()
+        {
+            var dir = TestFolder.Fresh("collections-articles");
+            var db = Path.Combine(dir, "KoboReader.sqlite");
+            using (var c = new SqliteConnection($"Data Source={db}"))
+            {
+                c.Open();
+                using var cmd = c.CreateCommand();
+                cmd.CommandText = @"CREATE TABLE content (ContentID TEXT, ContentType TEXT, MimeType TEXT, Title TEXT, Attribution TEXT, IsDownloaded BOOL);
+                    CREATE TABLE Shelf (CreationDate TEXT, Id TEXT, InternalName TEXT, LastModified TEXT, Name TEXT,
+                        Type TEXT, _IsDeleted BOOL, _IsVisible BOOL, _IsSynced BOOL, _SyncTime TEXT, LastAccessed TEXT,
+                        PRIMARY KEY (Id));
+                    CREATE TABLE ShelfContent (ShelfName TEXT, ContentId TEXT, DateModified TEXT, _IsDeleted BOOL,
+                        _IsSynced BOOL, PRIMARY KEY (ShelfName, ContentId));
+                    INSERT INTO content VALUES ('file:///mnt/onboard/a.epub', 6, 'application/x-kobo-epub+zip', 'Book A', 'Author A', 'true');
+                    INSERT INTO content VALUES ('2058984969', 6, 'application/x-kobo-html+instapaper', 'An Article', 'Someone', 'true');
+                    INSERT INTO content VALUES ('2058983870', 6, 'application/x-kobo-html+instapaper', 'Another Article', '', 'true');
+                    INSERT INTO Shelf VALUES ('2025-01-01T00:00:00Z', 'id-1', 'Reading', '2025-01-01T00:00:00Z', 'Reading',
+                        'UserTag', 'false', 'true', 'true', NULL, NULL);
+                    INSERT INTO ShelfContent VALUES ('Reading', 'file:///mnt/onboard/a.epub', '2025-01-01T00:00:00Z', 'false', 'true');
+                    INSERT INTO ShelfContent VALUES ('Reading', '2058984969', '2025-01-01T00:00:00Z', 'false', 'true');";
+                cmd.ExecuteNonQuery();
+            }
+            SqliteConnection.ClearAllPools();
+
+            var coll = Collections.LoadDb(db);
+            Assert.Equal(new[] { "Book A" }, coll.Books.Select(b => b.Title));
+            Assert.Equal(new[] { "file:///mnt/onboard/a.epub" }, coll.Current["Reading"]);
+
+            // A change to the collection leaves the article's row as it was.
+            coll.Create("Later");
+            coll.Add("Later", new[] { "file:///mnt/onboard/a.epub" });
+            coll.Save(Backups(db));
+            Assert.Equal("false", Scalar(db, "SELECT _IsDeleted FROM ShelfContent WHERE ShelfName = 'Reading' AND ContentId = '2058984969'"));
+            Assert.Equal("0", Scalar(db, "SELECT COUNT(*) FROM ShelfContent WHERE ContentId = '2058983870'"));
+        }
+
         [Fact]
         public void TimestampsAreKoboStyle()
         {

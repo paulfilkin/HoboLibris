@@ -148,6 +148,34 @@ namespace HoboLibris.Services
 
         private static string NotDeleted(string col) => $"IFNULL({col}, 'false') NOT IN ('true', '1')";
 
+        /// <summary>
+        /// Articles saved with Instapaper (MimeType "application/x-kobo-html+instapaper"; Pocket's
+        /// earlier articles are taken to be of the same family).  They are content rows like books,
+        /// but the eReader doesn't show them in collections, even when ShelfContent puts them there (#28).
+        /// </summary>
+        private const string ArticleMimeTypes = "application/x-kobo-html%";
+
+        /// <summary>The ids of the articles in the book list; none when it has no MimeType column.</summary>
+        private static HashSet<string> ReadArticleIds(SqliteConnection conn)
+        {
+            var ids = new HashSet<string>(StringComparer.Ordinal);
+            try
+            {
+                using var cmd = conn.CreateCommand();
+                cmd.CommandText = $"SELECT ContentID FROM content WHERE ContentType = 6 AND MimeType LIKE '{ArticleMimeTypes}'";
+                using var rows = cmd.ExecuteReader();
+                while (rows.Read())
+                {
+                    ids.Add(rows.GetString(0));
+                }
+            }
+            catch (SqliteException ex)
+            {
+                LogManager.Debug($"No MimeType column, so no articles to leave out: {ex.Message}");
+            }
+            return ids;
+        }
+
         /// <summary>Read the books and collections from a Kobo eReader whose drive root is root.</summary>
         public static Collections Load(string root)
         {
@@ -213,6 +241,9 @@ namespace HoboLibris.Services
                             }
                         }
                     }
+                    // Articles are left out of the books and of the collections' books, so the counts
+                    // and "Not in any collection" are about books; their rows on the eReader stay as they are.
+                    var articles = ReadArticleIds(conn);
                     var shelved = new HashSet<string>(StringComparer.Ordinal);
                     using (var cmd = conn.CreateCommand())
                     {
@@ -227,7 +258,7 @@ namespace HoboLibris.Services
                             var shelf = rows.GetString(0);
                             var id = rows.GetString(1);
                             // Only collections that still exist.
-                            if (current.TryGetValue(shelf, out var set))
+                            if (current.TryGetValue(shelf, out var set) && !articles.Contains(id))
                             {
                                 shelved.Add(id);
                                 set.Add(id);
@@ -252,6 +283,10 @@ namespace HoboLibris.Services
                             {
                                 var id = rows.GetString(0);
                                 known.Add(id);
+                                if (articles.Contains(id))
+                                {
+                                    continue;
+                                }
                                 var title = rows.GetString(1);
                                 var authors = rows.GetString(2);
                                 var downloadedText = rows.GetValue(3)?.ToString() ?? "true";
