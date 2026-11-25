@@ -2840,5 +2840,225 @@ namespace HoboLibris.Resources {
         public static string Coll_KeepInCollection {
             get { return ResourceManager.GetString("Coll_KeepInCollection", resourceCulture); }
         }
+
+        /// <summary>Looks up a localized string similar to Articles.</summary>
+        public static string Kobo_ArticlesTab {
+            get { return ResourceManager.GetString("Kobo_ArticlesTab", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep copies of the articles you saved to your Kobo eReader with Instapaper.</summary>
+        public static string Kobo_ArticlesTabTip {
+            get { return ResourceManager.GetString("Kobo_ArticlesTabTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The articles you saved to your Kobo eReader with Instapaper. Tick the ones worth keeping and press Keep: each is save....</summary>
+        public static string Art_Intro {
+            get { return ResourceManager.GetString("Art_Intro", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Plug in your Kobo eReader and tap Connect on its screen to see its articles. Until then this list shows the copies ke....</summary>
+        public static string Art_NoReader {
+            get { return ResourceManager.GetString("Art_NoReader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep ticked ({0}).</summary>
+        public static string Art_KeepTicked {
+            get { return ResourceManager.GetString("Art_KeepTicked", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Save a copy of each ticked article in the Articles folder.</summary>
+        public static string Art_KeepHint {
+            get { return ResourceManager.GetString("Art_KeepHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Read the articles on the eReader and in the Articles folder again.</summary>
+        public static string Art_LookAgainHint {
+            get { return ResourceManager.GetString("Art_LookAgainHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Search title, author or site.</summary>
+        public static string Art_SearchHint {
+            get { return ResourceManager.GetString("Art_SearchHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles folder:.</summary>
+        public static string Art_Folder {
+            get { return ResourceManager.GetString("Art_Folder", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Site.</summary>
+        public static string Col_Site {
+            get { return ResourceManager.GetString("Col_Site", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Added.</summary>
+        public static string Col_Added {
+            get { return ResourceManager.GetString("Col_Added", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Read.</summary>
+        public static string Col_Read {
+            get { return ResourceManager.GetString("Col_Read", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copy.</summary>
+        public static string Col_Copy {
+            get { return ResourceManager.GetString("Col_Copy", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Finished.</summary>
+        public static string Art_Finished {
+            get { return ResourceManager.GetString("Art_Finished", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kept.</summary>
+        public static string Art_Kept {
+            get { return ResourceManager.GetString("Art_Kept", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Only on this computer.</summary>
+        public static string Art_OnlyHere {
+            get { return ResourceManager.GetString("Art_OnlyHere", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open copy.</summary>
+        public static string Art_OpenCopy {
+            get { return ResourceManager.GetString("Art_OpenCopy", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Open page.</summary>
+        public static string Art_OpenPage {
+            get { return ResourceManager.GetString("Art_OpenPage", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No articles on the eReader. Save articles with Instapaper, and the eReader downloads them when it syncs..</summary>
+        public static string Art_None {
+            get { return ResourceManager.GetString("Art_None", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No articles kept on this computer yet..</summary>
+        public static string Art_NoneKept {
+            get { return ResourceManager.GetString("Art_NoneKept", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles kept in the Articles folder: {0}.</summary>
+        public static string Art_KeptDone {
+            get { return ResourceManager.GetString("Art_KeptDone", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kept: {0}. Couldn't be kept: {1}..</summary>
+        public static string Art_KeptSome {
+            get { return ResourceManager.GetString("Art_KeptSome", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to The text of "{0}" wasn't found on the eReader..</summary>
+        public static string Art_TextNotFound {
+            get { return ResourceManager.GetString("Art_TextNotFound", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Couldn't keep "{0}": {1}.</summary>
+        public static string Art_CouldNotKeep {
+            get { return ResourceManager.GetString("Art_CouldNotKeep", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} articles on the Kobo eReader..</summary>
+        public static string Status_Articles {
+            get { return ResourceManager.GetString("Status_Articles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kept articles.</summary>
+        public static string Settings_ArticlesHeader {
+            get { return ResourceManager.GetString("Settings_ArticlesHeader", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Copies of the articles you keep from your Kobo eReader are saved here, one web page each..</summary>
+        public static string Settings_ArticlesHint {
+            get { return ResourceManager.GetString("Settings_ArticlesHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Choose where to keep your articles.</summary>
+        public static string Dialog_ChooseArticlesFolder {
+            get { return ResourceManager.GetString("Dialog_ChooseArticlesFolder", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to List articles.</summary>
+        public static string Asst_Tool_ListArticles {
+            get { return ResourceManager.GetString("Asst_Tool_ListArticles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep articles.</summary>
+        public static string Asst_Tool_KeepArticles {
+            get { return ResourceManager.GetString("Asst_Tool_KeepArticles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles found: {0}.</summary>
+        public static string Asst_ArticlesFound {
+            get { return ResourceManager.GetString("Asst_ArticlesFound", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Keep these articles ({0}) on this computer: {1}.</summary>
+        public static string Asst_Desc_KeepArticles {
+            get { return ResourceManager.GetString("Asst_Desc_KeepArticles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles kept: {0}.</summary>
+        public static string Asst_ArticlesKept {
+            get { return ResourceManager.GetString("Asst_ArticlesKept", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove from eReader ({0}).</summary>
+        public static string Art_Remove {
+            get { return ResourceManager.GetString("Art_Remove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove the ticked articles from this eReader. Instapaper keeps them: to archive or delete them there too, use Archive....</summary>
+        public static string Art_RemoveHint {
+            get { return ResourceManager.GetString("Art_RemoveHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove articles.</summary>
+        public static string Art_RemoveTitle {
+            get { return ResourceManager.GetString("Art_RemoveTitle", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these articles ({0}) from the Kobo eReader?.</summary>
+        public static string Art_RemoveConfirm {
+            get { return ResourceManager.GetString("Art_RemoveConfirm", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to They stay in your Instapaper account. To archive or delete them there as well, use Archive or Delete on the eReader i....</summary>
+        public static string Art_RemoveInstapaper {
+            get { return ResourceManager.GetString("Art_RemoveInstapaper", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to {0} of them have no copy kept on this computer..</summary>
+        public static string Art_RemoveNotKept {
+            get { return ResourceManager.GetString("Art_RemoveNotKept", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles removed from the eReader: {0}.</summary>
+        public static string Art_Removed {
+            get { return ResourceManager.GetString("Art_Removed", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Could not remove the articles: {0}.</summary>
+        public static string Art_CouldNotRemove {
+            get { return ResourceManager.GetString("Art_CouldNotRemove", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove articles.</summary>
+        public static string Asst_Tool_RemoveArticles {
+            get { return ResourceManager.GetString("Asst_Tool_RemoveArticles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Remove these articles ({0}) from the Kobo eReader; they stay in Instapaper: {1}.</summary>
+        public static string Asst_Desc_RemoveArticles {
+            get { return ResourceManager.GetString("Asst_Desc_RemoveArticles", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Articles removed: {0}.</summary>
+        public static string Asst_ArticlesRemoved {
+            get { return ResourceManager.GetString("Asst_ArticlesRemoved", resourceCulture); }
+        }
     }
 }

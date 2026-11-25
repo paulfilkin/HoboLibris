@@ -35,6 +35,7 @@ namespace HoboLibris.Assistant
         public Task<ToolOutcome> DownloadFoundAsync(Sources.EbookResult book) => _sources.DownloadFoundAsync(book);
 
         private CollectionsViewModel Collections => _main.Collections;
+        private ArticlesViewModel ArticlesScreen => _main.Articles;
 
         private static readonly JsonObject Ids = Schema.Array(Schema.String("A book id from the list tool."), "The books, by id.");
         private static readonly JsonObject Query = Schema.String("Only books whose title or author contains this text.");
@@ -325,13 +326,81 @@ namespace HoboLibris.Assistant
                 Run = (args, _) => BackUpKindleAsync(args),
             },
 
+            // ---- Kobo: Articles (#53) ----
+            new AssistantTool
+            {
+                Name = "list_articles",
+                Title = Strings.Asst_Tool_ListArticles,
+                Description = "List the articles saved to the Kobo eReader with Instapaper, as the Articles screen shows them, with the copies kept on this computer. Each has an id, title, author, site, date added, how far it was read, whether it is still on the eReader and whether a copy is kept. With no eReader connected, only the kept copies are listed.",
+                Schema = Schema.Object(
+                    ("query", Schema.String("Only articles whose title, author or site contains this text."), false),
+                    ("not_kept_only", Schema.Boolean("Only articles on the eReader with no copy kept yet."), false)),
+                Run = async (args, _) =>
+                {
+                    await ArticlesScreen.LoadAsync();
+                    return ListArticles(args);
+                },
+            },
+            new AssistantTool
+            {
+                Name = "keep_articles",
+                Title = Strings.Asst_Tool_KeepArticles,
+                Description = "Keep copies of articles on this computer, by ids from list_articles: each is saved with its pictures as one web page in the Articles folder, and stays after the article has gone from the eReader. Needs the eReader plugged in.",
+                Schema = Schema.Object(("ids", Ids, true)),
+                Changes = true,
+                Check = KeepArticlesCheck,
+                Describe = args =>
+                {
+                    var rows = ArticleRows(args.Strings("ids")).Found;
+                    return string.Format(Strings.Asst_Desc_KeepArticles, rows.Count, TitleList(rows.Select(r => r.Title)));
+                },
+                Run = (args, _) => KeepArticlesAsync(args),
+            },
+            new AssistantTool
+            {
+                Name = "remove_articles",
+                Title = Strings.Asst_Tool_RemoveArticles,
+                Description = "Remove articles from the Kobo eReader, by ids from list_articles. The eReader's book list is backed up first. Instapaper isn't told, so they stay in the person's Instapaper account; to archive or delete them there too, the person uses Archive or Delete on the eReader. Keep a copy first (keep_articles) when the person wants one. The person approves this every time.",
+                Schema = Schema.Object(("ids", Ids, true)),
+                AlwaysAsks = true,
+                Check = RemoveArticlesCheck,
+                Describe = args =>
+                {
+                    var rows = ArticleRows(args.Strings("ids")).Found.Where(r => r.IsOnReader).ToList();
+                    return string.Format(Strings.Asst_Desc_RemoveArticles, rows.Count, TitleList(rows.Select(r => r.Title)));
+                },
+                Run = async (args, _) =>
+                {
+                    if (RemoveArticlesCheck(args) is { } refused)
+                    {
+                        return refused;
+                    }
+                    var (found, unknown) = ArticleRows(args.Strings("ids"));
+                    var removed = await ArticlesScreen.RemoveAsync(found.Where(r => r.IsOnReader).ToList());
+                    if (removed.Count == 0)
+                    {
+                        return new ToolOutcome(ArticlesScreen.Error ?? "Nothing was removed.", true);
+                    }
+                    var json = new JsonObject
+                    {
+                        ["removed"] = new JsonArray(removed.Select(r => (JsonNode)r.Title).ToArray()),
+                        ["note"] = "They stay in the person's Instapaper account.",
+                    };
+                    if (unknown.Count > 0)
+                    {
+                        json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
+                    }
+                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_ArticlesRemoved, removed.Count));
+                },
+            },
+
             // ---- Moving about ----
             new AssistantTool
             {
                 Name = "show_screen",
                 Title = Strings.Asst_Tool_ShowScreen,
                 Description = "Show one of HoboLibris's screens, so the person sees what changed.",
-                Schema = Schema.Object(("screen", Schema.String("The screen.", "back_up", "collections", "send", "kindle"), true)),
+                Schema = Schema.Object(("screen", Schema.String("The screen.", "back_up", "collections", "send", "articles", "kindle"), true)),
                 Run = (args, _) =>
                 {
                     switch (args.Str("screen"))
@@ -347,12 +416,16 @@ namespace HoboLibris.Assistant
                             _main.Tab = MainTab.Kobo;
                             _main.KoboMode = KoboMode.Send;
                             break;
+                        case "articles":
+                            _main.Tab = MainTab.Kobo;
+                            _main.KoboMode = KoboMode.Articles;
+                            break;
                         case "back_up":
                             _main.Tab = MainTab.Kobo;
                             _main.KoboMode = KoboMode.Backup;
                             break;
                         default:
-                            return Task.FromResult(new ToolOutcome("Unknown screen; use back_up, collections, send or kindle.", true));
+                            return Task.FromResult(new ToolOutcome("Unknown screen; use back_up, collections, send, articles or kindle.", true));
                     }
                     return Task.FromResult(new ToolOutcome("Shown.", Summary: ScreenName()));
                 },
@@ -367,6 +440,7 @@ namespace HoboLibris.Assistant
             {
                 KoboMode.Collections => Strings.Kobo_CollectionsTab,
                 KoboMode.Send => Strings.Kobo_SendTab,
+                KoboMode.Articles => Strings.Kobo_ArticlesTab,
                 _ => Strings.Kobo_BackUpTab,
             };
 
@@ -377,6 +451,7 @@ namespace HoboLibris.Assistant
             {
                 KoboMode.Collections => "collections",
                 KoboMode.Send => "send",
+                KoboMode.Articles => "articles",
                 _ => "back_up",
             };
             return new JsonObject
@@ -684,6 +759,81 @@ namespace HoboLibris.Assistant
                     Summary: string.Format(Strings.Asst_ChangesWaiting, Collections.Pending));
             },
         };
+
+        // ---- Articles (#53) ----------------------------------------------------------------------
+
+        private (List<ArticleRow> Found, List<string> Unknown) ArticleRows(IEnumerable<string> ids) =>
+            BookIds.Resolve(ids, ArticlesScreen.Rows, r => BookIds.For(BookIds.Article, r.Id));
+
+        private ToolOutcome ListArticles(JsonObject args)
+        {
+            var query = args.Str("query") ?? "";
+            var notKept = args.Bool("not_kept_only", false);
+            var rows = ArticlesScreen.Rows
+                .Where(r => !notKept || (r.IsOnReader && !r.IsKept))
+                .Where(r => query.Length == 0
+                            || r.Title.Contains(query, StringComparison.CurrentCultureIgnoreCase)
+                            || r.Author.Contains(query, StringComparison.CurrentCultureIgnoreCase)
+                            || r.Site.Contains(query, StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
+            var json = new JsonObject
+            {
+                ["ereader_connected"] = ArticlesScreen.ReaderFound,
+                ["total"] = rows.Count,
+                ["articles"] = new JsonArray(rows.Select(r => (JsonNode)new JsonObject
+                {
+                    ["id"] = BookIds.For(BookIds.Article, r.Id),
+                    ["title"] = r.Title,
+                    ["author"] = r.Author,
+                    ["site"] = r.Site,
+                    ["added"] = r.Added?.ToString("yyyy-MM-dd"),
+                    ["read"] = r.OnReader == null ? null : r.OnReader.Finished ? "finished" : $"{r.OnReader.Percent}%",
+                    ["on_ereader"] = r.IsOnReader,
+                    ["kept"] = r.IsKept,
+                }).ToArray()),
+            };
+            if (!ArticlesScreen.ReaderFound)
+            {
+                json["note"] = ArticlesScreen.Error ?? "No Kobo eReader is connected: only the copies kept on this computer are listed.";
+            }
+            return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_ArticlesFound, rows.Count));
+        }
+
+        private ToolOutcome? KeepArticlesCheck(JsonObject args)
+        {
+            if (!_main.ReaderConnected)
+            {
+                return new ToolOutcome("No Kobo eReader is connected: articles can be kept only while it is plugged in.", true);
+            }
+            var (found, unknown) = ArticleRows(args.Strings("ids"));
+            if (!found.Any(r => r.IsOnReader))
+            {
+                return new ToolOutcome("None of those is an article on the eReader. Take ids from list_articles." + Unknown(unknown), true);
+            }
+            return null;
+        }
+
+        private ToolOutcome? RemoveArticlesCheck(JsonObject args) => KeepArticlesCheck(args);
+
+        private async Task<ToolOutcome> KeepArticlesAsync(JsonObject args)
+        {
+            if (KeepArticlesCheck(args) is { } refused)
+            {
+                return refused;
+            }
+            var (found, unknown) = ArticleRows(args.Strings("ids"));
+            var (kept, failed) = await ArticlesScreen.KeepAsync(found.Where(r => r.IsOnReader).ToList());
+            var json = new JsonObject
+            {
+                ["kept"] = new JsonArray(kept.Select(r => (JsonNode)r.Title).ToArray()),
+                ["failed"] = new JsonArray(failed.Select(r => (JsonNode)new JsonObject { ["title"] = r.Title, ["why"] = r.Error }).ToArray()),
+            };
+            if (unknown.Count > 0)
+            {
+                json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
+            }
+            return new ToolOutcome(json.ToJsonString(), kept.Count == 0, string.Format(Strings.Asst_ArticlesKept, kept.Count));
+        }
 
         // ---- Send to eReader --------------------------------------------------------------------
 

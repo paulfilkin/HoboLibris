@@ -21,6 +21,7 @@ namespace HoboLibris.ViewModels
         Backup,
         Collections,
         Send,
+        Articles,
     }
 
     public enum SortBy
@@ -31,7 +32,7 @@ namespace HoboLibris.ViewModels
 
     /// <summary>
     /// The whole app: the Kobo tab (store books, eReader books and folder books in one list,
-    /// plus the Collections and Send screens) and the Kindle tab.
+    /// plus the Collections, Send and Articles screens) and the Kindle tab.
     /// </summary>
     public partial class MainViewModel : ObservableObject
     {
@@ -50,6 +51,7 @@ namespace HoboLibris.ViewModels
         public DeviceTabViewModel Kindle { get; }
         public SendViewModel Send { get; }
         public CollectionsViewModel Collections { get; }
+        public ArticlesViewModel Articles { get; }
         public BatchProgress StoreProgress { get; } = new(Strings.Progress_BackingUp);
 
         /// <summary>Asks the person to confirm deleting the ticked books; returns (yes, also remove from eReader).</summary>
@@ -67,7 +69,7 @@ namespace HoboLibris.ViewModels
         private MainTab _tab = MainTab.Kobo;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsBackupMode), nameof(IsCollectionsMode), nameof(IsSendMode))]
+        [NotifyPropertyChangedFor(nameof(IsBackupMode), nameof(IsCollectionsMode), nameof(IsSendMode), nameof(IsArticlesMode))]
         private KoboMode _koboMode = KoboMode.Backup;
 
         [ObservableProperty]
@@ -113,6 +115,7 @@ namespace HoboLibris.ViewModels
         public bool IsBackupMode => KoboMode == KoboMode.Backup;
         public bool IsCollectionsMode => KoboMode == KoboMode.Collections;
         public bool IsSendMode => KoboMode == KoboMode.Send;
+        public bool IsArticlesMode => KoboMode == KoboMode.Articles;
         public bool HasError => !string.IsNullOrEmpty(Error);
         public bool SignedIn => SignedInFlag;
         public bool ReaderConnected => ReaderConnectedFlag;
@@ -134,6 +137,7 @@ namespace HoboLibris.ViewModels
         public string EmailToggleText => ShowEmail ? Strings.Main_HideEmail : Strings.Main_ShowEmail;
         public string KoboFolder => Settings.DownloadDir;
         public string KindleFolder => Settings.KindleDir;
+        public string ArticlesFolder => Settings.ArticlesDir;
         public IReadOnlyList<string> KindleExtraFolders => Settings.KindleExtraDirs.ToList();
         public bool HasKindleExtraFolders => Settings.KindleExtraDirs.Count > 0;
         /// <summary>Light, dark or following Windows; a change shows at once.</summary>
@@ -278,6 +282,7 @@ namespace HoboLibris.ViewModels
             Kindle = new DeviceTabViewModel(DeviceKind.Kindle, dispatcher);
             Send = new SendViewModel(dispatcher);
             Collections = new CollectionsViewModel { BackupFolder = () => BackupFolder };
+            Articles = new ArticlesViewModel { Folder = () => ArticlesFolder, BackupFolder = () => BackupFolder };
             SignedInFlag = Settings.SignedIn;
 
             foreach (var tab in new[] { Reader, Kindle })
@@ -315,6 +320,7 @@ namespace HoboLibris.ViewModels
             };
             Send.SendFinished += () => _ = Reader.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.DownloadDir, quiet: true);
             Collections.StatusChanged += s => Status = s;
+            Articles.StatusChanged += s => Status = s;
             Collections.PropertyChanged += (_, e) =>
             {
                 if (e.PropertyName == nameof(CollectionsViewModel.Pending))
@@ -373,6 +379,10 @@ namespace HoboLibris.ViewModels
             if (value == KoboMode.Collections && !Collections.Tried)
             {
                 _ = Collections.LoadAsync();
+            }
+            if (value == KoboMode.Articles)
+            {
+                _ = Articles.LoadAsync();
             }
         }
 
@@ -993,6 +1003,11 @@ namespace HoboLibris.ViewModels
             {
                 _ = Collections.LoadAsync();
             }
+            // The Articles screen too: the eReader's articles come and go with it (#53).
+            if (wasConnected != ReaderConnectedFlag && Articles.Tried && !Articles.Busy)
+            {
+                _ = Articles.LoadAsync();
+            }
             if (Send.Sending)
             {
                 RebuildKoboRows();
@@ -1101,6 +1116,28 @@ namespace HoboLibris.ViewModels
 
         [RelayCommand]
         private void OpenKindleFolder() => Dialogs.OpenFolder(Settings.KindleDir);
+
+        // --- Articles (#53) -------------------------------------------------------------------
+
+        [RelayCommand]
+        private void ChooseArticlesFolder()
+        {
+            var dir = PickFolder?.Invoke(Strings.Dialog_ChooseArticlesFolder, Settings.ArticlesDir);
+            if (string.IsNullOrEmpty(dir))
+            {
+                return;
+            }
+            Settings.ArticlesDir = dir;
+            SettingsService.Save(Settings);
+            OnPropertyChanged(nameof(ArticlesFolder));
+            if (Articles.Tried)
+            {
+                _ = Articles.LoadAsync();
+            }
+        }
+
+        [RelayCommand]
+        private void OpenArticlesFolder() => Dialogs.OpenFolder(Settings.ArticlesDir);
 
         [RelayCommand]
         private async Task KindleAddFolderAsync()

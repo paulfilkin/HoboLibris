@@ -1758,4 +1758,136 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Coll_KeepInCollection" xml:space="preserve">
     <value>In der Sammlung behalten</value>
   </data>
+  <data name="Kobo_ArticlesTab" xml:space="preserve">
+    <value>Artikel</value>
+  </data>
+  <data name="Kobo_ArticlesTabTip" xml:space="preserve">
+    <value>Kopien der Artikel behalten, die Sie mit Instapaper auf Ihrem Kobo eReader gespeichert haben</value>
+  </data>
+  <data name="Art_Intro" xml:space="preserve">
+    <value>Die Artikel, die Sie mit Instapaper auf Ihrem Kobo eReader gespeichert haben. Haken Sie die an, die Sie behalten möchten, und klicken Sie auf „Behalten“: Jeder wird auf diesem Computer als Webseite mit seinen Bildern gespeichert und bleibt erhalten, wenn der Artikel nicht mehr auf dem eReader ist.</value>
+  </data>
+  <data name="Art_NoReader" xml:space="preserve">
+    <value>Schließen Sie Ihren Kobo eReader an und tippen Sie auf seinem Bildschirm auf „Verbinden“, um seine Artikel zu sehen. Bis dahin zeigt diese Liste die Kopien auf diesem Computer.</value>
+  </data>
+  <data name="Art_KeepTicked" xml:space="preserve">
+    <value>Angehakte behalten ({0})</value>
+  </data>
+  <data name="Art_KeepHint" xml:space="preserve">
+    <value>Eine Kopie jedes angehakten Artikels im Artikelordner speichern</value>
+  </data>
+  <data name="Art_LookAgainHint" xml:space="preserve">
+    <value>Die Artikel auf dem eReader und im Artikelordner erneut lesen</value>
+  </data>
+  <data name="Art_SearchHint" xml:space="preserve">
+    <value>Titel, Autor oder Website suchen</value>
+  </data>
+  <data name="Art_Folder" xml:space="preserve">
+    <value>Artikelordner:</value>
+  </data>
+  <data name="Col_Site" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Col_Added" xml:space="preserve">
+    <value>Hinzugefügt</value>
+  </data>
+  <data name="Col_Read" xml:space="preserve">
+    <value>Gelesen</value>
+  </data>
+  <data name="Col_Copy" xml:space="preserve">
+    <value>Kopie</value>
+  </data>
+  <data name="Art_Finished" xml:space="preserve">
+    <value>Fertig gelesen</value>
+  </data>
+  <data name="Art_Kept" xml:space="preserve">
+    <value>Behalten</value>
+  </data>
+  <data name="Art_OnlyHere" xml:space="preserve">
+    <value>Nur auf diesem Computer</value>
+  </data>
+  <data name="Art_OpenCopy" xml:space="preserve">
+    <value>Kopie öffnen</value>
+  </data>
+  <data name="Art_OpenPage" xml:space="preserve">
+    <value>Seite öffnen</value>
+  </data>
+  <data name="Art_None" xml:space="preserve">
+    <value>Keine Artikel auf dem eReader. Speichern Sie Artikel mit Instapaper; der eReader lädt sie bei der Synchronisierung herunter.</value>
+  </data>
+  <data name="Art_NoneKept" xml:space="preserve">
+    <value>Noch keine Artikel auf diesem Computer behalten.</value>
+  </data>
+  <data name="Art_KeptDone" xml:space="preserve">
+    <value>Im Artikelordner behaltene Artikel: {0}</value>
+  </data>
+  <data name="Art_KeptSome" xml:space="preserve">
+    <value>Behalten: {0}. Nicht behalten werden konnten: {1}.</value>
+  </data>
+  <data name="Art_TextNotFound" xml:space="preserve">
+    <value>Der Text von „{0}“ wurde auf dem eReader nicht gefunden.</value>
+  </data>
+  <data name="Art_CouldNotKeep" xml:space="preserve">
+    <value>„{0}“ konnte nicht behalten werden: {1}</value>
+  </data>
+  <data name="Status_Articles" xml:space="preserve">
+    <value>{0} Artikel auf dem Kobo eReader.</value>
+  </data>
+  <data name="Settings_ArticlesHeader" xml:space="preserve">
+    <value>Behaltene Artikel</value>
+  </data>
+  <data name="Settings_ArticlesHint" xml:space="preserve">
+    <value>Kopien der Artikel, die Sie von Ihrem Kobo eReader behalten, werden hier gespeichert, jeweils als eine Webseite.</value>
+  </data>
+  <data name="Dialog_ChooseArticlesFolder" xml:space="preserve">
+    <value>Wählen Sie, wo Ihre Artikel aufbewahrt werden</value>
+  </data>
+  <data name="Asst_Tool_ListArticles" xml:space="preserve">
+    <value>Artikel auflisten</value>
+  </data>
+  <data name="Asst_Tool_KeepArticles" xml:space="preserve">
+    <value>Artikel behalten</value>
+  </data>
+  <data name="Asst_ArticlesFound" xml:space="preserve">
+    <value>Gefundene Artikel: {0}</value>
+  </data>
+  <data name="Asst_Desc_KeepArticles" xml:space="preserve">
+    <value>Diese Artikel ({0}) auf diesem Computer behalten: {1}</value>
+  </data>
+  <data name="Asst_ArticlesKept" xml:space="preserve">
+    <value>Behaltene Artikel: {0}</value>
+  </data>
+  <data name="Art_Remove" xml:space="preserve">
+    <value>Vom eReader entfernen ({0})</value>
+  </data>
+  <data name="Art_RemoveHint" xml:space="preserve">
+    <value>Die angehakten Artikel von diesem eReader entfernen. Instapaper behält sie: Um sie auch dort zu archivieren oder zu löschen, verwenden Sie auf dem eReader „Archivieren“ oder „Löschen“.</value>
+  </data>
+  <data name="Art_RemoveTitle" xml:space="preserve">
+    <value>Artikel entfernen</value>
+  </data>
+  <data name="Art_RemoveConfirm" xml:space="preserve">
+    <value>Diese Artikel ({0}) vom Kobo eReader entfernen?</value>
+  </data>
+  <data name="Art_RemoveInstapaper" xml:space="preserve">
+    <value>Sie bleiben in Ihrem Instapaper-Konto. Um sie auch dort zu archivieren oder zu löschen, verwenden Sie stattdessen auf dem eReader „Archivieren“ oder „Löschen“. Die Bücherliste des eReaders wird zuerst auf diesen Computer kopiert.</value>
+  </data>
+  <data name="Art_RemoveNotKept" xml:space="preserve">
+    <value>Von {0} davon ist keine Kopie auf diesem Computer.</value>
+  </data>
+  <data name="Art_Removed" xml:space="preserve">
+    <value>Vom eReader entfernte Artikel: {0}</value>
+  </data>
+  <data name="Art_CouldNotRemove" xml:space="preserve">
+    <value>Die Artikel konnten nicht entfernt werden: {0}</value>
+  </data>
+  <data name="Asst_Tool_RemoveArticles" xml:space="preserve">
+    <value>Artikel entfernen</value>
+  </data>
+  <data name="Asst_Desc_RemoveArticles" xml:space="preserve">
+    <value>Diese Artikel ({0}) vom Kobo eReader entfernen; sie bleiben in Instapaper: {1}</value>
+  </data>
+  <data name="Asst_ArticlesRemoved" xml:space="preserve">
+    <value>Entfernte Artikel: {0}</value>
+  </data>
 </root>

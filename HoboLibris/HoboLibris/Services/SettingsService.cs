@@ -41,6 +41,10 @@ namespace HoboLibris.Services
             {
                 s.KindleDir = AppPaths.DefaultKindleDir;
             }
+            if (string.IsNullOrEmpty(s.ArticlesDir))
+            {
+                s.ArticlesDir = AppPaths.DefaultArticlesDir;
+            }
             if (string.IsNullOrEmpty(s.KoboReaderDir))
             {
                 // Kobo eReader books share the Kobo folder; this older setting just mirrors it.

@@ -30,6 +30,8 @@ namespace HoboLibris.Services
 
         public static string DefaultKoboDir => Path.Combine(DefaultBackupRoot, "Kobo");
         public static string DefaultKindleDir => Path.Combine(DefaultBackupRoot, "Kindle");
+        /// <summary>Where copies of articles are kept unless the person chooses another folder (#53).</summary>
+        public static string DefaultArticlesDir => Path.Combine(DefaultBackupRoot, "Articles");
 
         private static string ResolveDataDir()
         {
