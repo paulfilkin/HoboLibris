@@ -110,7 +110,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "list_collections",
                 Title = Strings.Asst_Tool_ListCollections,
-                Description = "List the connected Kobo eReader's collections with how many books each holds, how many books are in none or in several, and the changes waiting to be saved. Reads the collections from the eReader the first time.",
+                Description = "List the Kobo eReader's collections with how many books each holds, how many books are in none or in several, and the changes waiting to be saved. Reads the collections from the eReader the first time; when it isn't connected, they are as it was last time (offline).",
                 Schema = Schema.Object(),
                 Run = async (_, _) =>
                 {
@@ -125,7 +125,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "list_collection_books",
                 Title = Strings.Asst_Tool_ListCollectionBooks,
-                Description = "List the books on the connected Kobo eReader as the Collections screen sees them, with the collections each is in (pending changes included). Use these ids with the other collection tools.",
+                Description = "List the books on the Kobo eReader as the Collections screen sees them, with the collections each is in (pending changes included). Use these ids with the other collection tools.",
                 Schema = Schema.Object(
                     ("filter", Schema.String("Which books (default all).", "all", "not_in_any", "several", "collection"), false),
                     ("collection", Schema.String("The collection, when filter is collection."), false),
@@ -210,7 +210,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "save_collections",
                 Title = Strings.Asst_Tool_SaveCollections,
-                Description = "Write the pending collection changes to the connected Kobo eReader, as Save to Kobo eReader does. The eReader's book list is backed up first. The person approves this every time.",
+                Description = "Write the pending collection changes to the connected Kobo eReader, as Save to Kobo eReader does. The eReader's book list is backed up first. The person approves this every time. When the eReader isn't connected, saving waits until it is.",
                 Schema = Schema.Object(),
                 AlwaysAsks = true,
                 Check = _ => SaveCollectionsCheck(),
@@ -263,7 +263,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "eject_ereader",
                 Title = Strings.Asst_Tool_Eject,
-                Description = "Eject the Kobo eReader so it can be unplugged safely. Refused while collection changes are waiting to be saved or books are being copied.",
+                Description = "Eject the Kobo eReader so it can be unplugged safely. Refused while books are being copied. Collection changes not yet saved are kept on this computer for the next time it is plugged in.",
                 Schema = Schema.Object(),
                 Changes = true,
                 Describe = _ => Strings.Asst_Desc_Eject,
@@ -273,17 +273,16 @@ namespace HoboLibris.Assistant
                     {
                         return new ToolOutcome("No Kobo eReader is connected.", true);
                     }
-                    if (Collections.Pending > 0)
-                    {
-                        return new ToolOutcome($"{Collections.Pending} collection changes aren't saved. Save or undo them first.", true);
-                    }
                     if (!_main.CanEjectReader || _main.Send.Sending)
                     {
                         return new ToolOutcome("Books are being copied. Wait until they are done.", true);
                     }
+                    var waiting = Collections.Pending;
                     await _main.EjectForAssistantAsync();
                     return _main.Reader.Ejected
-                        ? new ToolOutcome("Ejected. The eReader can be unplugged.", Summary: Strings.Asst_Ejected)
+                        ? new ToolOutcome("Ejected. The eReader can be unplugged."
+                            + (waiting > 0 ? $" The {waiting} collection changes weren't saved to it: they are kept on this computer until it is plugged in again." : ""),
+                            Summary: Strings.Asst_Ejected)
                         : new ToolOutcome(_main.Error ?? "Windows didn't eject the eReader; something may still be using it.", true);
                 },
             },
@@ -389,6 +388,7 @@ namespace HoboLibris.Assistant
                 ["kindle_connected"] = _main.Kindle.Scanned ? _main.Kindle.IsConnected : null,
                 ["books"] = Counts(),
                 ["collections_loaded"] = Collections.Coll != null,
+                ["collections_offline"] = Collections.IsOffline,
                 ["collection_changes_waiting"] = Collections.Pending,
                 ["send_new_books_automatically"] = _main.AutoSend,
                 ["ebook_sources_on"] = _sources.EnabledSources(),
@@ -569,9 +569,13 @@ namespace HoboLibris.Assistant
         /// <summary>Reads the collections from the eReader if they aren't loaded; an outcome when they can't be.</summary>
         private async Task<ToolOutcome?> LoadCollectionsAsync()
         {
-            if (Collections.Coll == null)
+            if (Collections.Coll == null && !Collections.HasConflicts)
             {
                 await Collections.LoadAsync();
+            }
+            if (Collections.HasConflicts)
+            {
+                return new ToolOutcome("The changes made here and the changes made on the eReader clash. The person chooses what to keep on the Collections screen first.", true);
             }
             return Collections.Coll == null
                 ? new ToolOutcome(Collections.Error ?? "The collections couldn't be read.", true)
@@ -584,6 +588,8 @@ namespace HoboLibris.Assistant
             var changes = coll.Changes();
             return new JsonObject
             {
+                ["offline"] = coll.Offline,
+                ["as_of"] = coll.Offline ? coll.Taken.ToLocalTime().ToString("yyyy-MM-dd HH:mm") : null,
                 ["collections"] = new JsonArray(coll.Current.Select(c => (JsonNode)new JsonObject { ["name"] = c.Key, ["books"] = c.Value.Count }).ToArray()),
                 ["books_on_ereader"] = coll.Books.Count,
                 ["books_in_no_collection"] = coll.Books.Count(b => !coll.IsShelved(b.Id)),
@@ -642,7 +648,13 @@ namespace HoboLibris.Assistant
             {
                 return new ToolOutcome("The collections aren't loaded: call list_collections first.", true);
             }
-            return Collections.Pending == 0 ? new ToolOutcome("There are no changes to save.") : null;
+            if (Collections.Pending == 0)
+            {
+                return new ToolOutcome("There are no changes to save.");
+            }
+            return Collections.IsOffline
+                ? new ToolOutcome($"The Kobo eReader isn't connected, so saving waits: the {Collections.Pending} changes are kept on this computer and merged with the eReader when it is plugged in.")
+                : null;
         }
 
         private static string CollectionName(Services.Collections coll, string? name)

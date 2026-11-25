@@ -14,6 +14,10 @@ namespace HoboLibris.Services
     /// transaction. Rows are marked deleted (_IsDeleted = 'true') rather than removed, and changed
     /// rows get _IsSynced = 'false', so a Kobo that syncs with the Kobo account sends the change
     /// on as if it had been made on the eReader.
+    ///
+    /// The collections can also be opened offline, from a snapshot kept on this computer at the last
+    /// read or save (#32): they are changed as usual, but saving waits until the eReader is plugged
+    /// in again, when the changes are merged with any made on the eReader (CollectionsMerge).
     /// </summary>
     public class Collections
     {
@@ -25,16 +29,96 @@ namespace HoboLibris.Services
         /// <summary>Collection name -> book ids, with the person's changes.</summary>
         public SortedDictionary<string, SortedSet<string>> Current { get; private set; }
 
-        private static readonly StringComparer NameComparer = StringComparer.CurrentCultureIgnoreCase;
+        /// <summary>Collection name -> book ids, as on the eReader when it was read (the base of a merge).</summary>
+        public IReadOnlyDictionary<string, SortedSet<string>> Original => _original;
 
-        private Collections(string db, DateTime? modified, List<CollectionBook> books, SortedDictionary<string, SortedSet<string>> current)
+        /// <summary>The eReader's own id for each collection as read (Shelf.Id), by name.</summary>
+        public Dictionary<string, string> ShelfIds { get; private set; }
+
+        /// <summary>Every book id in the eReader's book list as read, downloaded or not; empty offline.</summary>
+        public HashSet<string> KnownIds { get; }
+
+        /// <summary>Collections renamed here: current name -> its name as read.</summary>
+        public Dictionary<string, string> Renamed { get; private set; } = new(NameComparer);
+
+        /// <summary>The eReader's serial number, from ".kobo\version"; null when it couldn't be read.</summary>
+        public string? Serial { get; }
+
+        /// <summary>When the collections were read from the eReader (UTC).</summary>
+        public DateTime Taken { get; private set; }
+
+        /// <summary>Opened from the snapshot on this computer: the eReader isn't connected, and saving waits.</summary>
+        public bool Offline { get; private set; }
+
+        public static readonly StringComparer NameComparer = StringComparer.CurrentCultureIgnoreCase;
+
+        private Collections(string db, DateTime? modified, List<CollectionBook> books, SortedDictionary<string, SortedSet<string>> current,
+            Dictionary<string, string>? shelfIds = null, HashSet<string>? known = null, string? serial = null, DateTime? taken = null)
         {
             DatabasePath = db;
             _loadedModified = modified;
             Books = books;
             _original = Copy(current);
             Current = current;
+            ShelfIds = shelfIds ?? new Dictionary<string, string>(NameComparer);
+            KnownIds = known ?? new HashSet<string>(StringComparer.Ordinal);
+            Serial = serial;
+            Taken = taken ?? DateTime.UtcNow;
         }
+
+        /// <summary>
+        /// Collections from their parts: a snapshot read back, or a test.  The books in each
+        /// collection are its state as read, with no changes yet.
+        /// </summary>
+        public static Collections FromParts(string db, string? serial, DateTime taken, List<CollectionBook> books,
+            IEnumerable<(string Name, string? Id, IEnumerable<string> Books)> shelves, IEnumerable<string>? known = null, bool offline = false)
+        {
+            var current = new SortedDictionary<string, SortedSet<string>>(NameComparer);
+            var ids = new Dictionary<string, string>(NameComparer);
+            foreach (var (name, id, members) in shelves)
+            {
+                current[name] = new SortedSet<string>(members, StringComparer.Ordinal);
+                if (id != null)
+                {
+                    ids[name] = id;
+                }
+            }
+            return new Collections(db, null, books, current, ids, known?.ToHashSet(StringComparer.Ordinal), serial, taken) { Offline = offline };
+        }
+
+        /// <summary>
+        /// Put the person's changes back on collections read from their parts: the collections as
+        /// they are now, and which were renamed.
+        /// </summary>
+        public void Restore(IEnumerable<(string Name, IEnumerable<string> Books)> current, IReadOnlyDictionary<string, string>? renamed)
+        {
+            Current = new SortedDictionary<string, SortedSet<string>>(NameComparer);
+            foreach (var (name, members) in current)
+            {
+                Current[name] = new SortedSet<string>(members, StringComparer.Ordinal);
+            }
+            Renamed = new Dictionary<string, string>(NameComparer);
+            foreach (var (now, before) in renamed ?? new Dictionary<string, string>())
+            {
+                if (Current.ContainsKey(now))
+                {
+                    Renamed[now] = before;
+                }
+            }
+        }
+
+        /// <summary>Replace the collections with a merged result (CollectionsMerge), against the eReader as read.</summary>
+        public void Apply(SortedDictionary<string, SortedSet<string>> merged, Dictionary<string, string> renamed)
+        {
+            Current = merged;
+            Renamed = renamed;
+        }
+
+        /// <summary>The eReader is no longer connected: keep the collections and changes, but saving waits.</summary>
+        public void GoOffline() => Offline = true;
+
+        /// <summary>True when the eReader's book list was written since it was read.</summary>
+        public bool ChangedOnDevice() => !Offline && Modified(DatabasePath) != _loadedModified;
 
         private static SortedDictionary<string, SortedSet<string>> Copy(SortedDictionary<string, SortedSet<string>> source)
         {
@@ -72,10 +156,34 @@ namespace HoboLibris.Services
             {
                 throw new HoboLibrisException(Strings.Coll_BookListNotFound);
             }
-            return LoadDb(db);
+            return LoadDb(db, KoboDeviceService.Serial(root));
         }
 
-        public static Collections LoadDb(string db)
+        /// <summary>Collection name -> Shelf.Id, for the collections not deleted (none when there is no Id column).</summary>
+        private static Dictionary<string, string> ReadShelfIds(SqliteConnection conn, SqliteTransaction? tx = null)
+        {
+            var ids = new Dictionary<string, string>(NameComparer);
+            using (var cols = conn.CreateCommand())
+            {
+                cols.Transaction = tx;
+                cols.CommandText = "SELECT COUNT(*) FROM pragma_table_info('Shelf') WHERE name = 'Id'";
+                if (Convert.ToInt64(cols.ExecuteScalar()) == 0)
+                {
+                    return ids;
+                }
+            }
+            using var cmd = conn.CreateCommand();
+            cmd.Transaction = tx;
+            cmd.CommandText = $"SELECT Name, Id FROM Shelf WHERE Name IS NOT NULL AND Id IS NOT NULL AND {NotDeleted("_IsDeleted")}";
+            using var rows = cmd.ExecuteReader();
+            while (rows.Read())
+            {
+                ids.TryAdd(rows.GetString(0), rows.GetValue(1).ToString() ?? "");
+            }
+            return ids;
+        }
+
+        public static Collections LoadDb(string db, string? serial = null)
         {
             var loadedModified = Modified(db);
             SqliteConnection conn;
@@ -130,6 +238,7 @@ namespace HoboLibris.Services
                     // Books: everything added by the person, store books that are downloaded, and
                     // any book already in a collection.
                     var books = new List<CollectionBook>();
+                    var known = new HashSet<string>(StringComparer.Ordinal);
                     const string withDownload = "SELECT ContentID, IFNULL(Title, ''), IFNULL(Attribution, ''), IFNULL(IsDownloaded, 'true') FROM content WHERE ContentType = 6";
                     const string plain = "SELECT ContentID, IFNULL(Title, ''), IFNULL(Attribution, ''), 'true' FROM content WHERE ContentType = 6";
                     foreach (var sql in new[] { withDownload, plain })
@@ -142,6 +251,7 @@ namespace HoboLibris.Services
                             while (rows.Read())
                             {
                                 var id = rows.GetString(0);
+                                known.Add(id);
                                 var title = rows.GetString(1);
                                 var authors = rows.GetString(2);
                                 var downloadedText = rows.GetValue(3)?.ToString() ?? "true";
@@ -170,7 +280,7 @@ namespace HoboLibris.Services
                         }
                     }
                     books.Sort((a, b) => string.Compare(a.Title, b.Title, StringComparison.CurrentCultureIgnoreCase));
-                    return new Collections(db, loadedModified, books, current);
+                    return new Collections(db, loadedModified, books, current, ReadShelfIds(conn), known, serial, DateTime.UtcNow);
                 }
                 catch (SqliteException ex)
                 {
@@ -201,7 +311,11 @@ namespace HoboLibris.Services
             Current[name] = new SortedSet<string>(StringComparer.Ordinal);
         }
 
-        public void Delete(string name) => Current.Remove(name);
+        public void Delete(string name)
+        {
+            Current.Remove(name);
+            Renamed.Remove(name);
+        }
 
         /// <summary>
         /// Rename a collection: its books go to a collection with the new name and the old one is
@@ -227,6 +341,13 @@ namespace HoboLibris.Services
                 throw new HoboLibrisException(Strings.Coll_NoLongerExists);
             }
             Current[newName] = books;
+
+            // Remember the name it had on the eReader, so a merge knows it is the same collection.
+            var before = Renamed.Remove(oldName, out var was) ? was : _original.ContainsKey(oldName) ? oldName : null;
+            if (before != null)
+            {
+                Renamed[newName] = before;
+            }
         }
 
         /// <summary>Put books in shelf and take them out of every other collection.</summary>
@@ -265,7 +386,11 @@ namespace HoboLibris.Services
             }
         }
 
-        public void Discard() => Current = Copy(_original);
+        public void Discard()
+        {
+            Current = Copy(_original);
+            Renamed = new Dictionary<string, string>(NameComparer);
+        }
 
         /// <summary>What Save would write.</summary>
         public CollectionChanges Changes()
@@ -302,7 +427,7 @@ namespace HoboLibris.Services
             {
                 throw new HoboLibrisException(Strings.Coll_NoChanges);
             }
-            if (!File.Exists(DatabasePath))
+            if (Offline || !File.Exists(DatabasePath))
             {
                 throw new HoboLibrisException(Strings.Coll_ReaderGone);
             }
@@ -352,6 +477,8 @@ namespace HoboLibris.Services
                 using var conn = new SqliteConnection($"Data Source={DatabasePath};Mode=ReadWrite;Pooling=False");
                 conn.Open();
                 WriteChanges(conn, changes, KoboTimestamp(DateTime.UtcNow));
+                // New collections got their own ids: read them for the next merge.
+                ShelfIds = ReadShelfIds(conn);
             }
             catch (SqliteException ex)
             {
@@ -364,7 +491,9 @@ namespace HoboLibris.Services
             SqliteConnection.ClearAllPools();
 
             _original = Copy(Current);
+            Renamed = new Dictionary<string, string>(NameComparer);
             _loadedModified = Modified(DatabasePath);
+            Taken = DateTime.UtcNow;
             return backup;
         }
 

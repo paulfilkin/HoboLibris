@@ -920,7 +920,7 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
     <value>Ricarica</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>Rileggi le collezioni dall'eReader (le modifiche non salvate vanno perse)</value>
+    <value>Rileggi le collezioni dall'eReader. Le tue modifiche vengono mantenute e unite.</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>Salva su eReader Kobo (1 modifica)</value>
@@ -935,13 +935,13 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
     <value>Salvato sull'eReader Kobo. Premi Espelli eReader Kobo (in alto) per vedere le nuove collezioni.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>eReader Kobo espulso: puoi scollegarlo e vedere le tue collezioni su di esso. Ricollegalo e premi Ricarica per fare altre modifiche.</value>
+    <value>eReader Kobo espulso: puoi scollegarlo e vedere le tue collezioni su di esso. Puoi continuare a modificarle qui; le modifiche aspettano finché non lo ricolleghi.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>Il tuo eReader Kobo è collegato. Dopo aver salvato le modifiche, espellilo da qui perché mostri le nuove collezioni.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>Salva o annulla prima le modifiche, altrimenti non arriveranno all'eReader</value>
+    <value>Le tue modifiche non sono ancora salvate sull'eReader: restano su questo computer finché non lo ricolleghi</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>Scollega in sicurezza l'eReader perché mostri le nuove collezioni</value>
@@ -1702,5 +1702,86 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Ottieni altri strumenti</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>Offline: l'eReader Kobo non è collegato. Queste sono le sue collezioni com'erano il {0}. Le tue modifiche restano su questo computer e vengono unite con l'eReader quando lo ricolleghi.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>Modifiche in attesa dell'eReader (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>Modifiche in attesa dell'eReader ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>Le tue modifiche sono state unite con quelle fatte sull'eReader. Controllale, poi salva.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>Le collezioni dell'eReader sono cambiate da quando sono state lette. Le tue modifiche sono state unite con esse: controllale e salva di nuovo.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>Le tue modifiche e quelle dell'eReader sono in conflitto</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>Alcune modifiche fatte qui dal {0} sono in conflitto con modifiche fatte sull'eReader. Scegli cosa tenere per ciascuna, poi premi Applica. Nulla viene scritto sull'eReader finché non salvi.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>Le modifiche in attesa dal {0} sono state fatte per un altro eReader Kobo, non per quello collegato ora.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>Applicale a questo eReader</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>Tienile per l'altro eReader</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>Scartale</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>Applica</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>Scarta le mie modifiche</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>"{0}" è stata rinominata "{1}" qui e "{2}" sull'eReader.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>"{0}" è stata eliminata qui ma modificata sull'eReader.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>"{0}" è stata modificata qui ma eliminata sull'eReader.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>C'è una collezione chiamata "{0}" qui e un'altra sull'eReader.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>Libri aggiunti a "{0}" qui non sono più sull'eReader: {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>Chiamala "{0}"</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>Eliminala</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>Tienila com'è sull'eReader</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>Tienila con le mie modifiche</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>Uniscile in una sola collezione</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>Tieni solo la mia</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>Tieni solo quella dell'eReader</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>Lasciali fuori</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>Tienili nella collezione</value>
   </data>
 </root>

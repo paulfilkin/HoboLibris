@@ -51,6 +51,29 @@ namespace HoboLibris.Services
         public static string DatabasePath(string root) => Path.Combine(root, ".kobo", "KoboReader.sqlite");
 
         /// <summary>
+        /// The eReader's serial number: the first field of ".kobo\version" ("N418...,4.38...,...").
+        /// Null when the file is missing or empty.
+        /// </summary>
+        public static string? Serial(string root)
+        {
+            try
+            {
+                var path = Path.Combine(root, ".kobo", "version");
+                if (!File.Exists(path))
+                {
+                    return null;
+                }
+                var first = File.ReadAllText(path).Split(',')[0].Trim();
+                return first.Length == 0 ? null : first;
+            }
+            catch (Exception ex)
+            {
+                LogManager.Debug($"Could not read the eReader's serial number: {ex.Message}");
+                return null;
+            }
+        }
+
+        /// <summary>
         /// A read-only connection that writes nothing to the eReader (immutable=1).  Not pooled: a
         /// pooled connection keeps the file open after it is closed, and Windows then refuses to
         /// eject the eReader because HoboLibris is using it.

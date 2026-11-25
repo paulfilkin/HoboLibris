@@ -21,6 +21,8 @@ namespace HoboLibris.Services
         public static string LibraryFile => Path.Combine(DataDir, "library.json");
         public static string SignInBrowserDir => Path.Combine(DataDir, "signin-browser");
         public static string BookListBackupDir => Path.Combine(DataDir, "Kobo book list backups");
+        /// <summary>The eReaders' collections as last read, with changes waiting for them (#32).</summary>
+        public static string CollectionsDir => Path.Combine(DataDir, "Collections");
 
         /// <summary>Where backups go unless the person chooses another folder: Documents\HoboLibris.</summary>
         public static string DefaultBackupRoot =>

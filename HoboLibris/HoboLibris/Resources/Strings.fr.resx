@@ -920,7 +920,7 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
     <value>Recharger</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>Relire les collections depuis la liseuse (les modifications non enregistrées sont perdues)</value>
+    <value>Relire les collections depuis la liseuse. Vos modifications sont conservées et fusionnées.</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>Enregistrer sur la liseuse Kobo (1 modification)</value>
@@ -935,13 +935,13 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
     <value>Enregistré sur la liseuse Kobo. Appuyez sur Éjecter la liseuse Kobo (ci-dessus) pour voir les nouvelles collections.</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>Liseuse Kobo éjectée : vous pouvez la débrancher et y consulter vos collections. Rebranchez-la et appuyez sur Recharger pour faire d'autres modifications.</value>
+    <value>Liseuse Kobo éjectée : vous pouvez la débrancher et y consulter vos collections. Vous pouvez continuer à les modifier ici ; les modifications attendent qu'elle soit rebranchée.</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>Votre liseuse Kobo est connectée. Une fois vos modifications enregistrées, éjectez-la ici pour qu'elle affiche les nouvelles collections.</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>Enregistrez ou annulez d'abord vos modifications, sinon elles n'atteindront pas la liseuse</value>
+    <value>Vos modifications ne sont pas encore enregistrées sur la liseuse : elles restent sur cet ordinateur jusqu'à ce qu'elle soit rebranchée</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>Déconnecter la liseuse en toute sécurité pour qu'elle affiche les nouvelles collections</value>
@@ -1702,5 +1702,86 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Obtenir d'autres outils</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>Hors ligne : la liseuse Kobo n'est pas connectée. Voici ses collections telles qu'elles étaient le {0}. Vos modifications sont conservées sur cet ordinateur et fusionnées avec la liseuse lorsqu'elle sera rebranchée.</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>Modifications en attente de la liseuse (1)</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>Modifications en attente de la liseuse ({0})</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>Vos modifications ont été fusionnées avec celles faites sur la liseuse. Vérifiez-les, puis enregistrez.</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>Les collections de la liseuse ont changé depuis leur lecture. Vos modifications ont été fusionnées avec elles : vérifiez-les et enregistrez de nouveau.</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>Vos modifications et celles de la liseuse se contredisent</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>Certaines modifications faites ici depuis le {0} contredisent des modifications faites sur la liseuse. Choisissez ce qu'il faut garder pour chacune, puis appuyez sur Appliquer. Rien n'est écrit sur la liseuse avant que vous enregistriez.</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>Les modifications en attente depuis le {0} ont été faites pour une autre liseuse Kobo, pas pour celle branchée maintenant.</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>Les appliquer à cette liseuse</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>Les garder pour l'autre liseuse</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>Les abandonner</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>Appliquer</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>Abandonner mes modifications</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>« {0} » a été renommée « {1} » ici et « {2} » sur la liseuse.</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>« {0} » a été supprimée ici mais modifiée sur la liseuse.</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>« {0} » a été modifiée ici mais supprimée sur la liseuse.</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>Il y a une collection « {0} » ici et une autre sur la liseuse.</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>Des livres ajoutés à « {0} » ici ne sont plus sur la liseuse : {1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>L'appeler « {0} »</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>La supprimer</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>La garder comme sur la liseuse</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>La garder avec mes modifications</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>En faire une seule collection</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>Garder seulement la mienne</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>Garder seulement celle de la liseuse</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>Les laisser de côté</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>Les garder dans la collection</value>
   </data>
 </root>

@@ -187,7 +187,8 @@ namespace HoboLibris.ViewModels
         public bool CanBackUpSelected => !KoboBusy && SelectedCount > 0;
         public bool CanDelete => !KoboBusy && DeleteCount > 0;
         public bool CanEjectReader => ReaderConnected && !Reader.Copying;
-        public bool CanEjectForCollections => CanEjectReader && Collections.Pending == 0;
+        // Changes not yet saved are kept on this computer (#32), so they don't stop the eject.
+        public bool CanEjectForCollections => CanEjectReader;
         public string EjectCollectionsHint => Collections.Pending > 0 ? Strings.Coll_EjectSaveFirst : Strings.Coll_EjectHint;
         public bool AllKoboSelected => KoboRows.Count > 0 && KoboRows.All(r => r.IsSelected);
         public string KoboEmptyText => Search.Length > 0 ? Strings.List_NoMatch : Strings.Kobo_NoBooksYet;
@@ -783,10 +784,7 @@ namespace HoboLibris.ViewModels
             {
                 return;
             }
-            if (Collections.Coll != null)
-            {
-                Collections.Unload(Strings.Coll_ReaderEjected);
-            }
+            Collections.Unload(Strings.Coll_ReaderEjected);
             _ = Reader.ScanAsync(StoreTitles(), Settings.KindleExtraDirs, Settings.DownloadDir, quiet: true);
         }
 
@@ -985,6 +983,16 @@ namespace HoboLibris.ViewModels
             ReaderConnectedFlag = Reader.Sources > 0;
             Send.SetReaderConnected(ReaderConnectedFlag && !Send.Sending);
             NotifyButtons();
+            // The Collections screen follows the eReader (#32): offline when it is unplugged, read
+            // again and merged with the changes waiting when it is plugged back in.
+            if (wasConnected && !ReaderConnectedFlag && Collections.Coll is { Offline: false })
+            {
+                Collections.Unload(null);
+            }
+            else if (!wasConnected && ReaderConnectedFlag && Collections.Tried && !Collections.HasConflicts && Collections.Coll is null or { Offline: true })
+            {
+                _ = Collections.LoadAsync();
+            }
             if (Send.Sending)
             {
                 RebuildKoboRows();

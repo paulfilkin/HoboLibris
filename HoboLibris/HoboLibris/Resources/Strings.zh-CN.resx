@@ -920,7 +920,7 @@
     <value>重新加载</value>
   </data>
   <data name="Coll_ReloadHint" xml:space="preserve">
-    <value>再次从电子书阅读器读取收藏集（未保存的更改将丢失）</value>
+    <value>再次从电子书阅读器读取收藏集（您的更改会保留并合并）</value>
   </data>
   <data name="Coll_SaveButtonOne" xml:space="preserve">
     <value>保存到 Kobo 电子书阅读器（1 项更改）</value>
@@ -935,13 +935,13 @@
     <value>已保存到 Kobo 电子书阅读器。按“弹出 Kobo 电子书阅读器”（上方）即可查看新的收藏集。</value>
   </data>
   <data name="Coll_ReaderEjected" xml:space="preserve">
-    <value>Kobo 电子书阅读器已弹出：您可以拔下它，在上面查看您的收藏集。要进行更多更改，请重新插入并按“重新加载”。</value>
+    <value>Kobo 电子书阅读器已弹出：您可以拔下它，在上面查看您的收藏集。您可以继续在这里更改，更改会等到重新插入后再处理。</value>
   </data>
   <data name="Coll_ConnectedBanner" xml:space="preserve">
     <value>您的 Kobo 电子书阅读器已连接。保存更改后，请在此处弹出它，它就会显示新的收藏集。</value>
   </data>
   <data name="Coll_EjectSaveFirst" xml:space="preserve">
-    <value>请先保存或撤销您的更改，否则它们不会写入电子书阅读器</value>
+    <value>您的更改尚未保存到电子书阅读器：它们会保留在这台电脑上，直到重新插入电子书阅读器</value>
   </data>
   <data name="Coll_EjectHint" xml:space="preserve">
     <value>安全断开电子书阅读器，以便它显示新的收藏集</value>
@@ -1702,5 +1702,86 @@
   </data>
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>获取更多工具</value>
+  </data>
+  <data name="Coll_OfflineBanner" xml:space="preserve">
+    <value>离线：Kobo 电子书阅读器未连接。这是它在 {0} 时的收藏集。您的更改保存在这台电脑上，并会在重新插入电子书阅读器时与其合并。</value>
+  </data>
+  <data name="Coll_WaitingButtonOne" xml:space="preserve">
+    <value>等待电子书阅读器的更改（1）</value>
+  </data>
+  <data name="Coll_WaitingButton" xml:space="preserve">
+    <value>等待电子书阅读器的更改（{0}）</value>
+  </data>
+  <data name="Coll_Merged" xml:space="preserve">
+    <value>您的更改已与电子书阅读器上的更改合并。请检查后保存。</value>
+  </data>
+  <data name="Coll_MergedChanged" xml:space="preserve">
+    <value>读取后电子书阅读器上的收藏集发生了变化。您的更改已与其合并：请检查后再次保存。</value>
+  </data>
+  <data name="Coll_ConflictsTitle" xml:space="preserve">
+    <value>您的更改与电子书阅读器上的更改有冲突</value>
+  </data>
+  <data name="Coll_ConflictsIntro" xml:space="preserve">
+    <value>自 {0} 以来在此处所做的部分更改与电子书阅读器上的更改冲突。请为每一项选择要保留的内容，然后按“应用”。在您保存之前，不会向电子书阅读器写入任何内容。</value>
+  </data>
+  <data name="Coll_ConflictOtherReader" xml:space="preserve">
+    <value>自 {0} 起等待中的更改是为另一台 Kobo 电子书阅读器所做的，而不是现在插入的这台。</value>
+  </data>
+  <data name="Coll_ApplyHere" xml:space="preserve">
+    <value>应用到这台电子书阅读器</value>
+  </data>
+  <data name="Coll_KeepForOther" xml:space="preserve">
+    <value>留给另一台电子书阅读器</value>
+  </data>
+  <data name="Coll_DiscardThem" xml:space="preserve">
+    <value>丢弃这些更改</value>
+  </data>
+  <data name="Coll_ApplyChoices" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Coll_DiscardMine" xml:space="preserve">
+    <value>丢弃我的更改</value>
+  </data>
+  <data name="Coll_ConflictRenamed" xml:space="preserve">
+    <value>“{0}”在此处被重命名为“{1}”，在电子书阅读器上被重命名为“{2}”。</value>
+  </data>
+  <data name="Coll_ConflictDeletedHere" xml:space="preserve">
+    <value>“{0}”在此处被删除，但在电子书阅读器上被更改。</value>
+  </data>
+  <data name="Coll_ConflictDeletedThere" xml:space="preserve">
+    <value>“{0}”在此处被更改，但在电子书阅读器上被删除。</value>
+  </data>
+  <data name="Coll_ConflictSameName" xml:space="preserve">
+    <value>此处和电子书阅读器上各有一个名为“{0}”的收藏集。</value>
+  </data>
+  <data name="Coll_ConflictBooksGone" xml:space="preserve">
+    <value>在此处添加到“{0}”的图书已不在电子书阅读器上：{1}</value>
+  </data>
+  <data name="Coll_Use" xml:space="preserve">
+    <value>命名为“{0}”</value>
+  </data>
+  <data name="Coll_DeleteIt" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Coll_KeepEreaders" xml:space="preserve">
+    <value>按电子书阅读器上的保留</value>
+  </data>
+  <data name="Coll_KeepMine" xml:space="preserve">
+    <value>保留我的更改</value>
+  </data>
+  <data name="Coll_MergeBoth" xml:space="preserve">
+    <value>合并为一个收藏集</value>
+  </data>
+  <data name="Coll_KeepOnlyMine" xml:space="preserve">
+    <value>只保留我的</value>
+  </data>
+  <data name="Coll_KeepOnlyEreaders" xml:space="preserve">
+    <value>只保留电子书阅读器上的</value>
+  </data>
+  <data name="Coll_LeaveOut" xml:space="preserve">
+    <value>不加入</value>
+  </data>
+  <data name="Coll_KeepInCollection" xml:space="preserve">
+    <value>保留在收藏集中</value>
   </data>
 </root>
