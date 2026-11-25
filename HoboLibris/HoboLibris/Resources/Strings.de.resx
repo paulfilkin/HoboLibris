@@ -1678,7 +1678,7 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
     <value>Weitere Werkzeuge holen</value>
   </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
-    <value>Offline: Der Kobo eReader ist nicht angeschlossen. Dies sind seine Sammlungen vom {0}. Ihre Änderungen bleiben auf diesem Computer und werden mit dem eReader zusammengeführt, sobald er wieder angeschlossen ist.</value>
+    <value>Offline: Der Kobo eReader ist nicht angeschlossen. Zum Verbinden schließen Sie ihn an und tippen auf seinem Bildschirm auf „Verbinden“. Dies sind seine Sammlungen vom {0}. Ihre Änderungen bleiben auf diesem Computer und werden mit dem eReader zusammengeführt, sobald er wieder angeschlossen ist.</value>
   </data>
   <data name="Coll_WaitingButtonOne" xml:space="preserve">
     <value>Änderungen warten auf den eReader (1)</value>

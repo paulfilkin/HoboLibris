@@ -1704,7 +1704,7 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
     <value>Obtenir d'autres outils</value>
   </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
-    <value>Hors ligne : la liseuse Kobo n'est pas connectée. Voici ses collections telles qu'elles étaient le {0}. Vos modifications sont conservées sur cet ordinateur et fusionnées avec la liseuse lorsqu'elle sera rebranchée.</value>
+    <value>Hors ligne : la liseuse Kobo n'est pas connectée. Pour la connecter, branchez-la et appuyez sur Connecter sur son écran. Voici ses collections telles qu'elles étaient le {0}. Vos modifications sont conservées sur cet ordinateur et fusionnées avec la liseuse lorsqu'elle sera rebranchée.</value>
   </data>
   <data name="Coll_WaitingButtonOne" xml:space="preserve">
     <value>Modifications en attente de la liseuse (1)</value>
