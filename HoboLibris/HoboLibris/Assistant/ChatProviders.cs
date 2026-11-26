@@ -27,7 +27,20 @@ namespace HoboLibris.Assistant
     /// <summary>The conversation, independent of the provider.</summary>
     public abstract record ChatTurn;
 
-    public sealed record UserTurn(string Text) : ChatTurn;
+    /// <summary>
+    /// The person's message, with HoboLibris's state (screen, connections, counts) as it was when they sent it.  The state
+    /// goes with the message rather than in the system prompt, so the system prompt and every earlier turn stay the same
+    /// from step to step and a hosted service can read them from its cache (#77).  A model on this computer is sent the
+    /// turns without it and has the state in its prompt instead (AssistantSession.ShortPrompt).
+    /// </summary>
+    public sealed record UserTurn(string Text, string? State = null) : ChatTurn
+    {
+        /// <summary>
+        /// The message as the model is sent it: what the person wrote, then the state when there is one.  Put first, the
+        /// context led qwen3:8b to give an empty reply in Mycelia (26 November 2026).
+        /// </summary>
+        public string ForModel => State is null ? Text : $"{Text}\n\n[From HoboLibris, not the person: the state when this message was sent (JSON): {State}]";
+    }
 
     public sealed record AssistantTurn(string Text, IReadOnlyList<ToolCall> ToolCalls) : ChatTurn;
 
@@ -37,6 +50,16 @@ namespace HoboLibris.Assistant
     {
         /// <summary>Token counts and times, where the service gives them (Ollama).</summary>
         public ReplyStats? Stats { get; init; }
+
+        /// <summary>
+        /// Input tokens read from the service's cache and written to it (#77), apart from InputTokens: Anthropic counts
+        /// the three separately; for OpenAI the cached tokens are taken out of InputTokens.  OpenAI writes none it reports.
+        /// </summary>
+        public int CacheRead { get; init; }
+        public int CacheWrite { get; init; }
+
+        /// <summary>One line for the log: the input at full price, from the cache and written to it, and the output.</summary>
+        public string Usage => $"input {InputTokens} tokens at full price, {CacheRead} read from the cache, {CacheWrite} written to it, output {OutputTokens}";
     }
 
     /// <summary>
@@ -212,6 +235,10 @@ namespace HoboLibris.Assistant
             }
         }
 
+        /// <summary>A token count from a service's usage, 0 when it isn't there or isn't a number.</summary>
+        internal static int Count(JsonObject? usage, string name) =>
+            usage?[name] is JsonValue value && value.TryGetValue(out int count) ? count : 0;
+
         internal static async Task<JsonObject> PostAsync(HttpRequestMessage request, string providerName, CancellationToken cancel)
         {
             HttpResponseMessage response;
@@ -273,8 +300,8 @@ namespace HoboLibris.Assistant
 
         public AnthropicChatProvider(ChatProviderOptions options) => _options = options;
 
-        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
-            Action<string>? onText = null)
+        /// <summary>The request: the system prompt, the conversation and the tools, with the cache marks.</summary>
+        public static JsonObject Body(ChatProviderOptions options, string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools)
         {
             var messages = new JsonArray();
             void Add(string role, JsonArray content)
@@ -298,7 +325,7 @@ namespace HoboLibris.Assistant
                 switch (turn)
                 {
                     case UserTurn user:
-                        Add("user", new JsonArray { new JsonObject { ["type"] = "text", ["text"] = user.Text } });
+                        Add("user", new JsonArray { new JsonObject { ["type"] = "text", ["text"] = user.ForModel } });
                         break;
                     case AssistantTurn assistant:
                         var blocks = new JsonArray();
@@ -332,11 +359,28 @@ namespace HoboLibris.Assistant
                 }
             }
 
+            // Prompt caching (#77), as Mycelia does it: the service reads the tools, then the system prompt, then the messages.
+            // A mark at the end of the system prompt keeps the tools and the prompt, which don't change within a conversation;
+            // it lasts an hour, so they are read rather than written again after a pause of more than five minutes.  A mark on
+            // the last block of the last message keeps the conversation so far, so the next step reads it all from the cache.
+            // The longer mark has to come first.
+            if (messages.Count > 0 && messages[^1]!["content"] is JsonArray { Count: > 0 } last)
+            {
+                last[^1]!["cache_control"] = new JsonObject { ["type"] = "ephemeral" };
+            }
             var body = new JsonObject
             {
-                ["model"] = _options.Model,
-                ["max_tokens"] = _options.MaxTokens,
-                ["system"] = system,
+                ["model"] = options.Model,
+                ["max_tokens"] = options.MaxTokens,
+                ["system"] = new JsonArray
+                {
+                    new JsonObject
+                    {
+                        ["type"] = "text",
+                        ["text"] = system,
+                        ["cache_control"] = new JsonObject { ["type"] = "ephemeral", ["ttl"] = "1h" },
+                    },
+                },
                 ["messages"] = messages,
             };
             if (tools.Count > 0)
@@ -348,11 +392,16 @@ namespace HoboLibris.Assistant
                     ["input_schema"] = t.InputSchema.DeepClone(),
                 }).ToArray());
             }
+            return body;
+        }
 
+        public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
+            Action<string>? onText = null)
+        {
             string url = string.IsNullOrWhiteSpace(_options.Endpoint) ? ChatProviders.AnthropicEndpoint : _options.Endpoint.Trim();
             using var request = new HttpRequestMessage(HttpMethod.Post, url)
             {
-                Content = new StringContent(body.ToJsonString(), Encoding.UTF8, "application/json"),
+                Content = new StringContent(Body(_options, system, turns, tools).ToJsonString(), Encoding.UTF8, "application/json"),
             };
             request.Headers.Add("x-api-key", _options.ApiKey);
             request.Headers.Add("anthropic-version", ChatProviders.AnthropicVersion);
@@ -377,8 +426,13 @@ namespace HoboLibris.Assistant
                     }
                 }
             }
+            var usage = json["usage"] as JsonObject;
             return new ChatReply(text.ToString(), calls, json["stop_reason"]?.GetValue<string>() ?? string.Empty,
-                json["usage"]?["input_tokens"]?.GetValue<int>() ?? 0, json["usage"]?["output_tokens"]?.GetValue<int>() ?? 0);
+                ChatProviders.Count(usage, "input_tokens"), ChatProviders.Count(usage, "output_tokens"))
+            {
+                CacheRead = ChatProviders.Count(usage, "cache_read_input_tokens"),
+                CacheWrite = ChatProviders.Count(usage, "cache_creation_input_tokens"),
+            };
         }
     }
 
@@ -400,7 +454,7 @@ namespace HoboLibris.Assistant
                 switch (turn)
                 {
                     case UserTurn user:
-                        messages.Add(new JsonObject { ["role"] = "user", ["content"] = user.Text });
+                        messages.Add(new JsonObject { ["role"] = "user", ["content"] = user.ForModel });
                         break;
                     case AssistantTurn assistant:
                         // A reply with neither text nor tool calls (one cut short by the token limit) is refused by the API
@@ -487,9 +541,15 @@ namespace HoboLibris.Assistant
                         call["function"]?["name"]?.GetValue<string>() ?? string.Empty, parsed));
                 }
             }
+            // OpenAI caches the start of a request by itself (from 1,024 tokens); the cached part is within prompt_tokens.
+            var usage = json["usage"] as JsonObject;
+            int cached = ChatProviders.Count(usage?["prompt_tokens_details"] as JsonObject, "cached_tokens");
             return new ChatReply(reply["content"]?.GetValue<string>() ?? string.Empty, calls,
                 choice["finish_reason"]?.GetValue<string>() ?? string.Empty,
-                json["usage"]?["prompt_tokens"]?.GetValue<int>() ?? 0, json["usage"]?["completion_tokens"]?.GetValue<int>() ?? 0);
+                ChatProviders.Count(usage, "prompt_tokens") - cached, ChatProviders.Count(usage, "completion_tokens"))
+            {
+                CacheRead = cached,
+            };
         }
     }
 }

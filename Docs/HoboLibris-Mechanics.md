@@ -166,13 +166,14 @@ Added in 0.1.6.  The code is in `HoboLibris\Assistant\`; it was ported from Myce
 * Ollama on this computer is called on its own chat API, `/api/chat` on the host and port given in Settings (0.1.9, #47, `OllamaChatProvider.cs`), since only that one sets the context size and turns thinking off.  The context size (`num_ctx`) is 8,192 tokens unless changed in Settings (2,048 to 131,072); Ollama's own 4,096 dropped instructions without saying so.  Thinking is off unless turned on.  The reply is streamed, and each request's token counts and times go in the log.
 * Before a request to Ollama, the conversation is fitted to the context (0.1.10, #48, `ContextFit.cs`): old tool results are left out first, then whole old exchanges, oldest first.  The system prompt, the tools and the current request are always sent, though a result in the current request that is too large is cut.  The conversation itself is kept whole.
 * A model on this computer gets a shorter system prompt and only some tools (`ToolGroups.cs`): the group for the screen the person is on, the e-book sources and `show_screen`, and it asks for another group with `use_tools`.  With `qwen3:8b` this took the first request from 4,029 to 2,157 tokens.  Hosted models get every tool.
+* The state (screen, connections, book counts, collections, sources) goes after the person's message for a hosted model, as it was when they sent it, and is saved with the message (#77).  Their system prompt then stays the same, so Anthropic and OpenAI read the start of each request from their caches: Anthropic's system prompt is marked for an hour and the last message for five minutes.  A model on this computer has the state in its shorter prompt instead.  Each hosted request's cache counts go in the log.
 * The Model list is read from the service once it can be reached, never from a fixed list (0.1.7): `GET {base}/models` for OpenAI-compatible services, `https://api.anthropic.com/v1/models` with the key for Anthropic, and OpenAI's list filtered to chat models (`gpt-`, `o1`, `o3`, `o4`, `chatgpt`, without audio, image, search or embedding models).  Before a request to a service on this computer, a model it doesn't have is reported with the ones it has.
 * Ollama (`localhost:11434`): HoboLibris can run `ollama serve` itself with no window (`OllamaServer.cs`), from Settings or on the first request.  A Windows job object with kill-on-close ties the server to HoboLibris, so it stops when HoboLibris closes or crashes; a server started any other way is never stopped.  On the test machine, Ollama 0.40.17's own app never started its server.
 * Keys are encrypted with DPAPI (`SecretStore.cs`, prefix `dpapi:`) and added to requests by the app; the model never sees them.
 
 ### Tools and approvals
 
-* 29 tools: 25 for the app's own screens (`HoboTools.cs`), which call the same view-model code as the screens, and 4 for e-book sources (`SourceTools.cs`), plus `use_tools` for a model on this computer.  Descriptions for the model are in English; titles and approval sentences are translated.
+* 29 tools: 25 for the app's own screens (`HoboTools.cs`), which call the same view-model code as the screens, and 4 for e-book sources (`SourceTools.cs`), plus `use_tools` for a model on this computer and `get_state` for a hosted one.  Descriptions for the model are in English; titles and approval sentences are translated.
 * Each tool is Allow, Ask first or Off (Settings, Built-in tools).  Tools that change something ask by default.  Saving collections, sending to the eReader, deleting backups, removing articles, taking books off the wishlist and removing previews always ask, whatever the settings, and their cards have no Always allow.
 * A tool's request is checked before its approval card is shown (0.1.9, #46), so the person isn't asked to approve something that would fail.  A declined card tells the model so.
 * Collection tools only change the Collections screen's pending changes; nothing reaches the eReader until `save_collections`.
@@ -232,6 +233,30 @@ Close every copy of HoboLibris first: they share the settings and the conversati
 * Nothing is marked for Anthropic's cache, so all 168,347 tokens were at full price.  OpenAI cached 59,648 of 97,842 by itself.
 * The system prompt changed twice within the run, which starts the cache again: after `list_collections` (the state in it changed) and after the switch to the Kindle tab.  #77 moves the state out of the system prompt.
 * `list_send`'s result was the largest: with about 146 files in the Kobo folder it took Anthropic's request from 9,058 to 26,976 tokens, and every later request in the conversation carries it.
+
+**State on the message and cache marks (#77), 26 November 2026**, measured on the uncommitted change against `main` at `839e5c9`, in the same conditions.  The state is now sent after the person's message, and the system prompt for hosted models no longer holds it.  Anthropic's system prompt carries a one-hour cache mark, and the last message a five-minute one.  Costs are for `claude-sonnet-5-5` at $2 a million input tokens, $0.10 read from the cache, $2.50 written for five minutes, $4 written for an hour and $10 output.
+
+| Six questions | Requests | Input at full price | Read from cache | Written to cache | Output | Cost |
+|---|---|---|---|---|---|---|
+| `claude-sonnet-5-5`, before | 11 | 168,347 | 0 | 0 | 992 | $0.347 |
+| `claude-sonnet-5-5`, after | 11 | 34 | 147,562 | 28,743 | 997 | $0.109 |
+| `gpt-5-mini`, before | 11 | 38,194 | 59,648 | - | 2,536 | |
+| `gpt-5-mini`, after | 11 | 18,747 | 84,352 | - | 2,474 | |
+| `qwen3:8b`, before (two runs) | 12, 15 | 41,514, 54,552 | - | - | 413, 478 | |
+| `qwen3:8b`, after (two runs) | 15, 13 | 54,525, 45,518 | - | - | 478, 441 | |
+
+| Paused set (370 seconds between questions) | Requests | Input at full price | Read from cache | Written to cache | Output | Cost |
+|---|---|---|---|---|---|---|
+| `claude-sonnet-5-5`, before | 7 | 95,071 | 0 | 0 | 734 | $0.198 |
+| `claude-sonnet-5-5`, after | 7 | 22 | 57,849 | 40,647 | 913 | $0.117 |
+| `gpt-5-mini`, before | 7 | 14,019 | 40,832 | - | 1,864 | |
+| `gpt-5-mini`, after | 7 | 14,181 | 43,136 | - | 2,598 | |
+
+* No request now differs from the one before until its new turns: the change of tab no longer starts the cache again.  On Anthropic every step after the first reads the tools, the prompt and the conversation so far; the first step of the six read nothing because the new prompt had never been sent.
+* After each pause, Anthropic read the tools and prompt (7,907 tokens) from the hour's cache and wrote the conversation again, since the five-minute mark had lapsed.  The paused run's first request read the prompt the six-question run had cached about eight minutes before; in use, the same happens between conversations within the hour.
+* OpenAI caches by itself, and now reads more of each request from its cache in the six questions.  Over pauses its cache had mostly lapsed, so the paused set is about as before.
+* `qwen3:8b` is sent the same requests as before: compared byte for byte, run 2 differed only in tool call ids and the model's own wording.  In that run it gave two empty replies to question 6 and the pane said so (#74); on the old code its run 2 had one, and recovered.  Every hosted answer was as before.
+* In the paused baseline on Anthropic, two stray characters were typed into the box before question 3 (the driver now checks the text before Send).
 
 ## Display
 

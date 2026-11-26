@@ -57,7 +57,8 @@ namespace HoboLibris.Tests
         public void SaveSettings() => Saves++;
         public List<AssistantTool> ToolList { get; } = new();
         public IReadOnlyList<AssistantTool> Tools => ToolList;
-        public JsonObject Context() => new() { ["screen"] = "back_up" };
+        public string Screen { get; set; } = "back_up";
+        public JsonObject Context() => new() { ["screen"] = Screen };
         public string ContextLine() => "Kobo";
 
         /// <summary>A tool that counts its runs and answers "ran", or the outcome given.</summary>
@@ -476,6 +477,115 @@ namespace HoboLibris.Tests
         public void ClaimedChangesAreFoundAndOffersAreNot(string reply, bool claims)
         {
             Assert.Equal(claims, AssistantSession.ClaimsChanges(reply));
+        }
+
+        // #77: the state goes on the person's message, so a hosted model's system prompt stays the same and is cached.
+        private static TestHost Hosted()
+        {
+            var host = new TestHost();
+            host.Settings.Provider = ModelProvider.Anthropic;
+            host.Settings.Endpoint = "";
+            host.Settings.SetApiKey(ModelProvider.Anthropic, "sk-test-123");
+            return host;
+        }
+
+        [Fact]
+        public void TheStateComesAfterThePersonsText()
+        {
+            Assert.Equal("Hello", new UserTurn("Hello").ForModel);
+            var turn = new UserTurn("Hello", "{\"screen\":\"kindle\"}");
+            Assert.StartsWith("Hello\n\n[From HoboLibris, not the person: the state when this message was sent (JSON): {\"screen\":\"kindle\"}]", turn.ForModel);
+        }
+
+        [Fact]
+        public async Task AHostedModelGetsTheStateOnEachMessageAndTheSamePrompt()
+        {
+            var host = Hosted();
+            host.AddTool("list_books");
+            var model = new ScriptedModel(ScriptedModel.Call("list_books"), ScriptedModel.Text("Two books."), ScriptedModel.Text("Nothing on Kindle."));
+            var session = Session(host, model);
+
+            await session.SendAsync("What books do I have?");
+            host.Screen = "kindle";
+            await session.SendAsync("And on my Kindle?");
+
+            Assert.Equal(3, model.Calls);
+            Assert.All(model.Systems, s => Assert.Equal(model.Systems[0], s));
+            Assert.DoesNotContain("back_up", model.Systems[0]);
+            var users = model.Sent[2].OfType<UserTurn>().ToList();
+            Assert.Contains("\"back_up\"", users[0].State);
+            Assert.Contains("\"kindle\"", users[1].State);
+            // The first message is sent with the same state on every later step.
+            Assert.Equal(model.Sent[0].OfType<UserTurn>().Single(), users[0]);
+            Assert.Contains("get_state", model.ToolNames[0]);
+        }
+
+        [Fact]
+        public async Task GetStateAnswersWithTheStateNow()
+        {
+            var host = Hosted();
+            var model = new ScriptedModel(ScriptedModel.Call("get_state"), ScriptedModel.Text("You're on the Kindle tab."));
+            var session = Session(host, model);
+            host.Screen = "kindle";
+
+            await session.SendAsync("Where am I?");
+
+            var result = Assert.IsType<ToolResultsTurn>(session.Turns[2]).Results.Single();
+            Assert.False(result.IsError);
+            Assert.Contains("\"kindle\"", result.Content);
+        }
+
+        [Fact]
+        public async Task AModelOnThisComputerHasTheStateInItsPromptNotOnTheMessage()
+        {
+            var host = new TestHost();
+            host.AddTool("list_books");
+            var model = new ScriptedModel(ScriptedModel.Text("Hello."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Hello");
+
+            Assert.Contains("\"back_up\"", model.Systems[0]);
+            Assert.Null(model.Sent[0].OfType<UserTurn>().Single().State);
+            Assert.DoesNotContain("get_state", model.ToolNames[0]);
+            // The conversation keeps it, for a hosted model chosen later.
+            Assert.NotNull(session.Turns.OfType<UserTurn>().Single().State);
+        }
+
+        [Fact]
+        public void AnthropicCachesThePromptForAnHourAndTheConversationSoFar()
+        {
+            var options = new ChatProviderOptions(ModelProvider.Anthropic, "claude-sonnet-5-5", "sk-test-123", "", 1000);
+            var turns = new ChatTurn[]
+            {
+                new UserTurn("What books do I have?", "{\"screen\":\"back_up\"}"),
+                new AssistantTurn("", new[] { new ToolCall("c1", "list_books", new JsonObject()) }),
+                new ToolResultsTurn(new[] { new ToolResult("c1", "list_books", "[]", false) }),
+            };
+            var body = AnthropicChatProvider.Body(options, "The prompt.", turns, new[] { new ToolSpec("list_books", "List.", Schema.Object()) });
+
+            var system = Assert.IsType<JsonArray>(body["system"]).Single()!;
+            Assert.Equal("The prompt.", system["text"]!.GetValue<string>());
+            Assert.Equal("1h", system["cache_control"]!["ttl"]!.GetValue<string>());
+            var messages = Assert.IsType<JsonArray>(body["messages"]);
+            Assert.Contains("[From HoboLibris, not the person", messages[0]!["content"]![0]!["text"]!.GetValue<string>());
+            var lastBlock = messages[^1]!["content"]!.AsArray()[^1]!;
+            Assert.Equal("tool_result", lastBlock["type"]!.GetValue<string>());
+            Assert.Equal("ephemeral", lastBlock["cache_control"]!["type"]!.GetValue<string>());
+            Assert.Null(lastBlock["cache_control"]!["ttl"]);
+            // Only those two marks.
+            Assert.Equal(2, System.Text.RegularExpressions.Regex.Matches(body.ToJsonString(), "cache_control").Count);
+        }
+
+        [Fact]
+        public void TheStateIsKeptWithASavedConversation()
+        {
+            var turn = new UserTurn("Hello", "{\"screen\":\"send\"}");
+            var saved = ConversationStore.ToSaved(turn);
+            var json = JsonSerializer.Serialize(saved);
+            Assert.Equal(turn, ConversationStore.FromSaved(JsonSerializer.Deserialize<SavedTurn>(json)!));
+            // A conversation saved before #77 has no state and still loads.
+            Assert.Equal(new UserTurn("Hello"), ConversationStore.FromSaved(new SavedTurn { Kind = "user", Text = "Hello" }));
         }
 
         [Fact]

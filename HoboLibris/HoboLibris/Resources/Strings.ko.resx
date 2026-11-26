@@ -1739,6 +1739,9 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>다른 도구 가져오기</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>현재 상태 확인</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>오프라인: Kobo 전자책 리더가 연결되어 있지 않습니다. 연결하려면 케이블을 꽂고 화면에서 연결을 누르세요. {0} 당시의 컬렉션입니다. 변경 사항은 이 컴퓨터에 보관되며 리더를 다시 연결하면 리더와 병합됩니다.</value>
   </data>
