@@ -1739,6 +1739,9 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Get more tools</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>Check the current state</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>Working offline: the Kobo eReader isn't connected. To connect it, plug it in and tap Connect on its screen. These are its collections as they were on {0}. Your changes are kept on this computer and merged with the eReader when it is plugged in again.</value>
   </data>

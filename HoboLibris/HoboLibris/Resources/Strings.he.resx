@@ -1713,6 +1713,9 @@
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>קבלת כלים נוספים</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>בדיקת המצב הנוכחי</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>לא מחובר: קורא הספרים Kobo אינו מחובר. כדי לחבר אותו, יש לחבר את הכבל וללחוץ על "התחברות" במסך שלו. אלה האוספים שלו כפי שהיו ב-{0}. השינויים נשמרים במחשב הזה ומשולבים עם הקורא כשהוא מחובר שוב.</value>
   </data>

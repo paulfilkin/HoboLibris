@@ -1739,6 +1739,9 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Obtener más herramientas</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>Consultar el estado actual</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>Sin conexión: el Kobo eReader no está conectado. Para conectarlo, enchúfelo y toque Conectar en su pantalla. Estas son sus colecciones tal como estaban el {0}. Sus cambios se guardan en este equipo y se combinan con el eReader cuando vuelva a conectarlo.</value>
   </data>

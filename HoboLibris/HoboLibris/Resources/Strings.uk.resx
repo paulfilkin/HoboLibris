@@ -1713,6 +1713,9 @@
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Отримати інші інструменти</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>Перевірити поточний стан</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>Офлайн: рідер Kobo не підключено. Щоб підключити його, під’єднайте кабель і торкніться «Підключити» на його екрані. Це його колекції станом на {0}. Ваші зміни зберігаються на цьому комп’ютері й об’єднуються з рідером, коли ви знову його підключите.</value>
   </data>

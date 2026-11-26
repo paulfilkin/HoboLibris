@@ -1713,6 +1713,9 @@
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>الحصول على أدوات أخرى</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>التحقق من الحالة الحالية</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>دون اتصال: قارئ Kobo الإلكتروني غير موصول. لتوصيله، صِله بالكمبيوتر واضغط على اتصال على شاشته. هذه مجموعاته كما كانت في {0}. تُحفظ تغييراتك على هذا الكمبيوتر وتُدمج مع القارئ الإلكتروني عند توصيله مرة أخرى.</value>
   </data>

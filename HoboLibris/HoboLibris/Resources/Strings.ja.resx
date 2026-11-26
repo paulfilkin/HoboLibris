@@ -1739,6 +1739,9 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>ほかのツールを使う</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>現在の状態を確認</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>オフライン: Kobo 電子書籍リーダーが接続されていません。接続するには、ケーブルをつなぎ、画面の [接続] をタップしてください。{0} 時点のコレクションを表示しています。変更はこのコンピューターに保存され、電子書籍リーダーをもう一度接続したときに統合されます。</value>
   </data>

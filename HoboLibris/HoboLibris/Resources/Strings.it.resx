@@ -1739,6 +1739,9 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Ottieni altri strumenti</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>Controlla lo stato attuale</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>Offline: l'eReader Kobo non è collegato. Per collegarlo, attacca il cavo e tocca Connetti sul suo schermo. Queste sono le sue collezioni com'erano il {0}. Le tue modifiche restano su questo computer e vengono unite con l'eReader quando lo ricolleghi.</value>
   </data>

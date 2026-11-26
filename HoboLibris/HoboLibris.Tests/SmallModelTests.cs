@@ -280,7 +280,9 @@ namespace HoboLibris.Tests
 
             await session.SendAsync("Hello");
 
-            Assert.Equal(6, model.ToolNames[0].Count);
+            // The six, and get_state (#77).
+            Assert.Equal(7, model.ToolNames[0].Count);
+            Assert.Contains("get_state", model.ToolNames[0]);
             Assert.DoesNotContain("use_tools", model.ToolNames[0]);
             Assert.Contains("How to work:", model.Systems[0]);
         }

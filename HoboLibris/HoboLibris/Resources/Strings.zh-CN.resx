@@ -1739,6 +1739,9 @@
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>获取更多工具</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>查看当前状态</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>离线：Kobo 电子书阅读器未连接。要连接，请插入电子书阅读器并在其屏幕上点按“连接”。这是它在 {0} 时的收藏集。您的更改保存在这台电脑上，并会在重新插入电子书阅读器时与其合并。</value>
   </data>

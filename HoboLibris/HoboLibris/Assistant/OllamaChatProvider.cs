@@ -84,7 +84,7 @@ namespace HoboLibris.Assistant
                 switch (turn)
                 {
                     case UserTurn user:
-                        messages.Add(new JsonObject { ["role"] = "user", ["content"] = user.Text });
+                        messages.Add(new JsonObject { ["role"] = "user", ["content"] = user.ForModel });
                         break;
                     case AssistantTurn assistant:
                         if (assistant.Text.Length == 0 && assistant.ToolCalls.Count == 0)

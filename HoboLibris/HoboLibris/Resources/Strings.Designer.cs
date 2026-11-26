@@ -2766,6 +2766,11 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_Tool_UseTools", resourceCulture); }
         }
 
+        /// <summary>Looks up a localized string similar to Check the current state.</summary>
+        public static string Asst_Tool_GetState {
+            get { return ResourceManager.GetString("Asst_Tool_GetState", resourceCulture); }
+        }
+
         /// <summary>Looks up a localized string similar to Working offline: the Kobo eReader isn't connected. To connect it, plug it in and tap Connect on its screen. These are....</summary>
         public static string Coll_OfflineBanner {
             get { return ResourceManager.GetString("Coll_OfflineBanner", resourceCulture); }

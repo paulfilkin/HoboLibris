@@ -1713,6 +1713,9 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_Tool_UseTools" xml:space="preserve">
     <value>Obter mais ferramentas</value>
   </data>
+  <data name="Asst_Tool_GetState" xml:space="preserve">
+    <value>Consultar o estado atual</value>
+  </data>
   <data name="Coll_OfflineBanner" xml:space="preserve">
     <value>Offline: o eReader Kobo não está ligado. Para o ligar, ligue o cabo e toque em Ligar no ecrã. Estas são as suas coleções tal como estavam em {0}. As suas alterações ficam guardadas neste computador e são combinadas com o eReader quando o voltar a ligar.</value>
   </data>
