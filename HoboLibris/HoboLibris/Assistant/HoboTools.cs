@@ -227,7 +227,11 @@ namespace HoboLibris.Assistant
                     await Collections.SaveAsync();
                     return Collections.Error is { } error
                         ? new ToolOutcome(error, true)
-                        : new ToolOutcome($"Saved {count} changes to the eReader.", Summary: Strings.Coll_Saved);
+                        : new ToolOutcome($"Saved {count} changes to the eReader.", Summary: Strings.Coll_Saved)
+                        {
+                            Changed = Strings.Asst_Chg_CollectionsSaved,
+                            ChangeKey = CollectionsChangeKey,
+                        };
                 },
             },
 
@@ -284,7 +288,7 @@ namespace HoboLibris.Assistant
                     return _main.Reader.Ejected
                         ? new ToolOutcome("Ejected. The eReader can be unplugged."
                             + (waiting > 0 ? $" The {waiting} collection changes weren't saved to it: they are kept on this computer until it is plugged in again." : ""),
-                            Summary: Strings.Asst_Ejected)
+                            Summary: Strings.Asst_Ejected) { Changed = Strings.Asst_Chg_Ejected }
                         : new ToolOutcome(_main.Error ?? "Windows didn't eject the eReader; something may still be using it.", true);
                 },
             },
@@ -391,7 +395,10 @@ namespace HoboLibris.Assistant
                     {
                         json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
                     }
-                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_ArticlesRemoved, removed.Count));
+                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_ArticlesRemoved, removed.Count))
+                    {
+                        Changed = string.Format(Strings.Asst_ArticlesRemoved, removed.Count),
+                    };
                 },
             },
 
@@ -507,7 +514,10 @@ namespace HoboLibris.Assistant
                     {
                         json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
                     }
-                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_PreviewsRemoved, removed.Count));
+                    return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_PreviewsRemoved, removed.Count))
+                    {
+                        Changed = string.Format(Strings.Asst_PreviewsRemoved, removed.Count),
+                    };
                 },
             },
 
@@ -713,7 +723,7 @@ namespace HoboLibris.Assistant
             await _main.BackUpForAssistantAsync(
                 rows.Where(r => r.Source == RowSource.Store).Select(r => r.Id).ToList(),
                 rows.Where(r => r.Source == RowSource.Reader).Select(r => r.Id).ToList());
-            return Report(rows, r => r.IsSaved, unknown);
+            return Report(rows, r => r.IsSaved, unknown, Strings.Asst_Chg_BackedUp);
         }
 
         /// <summary>The books asked for that have a copy on this computer to delete.</summary>
@@ -741,11 +751,14 @@ namespace HoboLibris.Assistant
                 rows.Where(r => r.Source == RowSource.Reader).Select(r => r.Id).ToList(),
                 rows.Where(r => r.Source == RowSource.Folder).Select(r => r.Id).ToList());
             var error = _main.Error;
-            return new ToolOutcome((error ?? _main.Status) + Unknown(unknown), error != null, error == null ? _main.Status : null);
+            return new ToolOutcome((error ?? _main.Status) + Unknown(unknown), error != null, error == null ? _main.Status : null)
+            {
+                Changed = error == null ? string.Format(Strings.Asst_Chg_Deleted, rows.Count) : null,
+            };
         }
 
         /// <summary>Which books worked and which failed, with why.</summary>
-        private static ToolOutcome Report(List<BookRow> rows, Func<BookRow, bool> worked, List<string> unknown)
+        private static ToolOutcome Report(List<BookRow> rows, Func<BookRow, bool> worked, List<string> unknown, string changed)
         {
             var done = rows.Where(worked).ToList();
             var failed = rows.Where(r => !worked(r)).ToList();
@@ -759,7 +772,10 @@ namespace HoboLibris.Assistant
                 json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
             }
             return new ToolOutcome(json.ToJsonString(), done.Count == 0,
-                failed.Count == 0 ? string.Format(Strings.Asst_BackedUp, done.Count) : string.Format(Strings.Asst_BackedUpWithFailures, done.Count, failed.Count));
+                failed.Count == 0 ? string.Format(Strings.Asst_BackedUp, done.Count) : string.Format(Strings.Asst_BackedUpWithFailures, done.Count, failed.Count))
+            {
+                Changed = done.Count > 0 ? string.Format(changed, done.Count) : null,
+            };
         }
 
         // ---- Collections ----------------------------------------------------------------------
@@ -879,9 +895,19 @@ namespace HoboLibris.Assistant
                 Collections.Error = null;
                 Collections.Rebuild();
                 return new ToolOutcome(text + $" Changes waiting to be saved: {Collections.Pending}.",
-                    Summary: string.Format(Strings.Asst_ChangesWaiting, Collections.Pending));
+                    Summary: string.Format(Strings.Asst_ChangesWaiting, Collections.Pending))
+                {
+                    // Listed once per request, with the count after the last change.
+                    Changed = name == "undo_collection_changes"
+                        ? Strings.Asst_Chg_CollectionsUndone
+                        : string.Format(Strings.Asst_Chg_CollectionsWaiting, Collections.Pending),
+                    ChangeKey = CollectionsChangeKey,
+                };
             },
         };
+
+        /// <summary>The collection tools' and save_collections' changes replace each other in a request's summary.</summary>
+        private const string CollectionsChangeKey = "collections";
 
         // ---- Articles (#53) ----------------------------------------------------------------------
 
@@ -955,7 +981,10 @@ namespace HoboLibris.Assistant
             {
                 json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
             }
-            return new ToolOutcome(json.ToJsonString(), kept.Count == 0, string.Format(Strings.Asst_ArticlesKept, kept.Count));
+            return new ToolOutcome(json.ToJsonString(), kept.Count == 0, string.Format(Strings.Asst_ArticlesKept, kept.Count))
+            {
+                Changed = kept.Count > 0 ? string.Format(Strings.Asst_ArticlesKept, kept.Count) : null,
+            };
         }
 
         // ---- Previews and the wishlist (#59) -------------------------------------------------------
@@ -1080,7 +1109,10 @@ namespace HoboLibris.Assistant
             {
                 json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
             }
-            return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_WishlistChanged, list.Count));
+            return new ToolOutcome(json.ToJsonString(), Summary: string.Format(Strings.Asst_WishlistChanged, list.Count))
+            {
+                Changed = string.Format(Strings.Asst_WishlistChanged, list.Count),
+            };
         }
 
         // ---- Send to eReader --------------------------------------------------------------------
@@ -1187,7 +1219,10 @@ namespace HoboLibris.Assistant
                 json["unknown_ids"] = new JsonArray(unknown.Select(u => (JsonNode)u).ToArray());
             }
             return new ToolOutcome(json.ToJsonString(), sent.Count == 0,
-                failed.Count == 0 ? string.Format(Strings.Asst_Sent, sent.Count) : string.Format(Strings.Asst_SentWithFailures, sent.Count, failed.Count));
+                failed.Count == 0 ? string.Format(Strings.Asst_Sent, sent.Count) : string.Format(Strings.Asst_SentWithFailures, sent.Count, failed.Count))
+            {
+                Changed = sent.Count > 0 ? string.Format(Strings.Asst_Chg_Sent, sent.Count) : null,
+            };
         }
 
         // ---- Kindle -----------------------------------------------------------------------------
@@ -1236,7 +1271,7 @@ namespace HoboLibris.Assistant
             }
             var (rows, unknown) = KindleRows(args);
             await _main.Kindle.BackUpAsync(rows.Select(r => r.Id).ToList(), _main.KindleFolder);
-            return Report(rows, r => r.IsSaved, unknown);
+            return Report(rows, r => r.IsSaved, unknown, Strings.Asst_Chg_KindleBackedUp);
         }
 
         // ---- Helpers --------------------------------------------------------------------------

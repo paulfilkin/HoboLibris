@@ -1230,6 +1230,39 @@
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>Модель не дала відповіді. Запитайте ще раз, можливо, іншими словами.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Змінено в цьому запиті:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Збережено книг Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Збережено книг Kindle: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Резервних копій переміщено до Кошика: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Завантажено до папки Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Надіслано книг на рідер: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Незбережених змін у колекціях: {0}. Кнопка «Скасувати всі зміни» на екрані «Колекції» скасовує їх.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Незбережені зміни в колекціях скасовано</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Зміни в колекціях збережено на рідері</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Рідер Kobo витягнуто</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>У цьому запиті нічого не змінено, хоч би що казала відповідь вище.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>Можливо, розмова тепер задовга для моделі. Почніть нову розмову або введіть /clear.</value>
   </data>

@@ -1256,6 +1256,39 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>El modelo no ha dado ninguna respuesta. Vuelva a preguntar, quizá con otras palabras.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Cambios hechos en esta solicitud:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Libros de Kobo copiados: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Libros de Kindle copiados: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Copias de seguridad movidas a la Papelera de reciclaje: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Descargado en la carpeta de Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Libros enviados al eReader: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Cambios en colecciones pendientes de guardar: {0}. «Deshacer todos los cambios» en la pantalla Colecciones los anula.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Se deshicieron los cambios en colecciones sin guardar</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Cambios en colecciones guardados en el eReader</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Kobo eReader expulsado</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>No se hizo ningún cambio en esta solicitud, diga lo que diga la respuesta anterior.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>Es posible que la conversación sea ahora demasiado larga para el modelo. Empiece una conversación nueva o escriba /clear.</value>
   </data>

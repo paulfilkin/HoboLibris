@@ -60,8 +60,9 @@ namespace HoboLibris.Tests
         public JsonObject Context() => new() { ["screen"] = "back_up" };
         public string ContextLine() => "Kobo";
 
-        /// <summary>A tool that counts its runs and answers "ran".</summary>
-        public AssistantTool AddTool(string name, bool changes = false, bool alwaysAsks = false, Func<JsonObject, ToolOutcome?>? check = null)
+        /// <summary>A tool that counts its runs and answers "ran", or the outcome given.</summary>
+        public AssistantTool AddTool(string name, bool changes = false, bool alwaysAsks = false, Func<JsonObject, ToolOutcome?>? check = null,
+            ToolOutcome? outcome = null)
         {
             var tool = new AssistantTool
             {
@@ -75,7 +76,7 @@ namespace HoboLibris.Tests
                 Run = (_, _) =>
                 {
                     Runs.Add(name);
-                    return Task.FromResult(new ToolOutcome("ran"));
+                    return Task.FromResult(outcome ?? new ToolOutcome("ran"));
                 },
             };
             ToolList.Add(tool);
@@ -374,6 +375,107 @@ namespace HoboLibris.Tests
 
             Assert.Equal(1, model.Calls);
             Assert.Equal(HoboLibris.Resources.Strings.Asst_NoAnswer, session.Items.OfType<NoticeMessage>().Single().Text);
+        }
+
+        // #75: what a request changed, from the tools' own record.
+        [Fact]
+        public async Task WhatARequestChangedIsListedAtTheEnd()
+        {
+            var host = new TestHost();
+            host.Settings.SkipApprovals = true;
+            host.AddTool("back_up_books", changes: true, outcome: new ToolOutcome("ran") { Changed = "Kobo books backed up: 2" });
+            host.AddTool("list_books");
+            var model = new ScriptedModel(ScriptedModel.Call("back_up_books"), ScriptedModel.Call("list_books"), ScriptedModel.Text("Backed up two books."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Back up the rest");
+
+            var notice = Assert.IsType<NoticeMessage>(session.Items.Last());
+            Assert.Equal(HoboLibris.Resources.Strings.Asst_ChangesMade + "\n• Kobo books backed up: 2", notice.Text);
+            Assert.Single(session.Items.OfType<NoticeMessage>());
+        }
+
+        [Fact]
+        public async Task CollectionChangesAreListedOnceWithTheLastCount()
+        {
+            var host = new TestHost();
+            host.Settings.SkipApprovals = true;
+            host.AddTool("create_collection", outcome: new ToolOutcome("ran") { Changed = "Collection changes waiting to be saved: 1", ChangeKey = "collections" });
+            host.AddTool("eject_ereader", changes: true, outcome: new ToolOutcome("ran") { Changed = "Kobo eReader ejected" });
+            host.AddTool("add_to_collection", outcome: new ToolOutcome("ran") { Changed = "Collection changes waiting to be saved: 3", ChangeKey = "collections" });
+            var model = new ScriptedModel(ScriptedModel.Call("create_collection"), ScriptedModel.Call("eject_ereader"),
+                ScriptedModel.Call("add_to_collection"), ScriptedModel.Text("Done."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Make a Poetry collection, then eject");
+
+            var lines = session.Items.OfType<NoticeMessage>().Single().Text.Split('\n');
+            Assert.Equal(new[] { HoboLibris.Resources.Strings.Asst_ChangesMade, "• Kobo eReader ejected", "• Collection changes waiting to be saved: 3" }, lines);
+        }
+
+        [Fact]
+        public async Task FailedAndDeclinedChangesAreNotListed()
+        {
+            var host = new TestHost();
+            host.Settings.SkipApprovals = true;
+            host.AddTool("back_up_books", changes: true, outcome: new ToolOutcome("No eReader.", true) { Changed = "Kobo books backed up: 2" });
+            host.AddTool("send_to_ereader", alwaysAsks: true, outcome: new ToolOutcome("ran") { Changed = "Books sent to the eReader: 1" });
+            var model = new ScriptedModel(ScriptedModel.Call("back_up_books"), ScriptedModel.Call("send_to_ereader"),
+                ScriptedModel.Text("Nothing could be done."));
+            var session = Session(host, model);
+
+            var request = session.SendAsync("Back up and send");
+            await AnswerWhenAsked(session, allow: false, always: false);
+            await request;
+
+            Assert.Empty(session.Items.OfType<NoticeMessage>());
+        }
+
+        // From Mycelia's test on 15 November 2026: the model said it had updated a research log and added a note, and had
+        // called no tool that changes anything.
+        [Fact]
+        public async Task AClaimedChangeThatWasntMadeIsFlagged()
+        {
+            var host = new TestHost();
+            host.AddTool("list_collections");
+            var model = new ScriptedModel(ScriptedModel.Call("list_collections"), ScriptedModel.Text("I've added the three books to Poetry."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Put them in Poetry");
+
+            Assert.Equal(HoboLibris.Resources.Strings.Asst_NoChangesMade, Assert.IsType<NoticeMessage>(session.Items.Last()).Text);
+        }
+
+        [Fact]
+        public async Task AnOfferIsNotFlagged()
+        {
+            var host = new TestHost();
+            var model = new ScriptedModel(ScriptedModel.Text("I can add the three books to Poetry."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Could they go in Poetry?");
+
+            Assert.Empty(session.Items.OfType<NoticeMessage>());
+        }
+
+        [Theory]
+        [InlineData("I've added the three books to Poetry.", true)]
+        [InlineData("I backed up 12 books.", true)]
+        [InlineData("I have now sent Middlemarch to your eReader.", true)]
+        [InlineData("Done.\n- Added 3 books to Poetry\n- Renamed Novels to Fiction", true)]
+        [InlineData("**Backed up** 4 books.", true)]
+        [InlineData("Your books have been backed up.", true)]
+        [InlineData("I looked at your books and moved the novels to Fiction.", true)]
+        [InlineData("Your books are backed up in the Kobo folder.", false)]
+        [InlineData("I can add them to Poetry.", false)]
+        [InlineData("I'll back them up when you say so.", false)]
+        [InlineData("Would you like me to send it?", false)]
+        [InlineData("Three books have no backup copy yet.", false)]
+        [InlineData("Ich habe die Bücher gesichert.", false)]
+        [InlineData("", false)]
+        public void ClaimedChangesAreFoundAndOffersAreNot(string reply, bool claims)
+        {
+            Assert.Equal(claims, AssistantSession.ClaimsChanges(reply));
         }
 
         [Fact]

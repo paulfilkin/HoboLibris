@@ -17,6 +17,12 @@ namespace HoboLibris.Assistant
     {
         /// <summary>Something to show the person under the step, such as a search's list of books.</summary>
         public ChatItem? Show { get; init; }
+
+        /// <summary>What the call changed, for the summary at the end of the request (#75); null when it changed nothing.</summary>
+        public string? Changed { get; init; }
+
+        /// <summary>A later change with the same key replaces this one in the summary (the pending collection changes).</summary>
+        public string? ChangeKey { get; init; }
     }
 
     /// <summary>

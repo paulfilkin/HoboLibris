@@ -1230,6 +1230,39 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>O modelo não deu nenhuma resposta. Pergunte de novo, talvez com outras palavras.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Alterado neste pedido:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Livros Kobo copiados: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Livros Kindle copiados: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Cópias de segurança movidas para a Reciclagem: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Transferido para a pasta Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Livros enviados para o eReader: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Alterações às coleções por guardar: {0}. «Anular todas as alterações» no ecrã Coleções desfá-las.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Alterações às coleções por guardar anuladas</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Alterações às coleções guardadas no eReader</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>eReader Kobo ejetado</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>Não foi feita nenhuma alteração neste pedido, diga o que disser a resposta acima.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>A conversa pode agora ser demasiado longa para o modelo. Comece uma nova conversa ou escreva /clear.</value>
   </data>

@@ -415,7 +415,10 @@ namespace HoboLibris.Assistant
                 outcome["why"] = row.Verdict.Why;
             }
             return new ToolOutcome(outcome.ToJsonString(),
-                Summary: saved.AlreadyThere ? Strings.Asst_AlreadyInFolder : Strings.Asst_Downloaded);
+                Summary: saved.AlreadyThere ? Strings.Asst_AlreadyInFolder : Strings.Asst_Downloaded)
+            {
+                Changed = saved.AlreadyThere ? null : string.Format(Strings.Asst_Chg_Downloaded, Path.GetFileName(saved.Path)),
+            };
         }
 
         /// <summary>Tries each address in turn (the mirrors, the EPUB kinds) until one gives an EPUB.</summary>

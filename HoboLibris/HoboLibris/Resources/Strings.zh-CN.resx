@@ -1256,6 +1256,39 @@
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>模型没有给出回答。请再问一次，或许换种说法。</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>此请求中的更改：</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>已备份的 Kobo 图书：{0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>已备份的 Kindle 图书：{0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>已移至回收站的备份副本：{0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>已下载到 Kobo 文件夹：{0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>已发送到电子书阅读器的图书：{0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>待保存的收藏集更改：{0}。在“收藏集”屏幕上点击“撤销所有更改”可撤回这些更改。</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>已撤销未保存的收藏集更改</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>收藏集更改已保存到电子书阅读器</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>已弹出 Kobo 电子书阅读器</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>无论上面的回复怎么说，此请求都没有做任何更改。</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>对话现在可能对模型来说太长了。请开始新对话或输入 /clear。</value>
   </data>
