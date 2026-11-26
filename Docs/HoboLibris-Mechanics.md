@@ -258,6 +258,20 @@ Close every copy of HoboLibris first: they share the settings and the conversati
 * `qwen3:8b` is sent the same requests as before: compared byte for byte, run 2 differed only in tool call ids and the model's own wording.  In that run it gave two empty replies to question 6 and the pane said so (#74); on the old code its run 2 had one, and recovered.  Every hosted answer was as before.
 * In the paused baseline on Anthropic, two stray characters were typed into the box before question 3 (the driver now checks the text before Send).
 
+**Tool groups for Anthropic (#78), 26 November 2026: measured and not kept.**  Built as Mycelia does it: every tool declared, those outside the groups shown at the start (the screen's and the e-book sources') marked `defer_loading`, and a group added by `use_tools` sent as `tool_addition` messages under the beta `mid-conversation-tool-changes-2026-07-01`, so the start of the request stayed the same.  Measured on Anthropic against #77, on `main` at `e22ba7b`, in the same conditions:
+
+| `claude-sonnet-5-5` | Requests | First request (tokens) | Input at full price | Read from cache | Written to cache | Output | Cost |
+|---|---|---|---|---|---|---|---|
+| Six questions, every tool (#77) | 11 | 8,220 | 34 | 147,562 | 28,743 | 997 | $0.109 |
+| Six questions, groups | 14 | 5,053 | 2,457 | 169,763 | 28,216 | 1,252 | $0.112 |
+| Paused set, every tool (#77) | 7 | 8,220 | 22 | 57,849 | 40,647 | 913 | $0.117 |
+| Paused set, groups | 9 | 5,053 | 1,969 | 50,391 | 46,235 | 860 | $0.133 |
+
+* The first request was about 40% smaller and the cache held when a group was added, but each request cost more: Claude called `use_tools` before every question about collections, sending or Kindle, which added three requests to the six questions and two to the paused set.  An added group's definitions come after the cache mark, so they were charged at full price once (about 1,400 and 550 tokens).
+* With about 30 tools, deferring 20 saves about 3,000 tokens a request, most of which the cache already charged at a tenth.  After each pause the conversation is written to the cache again whatever is deferred, so the smaller start didn't help there either.  Mycelia gained because it has 68 tools and its questions rarely needed another group.
+* Every answer was as before.  Hosted models keep getting every tool.
+* Seen in passing: `list_send`'s result for about 146 files is longer than the 40,000 characters a tool result is cut to, and Claude said the list was cut off.
+
 ## Display
 
 * Kobo.exe's manifest has no DPI-awareness entry, so Windows bitmap-stretches it on hi-res screens.  HoboLibris is a WPF program and is DPI-aware.
