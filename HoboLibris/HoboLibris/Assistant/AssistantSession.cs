@@ -63,6 +63,9 @@ namespace HoboLibris.Assistant
         private readonly AssistantTool _useTools;
         private CancellationTokenSource? _cancel;
 
+        /// <summary>What the current request changed, from the tools that succeeded (#75); a later change with the same key replaces an earlier one.</summary>
+        private readonly List<(string? Key, string Text)> _changed = new();
+
         /// <param name="conversationPath">Where the conversation is kept between sessions; null to keep nothing (screenshots, tests).</param>
         public AssistantSession(IAssistantHost host, string? conversationPath)
         {
@@ -226,6 +229,8 @@ namespace HoboLibris.Assistant
             }
 
             _turns.Add(new UserTurn(text));
+            _changed.Clear();
+            string lastReply = string.Empty;
             SetBusy(true, Strings.Asst_Thinking);
             _cancel = new CancellationTokenSource();
             var cancel = _cancel.Token;
@@ -311,6 +316,7 @@ namespace HoboLibris.Assistant
                     }
                     if (reply.Text.Trim().Length > 0)
                     {
+                        lastReply = reply.Text.Trim();
                         if (live != null)
                         {
                             live.Text = reply.Text.Trim();
@@ -380,12 +386,41 @@ namespace HoboLibris.Assistant
             finally
             {
                 CloseOpenToolCalls();
+                // What the request changed, from the tools' own record, also when it was stopped part-way (#75).
+                if (_changed.Count > 0)
+                {
+                    Items.Add(new NoticeMessage(Strings.Asst_ChangesMade + string.Concat(_changed.Select(c => "\n• " + c.Text)), false));
+                }
+                // A reply saying something was changed when nothing was: from Mycelia's test on 15 November 2026, in which the
+                // model said it had updated a research log and added a note without calling a tool that changes anything.
+                else if (ClaimsChanges(lastReply))
+                {
+                    Items.Add(new NoticeMessage(Strings.Asst_NoChangesMade, false));
+                }
                 _cancel?.Dispose();
                 _cancel = null;
                 SetBusy(false, string.Empty);
                 SaveConversation();
             }
         }
+
+        // Past-tense claims in English, with HoboLibris's verbs (Mycelia's ClaimsChanges).  Replies in other languages
+        // aren't checked: patterns for Japanese, Chinese, Korean, Arabic or Hebrew would be unreliable.
+        private const string ClaimVerbs = "added|backed up|downloaded|sent|copied|saved|removed|deleted|created|renamed|moved|kept|ejected|archived|undone";
+
+        private static readonly System.Text.RegularExpressions.Regex ChangeClaim = new(
+            @"\bI(?:'ve|’ve| have)?\s+(?:also\s+|now\s+|just\s+|already\s+)?(?:" + ClaimVerbs + @"|put|undid)\b"
+            + @"|^[\s\-*•]*(?:Added|Backed up|Downloaded|Sent|Copied|Saved|Removed|Deleted|Created|Renamed|Moved|Kept|Ejected)\b"
+            + @"|\b(?:has|have)\s+(?:now\s+)?been\s+(?:" + ClaimVerbs + @")\b"
+            + @"|\band\s+(?:" + ClaimVerbs + @")\s+(?:the|a|an|it|them|\d)",
+            System.Text.RegularExpressions.RegexOptions.Compiled | System.Text.RegularExpressions.RegexOptions.Multiline);
+
+        /// <summary>
+        /// The reply says, in the past tense, that something was changed ("I've added...", "Backed up 3 books", "...has been
+        /// sent").  An offer ("I can add...") doesn't count.  Used only when the request changed nothing, so the notice it
+        /// brings is true even when the match is wrong.
+        /// </summary>
+        public static bool ClaimsChanges(string reply) => reply.Length > 0 && ChangeClaim.IsMatch(reply);
 
         private async Task<ToolResult> RunToolAsync(ToolCall call, List<AssistantTool> tools, CancellationToken cancel)
         {
@@ -448,6 +483,14 @@ namespace HoboLibris.Assistant
                 activity.Result = content;
                 activity.Summary = outcome.Summary ?? (outcome.IsError ? Strings.Asst_Failed : Strings.Asst_Done);
                 activity.State = outcome.IsError ? ToolActivityState.Failed : ToolActivityState.Done;
+                if (!outcome.IsError && outcome.Changed is { } changed)
+                {
+                    if (outcome.ChangeKey != null)
+                    {
+                        _changed.RemoveAll(c => c.Key == outcome.ChangeKey);
+                    }
+                    _changed.Add((outcome.ChangeKey, changed));
+                }
                 if (outcome.Show is { } shown)
                 {
                     Items.Add(Connect(shown));

@@ -1230,6 +1230,39 @@
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>لم يقدّم النموذج أي إجابة. اسأل مرة أخرى، ربما بكلمات أخرى.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>ما تغيّر في هذا الطلب:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>كتب Kobo المنسوخة احتياطيًا: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>كتب Kindle المنسوخة احتياطيًا: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>النسخ الاحتياطية المنقولة إلى سلة المحذوفات: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>نُزّل إلى مجلد Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>الكتب المرسلة إلى القارئ الإلكتروني: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>تغييرات المجموعات بانتظار الحفظ: {0}. يتراجع زر «التراجع عن كل التغييرات» في شاشة المجموعات عنها.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>تم التراجع عن تغييرات المجموعات غير المحفوظة</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>حُفظت تغييرات المجموعات في القارئ الإلكتروني</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>أُخرج قارئ Kobo الإلكتروني</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>لم يُغيَّر أي شيء في هذا الطلب، مهما قال الرد أعلاه.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>قد تكون المحادثة الآن أطول مما يحتمله النموذج. ابدأ محادثة جديدة، أو اكتب ‎/clear.</value>
   </data>

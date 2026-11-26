@@ -1256,6 +1256,39 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>モデルから回答がありませんでした。表現を変えるなどして、もう一度質問してください。</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>このリクエストでの変更:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>バックアップした Kobo の書籍: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>バックアップした Kindle の書籍: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>ごみ箱に移動したバックアップ コピー: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Kobo フォルダーにダウンロード: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>電子書籍リーダーに送信した書籍: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>未保存のコレクションの変更: {0}。[コレクション] 画面の [すべての変更を元に戻す] で取り消せます。</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>未保存のコレクションの変更を元に戻しました</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>コレクションの変更を電子書籍リーダーに保存しました</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Kobo 電子書籍リーダーを取り出しました</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>上の返答の内容にかかわらず、このリクエストでは何も変更されていません。</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>会話がモデルにとって長すぎる可能性があります。新しい会話を始めるか、/clear と入力してください。</value>
   </data>

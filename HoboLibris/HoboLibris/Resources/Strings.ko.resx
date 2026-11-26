@@ -1256,6 +1256,39 @@ Kindle에 충전 중이라고만 표시되면 컴퓨터의 다른 USB 포트를 
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>모델이 답변하지 않았습니다. 다른 표현으로 다시 질문해 보세요.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>이 요청에서 변경한 내용:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>백업한 Kobo 책: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>백업한 Kindle 책: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>휴지통으로 옮긴 백업 사본: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Kobo 폴더에 다운로드함: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>전자책 리더로 보낸 책: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>저장 대기 중인 컬렉션 변경: {0}. 컬렉션 화면의 [모든 변경 취소]로 되돌릴 수 있습니다.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>저장하지 않은 컬렉션 변경을 취소했습니다</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>컬렉션 변경을 전자책 리더에 저장했습니다</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Kobo 전자책 리더를 꺼냈습니다</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>위 답변의 내용과 관계없이 이 요청에서는 아무것도 변경되지 않았습니다.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>대화가 이제 모델에 비해 너무 길 수 있습니다. 새 대화를 시작하거나 /clear를 입력하세요.</value>
   </data>

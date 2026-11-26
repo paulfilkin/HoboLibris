@@ -1256,6 +1256,39 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>Il modello non ha dato alcuna risposta. Chiedi di nuovo, magari con altre parole.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Modificato in questa richiesta:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Libri Kobo salvati: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Libri Kindle salvati: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Copie di backup spostate nel Cestino: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Scaricato nella cartella Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Libri inviati all'eReader: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Modifiche alle collezioni da salvare: {0}. «Annulla tutte le modifiche» nella schermata Collezioni le annulla.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Modifiche alle collezioni non salvate annullate</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Modifiche alle collezioni salvate sull'eReader</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>eReader Kobo espulso</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>In questa richiesta non è stato modificato nulla, qualunque cosa dica la risposta qui sopra.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>La conversazione potrebbe ora essere troppo lunga per il modello. Avvia una nuova conversazione o scrivi /clear.</value>
   </data>

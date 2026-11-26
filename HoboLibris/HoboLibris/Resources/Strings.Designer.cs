@@ -1961,6 +1961,61 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_NoAnswer", resourceCulture); }
         }
 
+        /// <summary>Looks up a localized string similar to Changed in this request:.</summary>
+        public static string Asst_ChangesMade {
+            get { return ResourceManager.GetString("Asst_ChangesMade", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kobo books backed up: {0}.</summary>
+        public static string Asst_Chg_BackedUp {
+            get { return ResourceManager.GetString("Asst_Chg_BackedUp", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kindle books backed up: {0}.</summary>
+        public static string Asst_Chg_KindleBackedUp {
+            get { return ResourceManager.GetString("Asst_Chg_KindleBackedUp", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Backup copies moved to the Recycle Bin: {0}.</summary>
+        public static string Asst_Chg_Deleted {
+            get { return ResourceManager.GetString("Asst_Chg_Deleted", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Downloaded to the Kobo folder: {0}.</summary>
+        public static string Asst_Chg_Downloaded {
+            get { return ResourceManager.GetString("Asst_Chg_Downloaded", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Books sent to the eReader: {0}.</summary>
+        public static string Asst_Chg_Sent {
+            get { return ResourceManager.GetString("Asst_Chg_Sent", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Collection changes waiting to be saved: {0}. Undo all changes on the Collections screen takes them back..</summary>
+        public static string Asst_Chg_CollectionsWaiting {
+            get { return ResourceManager.GetString("Asst_Chg_CollectionsWaiting", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Collection changes not yet saved were undone.</summary>
+        public static string Asst_Chg_CollectionsUndone {
+            get { return ResourceManager.GetString("Asst_Chg_CollectionsUndone", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Collection changes saved to the eReader.</summary>
+        public static string Asst_Chg_CollectionsSaved {
+            get { return ResourceManager.GetString("Asst_Chg_CollectionsSaved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Kobo eReader ejected.</summary>
+        public static string Asst_Chg_Ejected {
+            get { return ResourceManager.GetString("Asst_Chg_Ejected", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to No changes were made in this request, whatever the reply above says..</summary>
+        public static string Asst_NoChangesMade {
+            get { return ResourceManager.GetString("Asst_NoChangesMade", resourceCulture); }
+        }
+
         /// <summary>Looks up a localized string similar to The conversation may now be too long for the model. Start a new conversation, or type /clear..</summary>
         public static string Asst_TooLong {
             get { return ResourceManager.GetString("Asst_TooLong", resourceCulture); }

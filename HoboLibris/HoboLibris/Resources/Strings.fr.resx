@@ -1256,6 +1256,39 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>Le modèle n'a donné aucune réponse. Posez la question à nouveau, peut-être en d'autres termes.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Modifié dans cette demande :</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Livres Kobo sauvegardés : {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Livres Kindle sauvegardés : {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Copies de sauvegarde déplacées vers la Corbeille : {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Téléchargé dans le dossier Kobo : {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Livres envoyés à la liseuse : {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Modifications des collections à enregistrer : {0}. « Annuler toutes les modifications » sur l'écran Collections les annule.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Modifications des collections non enregistrées annulées</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Modifications des collections enregistrées sur la liseuse</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Liseuse Kobo éjectée</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>Aucune modification n'a été faite dans cette demande, quoi que dise la réponse ci-dessus.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>La conversation est peut-être maintenant trop longue pour le modèle. Commencez une nouvelle conversation ou tapez /clear.</value>
   </data>

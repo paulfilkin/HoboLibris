@@ -1230,6 +1230,39 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>Das Modell hat keine Antwort gegeben. Fragen Sie noch einmal, vielleicht mit anderen Worten.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>In dieser Anfrage geändert:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Kobo-Bücher gesichert: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Kindle-Bücher gesichert: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Sicherungskopien in den Papierkorb verschoben: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>In den Kobo-Ordner heruntergeladen: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>An den eReader gesendete Bücher: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Ungespeicherte Änderungen an Sammlungen: {0}. „Alle Änderungen verwerfen“ auf dem Bildschirm „Sammlungen“ nimmt sie zurück.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Ungespeicherte Änderungen an Sammlungen verworfen</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Änderungen an Sammlungen auf dem eReader gespeichert</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Kobo eReader ausgeworfen</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>In dieser Anfrage wurde nichts geändert, auch wenn die Antwort oben etwas anderes sagt.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>Die Unterhaltung ist für das Modell jetzt möglicherweise zu lang. Beginnen Sie eine neue Unterhaltung oder geben Sie /clear ein.</value>
   </data>

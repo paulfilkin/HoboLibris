@@ -1230,6 +1230,39 @@
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>המודל לא נתן תשובה. יש לשאול שוב, אולי במילים אחרות.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>מה השתנה בבקשה הזו:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>ספרי Kobo שגובו: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>ספרי Kindle שגובו: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>עותקי גיבוי שהועברו לסל המיחזור: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>הורד לתיקיית Kobo: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>ספרים שנשלחו לקורא: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>שינויים באוספים שממתינים לשמירה: {0}. אפשר לבטל אותם בלחצן "ביטול כל השינויים" במסך אוספים.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>השינויים באוספים שלא נשמרו בוטלו</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>השינויים באוספים נשמרו בקורא</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>קורא הספרים האלקטרוני Kobo הוצא</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>לא בוצע שום שינוי בבקשה הזו, מה שלא תאמר התשובה למעלה.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>ייתכן שהשיחה ארוכה מדי עכשיו עבור המודל. אפשר להתחיל שיחה חדשה או להקליד ‎/clear.</value>
   </data>

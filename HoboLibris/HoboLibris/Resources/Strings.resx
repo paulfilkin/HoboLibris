@@ -1256,6 +1256,39 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_NoAnswer" xml:space="preserve">
     <value>The model gave no answer. Ask again, perhaps in other words.</value>
   </data>
+  <data name="Asst_ChangesMade" xml:space="preserve">
+    <value>Changed in this request:</value>
+  </data>
+  <data name="Asst_Chg_BackedUp" xml:space="preserve">
+    <value>Kobo books backed up: {0}</value>
+  </data>
+  <data name="Asst_Chg_KindleBackedUp" xml:space="preserve">
+    <value>Kindle books backed up: {0}</value>
+  </data>
+  <data name="Asst_Chg_Deleted" xml:space="preserve">
+    <value>Backup copies moved to the Recycle Bin: {0}</value>
+  </data>
+  <data name="Asst_Chg_Downloaded" xml:space="preserve">
+    <value>Downloaded to the Kobo folder: {0}</value>
+  </data>
+  <data name="Asst_Chg_Sent" xml:space="preserve">
+    <value>Books sent to the eReader: {0}</value>
+  </data>
+  <data name="Asst_Chg_CollectionsWaiting" xml:space="preserve">
+    <value>Collection changes waiting to be saved: {0}. Undo all changes on the Collections screen takes them back.</value>
+  </data>
+  <data name="Asst_Chg_CollectionsUndone" xml:space="preserve">
+    <value>Collection changes not yet saved were undone</value>
+  </data>
+  <data name="Asst_Chg_CollectionsSaved" xml:space="preserve">
+    <value>Collection changes saved to the eReader</value>
+  </data>
+  <data name="Asst_Chg_Ejected" xml:space="preserve">
+    <value>Kobo eReader ejected</value>
+  </data>
+  <data name="Asst_NoChangesMade" xml:space="preserve">
+    <value>No changes were made in this request, whatever the reply above says.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>The conversation may now be too long for the model. Start a new conversation, or type /clear.</value>
   </data>
