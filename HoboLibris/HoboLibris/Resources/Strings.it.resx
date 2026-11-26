@@ -1253,6 +1253,9 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   <data name="Asst_CutShort" xml:space="preserve">
     <value>La risposta è stata troncata dall'impostazione della risposta più lunga ({0} token; i modelli di ragionamento vi contano il loro ragionamento). Aumentala in Impostazioni, sotto Modello di IA, poi scrivi "continua".</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>Il modello non ha dato alcuna risposta. Chiedi di nuovo, magari con altre parole.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>La conversazione potrebbe ora essere troppo lunga per il modello. Avvia una nuova conversazione o scrivi /clear.</value>
   </data>

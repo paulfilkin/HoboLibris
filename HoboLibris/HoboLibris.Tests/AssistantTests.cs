@@ -319,6 +319,63 @@ namespace HoboLibris.Tests
             Assert.Empty(session.Turns);
         }
 
+        private static ChatReply Empty() => new("", Array.Empty<ToolCall>(), "stop", 0, 0);
+
+        // #74: Ollama drops a call to a tool that wasn't in the request, and the reply comes back empty.
+        [Fact]
+        public async Task AnEmptyReplyFromALocalModelIsAskedAgainWithANote()
+        {
+            var host = new TestHost();
+            host.AddTool("list_books");
+            host.AddTool("list_collections");
+            var model = new ScriptedModel(Empty(), ScriptedModel.Text("You have two collections."));
+            var session = Session(host, model);
+
+            await session.SendAsync("Which collections do I have?");
+
+            Assert.Equal(2, model.Calls);
+            var note = Assert.IsType<UserTurn>(model.Sent[1][^1]);
+            Assert.StartsWith("(A note from HoboLibris", note.Text);
+            Assert.Contains("use_tools", note.Text);
+            Assert.Contains("collections: list_collections", note.Text);
+            Assert.DoesNotContain("list_books", note.Text);
+            Assert.DoesNotContain(session.Turns, t => t is UserTurn u && u.Text == note.Text);
+            Assert.Equal("You have two collections.", session.Items.OfType<AssistantMessage>().Single().Text);
+            Assert.Empty(session.Items.OfType<NoticeMessage>());
+        }
+
+        [Fact]
+        public async Task TwoEmptyRepliesFromALocalModelSaySoInThePane()
+        {
+            var host = new TestHost();
+            host.AddTool("list_books");
+            var model = new ScriptedModel(Empty(), Empty(), ScriptedModel.Text("Not asked for."));
+            var session = Session(host, model);
+
+            await session.SendAsync("What books do I have?");
+
+            Assert.Equal(2, model.Calls);
+            Assert.Equal(HoboLibris.Resources.Strings.Asst_NoAnswer, session.Items.OfType<NoticeMessage>().Single().Text);
+            Assert.Empty(session.Items.OfType<AssistantMessage>());
+        }
+
+        [Fact]
+        public async Task AnEmptyReplyFromAHostedModelSaysSoInThePane()
+        {
+            var host = new TestHost();
+            host.Settings.Provider = ModelProvider.Anthropic;
+            host.Settings.Endpoint = "";
+            host.Settings.SetApiKey(ModelProvider.Anthropic, "sk-test-123");
+            host.AddTool("list_books");
+            var model = new ScriptedModel(Empty(), ScriptedModel.Text("Not asked for."));
+            var session = Session(host, model);
+
+            await session.SendAsync("What books do I have?");
+
+            Assert.Equal(1, model.Calls);
+            Assert.Equal(HoboLibris.Resources.Strings.Asst_NoAnswer, session.Items.OfType<NoticeMessage>().Single().Text);
+        }
+
         [Fact]
         public async Task StopsAfterTheStepLimit()
         {

@@ -1253,6 +1253,9 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   <data name="Asst_CutShort" xml:space="preserve">
     <value>最長の回答の設定 ({0} トークン。推論モデルは推論もこれに含めます) により回答が途中で切れました。設定の [AI モデル] で値を上げてから「続けて」と入力してください。</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>モデルから回答がありませんでした。表現を変えるなどして、もう一度質問してください。</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>会話がモデルにとって長すぎる可能性があります。新しい会話を始めるか、/clear と入力してください。</value>
   </data>

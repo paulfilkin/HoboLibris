@@ -1227,6 +1227,9 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   <data name="Asst_CutShort" xml:space="preserve">
     <value>A resposta foi cortada pela definição de resposta mais longa ({0} tokens; os modelos de raciocínio contam nela o seu raciocínio). Aumente-a nas Definições, em Modelo de IA, e escreva "continua".</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>O modelo não deu nenhuma resposta. Pergunte de novo, talvez com outras palavras.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>A conversa pode agora ser demasiado longa para o modelo. Comece uma nova conversa ou escreva /clear.</value>
   </data>
