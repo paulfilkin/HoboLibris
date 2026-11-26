@@ -197,6 +197,42 @@ Left out: Wikisource (`robots.txt` blocks every automated client), Feedbooks (no
 * Requests send the User-Agent `HoboLibris/<version> (+https://github.com/paulfilkin/HoboLibris)`, never the person's email address.
 * Downloads go into the Kobo folder as `Title - First author.epub` (`.kepub.epub` for KEPUB), at most 300 MB, kept only if the file is a ZIP whose first entry says `application/epub+zip`.  An existing file is never overwritten.
 
+### Measuring requests (#76)
+
+Changes to what the Assistant sends are measured on the real program, as Mycelia's were (`LLM_Assistant_Approach.md`, section 2).  The kit is kept in `Docs\Measure\`, which `.git\info\exclude` keeps out of the repository:
+
+* `RequestLog.cs.txt`: a temporary class that, when `HOBOLIBRIS_TRACE` names a file, appends one JSON line per request: the time, the provider, the body, the usage, the stop reason and the reply.  Only the body is written, never the headers, so no key reaches the file.
+* `build.ps1 -Ref <ref> -Out <folder>`: builds that ref in Release from a scratch worktree with the class added, leaving the working tree alone.
+* `drive.ps1`: starts the build, minimises it and gives the keyboard back, then types each question into the pane through UI Automation.  It waits until the request has started and Send is back on two checks in a row, can switch tab between questions (`@kindle`, `@kobo`), and copies the conversation out.  It never allows an approval card: if one appears it presses Stop.
+* `run.ps1`: one run, with the provider and model set in `settings.json`.  The run's conversation is moved out of `%APPDATA%\HoboLibris\Assistant` afterwards, and a change to the collections kept on this computer is reported.
+* `all.ps1`: `qwen3:8b` twice, then `claude-sonnet-5-5` and `gpt-5-mini`.  `settings.json` is backed up first, with the keys in, and restored at the end, checked by hash.
+* `table.py`: per request, the message and tool counts, the system prompt and tool sizes in characters, the tokens at full price, read from the cache and written to it, and the first part of the request that differed from the one before.  `summary.py --replies`: per question, the requests, the tools sent and called, and the last reply.
+* Question sets: six (below), eleven (the six and five more, for long conversations) and paused (four, 370 seconds apart, for a cache's lifetime).  All only read.
+
+Close every copy of HoboLibris first: they share the settings and the conversation.  `qwen3:8b` varies between runs, so run it again before calling a difference a regression.
+
+**Baseline, 26 November 2026**, `main` at `839e5c9` (0.1.18 with #74 and #75), eReader unplugged (collections offline), no Kindle.  The six questions:
+
+1. Which of my Kobo books aren't backed up?
+2. What collections are on my eReader?
+3. Find Middlemarch on Project Gutenberg.
+4. What is ready to send to my eReader?
+5. (switch to the Kindle tab) Which Kindle books do I have?
+6. Of the Kobo books you said weren't backed up, which authors appear more than once?
+
+| | Requests | Input at full price | Read from cache | Output | First request |
+|---|---|---|---|---|---|
+| `qwen3:8b`, run 1 | 12 | 41,514 | - | 413 | 2,374 tokens, 10 tools |
+| `qwen3:8b`, run 2 | 15 | 54,552 | - | 478 | 2,374 tokens, 10 tools |
+| `claude-sonnet-5-5` | 11 | 168,347 | 0 | 992 | 8,013 tokens, 30 tools |
+| `gpt-5-mini` | 11 | 38,194 | 59,648 | 2,536 | 4,422 tokens, 30 tools |
+
+* Every answer was right, but `qwen3:8b` answered question 4 with `list_books` instead of `list_send` in both runs.  In run 2 its first reply to question 6 was empty and the note from #74 brought it back (4 requests instead of 1).  Ollama took 25 and 31 seconds in all.
+* Hosted models get the full prompt (about 6,400 characters) and all 30 tools (about 16,300 characters as Anthropic sends them, 17,300 as OpenAI does).  A model on this computer gets a prompt of about 3,500 characters and 10 to 21 tools.
+* Nothing is marked for Anthropic's cache, so all 168,347 tokens were at full price.  OpenAI cached 59,648 of 97,842 by itself.
+* The system prompt changed twice within the run, which starts the cache again: after `list_collections` (the state in it changed) and after the switch to the Kindle tab.  #77 moves the state out of the system prompt.
+* `list_send`'s result was the largest: with about 146 files in the Kobo folder it took Anthropic's request from 9,058 to 26,976 tokens, and every later request in the conversation carries it.
+
 ## Display
 
 * Kobo.exe's manifest has no DPI-awareness entry, so Windows bitmap-stretches it on hi-res screens.  HoboLibris is a WPF program and is DPI-aware.
