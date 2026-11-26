@@ -1227,6 +1227,9 @@
   <data name="Asst_CutShort" xml:space="preserve">
     <value>התשובה נקטעה בגלל הגדרת התשובה הארוכה ביותר ({0} אסימונים; מודלים של חשיבה סופרים בה גם את החשיבה שלהם). יש להגדיל אותה בהגדרות, תחת מודל AI, ואז להקליד "המשך".</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>המודל לא נתן תשובה. יש לשאול שוב, אולי במילים אחרות.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>ייתכן שהשיחה ארוכה מדי עכשיו עבור המודל. אפשר להתחיל שיחה חדשה או להקליד ‎/clear.</value>
   </data>

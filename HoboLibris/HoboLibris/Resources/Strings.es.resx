@@ -1253,6 +1253,9 @@ Para hacer una copia de seguridad de más libros, vuelva a conectarlo: sus libro
   <data name="Asst_CutShort" xml:space="preserve">
     <value>La respuesta se cortó por el ajuste de respuesta más larga ({0} tokens; los modelos de razonamiento cuentan en él su razonamiento). Auméntelo en Configuración, en Modelo de IA, y escriba «continúa».</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>El modelo no ha dado ninguna respuesta. Vuelva a preguntar, quizá con otras palabras.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>Es posible que la conversación sea ahora demasiado larga para el modelo. Empiece una conversación nueva o escriba /clear.</value>
   </data>

@@ -1253,6 +1253,9 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   <data name="Asst_CutShort" xml:space="preserve">
     <value>La réponse a été tronquée par le réglage de réponse la plus longue ({0} jetons ; les modèles de raisonnement y comptent leur raisonnement). Augmentez-le dans les Paramètres, sous Modèle d'IA, puis tapez « continue ».</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>Le modèle n'a donné aucune réponse. Posez la question à nouveau, peut-être en d'autres termes.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>La conversation est peut-être maintenant trop longue pour le modèle. Commencez une nouvelle conversation ou tapez /clear.</value>
   </data>

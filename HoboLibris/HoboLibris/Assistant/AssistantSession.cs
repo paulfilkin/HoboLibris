@@ -174,6 +174,24 @@ namespace HoboLibris.Assistant
             },
         };
 
+        /// <summary>
+        /// The note sent, once, after an empty reply from a model on this computer: it was most likely a call to a tool it
+        /// wasn't sent, so the note names each group's tools and says to call use_tools first.  It isn't kept in the
+        /// conversation.
+        /// </summary>
+        private string EmptyReplyNote(HashSet<string> groups)
+        {
+            var missing = _host.Tools
+                .Where(t => t.Policy != ToolPolicy.Off && ToolGroups.Of(t.Name) is { } g && !groups.Contains(g))
+                .GroupBy(t => ToolGroups.Of(t.Name)!)
+                .Select(g => $"{g.Key}: {string.Join(", ", g.Select(t => t.Name))}")
+                .ToList();
+            return missing.Count == 0
+                ? "(A note from HoboLibris, not from the person: your last reply was empty. Call one of the tools you were given, or answer in words.)"
+                : "(A note from HoboLibris, not from the person: your last reply was empty. You can call only the tools you were given. "
+                  + "To use another, first call use_tools with its group. The groups: " + string.Join("; ", missing) + ". Otherwise answer in words.)";
+        }
+
         private static string GroupTitle(string group) => group switch
         {
             ToolGroups.Collections => Strings.Kobo_CollectionsTab,
@@ -229,6 +247,9 @@ namespace HoboLibris.Assistant
                 // Ollama's context size is known, so the conversation is fitted into it rather than cut by Ollama.
                 bool fit = OllamaServer.IsOllamaEndpoint(providerOptions.Provider, providerOptions.Endpoint);
                 bool saidLeftOut = false;
+                // After an empty reply from a model on this computer, a note for the next step only (EmptyReplyNote); sent once per request.
+                string? emptyNote = null;
+                bool askedAgain = false;
                 for (int step = 0; step < maxSteps; step++)
                 {
                     var groups = ActiveGroups();
@@ -271,6 +292,12 @@ namespace HoboLibris.Assistant
                             saidLeftOut = true;
                         }
                     }
+                    // The note goes after the fitting, so it is never left out, and it isn't kept in the conversation.
+                    if (emptyNote != null)
+                    {
+                        sent = sent.Append(new UserTurn(emptyNote)).ToList();
+                        emptyNote = null;
+                    }
                     var reply = await provider.CompleteAsync(system, sent, specs, cancel, OnText);
                     if (reply.Stats is { } stats)
                     {
@@ -296,6 +323,20 @@ namespace HoboLibris.Assistant
                     else if (live != null)
                     {
                         Items.Remove(live);
+                    }
+                    // An empty reply that wasn't cut short.  From a model on this computer it is most likely a call to a tool of a
+                    // group it wasn't sent, which Ollama drops (Mycelia, qwen3:8b and list_places, 25 November 2026): ask once
+                    // more with a note naming each group's tools.  Otherwise, or when that is empty too, say so (#74).
+                    if (reply.Text.Trim().Length == 0 && reply.ToolCalls.Count == 0 && reply.StopReason is not ("max_tokens" or "length"))
+                    {
+                        if (groups != null && !askedAgain)
+                        {
+                            askedAgain = true;
+                            emptyNote = EmptyReplyNote(groups);
+                            continue;
+                        }
+                        Items.Add(new NoticeMessage(Strings.Asst_NoAnswer, false));
+                        return;
                     }
                     if (reply.ToolCalls.Count == 0)
                     {

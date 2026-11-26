@@ -1227,6 +1227,9 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   <data name="Asst_CutShort" xml:space="preserve">
     <value>Die Antwort wurde durch die Einstellung für die längste Antwort gekürzt ({0} Token; Reasoning-Modelle zählen ihr Nachdenken mit). Erhöhen Sie sie in den Einstellungen unter KI-Modell und schreiben Sie dann „weiter“.</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>Das Modell hat keine Antwort gegeben. Fragen Sie noch einmal, vielleicht mit anderen Worten.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>Die Unterhaltung ist für das Modell jetzt möglicherweise zu lang. Beginnen Sie eine neue Unterhaltung oder geben Sie /clear ein.</value>
   </data>

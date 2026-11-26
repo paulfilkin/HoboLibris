@@ -1253,6 +1253,9 @@ To back up more books, plug it in again: its books will appear here by themselve
   <data name="Asst_CutShort" xml:space="preserve">
     <value>The answer was cut short by the longest answer setting ({0} tokens; reasoning models count their reasoning in it). Raise it in Settings, under AI model, then type "carry on".</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>The model gave no answer. Ask again, perhaps in other words.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>The conversation may now be too long for the model. Start a new conversation, or type /clear.</value>
   </data>

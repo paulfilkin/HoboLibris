@@ -1956,6 +1956,11 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Asst_CutShort", resourceCulture); }
         }
 
+        /// <summary>Looks up a localized string similar to The model gave no answer. Ask again, perhaps in other words..</summary>
+        public static string Asst_NoAnswer {
+            get { return ResourceManager.GetString("Asst_NoAnswer", resourceCulture); }
+        }
+
         /// <summary>Looks up a localized string similar to The conversation may now be too long for the model. Start a new conversation, or type /clear..</summary>
         public static string Asst_TooLong {
             get { return ResourceManager.GetString("Asst_TooLong", resourceCulture); }

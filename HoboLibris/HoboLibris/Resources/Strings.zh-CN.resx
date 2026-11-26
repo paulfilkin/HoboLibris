@@ -1253,6 +1253,9 @@
   <data name="Asst_CutShort" xml:space="preserve">
     <value>回答因“最长回答”设置而被截断（{0} 个令牌；推理模型的推理也计入其中）。请在设置的“AI 模型”中调高该值，然后输入“继续”。</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>模型没有给出回答。请再问一次，或许换种说法。</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>对话现在可能对模型来说太长了。请开始新对话或输入 /clear。</value>
   </data>

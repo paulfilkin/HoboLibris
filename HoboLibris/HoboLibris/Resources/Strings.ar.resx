@@ -1227,6 +1227,9 @@
   <data name="Asst_CutShort" xml:space="preserve">
     <value>قُطعت الإجابة بسبب إعداد أطول إجابة ({0} رمز؛ تحتسب نماذج الاستدلال استدلالها ضمنه). ارفعه في الإعدادات، ضمن نموذج الذكاء الاصطناعي، ثم اكتب "تابع".</value>
   </data>
+  <data name="Asst_NoAnswer" xml:space="preserve">
+    <value>لم يقدّم النموذج أي إجابة. اسأل مرة أخرى، ربما بكلمات أخرى.</value>
+  </data>
   <data name="Asst_TooLong" xml:space="preserve">
     <value>قد تكون المحادثة الآن أطول مما يحتمله النموذج. ابدأ محادثة جديدة، أو اكتب ‎/clear.</value>
   </data>
