@@ -480,9 +480,31 @@ namespace HoboLibris.Assistant
                 return new ToolResult(call.Id, call.Name, refused.Content, refused.IsError);
             }
 
+            // A question only the person can answer (#91): their answer becomes the argument the model left
+            // out.  The call as the model made it stays in the conversation; the tool runs with the answer.
+            var arguments = call.Arguments;
+            if (tool.Ask?.Invoke(arguments) is { } question)
+            {
+                var choice = new ChoiceRequest(tool.Title, question);
+                Items.Add(choice);
+                SetBusyText(Strings.Asst_WaitingForAnswer);
+                int picked;
+                using (cancel.Register(() => choice.Answer(-1)))
+                {
+                    picked = await choice.Answered;
+                }
+                if (picked < 0 || picked >= question.Options.Count)
+                {
+                    Items.Add(new ToolActivity(tool, arguments) { State = ToolActivityState.Declined, Summary = Strings.Asst_YouDeclined });
+                    return new ToolResult(call.Id, call.Name, DeclinedResult, true);
+                }
+                arguments = (JsonObject)arguments.DeepClone();
+                arguments[question.Argument] = question.Options[picked].Value.DeepClone();
+            }
+
             if (tool.NeedsApproval(Settings.SkipApprovals))
             {
-                var approval = new ApprovalRequest(tool, call.Arguments);
+                var approval = new ApprovalRequest(tool, arguments);
                 Items.Add(approval);
                 SetBusyText(Strings.Asst_WaitingForAnswer);
                 using (cancel.Register(() => approval.Answer(false, false)))
@@ -490,7 +512,7 @@ namespace HoboLibris.Assistant
                     var (allowed, always) = await approval.Answered;
                     if (!allowed)
                     {
-                        Items.Add(new ToolActivity(tool, call.Arguments) { State = ToolActivityState.Declined, Summary = Strings.Asst_YouDeclined });
+                        Items.Add(new ToolActivity(tool, arguments) { State = ToolActivityState.Declined, Summary = Strings.Asst_YouDeclined });
                         return new ToolResult(call.Id, call.Name, DeclinedResult, true);
                     }
                     if (always && !tool.AlwaysAsks)
@@ -502,12 +524,12 @@ namespace HoboLibris.Assistant
                 }
             }
 
-            var activity = new ToolActivity(tool, call.Arguments);
+            var activity = new ToolActivity(tool, arguments);
             Items.Add(activity);
             SetBusyText(tool.Title + "…");
             try
             {
-                var outcome = await tool.Run(call.Arguments, cancel);
+                var outcome = await tool.Run(arguments, cancel);
                 string content = outcome.Content.Length > MaxResultLength
                     ? outcome.Content[..MaxResultLength] + $"\n[cut at {MaxResultLength} characters]"
                     : outcome.Content;
@@ -565,18 +587,25 @@ namespace HoboLibris.Assistant
             {
                 _turns.Add(new ToolResultsTurn(last.ToolCalls.Select(c => new ToolResult(c.Id, c.Name, "Cancelled by the person.", true)).ToList()));
             }
-            foreach (var approval in Items.OfType<ApprovalRequest>().Where(a => a.IsPending).ToList())
-            {
-                approval.Answer(false, false);
-            }
+            AnswerPendingCards();
         }
 
         public void Stop()
         {
             _cancel?.Cancel();
+            AnswerPendingCards();
+        }
+
+        /// <summary>Cards still waiting count as declined.</summary>
+        private void AnswerPendingCards()
+        {
             foreach (var approval in Items.OfType<ApprovalRequest>().Where(a => a.IsPending).ToList())
             {
                 approval.Answer(false, false);
+            }
+            foreach (var choice in Items.OfType<ChoiceRequest>().Where(c => c.IsPending).ToList())
+            {
+                choice.Answer(-1);
             }
         }
 
@@ -657,6 +686,11 @@ namespace HoboLibris.Assistant
                 Kind = "approval", Time = approval.Time, Title = approval.Title, Arguments = approval.Arguments,
                 Description = approval.Description, Outcome = approval.IsPending ? Strings.Asst_Declined : approval.Outcome,
             },
+            ChoiceRequest choice => new SavedChatItem
+            {
+                Kind = "choice", Time = choice.Time, Title = choice.Title, Description = choice.Question,
+                Outcome = choice.IsPending ? Strings.Asst_Declined : choice.Outcome,
+            },
             _ => null,
         };
 
@@ -677,6 +711,8 @@ namespace HoboLibris.Assistant
                     "results" => Connect(SearchResults.FromSaved(item.Title ?? string.Empty, item.Result, item.Time)),
                     "approval" => ApprovalRequest.Restored(item.Title ?? string.Empty, item.Description ?? string.Empty,
                         item.Arguments ?? string.Empty, item.Outcome ?? Strings.Asst_Declined),
+                    "choice" => ChoiceRequest.Restored(item.Title ?? string.Empty, item.Description ?? string.Empty,
+                        item.Outcome ?? Strings.Asst_Declined),
                     _ => null,
                 };
                 if (restored != null)
@@ -726,6 +762,9 @@ namespace HoboLibris.Assistant
                         break;
                     case ApprovalRequest approval:
                         builder.Append('[').Append(approval.Description).Append(' ').Append(approval.Outcome).Append("]\n\n");
+                        break;
+                    case ChoiceRequest choice:
+                        builder.Append('[').Append(choice.Question).Append(' ').Append(choice.Outcome).Append("]\n\n");
                         break;
                     case NoticeMessage notice:
                         builder.Append('[').Append(notice.Text).Append("]\n\n");

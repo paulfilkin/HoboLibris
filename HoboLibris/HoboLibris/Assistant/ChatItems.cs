@@ -166,6 +166,8 @@ namespace HoboLibris.Assistant
             ["authors"] = r.Book.Authors,
             ["language"] = r.Book.Language,
             ["page"] = r.Book.PageUrl?.AbsoluteUri,
+            ["free"] = r.Book.Free,
+            ["price"] = r.Book.Price,
         }).ToArray()).ToJsonString();
 
         public static SearchResults FromSaved(string heading, string? rows, DateTime time)
@@ -183,6 +185,9 @@ namespace HoboLibris.Assistant
                         Authors = (row["authors"] as JsonValue)?.ToString() ?? "",
                         Language = (row["language"] as JsonValue)?.ToString(),
                         PageUrl = Uri.TryCreate((row["page"] as JsonValue)?.ToString(), UriKind.Absolute, out var page) ? page : null,
+                        // Lists saved before #91 hold only free books.
+                        Free = row["free"] is not JsonValue free || !free.TryGetValue(out bool isFree) || isFree,
+                        Price = (row["price"] as JsonValue)?.ToString(),
                     });
                 }
             }
@@ -219,10 +224,28 @@ namespace HoboLibris.Assistant
         public string Authors => Book.Authors;
         public string Language => Book.Language ?? "";
 
-        /// <summary>Gutenberg and Open Library books by their ids; Google Books and OPDS books by the address the search found.</summary>
-        public bool Downloadable => Book.Source is "gutenberg" or "open_library" || Book.DownloadUrl != null;
+        /// <summary>
+        /// Gutenberg and Open Library books by their ids; Google Books and OPDS books by the address the
+        /// search found.  Never a book that isn't free (#91).
+        /// </summary>
+        public bool Downloadable => Book.Free && (Book.Source is "gutenberg" or "open_library" || Book.DownloadUrl != null);
 
         public bool CanOpen => Book.PageUrl != null && Book.Source != "opds";
+
+        /// <summary>A book that isn't free can be looked for in the Kobo store, in the person's browser (#91).</summary>
+        public bool CanFindInStore => !Book.Free;
+
+        /// <summary>"Not free · 9.99 GBP" under the title of a book that isn't free; empty for a free one.</summary>
+        public string PriceText => Book.Free ? "" : Book.Price is { } price ? string.Format(Strings.Asst_ForSale, price) : Strings.Asst_NotFree;
+
+        [RelayCommand]
+        private void FindInStore()
+        {
+            if (CanFindInStore && Uri.TryCreate(Services.Previews.SearchUrl($"{Book.Title} {Book.Authors}".Trim()), UriKind.Absolute, out var url))
+            {
+                _owner.OpenPage?.Invoke(url);
+            }
+        }
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(DownloadCommand))]
@@ -322,5 +345,81 @@ namespace HoboLibris.Assistant
         private void Decline() => Answer(false, false);
 
         public override string ToString() => Description;
+    }
+
+    /// <summary>
+    /// A question the program puts to the person before a tool runs (#91), such as free books only or
+    /// paid books too.  The card is the program's, so it is asked whatever the model.
+    /// </summary>
+    public sealed partial class ChoiceRequest : ChatItem
+    {
+        private readonly TaskCompletionSource<int> _answer = new(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        public ChoiceRequest(string title, ToolQuestion question)
+            : this(title, question.Text, question.Options.Select(o => o.Label))
+        {
+        }
+
+        private ChoiceRequest(string title, string question, IEnumerable<string> labels)
+        {
+            Title = title;
+            Question = question;
+            Options = labels.Select((label, i) => new ChoiceOption(this, label, i)).ToList();
+        }
+
+        /// <summary>A question as saved (a restored conversation): already answered, with its outcome.</summary>
+        public static ChoiceRequest Restored(string title, string question, string outcome)
+        {
+            var choice = new ChoiceRequest(title, question, Array.Empty<string>());
+            choice._answer.TrySetResult(-1);
+            choice.Outcome = outcome;
+            return choice;
+        }
+
+        public string Title { get; }
+        public string Question { get; }
+        public IReadOnlyList<ChoiceOption> Options { get; }
+
+        public bool IsPending => !_answer.Task.IsCompleted;
+
+        [ObservableProperty]
+        private string _outcome = string.Empty;
+
+        /// <summary>The option chosen, or -1 when the person declined or pressed Stop.</summary>
+        public Task<int> Answered => _answer.Task;
+
+        public void Answer(int index)
+        {
+            if (!_answer.TrySetResult(index))
+            {
+                return;
+            }
+            Outcome = index >= 0 && index < Options.Count ? Options[index].Label : Strings.Asst_Declined;
+            OnPropertyChanged(nameof(IsPending));
+        }
+
+        [RelayCommand]
+        private void Decline() => Answer(-1);
+
+        public override string ToString() => Question;
+    }
+
+    /// <summary>One button on a ChoiceRequest card.</summary>
+    public sealed partial class ChoiceOption
+    {
+        private readonly ChoiceRequest _owner;
+        private readonly int _index;
+
+        public ChoiceOption(ChoiceRequest owner, string label, int index)
+        {
+            _owner = owner;
+            Label = label;
+            _index = index;
+        }
+
+        public string Label { get; }
+
+        [RelayCommand]
+        private void Choose() => _owner.Answer(_index);
     }
 }

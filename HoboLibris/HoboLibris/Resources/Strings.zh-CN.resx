@@ -1554,10 +1554,10 @@
     <value>Open Library 和 Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>仅限可免费阅读的图书，绝不包括借阅副本。由扫描件制成，质量参差不齐。</value>
+    <value>仅下载可免费阅读的图书，绝不包括借阅副本。由扫描件制成，质量参差不齐。</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>仅限免费的 Google 图书。需要你自己的 Google Books API 密钥。</value>
+    <value>免费的 Google 图书，在你需要时也包括付费图书。需要你自己的 Google Books API 密钥。</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Google Books API 密钥</value>
@@ -2137,5 +2137,38 @@
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>已移除的试读：{0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>也查找付费图书，还是只查找免费图书？付费图书会列出供你在 Kobo 商店购买，绝不会下载。</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>仅免费图书</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>也包括付费图书</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>你想要哪种？</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} 本可免费下载</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>付费 · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>付费</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>在 Kobo 商店中查找</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>未说明时的付费图书</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>当你未说明是否需要付费图书时，Google 图书或 Open Library 的搜索会列出什么。付费图书仅列出供购买，绝不会下载。</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>每次都询问</value>
   </data>
 </root>

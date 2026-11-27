@@ -31,6 +31,15 @@ namespace HoboLibris.Assistant.Sources
         /// <summary>For Open Library: the Internet Archive items that may hold the file.</summary>
         public IReadOnlyList<string> ArchiveItems { get; init; } = Array.Empty<string>();
 
+        /// <summary>
+        /// Free to download here.  A book that isn't (#91) is listed for the person to find and buy
+        /// elsewhere, and is never downloaded.
+        /// </summary>
+        public bool Free { get; init; } = true;
+
+        /// <summary>The price the source gives for a book for sale, such as "9.99 GBP"; null when it gives none.</summary>
+        public string? Price { get; init; }
+
         public JsonObject ToJson()
         {
             var json = new JsonObject
@@ -50,6 +59,14 @@ namespace HoboLibris.Assistant.Sources
             if (Format == "kepub")
             {
                 json["format"] = "kepub";
+            }
+            if (!Free)
+            {
+                json["free"] = false;
+                if (Price != null)
+                {
+                    json["price"] = Price;
+                }
             }
             if (Note != null)
             {

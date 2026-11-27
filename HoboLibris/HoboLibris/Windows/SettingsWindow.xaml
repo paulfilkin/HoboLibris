@@ -478,6 +478,14 @@
                                 <TextBlock Text="{Binding Assistant.GoogleKeyStatus}" Style="{StaticResource HelperText}" Margin="24,0,0,12"
                                            AutomationProperties.LiveSetting="Polite"/>
 
+                                <!-- Paid books (#91): what a search lists when the person didn't say -->
+                                <TextBlock x:Name="PaidBooksLabel" Text="{x:Static res:Strings.Src_PaidBooks}" Style="{StaticResource FieldLabel}"/>
+                                <TextBlock Text="{x:Static res:Strings.Src_PaidBooksHint}" Style="{StaticResource FieldHint}"/>
+                                <ComboBox Style="{StaticResource ModernComboBox}" Width="300" HorizontalAlignment="Left" Margin="0,0,0,12"
+                                          ItemsSource="{Binding Assistant.PaidBooksChoices}" SelectedValuePath="Value" DisplayMemberPath="Label"
+                                          SelectedValue="{Binding Assistant.PaidBooks}"
+                                          AutomationProperties.LabeledBy="{Binding ElementName=PaidBooksLabel}"/>
+
                                 <TextBlock Text="{x:Static res:Strings.Src_LinksOnly}" Style="{StaticResource FieldHint}" Margin="0,0,0,16"/>
 
                                 <TextBlock Text="{x:Static res:Strings.Src_Catalogues}" Style="{StaticResource FieldLabel}"/>

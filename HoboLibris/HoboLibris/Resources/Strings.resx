@@ -1554,10 +1554,10 @@ To back up more books, plug it in again: its books will appear here by themselve
     <value>Open Library and Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Books free to read only, never lending copies. Made from scans, so quality varies.</value>
+    <value>Downloads only books free to read, never lending copies. Made from scans, so quality varies.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Free Google Books only. Needs your own Google Books API key.</value>
+    <value>Free Google Books, and books for sale when you ask for them. Needs your own Google Books API key.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Google Books API key</value>
@@ -2137,5 +2137,38 @@ To back up more books, plug it in again: its books will appear here by themselve
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Previews removed: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Look for books for sale too, or free books only? Books for sale are listed for you to buy in the Kobo store, never downloaded.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Free books only</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Paid books too</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>Which do you want?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} free to download</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>Not free · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>Not free</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Find it in the Kobo store</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Paid books, when I don't say</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>What a Google Books or Open Library search lists when you don't say whether you want paid books. They are listed for you to buy, never downloaded.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Ask me each time</value>
   </data>
 </root>

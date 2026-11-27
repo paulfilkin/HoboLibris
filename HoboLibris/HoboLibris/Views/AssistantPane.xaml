@@ -204,8 +204,13 @@
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Lang"/>
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" Text="{Binding Title}" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Center"
-                                                   Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" FontSize="12"
+                                                       Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                            <!-- A book that isn't free (#91): not downloaded, found in the Kobo store instead -->
+                                            <TextBlock Text="{Binding PriceText}" Style="{StaticResource Caption}" TextWrapping="Wrap"
+                                                       Visibility="{Binding CanFindInStore, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                        </StackPanel>
                                         <TextBlock Grid.Column="1" Text="{Binding Authors}" TextWrapping="Wrap" Style="{StaticResource Caption}"
                                                    VerticalAlignment="Center" Margin="8,0,0,0"/>
                                         <TextBlock Grid.Column="2" Text="{Binding Language}" Style="{StaticResource Caption}" VerticalAlignment="Center"
@@ -220,6 +225,10 @@
                                                 <TextBlock x:Name="Done" Text="&#xE73E;" Style="{StaticResource Glyph}" FontSize="12" HorizontalAlignment="Center"
                                                            Foreground="{DynamicResource PrimaryBrush}" ToolTip="{Binding Message}" Visibility="Collapsed"
                                                            AutomationProperties.Name="{Binding Message}"/>
+                                                <Button Style="{StaticResource MessageCopyButton}" Content="&#xE7BF;" Command="{Binding FindInStoreCommand}"
+                                                        ToolTip="{x:Static res:Strings.Asst_FindInStoreTip}" AutomationProperties.Name="{x:Static res:Strings.Asst_FindInStoreTip}"
+                                                        AutomationProperties.HelpText="{Binding Title}"
+                                                        Visibility="{Binding CanFindInStore, Converter={StaticResource BoolToVisibilityConverter}}"/>
                                             </Grid>
                                             <Button Style="{StaticResource MessageCopyButton}" Content="&#xE8A7;" Command="{Binding OpenCommand}"
                                                     ToolTip="{x:Static res:Strings.Asst_OpenPageTip}" AutomationProperties.Name="{x:Static res:Strings.Asst_OpenPageTip}"
@@ -294,6 +303,46 @@
                 <DataTrigger Binding="{Binding IsExpanded}" Value="True">
                     <Setter TargetName="Details" Property="Visibility" Value="Visible"/>
                     <Setter TargetName="DetailsLabel" Property="Text" Value="{x:Static res:Strings.Asst_HideDetails}"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!-- A question the program asks before a tool runs (#91): one button per answer -->
+        <DataTemplate DataType="{x:Type a:ChoiceRequest}">
+            <Border x:Name="Card" Background="{DynamicResource BackgroundDeepBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="11,8,11,9" Margin="0,4,0,4">
+                <StackPanel>
+                    <TextBlock x:Name="Heading" Text="{x:Static res:Strings.Asst_Asked}" FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextPrimaryBrush}" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding Question}" TextWrapping="Wrap" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,3,0,0"/>
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource Caption}" Margin="0,3,0,0"/>
+                    <WrapPanel x:Name="Buttons" Margin="0,8,0,0" Visibility="Collapsed">
+                        <ItemsControl ItemsSource="{Binding Options}" Focusable="False">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type a:ChoiceOption}">
+                                    <Button Content="{Binding Label}" Style="{StaticResource ModernButton}" Padding="12,4" Margin="0,0,6,4"
+                                            Command="{Binding ChooseCommand}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Button Content="{x:Static res:Strings.Asst_Decline}" Style="{StaticResource SecondaryButton}" Padding="12,4" Margin="0,0,6,4"
+                                Command="{Binding DeclineCommand}"/>
+                    </WrapPanel>
+                    <TextBlock x:Name="Outcome" Text="{Binding Outcome}" Style="{StaticResource Caption}" Margin="0,4,0,0"/>
+                </StackPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsPending}" Value="True">
+                    <Setter TargetName="Card" Property="Background" Value="{DynamicResource AccentTintBrush}"/>
+                    <Setter TargetName="Card" Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+                    <Setter TargetName="Heading" Property="Text" Value="{x:Static res:Strings.Asst_ChooseOne}"/>
+                    <Setter TargetName="Buttons" Property="Visibility" Value="Visible"/>
+                    <Setter TargetName="Outcome" Property="Visibility" Value="Collapsed"/>
                 </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>

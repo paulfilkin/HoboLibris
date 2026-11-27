@@ -1554,10 +1554,10 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
     <value>Open Library と Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>自由に読める書籍だけで、貸出用のコピーは含みません。スキャンから作られているため、品質はまちまちです。</value>
+    <value>自由に読める書籍だけをダウンロードし、貸出用のコピーは含みません。スキャンから作られているため、品質はまちまちです。</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>無料の Google ブックスのみ。ご自身の Google Books API キーが必要です。</value>
+    <value>無料の Google ブックスと、求めたときは有料の書籍も。ご自身の Google Books API キーが必要です。</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Google Books API キー</value>
@@ -2137,5 +2137,38 @@ Kindle に充電中と表示されるだけの場合は、コンピューター�
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>削除した試し読み: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>有料の書籍も探しますか、それとも無料の書籍だけにしますか? 有料の書籍は Kobo ストアで購入できるよう一覧に表示され、ダウンロードはされません。</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>無料の書籍のみ</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>有料の書籍も含める</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>どちらにしますか?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · 無料でダウンロードできるのは {0} 件</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>有料 · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>有料</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Kobo ストアで探す</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>指定しないときの有料の書籍</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>有料の書籍が必要かを指定しないときに、Google ブックスや Open Library の検索で何を一覧にするか。有料の書籍は購入用に表示され、ダウンロードはされません。</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>毎回確認する</value>
   </data>
 </root>

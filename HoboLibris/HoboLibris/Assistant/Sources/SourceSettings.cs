@@ -59,6 +59,17 @@ namespace HoboLibris.Assistant.Sources
         [JsonPropertyName("opds")]
         public List<OpdsCatalogue> Catalogues { get; set; } = new();
 
+        /// <summary>
+        /// What a search of Google Books or Open Library lists when the person didn't say (#91): "ask" (a
+        /// card asks them), "free" (free books only) or "paid" (books for sale too).
+        /// </summary>
+        [JsonPropertyName("paid_books")]
+        public string PaidBooks { get; set; } = PaidBooksAsk;
+
+        public const string PaidBooksAsk = "ask";
+        public const string PaidBooksFree = "free";
+        public const string PaidBooksPaid = "paid";
+
         public string GetGoogleBooksKey() => SecretStore.Unprotect(GoogleBooksKey);
 
         public void SetGoogleBooksKey(string? key) =>

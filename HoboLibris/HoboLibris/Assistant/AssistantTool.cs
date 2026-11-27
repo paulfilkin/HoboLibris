@@ -25,6 +25,9 @@ namespace HoboLibris.Assistant
         public string? ChangeKey { get; init; }
     }
 
+    /// <summary>A question a tool asks the person before it runs: the answer sets Argument to the option's value.</summary>
+    public sealed record ToolQuestion(string Text, string Argument, IReadOnlyList<(string Label, JsonNode Value)> Options);
+
     /// <summary>
     /// A tool the Assistant can use.  Name is what the model sees (letters, digits, '_' and '-', at most
     /// 64, as both Anthropic and OpenAI require); Title is what the person sees.  Ported from Mycelia
@@ -68,6 +71,12 @@ namespace HoboLibris.Assistant
 
         /// <summary>A plain sentence saying what a call will do, for the approval card.</summary>
         public Func<JsonObject, string>? Describe { get; init; }
+
+        /// <summary>
+        /// A question for the person before the call runs, when the model left out an argument only they
+        /// can decide (#91: free books only, or paid books too).  Null means no question.
+        /// </summary>
+        public Func<JsonObject, ToolQuestion?>? Ask { get; init; }
 
         public ToolSpec ToSpec() => new(Name, Description, Schema);
     }

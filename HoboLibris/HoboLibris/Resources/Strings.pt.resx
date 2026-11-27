@@ -1528,10 +1528,10 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
     <value>Open Library e Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Só livros de leitura livre, nunca cópias de empréstimo. Feitos a partir de digitalizações, por isso a qualidade varia.</value>
+    <value>Só transfere livros de leitura livre, nunca cópias de empréstimo. Feitos a partir de digitalizações, por isso a qualidade varia.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Só livros gratuitos do Google Livros. Precisa da sua própria chave de API do Google Books.</value>
+    <value>Livros gratuitos do Google Livros e, quando os pede, também pagos. Precisa da sua própria chave de API do Google Books.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Chave de API do Google Books</value>
@@ -2111,5 +2111,38 @@ Para guardar cópias de mais livros, volte a ligá-lo: os livros aparecem aqui a
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Amostras removidas: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Procurar também livros pagos, ou só gratuitos? Os livros pagos são listados para os comprar na loja Kobo, nunca transferidos.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Só livros gratuitos</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Também livros pagos</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>O que prefere?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} gratuitos para transferir</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>Pago · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>Pago</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Procurá-lo na loja Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Livros pagos, quando não digo</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>O que uma pesquisa no Google Livros ou na Open Library lista quando não diz se quer livros pagos. São listados para os comprar, nunca transferidos.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Perguntar sempre</value>
   </data>
 </root>

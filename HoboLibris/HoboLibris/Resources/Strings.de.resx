@@ -1528,10 +1528,10 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
     <value>Open Library und Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Nur frei lesbare Bücher, nie Leihexemplare. Aus Scans erstellt, daher schwankt die Qualität.</value>
+    <value>Lädt nur frei lesbare Bücher herunter, nie Leihexemplare. Aus Scans erstellt, daher schwankt die Qualität.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Nur kostenlose Google-Bücher. Benötigt Ihren eigenen Google Books API-Schlüssel.</value>
+    <value>Kostenlose Google-Bücher und, wenn Sie danach fragen, kostenpflichtige. Benötigt Ihren eigenen Google Books API-Schlüssel.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Google Books API-Schlüssel</value>
@@ -2111,5 +2111,38 @@ Um weitere Bücher zu sichern, schließen Sie ihn wieder an: Seine Bücher ersch
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Entfernte Leseproben: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Auch nach kostenpflichtigen Büchern suchen oder nur nach kostenlosen? Kostenpflichtige Bücher werden zum Kauf im Kobo Store aufgeführt, nie heruntergeladen.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Nur kostenlose Bücher</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Auch kostenpflichtige Bücher</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>Was möchten Sie?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} kostenlos herunterladbar</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>Nicht kostenlos · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>Nicht kostenlos</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Im Kobo Store suchen</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Kostenpflichtige Bücher, wenn ich nichts sage</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>Was eine Suche in Google Books oder Open Library aufführt, wenn Sie nicht sagen, ob Sie kostenpflichtige Bücher möchten. Diese werden zum Kauf aufgeführt, nie heruntergeladen.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Jedes Mal fragen</value>
   </data>
 </root>

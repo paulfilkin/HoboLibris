@@ -1554,10 +1554,10 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
     <value>Open Library e Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Solo libri liberamente leggibili, mai copie in prestito. Ricavati da scansioni, quindi la qualità varia.</value>
+    <value>Scarica solo libri liberamente leggibili, mai copie in prestito. Ricavati da scansioni, quindi la qualità varia.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Solo libri gratuiti di Google Books. Serve una tua chiave API di Google Books.</value>
+    <value>Libri gratuiti di Google Books e, quando li chiedi, anche a pagamento. Serve una tua chiave API di Google Books.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Chiave API di Google Books</value>
@@ -2137,5 +2137,38 @@ Per eseguire il backup di altri libri, ricollegalo: i suoi libri compariranno qu
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Anteprime rimosse: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Cercare anche libri a pagamento o solo gratuiti? I libri a pagamento vengono elencati perché tu li acquisti nel negozio Kobo, mai scaricati.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Solo libri gratuiti</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Anche libri a pagamento</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>Cosa preferisci?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} scaricabili gratis</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>A pagamento · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>A pagamento</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Cercalo nel negozio Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Libri a pagamento, se non lo dico</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>Cosa elenca una ricerca in Google Books o Open Library quando non dici se vuoi libri a pagamento. Vengono elencati perché tu li acquisti, mai scaricati.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Chiedimelo ogni volta</value>
   </data>
 </root>

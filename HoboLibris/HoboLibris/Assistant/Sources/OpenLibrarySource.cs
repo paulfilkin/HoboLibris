@@ -21,7 +21,11 @@ namespace HoboLibris.Assistant.Sources
             ["fi"] = "fin", ["pl"] = "pol", ["no"] = "nor", ["cs"] = "cze", ["hu"] = "hun",
         };
 
-        public static Uri SearchUrl(string? query, string? author, string? language, int limit)
+        /// <summary>
+        /// The search: books Open Library marks as public, or with paid (#91) its whole catalogue, so a
+        /// book with no free copy is still found, for the person to buy or borrow elsewhere.
+        /// </summary>
+        public static Uri SearchUrl(string? query, string? author, string? language, int limit, bool paid = false)
         {
             var q = new List<string>();
             if (!string.IsNullOrWhiteSpace(query))
@@ -37,30 +41,40 @@ namespace HoboLibris.Assistant.Sources
                 q.Add("language:" + (Marc.TryGetValue(language.Trim(), out var code) ? code : language.Trim()));
             }
             // In the query itself: as a separate parameter Open Library ignores it.
-            q.Add("ebook_access:public");
+            if (!paid)
+            {
+                q.Add("ebook_access:public");
+            }
             return new Uri("https://openlibrary.org/search.json?q=" + Uri.EscapeDataString(string.Join(" ", q))
                 + "&fields=key,title,author_name,first_publish_year,ia,language,ebook_access&limit=" + limit);
         }
 
-        public static List<EbookResult> ParseSearch(JsonNode json) =>
+        /// <summary>The books found: those free to read, and with paid (#91) the others too, marked not free.</summary>
+        public static List<EbookResult> ParseSearch(JsonNode json, bool paid = false) =>
             (json["docs"] as JsonArray ?? new JsonArray())
                 .OfType<JsonObject>()
-                .Where(d => d["ebook_access"]?.ToString() == "public" && d["ia"] is JsonArray { Count: > 0 })
+                .Select(d => (Doc: d, Free: d["ebook_access"]?.ToString() == "public" && d["ia"] is JsonArray { Count: > 0 }))
+                .Where(d => d.Free || paid)
                 .Select(d =>
                 {
-                    var key = d["key"]?.ToString() ?? "";
+                    var key = d.Doc["key"]?.ToString() ?? "";
                     var work = key.Replace("/works/", "");
                     return new EbookResult
                     {
                         Id = "ol-" + work,
                         Source = "open_library",
-                        Title = d["title"]?.ToString() ?? "",
-                        Authors = string.Join(", ", (d["author_name"] as JsonArray ?? new JsonArray()).Select(a => a?.ToString())),
-                        Year = d["first_publish_year"]?.ToString(),
-                        Language = string.Join(", ", (d["language"] as JsonArray ?? new JsonArray()).Take(3).Select(l => l?.ToString())),
-                        Note = "Made from a scan; quality varies.",
+                        Title = d.Doc["title"]?.ToString() ?? "",
+                        Authors = string.Join(", ", (d.Doc["author_name"] as JsonArray ?? new JsonArray()).Select(a => a?.ToString())),
+                        Year = d.Doc["first_publish_year"]?.ToString(),
+                        Language = string.Join(", ", (d.Doc["language"] as JsonArray ?? new JsonArray()).Take(3).Select(l => l?.ToString())),
+                        Note = d.Free ? "Made from a scan; quality varies."
+                            : d.Doc["ebook_access"]?.ToString() == "borrowable" ? "Can be borrowed on Open Library (its page), not downloaded."
+                            : "No free copy.",
                         PageUrl = new Uri("https://openlibrary.org" + key),
-                        ArchiveItems = ((JsonArray)d["ia"]!).Select(i => i?.ToString() ?? "").Where(i => i.Length > 0).Take(8).ToList(),
+                        Free = d.Free,
+                        ArchiveItems = d.Free
+                            ? ((JsonArray)d.Doc["ia"]!).Select(i => i?.ToString() ?? "").Where(i => i.Length > 0).Take(8).ToList()
+                            : Array.Empty<string>(),
                     };
                 })
                 .ToList();

@@ -1528,10 +1528,10 @@
     <value>Open Library та Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Лише книги у вільному доступі, ніколи не примірники для позики. Зроблено зі сканів, тож якість різна.</value>
+    <value>Завантажує лише книги у вільному доступі, ніколи не примірники для позики. Зроблено зі сканів, тож якість різна.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Лише безкоштовні книги Google Books. Потрібен ваш власний ключ API Google Books.</value>
+    <value>Безкоштовні книги Google Books, а на ваш запит і платні. Потрібен ваш власний ключ API Google Books.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Ключ API Google Books</value>
@@ -2111,5 +2111,38 @@
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Уривків вилучено: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Шукати також платні книги чи лише безкоштовні? Платні книги показуються, щоб ви купили їх у магазині Kobo, і ніколи не завантажуються.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Лише безкоштовні книги</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Також платні книги</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>Що ви обираєте?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} можна завантажити безкоштовно</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>Платна · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>Платна</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Знайти в магазині Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Платні книги, коли я не уточнюю</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>Що показує пошук у Google Books чи Open Library, коли ви не кажете, чи потрібні платні книги. Їх показують для купівлі, але ніколи не завантажують.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Питати щоразу</value>
   </data>
 </root>
