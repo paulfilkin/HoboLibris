@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using HoboLibris.Assistant;
+using HoboLibris.Helpers;
 
 namespace HoboLibris.Models
 {
@@ -76,6 +77,10 @@ namespace HoboLibris.Models
         [JsonPropertyName("collections_list_folded")]
         public bool CollectionsListFolded { get; set; }
 
+        /// <summary>Where the main window was closed (#84); null until it has been closed once.</summary>
+        [JsonPropertyName("main_window")]
+        public WindowPlace? MainWindow { get; set; }
+
         /// <summary>The Settings page used last, opened again next time ("general", "kobo", "ai"...).</summary>
         [JsonPropertyName("settings_page")]
         public string SettingsPage { get; set; } = "";
@@ -111,6 +116,7 @@ namespace HoboLibris.Models
             CollectionsListWidth = CollectionsListWidth,
             SettingsPage = SettingsPage,
             CollectionsListFolded = CollectionsListFolded,
+            MainWindow = MainWindow,
             KindleExtraDirs = new List<string>(KindleExtraDirs),
             KoboReaderDir = KoboReaderDir,
             KoboAutoSend = KoboAutoSend,

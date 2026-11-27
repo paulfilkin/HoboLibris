@@ -12,7 +12,6 @@
         MinWidth="860"
         Background="{DynamicResource BackgroundBrush}"
         Foreground="{DynamicResource TextPrimaryBrush}"
-        WindowStartupLocation="CenterScreen"
         Icon="/icon.ico"
         TextOptions.TextFormattingMode="Display"
         TextOptions.TextRenderingMode="ClearType"
