@@ -91,7 +91,18 @@ namespace HoboLibris
                 };
                 warmUp.Start();
             }
-            Closing += (_, _) => ViewModel.Assistant.Shutdown();
+            // Where the window was closed, on one screen (#84).  A picture for checking the look opens
+            // where a first start would and saves nothing.
+            var place = new WindowPlaceKeeper(this, screenshot ? null : ViewModel.Settings.MainWindow);
+            Closing += (_, _) =>
+            {
+                ViewModel.Assistant.Shutdown();
+                if (!screenshot && place.Current() is { } current)
+                {
+                    ViewModel.Settings.MainWindow = current;
+                    SettingsService.Save(ViewModel.Settings);
+                }
+            };
         }
 
         private const double PaneMinWidth = 300;
