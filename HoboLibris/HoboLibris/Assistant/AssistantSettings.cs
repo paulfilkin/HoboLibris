@@ -13,7 +13,10 @@ namespace HoboLibris.Assistant
         [JsonPropertyName("model")]
         public string Model { get; set; } = ChatProviders.DefaultModel(ModelProvider.Anthropic);
 
-        /// <summary>The base address of an OpenAI-compatible service (or a different Anthropic or OpenAI address).</summary>
+        /// <summary>
+        /// The base address of an OpenAI-compatible service.  Kept while Anthropic or OpenAI is chosen,
+        /// which use their own addresses (#83).
+        /// </summary>
         [JsonPropertyName("endpoint")]
         public string Endpoint { get; set; } = string.Empty;
 
