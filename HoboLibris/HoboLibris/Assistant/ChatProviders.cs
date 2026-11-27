@@ -191,15 +191,31 @@ namespace HoboLibris.Assistant
             }
         }
 
+        /// <summary>
+        /// Where a request goes.  Anthropic and OpenAI always use their own addresses: the saved one is for
+        /// an OpenAI-compatible service only, and is kept for it while another service is chosen (#83).
+        /// </summary>
+        public static string ChatUrl(ChatProviderOptions options)
+        {
+            if (options.Provider == ModelProvider.Anthropic)
+            {
+                return AnthropicEndpoint;
+            }
+            string baseUrl = options.Provider == ModelProvider.OpenAI || string.IsNullOrWhiteSpace(options.Endpoint)
+                ? OpenAiEndpoint
+                : options.Endpoint.Trim().TrimEnd('/');
+            return baseUrl.EndsWith("/chat/completions", StringComparison.OrdinalIgnoreCase) ? baseUrl : baseUrl + "/chat/completions";
+        }
+
         /// <summary>Where a service lists its models: the base address (the chat address without its last part) plus /models.</summary>
         public static Uri? ModelsUrl(ModelProvider provider, string endpoint)
         {
-            var given = endpoint.Trim().TrimEnd('/');
+            // As in ChatUrl, the saved address is an OpenAI-compatible service's only (#83).
             string baseUrl = provider switch
             {
-                ModelProvider.Anthropic => given.Length == 0 ? "https://api.anthropic.com/v1" : Strip(given, "/messages"),
-                ModelProvider.OpenAI => given.Length == 0 ? OpenAiEndpoint : Strip(given, "/chat/completions"),
-                _ => Strip(given, "/chat/completions"),
+                ModelProvider.Anthropic => "https://api.anthropic.com/v1",
+                ModelProvider.OpenAI => OpenAiEndpoint,
+                _ => Strip(endpoint.Trim().TrimEnd('/'), "/chat/completions"),
             };
             return baseUrl.Length > 0 && Uri.TryCreate(baseUrl + "/models" + (provider == ModelProvider.Anthropic ? "?limit=100" : ""), UriKind.Absolute, out var url)
                 ? url
@@ -398,8 +414,7 @@ namespace HoboLibris.Assistant
         public async Task<ChatReply> CompleteAsync(string system, IReadOnlyList<ChatTurn> turns, IReadOnlyList<ToolSpec> tools, CancellationToken cancel,
             Action<string>? onText = null)
         {
-            string url = string.IsNullOrWhiteSpace(_options.Endpoint) ? ChatProviders.AnthropicEndpoint : _options.Endpoint.Trim();
-            using var request = new HttpRequestMessage(HttpMethod.Post, url)
+            using var request = new HttpRequestMessage(HttpMethod.Post, ChatProviders.ChatUrl(_options))
             {
                 Content = new StringContent(Body(_options, system, turns, tools).ToJsonString(), Encoding.UTF8, "application/json"),
             };
@@ -507,9 +522,7 @@ namespace HoboLibris.Assistant
                 }).ToArray());
             }
 
-            string baseUrl = string.IsNullOrWhiteSpace(_options.Endpoint) ? ChatProviders.OpenAiEndpoint : _options.Endpoint.Trim().TrimEnd('/');
-            string url = baseUrl.EndsWith("/chat/completions", StringComparison.OrdinalIgnoreCase) ? baseUrl : baseUrl + "/chat/completions";
-            using var request = new HttpRequestMessage(HttpMethod.Post, url)
+            using var request = new HttpRequestMessage(HttpMethod.Post, ChatProviders.ChatUrl(_options))
             {
                 Content = new StringContent(body.ToJsonString(), Encoding.UTF8, "application/json"),
             };

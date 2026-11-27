@@ -19,11 +19,35 @@ namespace HoboLibris.Tests
         [InlineData(ModelProvider.OpenAICompatible, "http://localhost:1234/v1/chat/completions", "http://localhost:1234/v1/models")]
         [InlineData(ModelProvider.OpenAI, "", "https://api.openai.com/v1/models")]
         [InlineData(ModelProvider.Anthropic, "", "https://api.anthropic.com/v1/models?limit=100")]
-        [InlineData(ModelProvider.Anthropic, "https://proxy.example.org/v1/messages", "https://proxy.example.org/v1/models?limit=100")]
+        // The address saved for an OpenAI-compatible service isn't used by Anthropic or OpenAI (#83).
+        [InlineData(ModelProvider.Anthropic, "http://localhost:11434/v1", "https://api.anthropic.com/v1/models?limit=100")]
+        [InlineData(ModelProvider.OpenAI, "https://api.mistral.ai/v1", "https://api.openai.com/v1/models")]
         public void AsksEachServiceWhereItListsItsModels(ModelProvider provider, string endpoint, string expected)
         {
             Assert.Equal(expected, ChatProviders.ModelsUrl(provider, endpoint)!.AbsoluteUri);
             Assert.Null(ChatProviders.ModelsUrl(ModelProvider.OpenAICompatible, ""));
+        }
+
+        [Theory]
+        [InlineData(ModelProvider.Anthropic, "", "https://api.anthropic.com/v1/messages")]
+        [InlineData(ModelProvider.Anthropic, "http://localhost:11434/v1", "https://api.anthropic.com/v1/messages")]
+        [InlineData(ModelProvider.OpenAI, "", "https://api.openai.com/v1/chat/completions")]
+        [InlineData(ModelProvider.OpenAI, "https://api.mistral.ai/v1", "https://api.openai.com/v1/chat/completions")]
+        [InlineData(ModelProvider.OpenAICompatible, "https://api.mistral.ai/v1/", "https://api.mistral.ai/v1/chat/completions")]
+        [InlineData(ModelProvider.OpenAICompatible, "http://localhost:1234/v1/chat/completions", "http://localhost:1234/v1/chat/completions")]
+        public void SendsEachServiceItsOwnRequests(ModelProvider provider, string endpoint, string expected)
+        {
+            Assert.Equal(expected, ChatProviders.ChatUrl(new ChatProviderOptions(provider, "m", "key", endpoint, 100)));
+        }
+
+        [Fact]
+        public void TheSavedAddressIsKeptWhileAnotherServiceIsChosen()
+        {
+            var settings = new AssistantSettings { Provider = ModelProvider.OpenAICompatible, Endpoint = "https://api.mistral.ai/v1" };
+            settings.Provider = ModelProvider.Anthropic;
+            Assert.Equal("https://api.anthropic.com/v1/messages", ChatProviders.ChatUrl(settings.ProviderOptions(100)));
+            settings.Provider = ModelProvider.OpenAICompatible;
+            Assert.Equal("https://api.mistral.ai/v1", settings.Endpoint);
         }
 
         [Theory]
