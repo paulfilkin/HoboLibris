@@ -170,7 +170,7 @@ namespace HoboLibris.Assistant
             Title = Strings.Asst_Tool_UseTools,
             Description = "Get another group of tools, for the rest of the conversation: "
                 + string.Join("; ", ToolGroups.Optional.Select(g => $"{g.Name} ({g.Purpose})")) + ".",
-            Schema = Schema.Object(("group", Schema.String("The group.", ToolGroups.Optional.Select(g => g.Name).ToArray()), true)),
+            Schema = Schema.Object(("group", Schema.String(null, ToolGroups.Optional.Select(g => g.Name).ToArray()), true)),
             Run = (args, _) =>
             {
                 var group = args.Str("group") ?? "";

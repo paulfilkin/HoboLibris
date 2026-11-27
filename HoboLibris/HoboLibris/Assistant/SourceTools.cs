@@ -96,9 +96,9 @@ namespace HoboLibris.Assistant
             {
                 Name = "search_ebooks",
                 Title = Strings.Asst_Tool_SearchEbooks,
-                Description = "Search one source of free or the person's own e-books. Sources: gutenberg (Project Gutenberg, public domain in the USA; searched in its catalogue on this computer), open_library (Open Library and the Internet Archive, books free to read only, made from scans), google_books (free Google Books, when the person added a key), opds (one of the person's own catalogues, named with catalogue). The state lists which are on. Returns ids for download_ebook and open_book_page.",
+                Description = "Search one source of free or the person's own e-books: gutenberg (Project Gutenberg, public domain in the USA; its catalogue is on this computer), open_library (Open Library and the Internet Archive, free-to-read scans only), google_books (free Google Books, when the person added a key), opds (one of the person's own catalogues, named with catalogue). The state lists which are on. Returns ids for download_ebook and open_book_page.",
                 Schema = Schema.Object(
-                    ("source", Schema.String("Where to search.", "gutenberg", "open_library", "google_books", "opds"), true),
+                    ("source", Schema.String(null, "gutenberg", "open_library", "google_books", "opds"), true),
                     ("query", Schema.String("Words from the title or subject."), false),
                     ("author", Schema.String("The author's name, or part of it."), false),
                     ("language", Schema.String("A two-letter language code, such as en, fr or de."), false),
@@ -111,7 +111,7 @@ namespace HoboLibris.Assistant
                 Name = "download_ebook",
                 Title = Strings.Asst_Tool_DownloadEbook,
                 Description = "Download a book found with search_ebooks into the Kobo folder, as \"Title - Author.epub\". Only when the person asked to download, read or send a book; not when they asked to find or list books. It then appears on Send to eReader; send it with send_to_ereader (ids from list_send) when the person wants it on the eReader. An existing file isn't downloaded again.",
-                Schema = Schema.Object(("id", Schema.String("The book's id from search_ebooks."), true)),
+                Schema = Schema.Object(("id", Schema.String(null), true)),
                 Changes = true,
                 Check = DownloadCheck,
                 Describe = args => _found.TryGetValue(args.Str("id") ?? "", out var r)
@@ -124,7 +124,7 @@ namespace HoboLibris.Assistant
                 Name = "open_book_page",
                 Title = Strings.Asst_Tool_OpenBookPage,
                 Description = "Open a book's page on its source's website in the person's browser, for a book found with search_ebooks: useful when it can't be downloaded here, or to read about it.",
-                Schema = Schema.Object(("id", Schema.String("The book's id from search_ebooks."), true)),
+                Schema = Schema.Object(("id", Schema.String(null), true)),
                 Run = (args, _) =>
                 {
                     if (!_found.TryGetValue(args.Str("id") ?? "", out var r) || r.PageUrl == null || r.Source == "opds")
@@ -140,8 +140,8 @@ namespace HoboLibris.Assistant
                 Title = Strings.Asst_Tool_OpenStoreSearch,
                 Description = "Open a search on the Kobo store or Standard Ebooks in the person's browser. HoboLibris can't buy or download there: the person buys Kobo books themselves (they then appear on Back up books after a refresh), and downloads Standard Ebooks books themselves into the Kobo folder.",
                 Schema = Schema.Object(
-                    ("store", Schema.String("Which site.", "kobo", "standard_ebooks"), true),
-                    ("query", Schema.String("What to search for."), true)),
+                    ("store", Schema.String(null, "kobo", "standard_ebooks"), true),
+                    ("query", Schema.String(null), true)),
                 Run = (args, _) =>
                 {
                     var query = Uri.EscapeDataString(args.Str("query") ?? "");
