@@ -555,6 +555,25 @@ namespace HoboLibris.ViewModels
 
         public string GoogleKeyStatus => Sources.GetGoogleBooksKey().Length > 0 ? Strings.Asst_KeySaved : Strings.Src_GoogleNoKey;
 
+        /// <summary>What a search lists when the person didn't say whether paid books are wanted (#91).</summary>
+        public IReadOnlyList<Choice<string>> PaidBooksChoices { get; } = new List<Choice<string>>
+        {
+            new(SourceSettings.PaidBooksAsk, Strings.Src_PaidAsk),
+            new(SourceSettings.PaidBooksFree, Strings.Asst_FreeOnly),
+            new(SourceSettings.PaidBooksPaid, Strings.Asst_PaidToo),
+        };
+
+        public string PaidBooks
+        {
+            get => Sources.PaidBooks;
+            set
+            {
+                Sources.PaidBooks = value;
+                SaveSettings();
+                OnPropertyChanged();
+            }
+        }
+
         /// <summary>The Google Books key typed in Settings; encrypted at once and never read back into the box.</summary>
         public void SetGoogleBooksKey(string key)
         {

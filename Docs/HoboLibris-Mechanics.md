@@ -188,10 +188,17 @@ Checked on 23 November 2026.
 |---|---|
 | Project Gutenberg | Its website is for people only and blocks the address of anything automated (`/policy/robot_access.html`), so nothing goes to `www.gutenberg.org`.  The catalogue `pg_catalog.csv.gz` (about 6 MB) comes from a PGLAF mirror (`gutenberg.pglaf.org`, then `aleph.pglaf.org`) at most once a week, fetched in the background 30 seconds after start-up, and is searched on the computer.  EPUBs come from the mirror: `/cache/epub/{n}/pg{n}-images-3.epub`. |
 | Open Library and Internet Archive | Open Library is searched with `ebook_access:public` in the query itself (as a separate parameter it is ignored).  Before a download each Internet Archive item is checked: anything `access-restricted-item`, private, in a lending collection (`inlibrary`, `printdisabled`, `lendinglibrary`), or published within the US copyright term (95 years) without a `licenseurl` is skipped.  At most one request a second per site. |
-| Google Books | The person's own key; `filter=free-ebooks`; a download is kept only if Google sends a real EPUB. |
+| Google Books | The person's own key; `filter=free-ebooks` (or `filter=ebooks` with books for sale, below); a download is kept only if Google sends a real EPUB. |
 | OPDS catalogues | The person's own (Calibre, Calibre-Web, Kavita).  Search is found through the feed's OpenSearch description; KEPUB is preferred; buy and borrow links are ignored.  The sign-in goes only to the catalogue's own server (scheme, host and port); the address is encrypted too, since Kavita puts its key in it. |
 | Standard Ebooks | Link only: its `robots.txt` disallows `/ebooks/*/downloads/*` for AI assistants by name (`claude-user`, `chatgpt-user` and others). |
 | Kobo store | Link only: the store's search page opens in the browser.  No purchasing. |
+
+**Books for sale (#91), checked on 27 November 2026.**  A search of Google Books or Open Library can list books that aren't free, for the person to buy; they are never downloaded.  When the model doesn't say which it wants (`paid` on `search_ebooks`), the program shows a card, Free books only or Paid books too, unless Settings › E-book sources says otherwise.
+
+* Google Books: `filter=ebooks` instead of `filter=free-ebooks`.  `saleInfo.saleability` is `FREE`, `FOR_SALE`, `FOR_PRESALE` or `NOT_FOR_SALE`; a book for sale has `listPrice` and `retailPrice` (`amount`, `currencyCode`), and the price shown is the retail one.  Only a `FREE` book's `accessInfo.epub.downloadLink` is used.
+* Open Library: `ebook_access:public` is left out of the query, so its whole catalogue is searched.  A result is free only when `ebook_access` is `public` and it has Internet Archive items; `borrowable` ones can be borrowed on Open Library, not downloaded.
+* A book that isn't free has a "Find in Kobo store" button: kobo.com's search for its title and author, opened in the browser.
+* Kobo's own store search is not used.  Its Terms of Use (section 5, read at `authorize.kobo.com/gb/en/terms/termsofuse`) forbid robots, spiders or other automatic means to access or copy any part of the service, and data mining.  The store API's initialisation now needs a sign-in; Calibre-Web's copy of its resources has no store search, only `/v1/products/autocomplete`, and kobo.com's `robots.txt` disallows its web autocomplete.  Goodreads has had no public API since 2020.
 
 Left out: Wikisource (`robots.txt` blocks every automated client), Feedbooks (no longer answers), DOAB and OAPEN (search APIs refused, mostly PDF), unglue.it (links lead to publishers' sites).
 

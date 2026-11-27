@@ -1554,10 +1554,10 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
     <value>Open Library et Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>Uniquement les livres en lecture libre, jamais les exemplaires de prêt. Issus de numérisations, leur qualité varie.</value>
+    <value>Ne télécharge que les livres en lecture libre, jamais les exemplaires de prêt. Issus de numérisations, leur qualité varie.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>Uniquement les livres gratuits de Google Books. Nécessite votre propre clé API Google Books.</value>
+    <value>Livres gratuits de Google Books, et livres payants quand vous les demandez. Nécessite votre propre clé API Google Books.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>Clé API Google Books</value>
@@ -2137,5 +2137,38 @@ Pour sauvegarder d'autres livres, rebranchez-le : ses livres apparaîtront ici d
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>Extraits retirés : {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>Chercher aussi des livres payants, ou seulement des livres gratuits ? Les livres payants sont listés pour que vous les achetiez dans la boutique Kobo, jamais téléchargés.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>Livres gratuits seulement</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>Aussi les livres payants</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>Que souhaitez-vous ?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} téléchargeables gratuitement</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>Payant · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>Payant</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>Le chercher dans la boutique Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>Livres payants, si je ne précise pas</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>Ce qu'une recherche dans Google Books ou Open Library liste quand vous ne précisez pas si vous voulez des livres payants. Ils sont listés pour que vous les achetiez, jamais téléchargés.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>Me demander à chaque fois</value>
   </data>
 </root>

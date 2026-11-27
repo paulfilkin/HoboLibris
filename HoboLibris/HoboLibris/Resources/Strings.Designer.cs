@@ -2456,12 +2456,12 @@ namespace HoboLibris.Resources {
             get { return ResourceManager.GetString("Src_OpenLibrary", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Books free to read only, never lending copies. Made from scans, so quality varies..</summary>
+        /// <summary>Looks up a localized string similar to Downloads only books free to read, never lending copies. Made from scans, so quality varies..</summary>
         public static string Src_OpenLibraryHint {
             get { return ResourceManager.GetString("Src_OpenLibraryHint", resourceCulture); }
         }
 
-        /// <summary>Looks up a localized string similar to Free Google Books only. Needs your own Google Books API key..</summary>
+        /// <summary>Looks up a localized string similar to Free Google Books, and books for sale when you ask for them. Needs your own Google Books API key..</summary>
         public static string Src_GoogleHint {
             get { return ResourceManager.GetString("Src_GoogleHint", resourceCulture); }
         }
@@ -3429,6 +3429,61 @@ namespace HoboLibris.Resources {
         /// <summary>Looks up a localized string similar to Previews removed: {0}.</summary>
         public static string Asst_PreviewsRemoved {
             get { return ResourceManager.GetString("Asst_PreviewsRemoved", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Look for books for sale too, or free books only? Books for sale are listed for you to buy in the Kobo store, never do....</summary>
+        public static string Asst_PaidQuestion {
+            get { return ResourceManager.GetString("Asst_PaidQuestion", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Free books only.</summary>
+        public static string Asst_FreeOnly {
+            get { return ResourceManager.GetString("Asst_FreeOnly", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Paid books too.</summary>
+        public static string Asst_PaidToo {
+            get { return ResourceManager.GetString("Asst_PaidToo", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Which do you want?.</summary>
+        public static string Asst_ChooseOne {
+            get { return ResourceManager.GetString("Asst_ChooseOne", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to  · {0} free to download.</summary>
+        public static string Asst_ResultsFreeCount {
+            get { return ResourceManager.GetString("Asst_ResultsFreeCount", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Not free · {0}.</summary>
+        public static string Asst_ForSale {
+            get { return ResourceManager.GetString("Asst_ForSale", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Not free.</summary>
+        public static string Asst_NotFree {
+            get { return ResourceManager.GetString("Asst_NotFree", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Find it in the Kobo store.</summary>
+        public static string Asst_FindInStoreTip {
+            get { return ResourceManager.GetString("Asst_FindInStoreTip", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Paid books, when I don't say.</summary>
+        public static string Src_PaidBooks {
+            get { return ResourceManager.GetString("Src_PaidBooks", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to What a Google Books or Open Library search lists when you don't say whether you want paid books. They are listed for ....</summary>
+        public static string Src_PaidBooksHint {
+            get { return ResourceManager.GetString("Src_PaidBooksHint", resourceCulture); }
+        }
+
+        /// <summary>Looks up a localized string similar to Ask me each time.</summary>
+        public static string Src_PaidAsk {
+            get { return ResourceManager.GetString("Src_PaidAsk", resourceCulture); }
         }
     }
 }

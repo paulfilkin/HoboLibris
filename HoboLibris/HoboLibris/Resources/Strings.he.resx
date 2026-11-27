@@ -1528,10 +1528,10 @@
     <value>Open Library ו-Internet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>רק ספרים שזמינים לקריאה חופשית, אף פעם לא עותקים להשאלה. נוצרו מסריקות, ולכן האיכות משתנה.</value>
+    <value>מוריד רק ספרים שזמינים לקריאה חופשית, אף פעם לא עותקים להשאלה. נוצרו מסריקות, ולכן האיכות משתנה.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>רק ספרים חינמיים מ-Google Books. נדרש מפתח API משלך ל-Google Books.</value>
+    <value>ספרים חינמיים מ-Google Books, וגם ספרים בתשלום כשמבקשים אותם. נדרש מפתח API משלך ל-Google Books.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>מפתח API של Google Books</value>
@@ -2111,5 +2111,38 @@
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>דוגמיות שהוסרו: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>לחפש גם ספרים בתשלום, או רק ספרים חינמיים? ספרים בתשלום מוצגים כדי שתקנה/י אותם בחנות Kobo, ולעולם לא יורדים.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>רק ספרים חינמיים</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>גם ספרים בתשלום</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>מה תרצה/י?</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} להורדה חינם</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>בתשלום · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>בתשלום</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>חיפוש בחנות Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>ספרים בתשלום, כשאני לא מציין/ת</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>מה חיפוש ב-Google Books או ב-Open Library מציג כשלא ציינת אם את/ה רוצה ספרים בתשלום. הם מוצגים לקנייה, ולעולם לא יורדים.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>לשאול אותי בכל פעם</value>
   </data>
 </root>

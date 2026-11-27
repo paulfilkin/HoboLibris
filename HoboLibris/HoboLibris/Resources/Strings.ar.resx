@@ -1528,10 +1528,10 @@
     <value>Open Library وInternet Archive</value>
   </data>
   <data name="Src_OpenLibraryHint" xml:space="preserve">
-    <value>الكتب المتاحة للقراءة مجانًا فقط، وليس نسخ الإعارة أبدًا. مصنوعة من مسح ضوئي، لذا تتفاوت جودتها.</value>
+    <value>يُنزّل فقط الكتب المتاحة للقراءة مجانًا، وليس نسخ الإعارة أبدًا. مصنوعة من مسح ضوئي، لذا تتفاوت جودتها.</value>
   </data>
   <data name="Src_GoogleHint" xml:space="preserve">
-    <value>كتب Google Books المجانية فقط. يحتاج إلى مفتاح Google Books API الخاص بك.</value>
+    <value>كتب Google Books المجانية، والمدفوعة عندما تطلبها. يحتاج إلى مفتاح Google Books API الخاص بك.</value>
   </data>
   <data name="Src_GoogleKey" xml:space="preserve">
     <value>مفتاح Google Books API</value>
@@ -2111,5 +2111,38 @@
   </data>
   <data name="Asst_PreviewsRemoved" xml:space="preserve">
     <value>العينات المُزالة: {0}</value>
+  </data>
+  <data name="Asst_PaidQuestion" xml:space="preserve">
+    <value>هل تبحث عن الكتب المدفوعة أيضًا، أم عن الكتب المجانية فقط؟ تُعرض الكتب المدفوعة لتشتريها من متجر Kobo، ولا تُنزَّل أبدًا.</value>
+  </data>
+  <data name="Asst_FreeOnly" xml:space="preserve">
+    <value>الكتب المجانية فقط</value>
+  </data>
+  <data name="Asst_PaidToo" xml:space="preserve">
+    <value>الكتب المدفوعة أيضًا</value>
+  </data>
+  <data name="Asst_ChooseOne" xml:space="preserve">
+    <value>ماذا تريد؟</value>
+  </data>
+  <data name="Asst_ResultsFreeCount" xml:space="preserve">
+    <value> · {0} متاحة للتنزيل مجانًا</value>
+  </data>
+  <data name="Asst_ForSale" xml:space="preserve">
+    <value>غير مجاني · {0}</value>
+  </data>
+  <data name="Asst_NotFree" xml:space="preserve">
+    <value>غير مجاني</value>
+  </data>
+  <data name="Asst_FindInStoreTip" xml:space="preserve">
+    <value>البحث عنه في متجر Kobo</value>
+  </data>
+  <data name="Src_PaidBooks" xml:space="preserve">
+    <value>الكتب المدفوعة، عندما لا أحدد</value>
+  </data>
+  <data name="Src_PaidBooksHint" xml:space="preserve">
+    <value>ما يعرضه البحث في Google Books أو Open Library عندما لا تحدد إن كنت تريد كتبًا مدفوعة. تُعرض لتشتريها، ولا تُنزَّل أبدًا.</value>
+  </data>
+  <data name="Src_PaidAsk" xml:space="preserve">
+    <value>اسألني في كل مرة</value>
   </data>
 </root>
