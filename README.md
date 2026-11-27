@@ -38,15 +38,24 @@ HoboLibris puts all of that in one window that stays sharp on high-resolution sc
 - **Lists your store previews and wishlist.**  The free samples on the eReader, with a link to each in the Kobo store, and the wishlist in your Kobo account.  Add previews to the wishlist, or take books off it, through the eReader: the change reaches your account the next time it syncs.  Remove previews you saved or opened from a search; the screen marks those that come back after a sync.
 - **Sends your own books to the eReader.**  Books you put in your Kobo folder are checked: whether a Kobo can open them, whether they are damaged or copy-protected, and whether the eReader already has them.  Then they are copied across.  It can do this by itself each time the eReader is plugged in.
 - **Backs up your Kindle books.**  From a Kindle plugged in by USB, with or without a drive letter, from Kindle for PC, or from any folder you add.  Each book is copied unchanged, with its sidecar folder where it has one.
-- **Has an Assistant.**  Ask in plain words: "back up everything not yet saved", "sort my eReader into collections by subject", "find Middlemarch on Project Gutenberg".  It uses the AI model you choose, from Anthropic, OpenAI or one on your own computer such as Ollama, and works through the same screens, so you see what it did.  It finds free books on Project Gutenberg, Open Library and Google Books, and in your own OPDS catalogues such as Calibre, and downloads them into your Kobo folder.  Anything that writes to the eReader or deletes files waits for your approval, and your Kobo sign-in, tokens and email address are never sent to the model.
+- **Has an Assistant.**  Ask in plain words: "back up everything not yet saved", "sort my eReader into collections by subject", "find Middlemarch on Project Gutenberg".  It uses the AI model you choose, from Anthropic, OpenAI or one on your own computer such as Ollama, and works through the same screens, so you see what it did.  It finds free books on Project Gutenberg, Open Library and Google Books, and in your own OPDS catalogues such as Calibre, and downloads them into your Kobo folder.  It can list books for sale too, asking you once per conversation whether you want them; those are never downloaded, and each has a button that opens the Kobo store's search for it.  Anything that writes to the eReader or deletes files waits for your approval, and when a request is done, a notice lists what it changed.  Your Kobo sign-in, tokens and email address are never sent to the model.
 - **Asks before removing anything.**  Deleted backups go to the Recycle Bin.  Nothing on the eReader is removed unless you tick the box that says so.
 - **Comes in 12 languages.**  English, German, French, Spanish, Italian, Portuguese, Japanese, Chinese, Korean, Arabic, Hebrew and Ukrainian, with right-to-left layout for Arabic and Hebrew.
 
 ## The screens
 
-<p align="center">
-  <img src="Docs/images/kobo-screen.png" alt="HoboLibris on the Kobo tab's Back up books screen, with the Assistant pane open on the right. The list shows each book's title, author, format, where it came from and a green In the folder. In the pane, a request to find Middlemarch on Project Gutenberg, the search it ran, its reply, and a card asking to allow downloading the book into the Kobo folder, with Allow, Always allow and Decline">
-</p>
+HoboLibris follows Windows' light or dark setting, or keeps the one you choose in **Settings**.
+
+<table>
+  <tr>
+    <th>Light</th>
+    <th>Dark</th>
+  </tr>
+  <tr>
+    <td><a href="Docs/images/kobo-screen-light.png"><img src="Docs/images/kobo-screen-light.png" alt="HoboLibris in the light theme, on the Kobo tab's Back up books screen, with the Assistant pane open on the right. The list shows each book's title, author, format, where it came from and a green In the folder. In the pane, a request to find Middlemarch on Project Gutenberg, the search it ran with the book found and buttons to download it or open its page, the reply, and a card asking to allow downloading the book into the Kobo folder, with Allow, Always allow and Decline"></a></td>
+    <td><a href="Docs/images/kobo-screen-dark.png"><img src="Docs/images/kobo-screen-dark.png" alt="The same screen and Assistant exchange in the dark theme: dark grey panels, light text, teal buttons and a brown approval card"></a></td>
+  </tr>
+</table>
 
 | Screen | What it does |
 |---|---|
@@ -58,7 +67,7 @@ HoboLibris puts all of that in one window that stays sharp on high-resolution sc
 | Kindle | The books on your Kindle, in Kindle for PC or in folders you add, and what is backed up |
 | Assistant | A pane beside every screen: ask in plain words, and approve what changes anything |
 
-Drag the divider between two panels to change their widths, or fold the Assistant or the list of collections to a strip at the edge.  HoboLibris remembers both, and folds the Assistant by itself when the window gets too narrow.
+Drag the divider between two panels to change their widths, or fold the Assistant or the list of collections to a strip at the edge.  HoboLibris remembers both, and folds the Assistant by itself when the window gets too narrow.  The window opens where you closed it, at the same size, and always on one screen; if that screen is gone, it opens on the main one.
 
 ## Getting started
 
@@ -70,6 +79,7 @@ You need Windows 10 or 11, 64-bit.
 4. Plug in your Kobo eReader and tap **Connect** on its screen.  The books you added to it join the list, and the **Collections**, **Send to eReader**, **Articles** and **Previews** screens can work with it.
 5. On the **Kindle** tab, plug in your Kindle.  If it doesn't appear, the tab says what Windows can see and what to do next.
 6. To use the Assistant, choose an AI service in **Settings**, under **AI model**: Anthropic or OpenAI with your API key, or a model on your computer, which needs no key.  For [Ollama](https://ollama.com), choose **OpenAI-compatible** and `http://localhost:11434/v1`.  HoboLibris then uses Ollama's own API, with the context size set in Settings (8,192 tokens unless you change it).  HoboLibris can start Ollama for you, with no window, and stops it again when you close HoboLibris.  Once HoboLibris has reached the service, the **Model** list shows the models it offers; choose one.  Then press the chat icon at the top right.
+7. Under **E-book sources** in **Settings**, choose where the Assistant may look for books.  Google Books needs your own Google Books API key.  "Paid books, when I don't say" decides whether a search lists books for sale when you haven't said: ask each time, free books only, or paid books too.
 
 The release also has a zip with just the program.  It needs the [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
 
@@ -130,11 +140,11 @@ The app uses NLog, CommunityToolkit.Mvvm, Microsoft.Web.WebView2 for the Kobo si
 
 ## Status
 
-HoboLibris is at version 0.1.18.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
+HoboLibris is at version 0.1.21.  It is a WPF rebuild of an earlier prototype that was used with a real Kobo account, Kobo eReader and Kindle, and it keeps the prototype's behaviour and tests.
 
 Tried with a Kobo account and a Kobo eReader (firmware 4.46): the store list refreshes from a saved sign-in, store books download, books copy from the eReader, collections are saved to it, the Send to eReader screen reads it, articles are kept and removed, books are added to and taken off the wishlist, and previews are removed.  Not yet tried on the rebuild: signing in from scratch, sending books to the eReader, the Kindle tab, and editing collections offline and then merging them with a real eReader.
 
-The Assistant has been tried with a model on the same computer (Ollama with `qwen3:8b`, at a context size of 8,192 and 4,096): questions about the library, Project Gutenberg searches and downloads, sending, the Kindle and collections, and starting and stopping Ollama from Settings.  Not yet tried: Anthropic and OpenAI models, Google Books and OPDS catalogues.
+The Assistant has been tried with a model on the same computer (Ollama with `qwen3:8b`, at a context size of 8,192 and 4,096): questions about the library, Project Gutenberg searches and downloads, sending, the Kindle and collections, and starting and stopping Ollama from Settings.  It has also been tried with Anthropic (`claude-sonnet-5-5`) and OpenAI (`gpt-5-mini` and `gpt-5`), whose requests were measured and made smaller and cheaper, and with Google Books, including books for sale.  Not yet tried: OPDS catalogues.  Google's Gemini through its OpenAI-compatible address doesn't work yet ([#80](https://github.com/paulfilkin/HoboLibris/issues/80)).
 
 Ejecting the Kobo eReader from HoboLibris failed in 0.1.6 because HoboLibris itself kept the eReader's book list open.  It is fixed in 0.1.7, with a test, but not yet tried with a real eReader.
 
@@ -144,7 +154,7 @@ It runs on Windows only.  Bugs and ideas are welcome as [issues](https://github.
 
 ## Documentation
 
-- [How it works](Docs/HoboLibris-Mechanics.md): how the Kobo desktop program signs in, lists and downloads books, the rules for eReaders and Kindles, what HoboLibris found in the eReader's book list for collections, articles, previews and the wishlist, and how the Assistant works: its AI services, tools and e-book sources, and the terms each source is used under.
+- [How it works](Docs/HoboLibris-Mechanics.md): how the Kobo desktop program signs in, lists and downloads books, the rules for eReaders and Kindles, what HoboLibris found in the eReader's book list for collections, articles, previews and the wishlist, and how the Assistant works: its AI services, tools and e-book sources, the terms each source is used under, and how its requests were measured and made smaller.
 - [Working with Git](Docs/Working%20with%20Git.md): the commands for each step of a change, for someone new to Git.
 - [Contributing](CONTRIBUTING.md): how changes get in.
 
