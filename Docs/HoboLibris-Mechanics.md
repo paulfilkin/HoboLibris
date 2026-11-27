@@ -272,6 +272,27 @@ Close every copy of HoboLibris first: they share the settings and the conversati
 * Every answer was as before.  Hosted models keep getting every tool.
 * Seen in passing: `list_send`'s result for about 146 files is longer than the 40,000 characters a tool result is cut to, and Claude said the list was cut off.
 
+**Shorter tool definitions (#79), 27 November 2026**, measured on the uncommitted change against #77 (`main` at `f442854` sends the same requests), in the same conditions.  A parameter whose name says enough is sent with no description (the shared `ids`, the collection names, `screen`, `source`, `store`, `group` and the search ids); `limit` and `offset` say only their defaults.  Each rule is stated once: "The person approves this every time" is gone from five tools, as the prompt says the program shows its own cards; "Nothing reaches the eReader until save_collections" is gone from the seven collection tools, as both prompts and `save_collections` say it; `remove_from_wishlist` points to `add_to_wishlist` for how the change reaches the account.  The book-list backup stays in each tool that takes one.  `list_previews`, `list_books`, `remove_previews` and `search_ebooks` no longer list the fields their results show.
+
+| First request | Tools | Characters before | after | Tokens before | after |
+|---|---|---|---|---|---|
+| `claude-sonnet-5-5` | 31 | 16,553 | 14,037 | 8,220 | 7,482 |
+| `gpt-5-mini` | 31 | 17,545 | 15,029 | 4,552 | 4,042 |
+| `qwen3:8b` | 10 | 6,549 | 5,932 | 2,374 | 2,237 |
+
+| Six questions | Requests | Input at full price | Read from cache | Written to cache | Output | Cost |
+|---|---|---|---|---|---|---|
+| `claude-sonnet-5-5`, before | 11 | 34 | 147,562 | 28,743 | 997 | $0.109 |
+| `claude-sonnet-5-5`, after | 11 | 34 | 140,044 | 27,954 | 1,071 | $0.105 |
+| `gpt-5-mini`, before | 11 | 18,747 | 84,352 | - | 2,474 | |
+| `gpt-5-mini`, after | 11 | 18,136 | 79,232 | - | 2,711 | |
+| `qwen3:8b`, before (two runs) | 15, 13 | 54,525, 45,518 | - | - | 478, 441 | |
+| `qwen3:8b`, after (two runs) | 16, 16 | 60,011, 60,004 | - | - | 1,203, 1,207 | |
+
+* Anthropic's tools and prompt, cached for the hour, went from 7,907 tokens to 7,169.  Each request reads 738 fewer tokens from the cache, so the saving is small: about 3% of the six questions' cost.
+* Every hosted answer was as before, with the same tools called.
+* `qwen3:8b` answered question 4 with `use_tools` and `list_send` in both runs, where before it called `list_books`.  That added two requests and `list_send`'s long result, which is why its input grew.  It then listed 31 files as ready to send, though every file was unchecked with the eReader unplugged and `ready` was 0; with `list_books` it had said nothing was ready.  Its reply to question 6 was empty in both runs, after the second try from #74; before it was empty in one run of two.
+
 ## Display
 
 * Kobo.exe's manifest has no DPI-awareness entry, so Windows bitmap-stretches it on hi-res screens.  HoboLibris is a WPF program and is DPI-aware.

@@ -38,10 +38,11 @@ namespace HoboLibris.Assistant
         private ArticlesViewModel ArticlesScreen => _main.Articles;
         private PreviewsViewModel PreviewsScreen => _main.Previews;
 
-        private static readonly JsonObject Ids = Schema.Array(Schema.String("A book id from the list tool."), "The books, by id.");
+        // Each tool's description says which list its ids come from.
+        private static readonly JsonObject Ids = Schema.Array(Schema.String(null), null);
         private static readonly JsonObject Query = Schema.String("Only books whose title or author contains this text.");
-        private static readonly JsonObject Limit = Schema.Integer($"The most books to return (default {DefaultLimit}).");
-        private static readonly JsonObject Offset = Schema.Integer("How many to skip, for the next page (default 0).");
+        private static readonly JsonObject Limit = Schema.Integer($"Default {DefaultLimit}.");
+        private static readonly JsonObject Offset = Schema.Integer("For the next page; default 0.");
 
         private List<AssistantTool> Build() => new()
         {
@@ -50,7 +51,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "list_books",
                 Title = Strings.Asst_Tool_ListBooks,
-                Description = "List the books on the Kobo tab's Back up books screen: the person's Kobo store books, the books on the connected Kobo eReader, and book files only in the Kobo folder on this computer. Each has an id, title, authors, where it is from, its format, and whether a backup copy is saved in the Kobo folder.",
+                Description = "List the books on the Back up books screen: the person's Kobo store books, the books on the connected Kobo eReader, and book files only in the Kobo folder, with whether each has a backup copy there.",
                 Schema = Schema.Object(
                     ("source", Schema.String("Which books (default all).", "all", "store", "ereader", "computer"), false),
                     ("query", Query, false),
@@ -145,7 +146,7 @@ namespace HoboLibris.Assistant
             },
             CollectionTool("create_collection", Strings.Asst_Tool_CreateCollection,
                 "Create an empty collection (a pending change).",
-                Schema.Object(("name", Schema.String("The new collection's name."), true)),
+                Schema.Object(("name", Schema.String(null), true)),
                 (coll, args) =>
                 {
                     coll.Create(args.Str("name") ?? "");
@@ -153,7 +154,7 @@ namespace HoboLibris.Assistant
                 }),
             CollectionTool("rename_collection", Strings.Asst_Tool_RenameCollection,
                 "Rename a collection; its books go with it (a pending change).",
-                Schema.Object(("name", Schema.String("The collection to rename."), true), ("new_name", Schema.String("Its new name."), true)),
+                Schema.Object(("name", Schema.String(null), true), ("new_name", Schema.String(null), true)),
                 (coll, args) =>
                 {
                     var name = CollectionName(coll, args.Str("name"));
@@ -162,7 +163,7 @@ namespace HoboLibris.Assistant
                 }),
             CollectionTool("delete_collection", Strings.Asst_Tool_DeleteCollection,
                 "Delete a collection (a pending change). Its books stay on the eReader.",
-                Schema.Object(("name", Schema.String("The collection to delete."), true)),
+                Schema.Object(("name", Schema.String(null), true)),
                 (coll, args) =>
                 {
                     var name = CollectionName(coll, args.Str("name"));
@@ -172,7 +173,7 @@ namespace HoboLibris.Assistant
             CollectionTool("add_to_collection", Strings.Asst_Tool_AddToCollection,
                 "Put books into a collection (a pending change), by ids from list_collection_books. With move, they are also taken out of every other collection.",
                 Schema.Object(
-                    ("collection", Schema.String("The collection."), true),
+                    ("collection", Schema.String(null), true),
                     ("ids", Ids, true),
                     ("move", Schema.Boolean("Take the books out of every other collection too (default false)."), false)),
                 (coll, args) =>
@@ -192,7 +193,7 @@ namespace HoboLibris.Assistant
                 }),
             CollectionTool("remove_from_collection", Strings.Asst_Tool_RemoveFromCollection,
                 "Take books out of a collection (a pending change), by ids from list_collection_books. The books stay on the eReader.",
-                Schema.Object(("collection", Schema.String("The collection."), true), ("ids", Ids, true)),
+                Schema.Object(("collection", Schema.String(null), true), ("ids", Ids, true)),
                 (coll, args) =>
                 {
                     var name = CollectionName(coll, args.Str("collection"));
@@ -212,7 +213,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "save_collections",
                 Title = Strings.Asst_Tool_SaveCollections,
-                Description = "Write the pending collection changes to the connected Kobo eReader, as Save to Kobo eReader does. The eReader's book list is backed up first. The person approves this every time. When the eReader isn't connected, saving waits until it is.",
+                Description = "Write the pending collection changes to the connected Kobo eReader, as Save to Kobo eReader does. The eReader's book list is backed up first. When the eReader isn't connected, saving waits until it is.",
                 Schema = Schema.Object(),
                 AlwaysAsks = true,
                 Check = _ => SaveCollectionsCheck(),
@@ -252,7 +253,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "send_to_ereader",
                 Title = Strings.Asst_Tool_Send,
-                Description = "Copy book files from the Kobo folder to the connected Kobo eReader, by ids from list_send, or every file that is ready with all_ready. Only files that are ready (or copy-protected, which may not open) can be sent. Ids from search_ebooks don't work here: download the book with download_ebook first, then find it with list_send. The person approves this every time.",
+                Description = "Copy book files from the Kobo folder to the connected Kobo eReader, by ids from list_send, or every file that is ready with all_ready. Only files that are ready (or copy-protected, which may not open) can be sent. Ids from search_ebooks don't work here: download the book with download_ebook first, then find it with list_send.",
                 Schema = Schema.Object(
                     ("ids", Ids, false),
                     ("all_ready", Schema.Boolean("Send every file that is ready."), false)),
@@ -365,7 +366,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "remove_articles",
                 Title = Strings.Asst_Tool_RemoveArticles,
-                Description = "Remove articles from the Kobo eReader, by ids from list_articles. The eReader's book list is backed up first. Instapaper isn't told, so they stay in the person's Instapaper account; to archive or delete them there too, the person uses Archive or Delete on the eReader. Keep a copy first (keep_articles) when the person wants one. The person approves this every time.",
+                Description = "Remove articles from the Kobo eReader, by ids from list_articles. The book list is backed up first. Instapaper isn't told, so they stay in the person's Instapaper account; to archive or delete them there too, the person uses Archive or Delete on the eReader. Keep a copy first (keep_articles) when the person wants one.",
                 Schema = Schema.Object(("ids", Ids, true)),
                 AlwaysAsks = true,
                 Check = RemoveArticlesCheck,
@@ -407,7 +408,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "list_previews",
                 Title = Strings.Asst_Tool_ListPreviews,
-                Description = "List the Kobo store previews (free samples) on the Kobo eReader, as the Previews screen shows them, and the wishlist in the person's Kobo account. Each preview has an id, title, author, the date it arrived, its size, whether it is on the wishlist, and its kind: in_my_books (saved with Save Preview), from_search (opened from the store's search results) or not_saved (comes back after a sync, so it can't be removed); each wishlist book has an id, title, author, date added, price, and whether its removal is waiting for the eReader's next sync. Previews are listed only while the eReader is plugged in; the wishlist only while the person is signed in.",
+                Description = "List the Kobo store previews (free samples) on the Kobo eReader, as the Previews screen shows them, and the wishlist in the person's Kobo account. A preview's kind is in_my_books (saved with Save Preview), from_search (opened from the store's search results) or not_saved (comes back after a sync, so it can't be removed). Previews are listed only while the eReader is plugged in; the wishlist only while the person is signed in.",
                 Schema = Schema.Object(("query", Schema.String("Only previews and wishlist books whose title or author contains this text."), false)),
                 Run = async (args, _) =>
                 {
@@ -447,7 +448,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "remove_from_wishlist",
                 Title = Strings.Asst_Tool_RemoveFromWishlist,
-                Description = "Remove books from the wishlist in the person's Kobo account, by wishlist ids from list_previews. The change is left on the Kobo eReader, which sends it to the account when it next syncs, so the eReader must be plugged in. Its book list is backed up first. The person approves this every time.",
+                Description = "Remove books from the wishlist in the person's Kobo account, by wishlist ids from list_previews. As with add_to_wishlist, the change goes through the plugged-in eReader at its next sync, and its book list is backed up first.",
                 Schema = Schema.Object(("ids", Ids, true)),
                 AlwaysAsks = true,
                 Check = RemoveFromWishlistCheck,
@@ -475,7 +476,7 @@ namespace HoboLibris.Assistant
             {
                 Name = "remove_previews",
                 Title = Strings.Asst_Tool_RemovePreviews,
-                Description = "Remove previews from the Kobo eReader, by preview ids from list_previews. A preview in_my_books is taken out of the person's Kobo account at the eReader's next sync, as Remove from My Books does; one from_search is deleted from the eReader now. Previews that are not_saved come back after a sync, so they are left alone. The eReader must be plugged in, and its book list is backed up first. The person approves this every time.",
+                Description = "Remove previews from the Kobo eReader, by preview ids from list_previews. One in_my_books leaves the Kobo account at the eReader's next sync, as Remove from My Books does; one from_search is deleted now; not_saved ones are left alone. The eReader must be plugged in, and its book list is backed up first.",
                 Schema = Schema.Object(("ids", Ids, true)),
                 AlwaysAsks = true,
                 Check = RemovePreviewsCheck,
@@ -527,7 +528,7 @@ namespace HoboLibris.Assistant
                 Name = "show_screen",
                 Title = Strings.Asst_Tool_ShowScreen,
                 Description = "Show one of HoboLibris's screens, so the person sees what changed.",
-                Schema = Schema.Object(("screen", Schema.String("The screen.", "back_up", "collections", "send", "articles", "previews", "kindle"), true)),
+                Schema = Schema.Object(("screen", Schema.String(null, "back_up", "collections", "send", "articles", "previews", "kindle"), true)),
                 Run = (args, _) =>
                 {
                     switch (args.Str("screen"))
@@ -882,7 +883,7 @@ namespace HoboLibris.Assistant
         {
             Name = name,
             Title = title,
-            Description = description + " Nothing reaches the eReader until save_collections.",
+            Description = description,
             Schema = schema,
             Run = async (args, _) =>
             {

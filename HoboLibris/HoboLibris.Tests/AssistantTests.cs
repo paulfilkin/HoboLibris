@@ -234,6 +234,20 @@ namespace HoboLibris.Tests
         }
 
         [Fact]
+        public void AParameterWithNoDescriptionSendsNone()
+        {
+            var schema = Schema.Object(
+                ("ids", Schema.Array(Schema.String(null), null), true),
+                ("screen", Schema.String(null, "back_up", "kindle"), true),
+                ("limit", Schema.Integer("Default 200."), false));
+
+            var props = schema["properties"]!.AsObject();
+            Assert.Equal("""{"type":"array","items":{"type":"string"}}""", props["ids"]!.ToJsonString());
+            Assert.Equal("""{"type":"string","enum":["back_up","kindle"]}""", props["screen"]!.ToJsonString());
+            Assert.Equal("Default 200.", (string?)props["limit"]!["description"]);
+        }
+
+        [Fact]
         public async Task AlwaysAllowIsRememberedInTheSettings()
         {
             var host = new TestHost();

@@ -96,9 +96,10 @@ namespace HoboLibris.Assistant
             return result;
         }
 
-        public static JsonObject String(string description, params string[] choices)
+        // A null description is left out: the parameter's name says enough, and every tool is sent with every request (#79).
+        public static JsonObject String(string? description, params string[] choices)
         {
-            var schema = new JsonObject { ["type"] = "string", ["description"] = description };
+            var schema = Described(new JsonObject { ["type"] = "string" }, description);
             if (choices.Length > 0)
             {
                 schema["enum"] = new JsonArray(choices.Select(c => (JsonNode)c).ToArray());
@@ -106,12 +107,21 @@ namespace HoboLibris.Assistant
             return schema;
         }
 
-        public static JsonObject Integer(string description) => new() { ["type"] = "integer", ["description"] = description };
+        public static JsonObject Integer(string? description) => Described(new JsonObject { ["type"] = "integer" }, description);
 
-        public static JsonObject Boolean(string description) => new() { ["type"] = "boolean", ["description"] = description };
+        public static JsonObject Boolean(string? description) => Described(new JsonObject { ["type"] = "boolean" }, description);
 
-        public static JsonObject Array(JsonObject items, string description) =>
-            new() { ["type"] = "array", ["items"] = items.DeepClone(), ["description"] = description };
+        public static JsonObject Array(JsonObject items, string? description) =>
+            Described(new JsonObject { ["type"] = "array", ["items"] = items.DeepClone() }, description);
+
+        private static JsonObject Described(JsonObject schema, string? description)
+        {
+            if (description != null)
+            {
+                schema["description"] = description;
+            }
+            return schema;
+        }
 
         public static string? Str(this JsonObject args, string name)
         {
