@@ -103,7 +103,7 @@ namespace HoboLibris.Assistant
                     ("author", Schema.String("The author's name, or part of it."), false),
                     ("language", Schema.String("A two-letter language code, such as en, fr or de."), false),
                     ("catalogue", Schema.String("For source opds: the catalogue's name."), false),
-                    ("paid", Schema.Boolean("open_library and google_books: true to list books for sale too, false for free books only. Leave it out when the person didn't say; the program asks them."), false),
+                    ("paid", Schema.Boolean("open_library and google_books: true to list books for sale too, false for free books only. Leave it out when the person didn't say; the program asks them once and keeps their answer."), false),
                     ("limit", Schema.Integer("The most books to give you, at most 40. The person sees every match in a list anyway."), false)),
                 Ask = PaidQuestion,
                 Run = (args, cancel) => SearchAsync(args, cancel),

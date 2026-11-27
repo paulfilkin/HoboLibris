@@ -260,6 +260,71 @@ namespace HoboLibris.Tests
         }
 
         [Fact]
+        public async Task TheAnswerIsKeptForLaterSearchesInTheConversation()
+        {
+            var (host, ran) = HostWithQuestion();
+            var model = new ScriptedModel(
+                ScriptedModel.Call("search_ebooks", new JsonObject { ["source"] = "open_library" }),
+                ScriptedModel.Call("search_ebooks", new JsonObject { ["source"] = "google_books" }),
+                ScriptedModel.Text("Found."),
+                ScriptedModel.Call("search_ebooks", new JsonObject { ["source"] = "open_library" }),
+                ScriptedModel.Text("Found again."));
+            var session = Session(host, model);
+
+            var request = session.SendAsync("Find Wolf Hall");
+            (await WaitForCard(session)).Options[1].ChooseCommand.Execute(null);
+            await request;
+            await session.SendAsync("And Bring Up the Bodies");
+
+            Assert.Single(session.Items.OfType<ChoiceRequest>());
+            Assert.Equal(new bool?[] { true, true, true }, ran.Select(a => (bool?)a["paid"]));
+        }
+
+        [Fact]
+        public async Task AValueTheModelPassesWinsOverTheKeptAnswer()
+        {
+            var (host, ran) = HostWithQuestion();
+            var model = new ScriptedModel(
+                ScriptedModel.Call("search_ebooks"),
+                ScriptedModel.Call("search_ebooks", new JsonObject { ["paid"] = false }),
+                ScriptedModel.Text("Found."));
+            var session = Session(host, model);
+
+            var request = session.SendAsync("Find Wolf Hall, then only free ones");
+            (await WaitForCard(session)).Options[1].ChooseCommand.Execute(null);
+            await request;
+
+            Assert.Equal(new bool?[] { true, false }, ran.Select(a => (bool?)a["paid"]));
+        }
+
+        [Fact]
+        public async Task ANewConversationOrADeclineAsksAgain()
+        {
+            var (host, ran) = HostWithQuestion();
+            var model = new ScriptedModel(
+                ScriptedModel.Call("search_ebooks"), ScriptedModel.Text("All right."),
+                ScriptedModel.Call("search_ebooks"), ScriptedModel.Text("Found."),
+                ScriptedModel.Call("search_ebooks"), ScriptedModel.Text("Found."));
+            var session = Session(host, model);
+
+            // Declined: nothing is kept.
+            var first = session.SendAsync("Find Wolf Hall");
+            (await WaitForCard(session)).DeclineCommand.Execute(null);
+            await first;
+
+            var second = session.SendAsync("Find Wolf Hall");
+            (await WaitForCard(session)).Options[0].ChooseCommand.Execute(null);
+            await second;
+
+            session.ClearConversation();
+            var third = session.SendAsync("Find Wolf Hall");
+            (await WaitForCard(session)).Options[1].ChooseCommand.Execute(null);
+            await third;
+
+            Assert.Equal(new bool?[] { false, true }, ran.Select(a => (bool?)a["paid"]));
+        }
+
+        [Fact]
         public async Task TheCardIsKeptWithTheConversation()
         {
             var path = Path.Combine(Path.GetTempPath(), "hobolibris-test-" + Guid.NewGuid().ToString("N") + ".json");

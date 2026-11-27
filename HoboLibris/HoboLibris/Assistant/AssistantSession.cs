@@ -67,6 +67,12 @@ namespace HoboLibris.Assistant
         /// <summary>What the current request changed, from the tools that succeeded (#75); a later change with the same key replaces an earlier one.</summary>
         private readonly List<(string? Key, string Text)> _changed = new();
 
+        /// <summary>
+        /// The person's answers on question cards, by tool and argument (#93): a later call that leaves the
+        /// argument out gets the same answer without a card.  Kept for the conversation, not saved with it.
+        /// </summary>
+        private readonly Dictionary<(string Tool, string Argument), JsonNode> _answers = new();
+
         /// <param name="conversationPath">Where the conversation is kept between sessions; null to keep nothing (screenshots, tests).</param>
         public AssistantSession(IAssistantHost host, string? conversationPath)
         {
@@ -483,7 +489,14 @@ namespace HoboLibris.Assistant
             // A question only the person can answer (#91): their answer becomes the argument the model left
             // out.  The call as the model made it stays in the conversation; the tool runs with the answer.
             var arguments = call.Arguments;
-            if (tool.Ask?.Invoke(arguments) is { } question)
+            var question = tool.Ask?.Invoke(arguments);
+            if (question != null && _answers.TryGetValue((tool.Name, question.Argument), out var remembered))
+            {
+                // Answered earlier in this conversation (#93); a value the model passes never reaches here, as Ask then asks nothing.
+                arguments = (JsonObject)arguments.DeepClone();
+                arguments[question.Argument] = remembered.DeepClone();
+            }
+            else if (question != null)
             {
                 var choice = new ChoiceRequest(tool.Title, question);
                 Items.Add(choice);
@@ -500,6 +513,7 @@ namespace HoboLibris.Assistant
                 }
                 arguments = (JsonObject)arguments.DeepClone();
                 arguments[question.Argument] = question.Options[picked].Value.DeepClone();
+                _answers[(tool.Name, question.Argument)] = question.Options[picked].Value.DeepClone();
             }
 
             if (tool.NeedsApproval(Settings.SkipApprovals))
@@ -619,6 +633,7 @@ namespace HoboLibris.Assistant
             Items.Clear();
             _turns.Clear();
             _addedGroups.Clear();
+            _answers.Clear();
             if (_conversationPath != null)
             {
                 ConversationStore.Delete(_conversationPath);
